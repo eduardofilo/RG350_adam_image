@@ -102,7 +102,7 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 
 |Sistema|Ruta|Extensiones soportadas|
 |:------|:-----------------|:---------------------|
-|M.A.M.E.|roms/ARCADE|zip, 7z|
+|MAME|roms/ARCADE|zip, 7z|
 |Capcom Play System|roms/CPS|zip, 7z|
 |Final Burn Alpha|roms/FBA|zip|
 |Daphne|roms/DAPHNE|zip|
@@ -240,7 +240,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |RetroArch|Select + Start|Cerrar juego|
 |RetroArch|Select + Left/Right|Cambiar slot savestate|
 |RetroArch|Select + Up/Down|Cambiar volumen|
-|FBA (M.A.M.E. y FBA)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
+|FBA (MAME, FBA y CPS)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
 |Neo Geo FBA RetroArch|A + B + Y|Entrar en ajustes UniBIOS|
 |xMAME|Select + L1 + R1|Salir del juego|
 |Daphne|Select|Salir del juego|
@@ -280,7 +280,7 @@ En ocasiones, al tratar de salir de RetroArch, éste se queda colgado y no retor
 
 En la configuración hecha de SimpleMenu, muchos de los sistemas ofrecen varias opciones de emulación, es decir se puede elegir entre varios emuladores o cores RetroArch. Además el ajuste del emulador o core RA preferido se puede guardar para cada juego.
 
-En los sistemas sencillos de emular, como las máquinas de 8 bit, sólo se ha ofrecido RetroArch, por considerarlo la mejor opción. Pero en sistemas más complejos, como los sistemas arcade, la oferta de emuladores es amplia. Por ejemplo en M.A.M.E. se dispone de las siguientes opciones:
+En los sistemas sencillos de emular, como las máquinas de 8 bit, sólo se ha ofrecido RetroArch, por considerarlo la mejor opción. Pero en sistemas más complejos, como los sistemas arcade, la oferta de emuladores es amplia. Por ejemplo en MAME se dispone de las siguientes opciones:
 
 * Core RetroArch MAME2003
 * Core RetroArch MAME2003+
@@ -289,7 +289,7 @@ En los sistemas sencillos de emular, como las máquinas de 8 bit, sólo se ha of
 * xMAME romset 69
 * xMAME romset 52
 
-Las opciones de emulación aparecen en este orden en el listado, tratándose la primera como opción predeterminada en caso de no indicar manualmente un emulador para un juego concreto. Por tanto, si no se cambia, la opción predeterminada para ejecutar los juegos del sistema M.A.M.E. será el core MAME2003 de RetroArch.
+Las opciones de emulación aparecen en este orden en el listado, tratándose la primera como opción predeterminada en caso de no indicar manualmente un emulador para un juego concreto. Por tanto, si no se cambia, la opción predeterminada para ejecutar los juegos del sistema MAME será el core MAME2003 de RetroArch.
 
 Si un juego en concreto no funciona con el emulador predeterminado, pulsaremos `Select` en el listado de juegos de SimpleMenu. Aparecerá un selector con tres opciones, siendo la del emulador a utilizar la tercera. Nos desplazaremos hasta esta tercera opción y cambiaremos el emulador pulsando izquierda/derecha en la cruceta. Para guardar el cambio pulsaremos `Select` de nuevo. Al abrir el juego pulsando `A` se lanzará el core que hayamos elegido. Si el nuevo emulador tampoco funciona correctamente, probar con otra opción hasta obtener un rendimiento adecuado.
 
