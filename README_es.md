@@ -39,19 +39,29 @@ La configuración está realizada en base a las siguientes partes:
 #### Windows
 
 1. Abrir el script `select_kernel.bat` que hay en la partición que se monta correctamente, haciendo doble clic sobre él.
+
     ![Win selector script](images/win_selector_script.png)
+
 2. Aparecerá una consola negra donde tendremos que teclear el número correspondiente a nuestro modelo de consola del listado que veremos.
+
     ![Win selector script 2](images/win_selector_script2.png)
+
 3. Pulsar Retorno y cuando se nos indique, expulsar la tarjeta con seguridad.
+
     ![Win selector script 3](images/win_selector_script3.png)
 
 #### Linux
 
 1. Abrir un terminal y cambiar el directorio actual a la ruta correspondiente a la partición 1 de la tarjeta (podemos averiguar el punto de montaje en nuestro sistema con el comando `df`). Desde ese directorio ejecutar el comando `bash select_kernel.sh`.
+
     ![Linux selector script](images/linux_selector_script.png)
+
 2. Aparecerá un diálogo que nos invitará a seleccionar nuestro modelo de consola con las teclas de cursor.
+
     ![Linux selector script 2](images/linux_selector_script2.png)
+
 3. Pulsar Retorno y cuando se nos indique, expulsar la tarjeta con seguridad.
+
     ![Linux selector script 3](images/linux_selector_script3.png)
 
 #### Cualquier sistema
