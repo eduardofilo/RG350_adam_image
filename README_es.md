@@ -145,6 +145,8 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |Pico8|roms/PICO8|png|
 |TIC80|roms/TIC80|tic, 7z, zip|
 
+#### Previews
+
 Las previews deberán colocarse en un directorio de nombre `.previews` dentro de cada uno de los directorios de ROMs del listado anterior. Por ejemplo las previews de las ROMs de GB deberán situarse en `roms/GB/.previews` siendo esta la ruta desde la raíz de la tarjeta externa cuando la montamos en el PC. Los ficheros de preview tienen que ser PNGs con el mismo nombre del juego (excepto la extensión).
 
 ![Previews path 1](images/previews_path1.png)
