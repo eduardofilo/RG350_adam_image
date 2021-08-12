@@ -76,6 +76,8 @@ Al llegar a este punto, la tarjeta estará lista para funcionar sobre el modelo 
 
 La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema, el frontend SimpleMenu, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
 
+Antes de continuar, hacer un breve comentario sobre las consideraciones legales de la instalación de dichos contenidos. El asunto es complejo. Si se tiene interés en profundizar, un buen artículo es [este post de Retro Game Corps](https://retrogamecorps.com/2020/08/18/legal-guide-is-downloading-retro-game-files-roms-illegal/) (en inglés). Aunque existen pocos precedentes legales sobre el tema, el problema afecta fundamentalmente a las BIOS y las ROMs. De forma simplificada se suele considerar que podemos manejar las ROMs de los juegos que tengamos en propiedad y las BIOS de las máquinas que poseemos. En realidad se trata más de una regla basada en el sentido común, ya que como decimos, existen pocas sentencias sobre el tema y desde luego la opinión de los distintos participantes en la industria no es consistente.
+
 #### Formato y label de tarjeta externa
 
 Para que todas las rutas preconfiguradas en la imagen funcionen, es necesario que la tarjeta microSD externa tenga formato FAT32 y **NO** tenga definida una etiqueta o label. En caso de tener label habrá que borrarlo.
