@@ -2,7 +2,7 @@
 
 # Imagen Adán
 
-Configuración de tarjeta interna (ranura INT) para consolas RG350 y RG280. Resultado del proyecto de colaboración del Team RParadise formado por las siguientes personas:
+Configuración de tarjeta interna (ranura INT) para consolas RG350 y RG280. Resultado de un proyecto de colaboración del Team RParadise formado por las siguientes personas:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardofilo](https://apuntes.eduardofilo.es/)
