@@ -96,7 +96,9 @@ El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas d
 
 ![SDcard paths](images/sdcard_paths.png)
 
-La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el sistema de la consola, una vez que ésta se encuentre en la consola y el sistema se haya iniciado.
+La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el sistema de la consola, una vez que ésta se encuentre en la consola y el sistema se haya iniciado. En caso de modificar la configuración de SimpleMenu, o de abrir manualmente los emuladores desde GMenu2X, ésta será la ruta en que nos basaremos.
+
+A continuación se muestra la tabla de los sistemas configurados en SimpleMenu con las rutas donde deberemos situar las ROMs y las extensiones que éstas deberán tener:
 
 |Sistema|Ruta|Extensiones soportadas|
 |:------|:-----------------|:---------------------|
