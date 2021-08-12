@@ -2,7 +2,7 @@
 
 # Imagen Adán
 
-Configuración de sistema para consolas RG350 y RG280 realizada por el Team RParadise:
+Configuración de sistema para consolas RG350 y RG280. Esta imagen es el resultado del proyecto de colaboración del Team RParadise formado por las siguientes personas:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardofilo](https://apuntes.eduardofilo.es/)
@@ -70,11 +70,13 @@ Hay un tercer método válido para cualquier sistema operativo (Windows, Linux, 
 
 [![Ver vídeo](https://img.youtube.com/vi/CQSBWOTO2zc/hqdefault.jpg)](https://www.youtube.com/watch?v=CQSBWOTO2zc "Ver vídeo")
 
+Al llegar a este punto, la tarjeta estará lista para funcionar sobre el modelo de consola que hayamos seleccionado en el procedimiento anterior. Si no lo hemos hecho ya, la expulsaremos con seguridad del PC e insertaremos en la ranura de la consola marcada como INT.
+
 ## Instalación de contenidos
 
-La imagen está vacía de contenidos. Sólo contiene el sistema, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta externa.
+La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
 
-#### Label de tarjeta externa
+#### Formato y label de tarjeta externa
 
 Para que todas las rutas preconfiguradas en la imagen funcionen, es necesario que la tarjeta microSD externa tenga formato FAT32 y **NO** tenga definida una etiqueta o label. En caso de tener label habrá que borrarlo.
 
@@ -93,6 +95,8 @@ sudo fatlabel /dev/mmcblk0p1 -r
 El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas donde tratará de localizar las ROMs y previsualizaciones de las mismas. Si no queremos modificar la configuración de SimpleMenu, habrá que ajustarse a estas rutas. En la tabla que hay más abajo, se indica en la segunda columna el nombre del directorio que tendrá que existir en la tarjeta externa cuando la montamos en el PC. Por ejemplo en el pantallazo siguiente vemos señalado el directorio de ROMs del sistema Game Boy.
 
 ![SDcard paths](images/sdcard_paths.png)
+
+La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el sistema de la consola.
 
 |Sistema|Ruta|Extensiones soportadas|
 |:------|:-----------------|:---------------------|
@@ -142,7 +146,12 @@ El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas d
 Las previews deberán colocarse en un directorio de nombre `.previews` dentro de cada uno de los directorios de ROMs del listado anterior. Por ejemplo las previews de las ROMs de GB deberán situarse en `roms/GB/.previews` siendo esta la ruta desde la raíz de la tarjeta externa cuando la montamos en el PC. Los ficheros de preview tienen que ser PNGs con el mismo nombre del juego (excepto la extensión).
 
 ![Previews path 1](images/previews_path1.png)
+
 ![Previews path 2](images/previews_path2.png)
+
+Si hemos respetado las rutas indicadas anteriormente, más tarde las previsualizaciones de los juegos se verán de la siguiente forma:
+
+![Previews path 3](images/previews_path3.png)
 
 #### BIOS
 
@@ -155,7 +164,7 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |Sistema|Ruta|Tamaño|Hash MD5|¿Necesaria?|
 |:------|:---|-----:|:-------|:----------|
 |Atari 5200|bios/5200.rom|2048|`281f20ea4320404ec820fb7ec0693b38`|Sí|
-|Atari ST|bios/rom|196608|`036c5ae4f885cbf62c9bed651c6c58a8`|Sí|
+|Atari 7800|bios/7800 BIOS (U).rom| |`0763f1ffb006ddbe32e52d497ee848ae`|No|
 |SEGACD|bios/bios_CD_E.bin|131072|`e66fa1dc5820d254611fdcdba0662372`|Sí|
 |SEGACD|bios/bios_CD_J.bin|131072|`278a9397d192149e84e820ac621a8edd`|Sí|
 |SEGACD|bios/bios_CD_U.bin|131072|`854b9150240a198070150e4566ae1290`|Sí|
@@ -163,12 +172,20 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |Intellivision|bios/grom.bin|2048|`0cd5946c6473e42e8e4c2137785e427f`|Sí|
 |PC Engine CD|bios/syscard3.pce|262144|`390815d3d1a184a9e73adc91ba55f2bb`|Sí|
 |Commodore Amiga|bios/kick.rom|262144|`82a21c1890cae844b3df741f2762d48d`|Sí|
-|Nintendo Famicom Disk System|bios/disksys.rom|8192|`ca30b50f880eb660a320674ed365ef7a`|Sí|
 |Atari Lynx|bios/lynxboot.img|512|`fcd403db69f54290b51035d82f835e7b`|Sí|
 |Phillips Videopac|bios/o2rom.bin|1024|`562d5ebf9e030a40d6fabfc2f33139fd`|Sí|
 |SNK Neo Geo|bios/neogeo.zip|1950023|`36241192dae2823eaf3bf464dde6dbc6`|Sí en FBA, No en RetroArch|
 |Nintendo GBA|bios/gba_bios.bin|16384|`a860e8c0b6d573d191e4ec7db1b1e4f6`|No, aunque recomendable|
 |PlayStation|bios/SCPH1001.BIN|524288|`924e392ed05558ffdb115408c263dccf`|No, aunque muy recomendable|
+|Nintendo GB|bios/gb_bios.bin|256|`32fbbd84168d3482956eb3c5051637f5`|No|
+|Nintendo GBC|bios/gbc_bios.bin|2304|`dbfce9db9deaa2567f6a84fde55f9680`|No|
+|Pokemon Mini|bios/bios.min|4096|`1e4fb124a3a886865acb574f388c803d`|Sí|
+|MSX (BlueMSX)|bios/Machines/| | |Sí|
+|MSX (fMSX)|bios/MSX.ROM|32768|`364a1a579fe5cb8dba54519bcfcdac0d`|Sí para MSX|
+|MSX (fMSX)|bios/MSX2.ROM| |`ec3a01c91f24fbddcbcab0ad301bc9ef`|Sí para MSX2|
+|MSX (fMSX)|bios/MSX2EXT.ROM| |`2183c2aff17cf4297bdb496de78c2e8a`|Sí para MSX2|
+|MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Sí para MSX2+|
+|MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Sí para MSX2+|
 
 ## Controles
 
