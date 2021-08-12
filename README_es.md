@@ -13,7 +13,7 @@ La configuración está realizada en base a las siguientes partes:
 
 * [OpenDingux](http://od.abstraction.se/opendingux/latest/). Gracias principalmente a [pcercuei](https://github.com/pcercuei).
 * [SimpleMenu](https://github.com/fgl82/simplemenu). Gracias a [FGL82](https://github.com/fgl82).
-* [RetroArch](https://www.retroarch.com/?page=platforms).
+* [RetroArch](https://www.retroarch.com/?page=platforms). La combinación de Wrappers OPK se ha generado con el script [RG3550_auto_ra_installer](https://github.com/eduardofilo/RG350_auto_ra_installer) en base a [este fichero](https://github.com/eduardofilo/RG350_auto_ra_installer/blob/master/adam.csv).
     * [Oficial](https://buildbot.libretro.com/nightly/dingux/mips32/).  Gracias principalmente a [jdgleaver](https://github.com/jdgleaver).
     * [Poligraf](https://github.com/Poligraf/opendingux_ra_cores_unofficial).  Gracias a [Poligraf](https://github.com/Poligraf).
 * Aplicaciones standalone:
@@ -34,7 +34,7 @@ La configuración está realizada en base a las siguientes partes:
 1. Descargar la imagen del apartado [releases de este repositorio](https://github.com/eduardofilo/RG350_adam_image/releases/latest).
 2. Sin necesidad de descomprimir, flashear el archivo con [Balena Etcher](https://www.balena.io/etcher/) sobre una microSD de al menos 4GB.
 3. Montar la tarjeta en un ordenador. Si la acabamos de flashear, dependiendo del sistema operativo, puede ser necesario extraerla del lector y volverla a insertar. En Windows se montará una de las dos particiones que contiene la tarjeta y la otra dará error. El error es normal dado que la segunda partición es de tipo Linux.
-4. Colocar el kernel adecuado al modelo de nuestra consola. Esto puede hacerse de varias maneras en función del sistema operativo:
+4. Colocar el kernel adecuado al modelo de nuestra consola. Esto puede hacerse de varias maneras en función del sistema operativo.
 
 #### Windows
 
@@ -66,19 +66,19 @@ La configuración está realizada en base a las siguientes partes:
 
 #### Cualquier sistema
 
-Hay un tercer método válido para cualquier sistema operativo (Windows, Linux, Mac). Se trata de visualizar con el explorador de archivos la partición 1 de la tarjeta y copiar manualmente los dos ficheros que hay dentro del directorio correspondiente a nuestro modelo de consola a la raíz de esa partición. Al ser una partición FAT32, no debería haber problema para acceder a los ficheros desde cualquier sistema.
+Hay un tercer método válido para cualquier sistema operativo (Windows, Linux, Mac). Se trata de visualizar con un explorador de archivos la partición 1 de la tarjeta y copiar manualmente los dos ficheros que hay dentro del directorio correspondiente a nuestro modelo de consola a la raíz de esa partición. Al ser una partición FAT32, no debería haber problema para acceder a los ficheros desde cualquier sistema.
 
 [![Ver vídeo](https://img.youtube.com/vi/CQSBWOTO2zc/hqdefault.jpg)](https://www.youtube.com/watch?v=CQSBWOTO2zc "Ver vídeo")
 
 ## Instalación de contenidos
 
-La imagen está vacía de contenidos. Sólo contiene el sistema, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean instalados en la tarjeta externa.
+La imagen está vacía de contenidos. Sólo contiene el sistema, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta externa.
 
 #### Label de tarjeta externa
 
-Para que todas las rutas preconfiguradas en la imagen funcionen, es necesario que la tarjeta microSD externa tenga formato FAT32 y **NO** tenga definida una etiqueta o label. En caso de haber label habrá que borrarlo.
+Para que todas las rutas preconfiguradas en la imagen funcionen, es necesario que la tarjeta microSD externa tenga formato FAT32 y **NO** tenga definida una etiqueta o label. En caso de tener label habrá que borrarlo.
 
-En Windows podemos hacerlo desde el cuadro de Propiedades de la unidad como vemos en el siguiente vídeo:
+En Windows podemos hacerlo desde el cuadro de Propiedades de la unidad en que se monta la tarjeta externa, como vemos en el siguiente vídeo:
 
 [![Ver vídeo](https://img.youtube.com/vi/3uAMibsOvvk/hqdefault.jpg)](https://www.youtube.com/watch?v=3uAMibsOvvk "Ver vídeo")
 
@@ -88,41 +88,169 @@ En Linux se puede hacer ejecutando el siguiente comando desde un terminal (en el
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-#### Rutas
+#### ROMs
 
-El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas donde tratará de localizar las ROMs y previsualizaciones de las mismas. Si no queremos modificar la configuración de SimpleMenu, habrá que ajustarse a estas rutas. En la tabla siguiente se indica en la primera columna el nombre del directorio que tendrá que existir en la ruta `/media/sdcard/roms` en el sistema de la consola. Este directorio se corresponde con la carpeta `apps` en la raíz de la tarjeta externa cuando se monta en un PC. Por ejemplo el directorio `/media/sdcard/roms/GB` del sistema Game Boy lo encontraremos en `roms/GB` en la tarjeta externa montada en el ordenador.
+El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas donde tratará de localizar las ROMs y previsualizaciones de las mismas. Si no queremos modificar la configuración de SimpleMenu, habrá que ajustarse a estas rutas. En la tabla que hay más abajo, se indica en la segunda columna el nombre del directorio que tendrá que existir en la tarjeta externa cuando la montamos en el PC. Por ejemplo en el pantallazo siguiente vemos señalado el directorio de ROMs del sistema Game Boy.
 
+![SDcard paths](images/sdcard_paths.png)
 
+|Sistema|Ruta|Extensiones soportadas|
+|:------|:-----------------|:---------------------|
+|M.A.M.E.|roms/ARCADE|zip, 7z|
+|Capcom Play System|roms/CPS|zip, 7z|
+|Final Burn Alpha|roms/FBA|zip|
+|Daphne|roms/DAPHNE|zip|
+|Nintendo NES|roms/FC|zip, nes, 7z|
+|Nintendo SNES|roms/SFC|smc, sfc, zip, 7z|
+|Nintendo Virtual Boy|roms/VB|vb, vboy, bin, zip, 7z|
+|SEGA SG-1000|roms/SG1000|zip, sg, 7z|
+|SEGA Master System|roms/SMS|zip, sms, 7z|
+|SEGA Megadrive|roms/MD|zip, bin, smd, md, 7z|
+|SEGA CD|roms/SEGACD|bin, chd, 7z, zip|
+|SEGA 32X|roms/32X|zip, 32x, 7z|
+|Atari 2600|roms/A2600|bin, a26, 7z, zip|
+|Atari 5200|roms/A5200|bin, a52, 7z, zip|
+|Atari 7800|roms/A7800|bin, a78, 7z, zip|
+|Inteillivision|roms/INTELLI|int|
+|ColecoVision|roms/COLECO|rom, col|
+|SNK Neo Geo|roms/NEOGEO|zip, 7z|
+|NEC PC Engine|roms/PCE|pce, tg16, cue, 7z, zip|
+|NEC PC Engine CD|roms/PCECD|pce, tg16, cue, chd, 7z, zip|
+|Sony PlayStation|roms/PS|mdf, zip, pbp, cue, bin, img, ccd, sub, chd|
+|Nintendo Game Boy|roms/GB|gb, gz, zip, 7z|
+|Nintendo Game Boy Color|roms/GBC|gbc, zip, 7z|
+|Nintendo Game Boy Advance|roms/GBA|gba, zip, 7z|
+|Nintendo Game&Watch|roms/GW|mgw, zip, 7z|
+|SEGA Game Gear|roms/GG|zip, gg, 7z|
+|Atari Lynx|roms/LYNX|zip, lnx, 7z|
+|SNK Neo Geo Pocket|roms/NGP|ngp, ngc, 7z, zip|
+|WonderSwan|roms/WSC|ws, wsc, zip, 7z|
+|Pokemon Mini|roms/POKEMINI|min, zip, 7z|
+|Watara Supervision|roms/SUPERVISION|sv, bin, 7z, zip|
+|Sinclair ZX Spectrum|roms/ZX|tzx, tap, z80, rzx, scl, trd, dsk, zip, 7z|
+|Amstrad CPC|roms/AMSTRAD|dsk, sna, tap, cdt, voc, cpr, m3u, zip, 7z|
+|Commodore 64|roms/C64|crt, d64, t64, bin, 7z, zip|
+|MSX|roms/MSX|rom, ri, mx1, mx2, col, dsk, cas, sg, sc, m3u, zip, 7z|
+|Commodore Amiga|roms/AMIGA|adf, adz, dms, fdi, ipf, hdf, hdz, lha, slave, info, cue, ccd, nrg, mds, iso, chd, uae, m3u, zip, 7z|
+|Doom|roms/DOOM|wad, zip, 7z|
+|Quake|roms/QUAKE|pak, zip, 7z|
+|MS-DOS|roms/DOSBOX|zip, dosz, exe, com, bat, iso, cue, ins, img, ima, vhd, m3u, m3u8, 7z|
+|ScummVM|roms/SCUMMVM|*|
+|Pico8|roms/PICO8|png|
+|TIC80|roms/TIC80|tic, 7z, zip|
 
+Las previews deberán colocarse en un directorio de nombre `.previews` dentro de cada uno de los directorios de ROMs del listado anterior. Por ejemplo las previews de las ROMs de GB deberán situarse en `roms/GB/.previews` siendo esta la ruta desde la raíz de la tarjeta externa cuando la montamos en el PC. Los ficheros de preview tienen que ser PNGs con el mismo nombre del juego (excepto la extensión).
 
+![Previews path 1](images/previews_path1.png)
+![Previews path 2](images/previews_path2.png)
 
-Las previews deberán colocarse en un directorio de nombre `.previews` dentro de cada uno de los directorios de ROMs del listado anterior. Por ejemplo las previews de las ROMs de GB deberán situarse en `/media/sdcard/roms/GB/.previews`.
+#### BIOS
 
-## Controls
+Todos los emuladores instalados en la imagen (RetroArch incluido) tienen redirigidas las rutas donde deben estar las BIOS al directorio `bios` en la tarjeta externa. De forma similar al caso de las ROMs, el directorio `bios` en la raíz de la tarjeta externa, se corresponderá con la ruta `/media/sdcard/bios` en el sistema de la consola.
 
-Documentar controles (salida de FBA y xMAME)
+No todos los emuladores necesitan BIOS. Es el caso de las máquinas que no la tenían o cuya función se ha podido emular. A continuación se indica el fichero de BIOS que habrá que localizar así como el lugar donde lo deberemos colocar. Para ayudar a identificar los ficheros correctos, se indica su tamaño en bytes y un hash MD5. Se marcan también los casos en que la BIOS es imprescindible para que funcione el emulador. En caso de indicarse que `NO`, el emulador funcionará, pero se recomienda instalarla de cara a conseguir la mayor compatibilidad de los juegos. Para comprobar los hashes MD5 se recomienda la utilidad multiplataforma [Quickhash](https://www.quickhash-gui.org/).
 
-## Unsupported video mode
+Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, pero no necesariamente las únicas posibles. Es decir, en algunas máquinas existen varias versiones de BIOS posibles, normalmente por haber existido varios modelos de las máquinas (siendo el caso de la PlayStation uno de los más típicos), o por haber desarrollado alguien BIOS con capacidades mejoradas (aquí el caso típico es el de Neo Geo y su UNIBIOS).
 
-Sometimes with RetroArch emulators (cores) you will see the following error screen:
+|Sistema|Ruta|Tamaño|Hash MD5|¿Necesaria?|
+|:------|:---|-----:|:-------|:----------|
+|Atari 5200|bios/5200.rom|2048|`281f20ea4320404ec820fb7ec0693b38`|Sí|
+|Atari ST|bios/rom|196608|`036c5ae4f885cbf62c9bed651c6c58a8`|Sí|
+|SEGACD|bios/bios_CD_E.bin|131072|`e66fa1dc5820d254611fdcdba0662372`|Sí|
+|SEGACD|bios/bios_CD_J.bin|131072|`278a9397d192149e84e820ac621a8edd`|Sí|
+|SEGACD|bios/bios_CD_U.bin|131072|`854b9150240a198070150e4566ae1290`|Sí|
+|Intellivision|bios/exec.bin|8192|`62e761035cb657903761800f4437b8af`|Sí|
+|Intellivision|bios/grom.bin|2048|`0cd5946c6473e42e8e4c2137785e427f`|Sí|
+|PC Engine CD|bios/syscard3.pce|262144|`390815d3d1a184a9e73adc91ba55f2bb`|Sí|
+|Commodore Amiga|bios/kick.rom|262144|`82a21c1890cae844b3df741f2762d48d`|Sí|
+|Nintendo Famicom Disk System|bios/disksys.rom|8192|`ca30b50f880eb660a320674ed365ef7a`|Sí|
+|Atari Lynx|bios/lynxboot.img|512|`fcd403db69f54290b51035d82f835e7b`|Sí|
+|Phillips Videopac|bios/o2rom.bin|1024|`562d5ebf9e030a40d6fabfc2f33139fd`|Sí|
+|SNK Neo Geo|bios/neogeo.zip|1950023|`36241192dae2823eaf3bf464dde6dbc6`|Sí en FBA, No en RetroArch|
+|Nintendo GBA|bios/gba_bios.bin|16384|`a860e8c0b6d573d191e4ec7db1b1e4f6`|No, aunque recomendable|
+|PlayStation|bios/SCPH1001.BIN|524288|`924e392ed05558ffdb115408c263dccf`|No, aunque muy recomendable|
+
+## Controles
+
+A continuación se listan algunas combinaciones de teclas o atajos interesantes que pueden utilizarse con el sistema, frontend, RetroArch y los emuladores standalone.
+
+|Situación|Atajo de teclado|Efecto|
+|:--------|:---------------|:-----|
+|OpenDingux|POWER + START + SELECT|Reinicio del sistema|
+|OpenDingux|POWER + UP|Subir volumen sonido|
+|OpenDingux|POWER + DOWN|Bajar volumen sonido|
+|OpenDingux|POWER + RIGHT|Subir brillo pantalla|
+|OpenDingux|POWER + LEFT|Bajar brillo pantalla|
+|OpenDingux|POWER + B|Activa/desactiva el modo ratónmouse mode (anteriormente POWER + L1)|
+|OpenDingux|POWER + A|Modo de relación de aspecto en el escalado por hardware|
+|OpenDingux|POWER + SELECT|Forzar cierre de aplicación actual|
+|OpenDingux|POWER + Y|Suspender sistema (pulsar POWER para despertar)|
+|OpenDingux|POWER + X|Captura de pantalla (en `~/screenshots`)
+|OpenDingux|A (durante el arranque)|Muestra la salida de los scripts de arranque en lugar del logo de boot|
+|SimpleMenu|Start|Abre la pantalla de ajustes|
+|SimpleMenu|Select|Opciones de ROM. Permite seleccionar autoarranque, emulador (si se han definido varios en el sistema) y overclocking|
+|SimpleMenu|Up|Seleccionar juego anterior|
+|SimpleMenu|Down|Seleccionar juego siguiente|
+|SimpleMenu|Left|Salta a la página siguiente de juegos|
+|SimpleMenu|Right|Salta a la página anterior de juegos|
+|SimpleMenu|L1|Cambia al sistema anterior|
+|SimpleMenu|R1|Cambia al sistema siguiente|
+|SimpleMenu|L2|Abre la selección de Favoritos|
+|SimpleMenu|R2|Refresca la lista de juegos del sisema actual (en caso de haber añadido juegos nuevos con el frontend en ejecución)|
+|SimpleMenu|A|Abre el juego o aplicación seleccionado|
+|SimpleMenu|Y|Alterna entre la lista de juegos o el modo pantalla completa|
+|SimpleMenu|X|En los listados de juegos, marca el seleccionado como favorito; en la vista de Favoritos borra el juego de la lista|
+|SimpleMenu|B| En pulsación corta cambia al modo de selección de secciones; en pulsación larga permite las siguientes combinaciones de teclas|
+|SimpleMenu|B + Up|Desplaza el listado de juegos a la letra anterior|
+|SimpleMenu|B + Down|Desplaza el listado de juegos a la letra siguiente|
+|SimpleMenu|B + Left|Cambia al sistema anterior sin mostrar el logo|
+|SimpleMenu|B + Right|Cambia al sistema siguiente sin mostrar el logo|
+|SimpleMenu|B + Select|Abre un juego aleatorio del sistema actual|
+|SimpleMenu|B + X|Borra el juego actual **SIN PEDIR CONFIRMACIÓN**; no funciona en las secciines Favoritos, Apps o Games|
+|SimpleMenu|B + A|Lanza el emulador sin pasar un juego como parámetro, si el emulador soporta ser abierto de manera independiente (por ejemplo con FBA permite abrir la interfaz UX)|
+|RetroArch|Select + A|Pausa|
+|RetroArch|Select + B|Reset|
+|RetroArch|Select + X|Menú RetroArch|
+|RetroArch|Select + Y|Avance rápido|
+|RetroArch|Select + R1|Guardar savestate|
+|RetroArch|Select + L1|Cargar savestate|
+|RetroArch|Select + R2|Cambiar disco|
+|RetroArch|Select + L2|Abrir bandeja CD|
+|RetroArch|Select + Start|Cerrar juego|
+|RetroArch|Select + Left/Right|Cambiar slot savestate|
+|RetroArch|Select + Up/Down|Cambiar volumen|
+|FBA (M.A.M.E. y FBA)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
+|Neo Geo FBA RetroArch|A + B + Y|Entrar en ajustes UniBIOS|
+|xMAME|Select + L1 + R1|Salir del juego|
+|Daphne|Select|Salir del juego|
+|ReGBA (GBA)|Power o Select + Start|Abre el menú del emulador que nos permite salir|
+|PCSX4All (PlayStation)|Power o Select + Start|Abre el menú del emulador que nos permite salir|
+|JzIntv|Select|Abre el menú del emulador que nos permite salir|
+|JzIntv|Power|Cierra el emulador|
+|ColecoD (ColecoVision)|Select + Start|Abre el menú del emulador que nos permite salir|
+|Tac08 (PICO8)|Start||Abre el menú del emulador que nos permite salir|
+
+## Solución de problemas
+
+#### Unsupported video mode
+
+Algunos cores de RetroArch muestran la siguiente pantalla de error al trabajar en resoluciones no soportadas por el sistema:
 
 ![Unsupported video mode 1](images/unsupported_video1.png)
 
-In that case proceed in this way:
+En este caso proceder como sigue:
 
-1. Open RetroArch (`Select + X`).
-2. Go to `Main Menu > Settings > Video > Scaling` and check `Integer Scale` and `Keep Aspect Ratio` options.
+1. Abrir menú RetroArch (`Select + X`).
+2. Ir a `Main Menu > Settings > Video > Scaling` y marcar las opciones `Integer Scale` y `Keep Aspect Ratio`.
 
     ![Unsupported video mode 2](images/unsupported_video2.png)
 
-3. Go to `Main Menu > Settings > Video > Video Filter` and select the filter `Upscale_256x-320x240.filt` (the last one):
+3. Ir a `Main Menu > Settings > Video > Video Filter` y seleccionar el filtro `Upscale_256x-320x240.filt` (el último de la lista):
 
     ![Unsupported video mode 3](images/unsupported_video3.png)
 
-By last, if you don't want to make this settings all the time, go to `Main Menu > Quick Menu > Overrides` and select `Save Game Overrides`.
+Por último, si no se quiere hacer este cambio cada vez que se abra el juego, ir a `Main Menu > Quick Menu > Overrides` y seleccionar `Save Game Overrides`.
 
-## RetroArch setup
+#### Forzar cierre de RetroArch
 
-https://github.com/eduardofilo/RG350_auto_ra_installer/blob/master/adam.csv
-
-Forzar salida de RA si no funcionan Select+Start
+En ocasiones, al tratar de salir de RetroArch, éste se queda colgado y no retorna al frontend. En esos casos forzar el cierre de la aplicación en primer plano (RetroArch en ese momento) pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`.
