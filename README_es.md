@@ -2,14 +2,14 @@
 
 # Imagen Adán
 
-Configuración de sistema para consolas RG350 y RG280. Resultado del proyecto de colaboración del Team RParadise formado por las siguientes personas:
+Configuración de tarjeta interna (ranura INT) para consolas RG350 y RG280. Resultado del proyecto de colaboración del Team RParadise formado por las siguientes personas:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardofilo](https://apuntes.eduardofilo.es/)
 * Juanmote (Juanma)
 * [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA)
 
-La configuración está realizada en base a las siguientes partes:
+La configuración está realizada en base a las siguientes piezas:
 
 * [OpenDingux](http://od.abstraction.se/opendingux/latest/). Gracias principalmente a [pcercuei](https://github.com/pcercuei).
 * [SimpleMenu](https://github.com/fgl82/simplemenu). Gracias a [FGL82](https://github.com/fgl82).
@@ -34,7 +34,7 @@ La configuración está realizada en base a las siguientes partes:
 1. Descargar la imagen del apartado [releases de este repositorio](https://github.com/eduardofilo/RG350_adam_image/releases/latest).
 2. Sin necesidad de descomprimir, flashear el archivo con [Balena Etcher](https://www.balena.io/etcher/) sobre una microSD de al menos 4GB.
 3. Montar la tarjeta en un ordenador. Si la acabamos de flashear, dependiendo del sistema operativo, puede ser necesario extraerla del lector y volverla a insertar. En Windows se montará una de las dos particiones que contiene la tarjeta y la otra dará error. El error es normal dado que la segunda partición es de tipo Linux.
-4. Colocar el kernel adecuado al modelo de nuestra consola. Esto puede hacerse de varias maneras en función del sistema operativo.
+4. Colocar el kernel adecuado al modelo de nuestra consola. Esto puede hacerse de varias maneras en función del sistema operativo del PC.
 
 #### Windows
 
@@ -42,7 +42,7 @@ La configuración está realizada en base a las siguientes partes:
 
     ![Win selector script](images/win_selector_script.png)
 
-2. Aparecerá una consola negra donde tendremos que teclear el número correspondiente a nuestro modelo de consola del listado que veremos.
+2. Aparecerá una consola donde tendremos que teclear el número correspondiente a nuestro modelo de consola del listado que veremos.
 
     ![Win selector script 2](images/win_selector_script2.png)
 
@@ -66,7 +66,7 @@ La configuración está realizada en base a las siguientes partes:
 
 #### Cualquier sistema
 
-Hay un tercer método válido para cualquier sistema operativo (Windows, Linux, Mac). Se trata de visualizar con un explorador de archivos la partición 1 de la tarjeta y copiar manualmente los dos ficheros que hay dentro del directorio correspondiente a nuestro modelo de consola a la raíz de esa partición. Al ser una partición FAT32, no debería haber problema para acceder a los ficheros desde cualquier sistema.
+Hay un tercer método válido para cualquier sistema operativo (Windows, Linux, Mac). Se trata de visualizar con un explorador de archivos la partición 1 de la tarjeta y copiar manualmente los dos ficheros que hay dentro del directorio correspondiente a nuestro modelo de consola a la raíz de esa partición. Al ser una partición FAT32, no debería haber problema para acceder a los ficheros desde cualquier sistema. Hacer clic en la siguiente miniatura para ver un pequeño vídeo.
 
 [![Ver vídeo](https://img.youtube.com/vi/CQSBWOTO2zc/hqdefault.jpg)](https://www.youtube.com/watch?v=CQSBWOTO2zc "Ver vídeo")
 
@@ -74,13 +74,13 @@ Al llegar a este punto, la tarjeta estará lista para funcionar sobre el modelo 
 
 ## Instalación de contenidos
 
-La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
+La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema, el frontend SimpleMenu, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
 
 #### Formato y label de tarjeta externa
 
 Para que todas las rutas preconfiguradas en la imagen funcionen, es necesario que la tarjeta microSD externa tenga formato FAT32 y **NO** tenga definida una etiqueta o label. En caso de tener label habrá que borrarlo.
 
-En Windows podemos hacerlo desde el cuadro de Propiedades de la unidad en que se monta la tarjeta externa, como vemos en el siguiente vídeo:
+En Windows podemos hacerlo desde el cuadro de Propiedades de la unidad en que se monta la tarjeta externa. Hacer clic en la siguiente miniatura para ver un pequeño vídeo.
 
 [![Ver vídeo](https://img.youtube.com/vi/3uAMibsOvvk/hqdefault.jpg)](https://www.youtube.com/watch?v=3uAMibsOvvk "Ver vídeo")
 
@@ -92,11 +92,11 @@ sudo fatlabel /dev/mmcblk0p1 -r
 
 #### ROMs
 
-El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas donde tratará de localizar las ROMs y previsualizaciones de las mismas. Si no queremos modificar la configuración de SimpleMenu, habrá que ajustarse a estas rutas. En la tabla que hay más abajo, se indica en la segunda columna el nombre del directorio que tendrá que existir en la tarjeta externa cuando la montamos en el PC. Por ejemplo en el pantallazo siguiente vemos señalado el directorio de ROMs del sistema Game Boy.
+El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas donde tratará de localizar las ROMs y previsualizaciones de las mismas. Si no queremos modificar la configuración de SimpleMenu, habrá que atenerse a estas rutas. En la tabla que hay más abajo, se indica en la segunda columna el nombre del directorio que tendrá que existir en la tarjeta externa cuando la montamos en el PC. Por ejemplo en el pantallazo siguiente vemos señalado el directorio de ROMs del sistema Game Boy, que como vemos se encuentra junto a todos los demás dentro de la carpeta `roms` en la raíz de la tarjeta.
 
 ![SDcard paths](images/sdcard_paths.png)
 
-La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el sistema de la consola.
+La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el sistema de la consola, una vez que ésta se encuentre en la consola y el sistema se haya iniciado.
 
 |Sistema|Ruta|Extensiones soportadas|
 |:------|:-----------------|:---------------------|
@@ -271,3 +271,20 @@ Por último, si no se quiere hacer este cambio cada vez que se abra el juego, ir
 #### Forzar cierre de RetroArch
 
 En ocasiones, al tratar de salir de RetroArch, éste se queda colgado y no retorna al frontend. En esos casos forzar el cierre de la aplicación en primer plano (RetroArch en ese momento) pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`.
+
+#### Ajuste de emulador preferido
+
+En la configuración hecha de SimpleMenu, muchos de los sistemas ofrecen varias opciones de emulación, es decir se puede elegir entre varios emuladores o cores RetroArch. Además el ajuste del emulador o core RA preferido se puede guardar para cada juego.
+
+En los sistemas sencillos de emular, como las máquinas de 8 bit, sólo se ha ofrecido la opción de RetroArch, por considerarlo la mejor opción. Pero en sistemas más complejos, como los sistemas arcade, la oferta de emuladores es amplia. Por ejemplo en M.A.M.E. se dispone de las siguientes opciones:
+
+* Core RetroArch MAME2003
+* Core RetroArch MAME2003+
+* FBA
+* xMAME romset 84
+* xMAME romset 69
+* xMAME romset 52
+
+Las opciones de emulación aparecen en este orden en el listado, tratándose la primera como opción predeterminada en caso de no indicar manualmente un emulador para un juego concreto. Por tanto, si no se cambia, la opción predeterminada para ejecutar los juegos del sistema M.A.M.E. será el core MAME2003 de RetroArch.
+
+Si un juego en concreto no funciona con el emulador predeterminado, pulsaremos `Select` en el listado de juegos de SimpleMenu. Aparecerá un selector con tres opciones, siendo la del emulador a utilizar la tercera. Nos desplazaremos hasta esta tercera opción y cambiaremos el emulador pulsando izquierda/derecha en la cruceta. Para guardar el cambio pulsaremos `Select` de nuevo. Al abrir el juego pulsando `A` se lanzará el core que hayamos elegido. Si el nuevo emulador tampoco funciona correctamente, probar con otra opción hasta obtener un rendimiento adecuado.
