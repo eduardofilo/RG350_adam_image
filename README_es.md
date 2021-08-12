@@ -193,7 +193,7 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 
 ## Controles
 
-A continuación se listan algunas combinaciones de teclas o atajos interesantes que pueden utilizarse con el sistema, frontend, RetroArch y los emuladores standalone.
+A continuación se listan algunas combinaciones de teclas o atajos interesantes que pueden utilizarse con el sistema, SimpleMenu, RetroArch y los emuladores standalone.
 
 |Situación|Atajo de teclado|Efecto|
 |:--------|:---------------|:-----|
