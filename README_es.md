@@ -153,7 +153,7 @@ Las previews deberán colocarse en un directorio de nombre `.previews` dentro de
 
 ![Previews path 2](images/previews_path2.png)
 
-Si hemos respetado las rutas indicadas anteriormente, más tarde las previsualizaciones de los juegos se verán de la siguiente forma:
+Si hemos respetado las rutas indicadas anteriormente, más tarde en SimpleMenu el juego se representará de la siguiente forma:
 
 ![Previews path 3](images/previews_path3.png)
 
