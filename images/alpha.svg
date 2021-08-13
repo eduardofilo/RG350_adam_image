@@ -5,8 +5,8 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   width="189.84375"
-   height="189.64844"
+   width="100"
+   height="100"
    id="svg4611"
    version="1.0">
   <defs
@@ -25,7 +25,7 @@
   </metadata>
   <g
      id="layer1"
-     transform="translate(-363.2702,-656.18799)">
+     transform="matrix(0.52674897,0,0,0.52729145,-191.3522,-346.00232)">
     <g
        aria-label="α"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Times New Roman';text-align:start;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
