@@ -1,4 +1,4 @@
-![vineyard leaf](images/vineyard_leaf.svg)
+![vineyard leaf](images/Greek_lc_alpha.svg)
 
 # Imagen Adán
 
