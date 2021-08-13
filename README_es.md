@@ -297,7 +297,7 @@ Si un juego en concreto no funciona con el emulador predeterminado, pulsaremos `
 
 ![Core selection](images/core_selection.gif)
 
-Otra situación en las que nos conviene cambiar es cuando el juego se ejecuta lento. Además del sonido entrecortado, la mejor forma de medir si el juego se mueve con soltura es activar el contador de frames por segundo o FPS. Podemos activar la opción para un juego en particular en el menú de RetroArch `Main Menu > Settings > On-Screen Display > On-Screen Notifications > Notification Visibility > Display Framerate`, pero si queremos activarlo en general, antes hay que cerrar el contenido que estemos ejecutando. Este sería el procedimiento descrito en detalle.
+Otra situación en las que nos conviene cambiar es cuando el juego se ejecuta lento. Además del sonido entrecortado, la mejor forma de medir si el juego se mueve con soltura es activar el contador de frames por segundo o FPS. En RetroArch podemos activar la opción para un juego en particular en el menú `Main Menu > Settings > On-Screen Display > On-Screen Notifications > Notification Visibility > Display Framerate`, pero si queremos activarlo en general, antes hay que cerrar el contenido que estemos ejecutando. Este sería el procedimiento descrito en detalle.
 
 1. Lanzamos un juego que se ejecute con RetroArch (por ejemplo todos los sistemas tipo Handheld están configurados con RetroArch por defecto).
 2. Abrimos el menú de RetroArch pulsando `Select + X`.
