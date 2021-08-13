@@ -311,3 +311,5 @@ Otra situación en las que nos conviene cambiar es cuando el juego se ejecuta le
 10. Ejecutar el comando de menú `Quit RetroArch`.
 
 Para desactivarlo procederemos de la misma forma pero desactivando la opción del paso 5.
+
+En xMAME la opción FPS se activa/desactiva en cualquier momento pulsando `Start + R1`.
