@@ -72,6 +72,8 @@ Hay un tercer método válido para cualquier sistema operativo (Windows, Linux, 
 
 Al llegar a este punto, la tarjeta estará lista para funcionar sobre el modelo de consola que hayamos seleccionado en el procedimiento anterior. Si no lo hemos hecho ya, la expulsaremos con seguridad del PC e insertaremos en la ranura de la consola marcada como INT.
 
+La partición 2 contenida en el fichero de imagen, tiene unos 3,5GB (por eso se puede flashear sin problemas en tarjetas a partir de 4GB de capacidad). Durante el primer arranque, esta partición se expandirá hasta ocupar todo el espacio disponible en la tarjeta.
+
 ## Instalación de contenidos
 
 La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema OpenDingux, el frontend SimpleMenu, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.

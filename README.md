@@ -72,6 +72,8 @@ There is a third method valid for any operating system (Windows, Linux, Mac). Th
 
 At this point, the card will be ready to work on the console model that we have selected in the previous procedure. If we have not already done yet, we will safely eject it from the PC and insert the card into the console slot marked with INT.
 
+Partition 2 contained in the image file has about 3.5GB (so it can be flashed without problems on cards with a capacity of 4GB or greater). During the first boot, this partition will expand to occupy all available space on the card.
+
 ## Content installation
 
 The card that we have just prepared is empty of contents. It only contains the OpenDingux system, the SimpleMenu frontend, the RetroArch cores, and a few standalone emulators. All the configuration has been done with the idea that the contents are provided from the card that we will place in the slot marked with EXT.
