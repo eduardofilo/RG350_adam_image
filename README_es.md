@@ -296,3 +296,18 @@ Las opciones de emulación aparecen en este orden en el listado, tratándose la 
 Si un juego en concreto no funciona con el emulador predeterminado, pulsaremos `Select` en el listado de juegos de SimpleMenu. Aparecerá un selector con tres opciones, siendo la del emulador a utilizar la tercera. Nos desplazaremos hasta esta tercera opción y cambiaremos el emulador pulsando izquierda/derecha en la cruceta. Para guardar el cambio pulsaremos `Select` de nuevo. Al abrir el juego pulsando `A` se lanzará el core que hayamos elegido. Si el nuevo emulador tampoco funciona correctamente, probar con otra opción hasta obtener un rendimiento adecuado.
 
 ![Core selection](images/core_selection.gif)
+
+Otra situación en las que nos conviene cambiar es cuando el juego se ejecuta lento. Además del sonido entrecortado, la mejor forma de medir si el juego se mueve con soltura es activar el contador de frames por segundo o FPS. Podemos activar la opción para un juego en particular en el menú de RetroArch `Main Menu > Settings > On-Screen Display > On-Screen Notifications > Notification Visibility > Display Framerate`, pero si queremos activarlo en general, antes hay que cerrar el contenido que estemos ejecutando. Este sería el procedimiento descrito en detalle.
+
+1. Lanzamos un juego que se ejecute con RetroArch (por ejemplo todos los sistemas tipo Handheld están configurados con RetroArch por defecto).
+2. Abrimos el menú de RetroArch pulsando `Select + X`.
+3. Seleccionar el menú `Close Content`.
+4. Seguir el siguiente camino en los menús: `Main Menu > Settings > On-Screen Display > On-Screen Notifications > Notification Visibility`.
+5. Activar la opción `Display Framerate`.
+6. Volver hasta el menú raíz pulsando `B` repetidas veces.
+7. Entrar en el menú `Configuration File`.
+8. Ejecutar el comando de menú `Save Current Configuration`.
+9. Volver hasta el menú raíz pulsando `B` una vez.
+10. Ejecutar el comando de menú `Quit RetroArch`.
+
+Para desactivarlo procederemos de la misma forma pero desactivando la opción del paso 5.
