@@ -313,3 +313,7 @@ Otra situación en las que nos conviene cambiar es cuando el juego se ejecuta le
 Para desactivarlo procederemos de la misma forma pero desactivando la opción del paso 5.
 
 En xMAME la opción FPS se activa/desactiva en cualquier momento pulsando `Start + R1`.
+
+## Canal Telegram para comunicar actualizaciones
+
+Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image

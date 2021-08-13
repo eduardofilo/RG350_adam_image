@@ -313,3 +313,7 @@ Another situation in which we should change the emulator option is when the game
 To deactivate it, we will proceed in the same way but deactivating the option in step 5.
 
 In xMAME the FPS option is activated/deactivated at any time by pressing `Start + R1`.
+
+## Telegram channel for updates
+
+Join this Telegram channel to get update notifications: https://t.me/adam_image
