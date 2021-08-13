@@ -14,8 +14,8 @@ La configuración está realizada en base a las siguientes piezas:
 * [OpenDingux](http://od.abstraction.se/opendingux/latest/). Gracias principalmente a [pcercuei](https://github.com/pcercuei).
 * [SimpleMenu](https://github.com/fgl82/simplemenu). Gracias a [FGL82](https://github.com/fgl82).
 * [RetroArch](https://www.retroarch.com/?page=platforms). La combinación de Wrappers OPK se ha generado con el script [RG3550_auto_ra_installer](https://github.com/eduardofilo/RG350_auto_ra_installer) en base a [este fichero](https://github.com/eduardofilo/RG350_auto_ra_installer/blob/master/adam.csv).
-    * [Oficial](https://buildbot.libretro.com/nightly/dingux/mips32/).  Gracias principalmente a [jdgleaver](https://github.com/jdgleaver).
-    * [Poligraf](https://github.com/Poligraf/opendingux_ra_cores_unofficial).  Gracias a [Poligraf](https://github.com/Poligraf).
+    * [Oficial](https://buildbot.libretro.com/nightly/dingux/mips32/). Gracias principalmente a [jdgleaver](https://github.com/jdgleaver).
+    * [Poligraf](https://github.com/Poligraf/opendingux_ra_cores_unofficial). Gracias a [Poligraf](https://github.com/Poligraf).
 * Aplicaciones standalone:
     * [ColecoD](https://boards.dingoonity.org/gcw-releases/colecod-v1-0/). Gracias a [alekmaul](https://github.com/alekmaul).
     * [Daphne](https://github.com/DavidKnight247/Daphne). Gracias a [DavidKnight247](https://github.com/DavidKnight247).
@@ -32,8 +32,8 @@ La configuración está realizada en base a las siguientes piezas:
 ## Procedimiento de instalación
 
 1. Descargar la imagen del apartado [releases de este repositorio](https://github.com/eduardofilo/RG350_adam_image/releases/latest).
-2. Sin necesidad de descomprimir, flashear el archivo con [Balena Etcher](https://www.balena.io/etcher/) sobre una microSD de al menos 4GB.
-3. Montar la tarjeta en un ordenador. Si la acabamos de flashear, dependiendo del sistema operativo, puede ser necesario extraerla del lector y volverla a insertar. En Windows se montará una de las dos particiones que contiene la tarjeta y la otra dará error. El error es normal dado que la segunda partición es de tipo Linux.
+2. Sin necesidad de descomprimir, flashear el archivo (`img.gz`) con [Balena Etcher](https://www.balena.io/etcher/) sobre una tarjeta microSD de al menos 4GB.
+3. Montar la microSD en un ordenador. Si la acabamos de flashear, dependiendo del sistema operativo, puede ser necesario extraerla del lector y volverla a insertar. En Windows se montará una de las dos particiones que contiene la tarjeta y la otra dará error. El error es normal dado que la segunda partición es de tipo Linux.
 4. Colocar el kernel adecuado al modelo de nuestra consola. Esto puede hacerse de varias maneras en función del sistema operativo del PC.
 
 #### Windows
@@ -46,7 +46,7 @@ La configuración está realizada en base a las siguientes piezas:
 
     ![Win selector script 2](images/win_selector_script2.png)
 
-3. Pulsar Retorno y cuando se nos indique, expulsar la tarjeta con seguridad.
+3. Pulsar Retorno y, cuando se nos indique, expulsar la tarjeta con seguridad.
 
     ![Win selector script 3](images/win_selector_script3.png)
 
@@ -60,7 +60,7 @@ La configuración está realizada en base a las siguientes piezas:
 
     ![Linux selector script 2](images/linux_selector_script2.png)
 
-3. Pulsar Retorno y cuando se nos indique, expulsar la tarjeta con seguridad.
+3. Pulsar Retorno y, cuando se nos indique, expulsar la tarjeta con seguridad.
 
     ![Linux selector script 3](images/linux_selector_script3.png)
 
@@ -74,9 +74,9 @@ Al llegar a este punto, la tarjeta estará lista para funcionar sobre el modelo 
 
 ## Instalación de contenidos
 
-La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema, el frontend SimpleMenu, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
+La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema OpenDingux, el frontend SimpleMenu, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
 
-Antes de continuar, hacer un breve comentario sobre las consideraciones legales de la instalación de dichos contenidos. El asunto es complejo. Si se tiene interés en profundizar, un buen artículo es [este post de Retro Game Corps](https://retrogamecorps.com/2020/08/18/legal-guide-is-downloading-retro-game-files-roms-illegal/) (en inglés). Aunque existen pocos precedentes legales sobre el tema, el problema afecta fundamentalmente a las BIOS y las ROMs. De forma simplificada se suele considerar que podemos manejar las ROMs de los juegos que tengamos en propiedad y las BIOS de las máquinas que poseemos. En realidad se trata más de una regla basada en el sentido común, ya que como decimos, existen pocas sentencias sobre el tema y desde luego la opinión de los distintos participantes en la industria no es consistente.
+Antes de continuar, hacer un breve comentario sobre las consideraciones legales de la instalación de dichos contenidos. El asunto es complejo. Si se tiene interés en profundizar, un buen artículo es [este post de Retro Game Corps](https://retrogamecorps.com/2020/08/18/legal-guide-is-downloading-retro-game-files-roms-illegal/) (en inglés). Aunque existen pocos precedentes legales sobre el tema, el problema afecta fundamentalmente a las BIOS y las ROMs. De forma simplificada se suele considerar que podemos manejar las ROMs de los juegos y las BIOS de las máquinas que tengamos en propiedad. En realidad se trata más de una regla basada en el sentido común, ya que como decimos, existen pocas sentencias sobre el tema y desde luego la opinión de los distintos participantes en la industria no es consistente.
 
 #### Formato y label de tarjeta externa
 
@@ -98,7 +98,7 @@ El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas d
 
 ![SDcard paths](images/sdcard_paths.png)
 
-La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el sistema de la consola, una vez que ésta se encuentre en la consola y el sistema se haya iniciado. En caso de modificar la configuración de SimpleMenu, o de abrir manualmente los emuladores desde GMenu2X, ésta será la ruta en que nos basaremos.
+La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el sistema de la consola, una vez que la tarjeta se encuentre en la consola y el sistema se haya iniciado. En caso de modificar la configuración de SimpleMenu, o de abrir manualmente los emuladores desde GMenu2X, ésta será el tipo de ruta que usaremos (por ejemplo `/media/sdcard/roms/GB` para Game Boy).
 
 A continuación se muestra la tabla de los sistemas configurados en SimpleMenu con las rutas donde deberemos situar las ROMs y las extensiones que éstas deben tener:
 
@@ -195,7 +195,7 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 
 ## Controles
 
-A continuación se listan algunas combinaciones de teclas o atajos interesantes que pueden utilizarse con el sistema, SimpleMenu, RetroArch y los emuladores standalone.
+A continuación se listan algunas combinaciones de teclas o atajos interesantes que pueden utilizarse con el sistema OpenDingux, SimpleMenu, RetroArch y los emuladores standalone.
 
 |Situación|Atajo de teclado|Efecto|
 |:--------|:---------------|:-----|
@@ -208,7 +208,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |OpenDingux|POWER + A|Modo de relación de aspecto en el escalado por hardware|
 |OpenDingux|POWER + SELECT|Forzar cierre de aplicación actual|
 |OpenDingux|POWER + Y|Suspender sistema (pulsar POWER para despertar)|
-|OpenDingux|POWER + X|Captura de pantalla (en `~/screenshots`)
+|OpenDingux|POWER + X|Captura de pantalla (en `~/screenshots`)|
 |OpenDingux|A (durante el arranque)|Muestra la salida de los scripts de arranque en lugar del logo de boot|
 |SimpleMenu|Start|Abre la pantalla de ajustes|
 |SimpleMenu|Select|Opciones de ROM. Permite seleccionar autoarranque, emulador (si se han definido varios en el sistema) y overclocking|
@@ -223,7 +223,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |SimpleMenu|A|Abre el juego o aplicación seleccionado|
 |SimpleMenu|Y|Alterna entre la lista de juegos o el modo pantalla completa|
 |SimpleMenu|X|En los listados de juegos, marca el seleccionado como favorito; en la vista de Favoritos borra el juego de la lista|
-|SimpleMenu|B| En pulsación corta cambia al modo de selección de secciones; en pulsación larga permite las siguientes combinaciones de teclas|
+|SimpleMenu|B|En pulsación corta cambia al modo de selección de secciones; en pulsación larga permite las siguientes combinaciones de teclas|
 |SimpleMenu|B + Up|Desplaza el listado de juegos a la letra anterior|
 |SimpleMenu|B + Down|Desplaza el listado de juegos a la letra siguiente|
 |SimpleMenu|B + Left|Cambia al sistema anterior sin mostrar el logo|
