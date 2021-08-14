@@ -181,7 +181,12 @@ The sizes and hashes indicated are from BIOS that have been proven functional, b
 |Intellivision|bios/exec.bin|8192|`62e761035cb657903761800f4437b8af`|Yes|
 |Intellivision|bios/grom.bin|2048|`0cd5946c6473e42e8e4c2137785e427f`|Yes|
 |PC Engine CD|bios/syscard3.pce|262144|`390815d3d1a184a9e73adc91ba55f2bb`|Yes|
-|Commodore Amiga|bios/kick.rom|262144|`82a21c1890cae844b3df741f2762d48d`|Yes|
+|Commodore Amiga|bios/kick34005.A500|262144|`82a21c1890cae844b3df741f2762d48d`|Yes on Amiga 500|
+|Commodore Amiga|bios/kick37175.A500|524288|`dc10d7bdd1b6f450773dfb558477c230`|Yes on Amiga 500+|
+|Commodore Amiga|bios/kick40063.A600|524288|`e40a5dfb3d017ba8779faba30cbd1c8e`|Yes on Amiga 600|
+|Commodore Amiga|bios/kick40068.A1200|524288|`646773759326fbac3b2311fd8c8793ee`|Yes on Amiga 1200|
+|Commodore Amiga|bios/kick40060.CD32|524288|`5f8924d013dd57a89cf349f4cdedc6b1`|No|
+|Commodore Amiga|bios/kick40060.CD32.ext|524288|`bb72565701b1b6faece07d68ea5da639`|No|
 |Atari Lynx|bios/lynxboot.img|512|`fcd403db69f54290b51035d82f835e7b`|Yes|
 |Phillips Videopac|bios/o2rom.bin|1024|`562d5ebf9e030a40d6fabfc2f33139fd`|Yes|
 |SNK Neo Geo|bios/neogeo.zip|1950023|`36241192dae2823eaf3bf464dde6dbc6`|Yes on FBA, No on RetroArch|
@@ -260,6 +265,9 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |JzIntv|L1|Virtual keyboard|
 |ColecoD (ColecoVision)|Select + Start|Open emulator menu that allows us to quit|
 |Tac08 (PICO8)|Start|Open emulator menu that allows us to quit|
+|Cap32 (AMSTRAD CPC)|Y + Start|Virtual keyboard|
+|Vice 64 (Commodore 64)|Select|Virtual keyboard|
+|PUAE (Commodores Amiga)|L1|Virtual keyboard|
 
 ## Problem solving
 
