@@ -72,6 +72,8 @@ There is a third method valid for any operating system (Windows, Linux, Mac). Th
 
 At this point, the card will be ready to work on the console model that we have selected in the previous procedure. If we have not already done yet, we will safely eject it from the PC and insert the card into the console slot marked with INT.
 
+The above procedure can be repeated to change to another console model at any time. That is, the image is compatible with the four supported console models, so the same card will serve us for several machines.
+
 Partition 2 contained in the image file has about 3.5GB (so it can be flashed without problems on cards with a capacity of 4GB or greater). During the first boot, this partition will expand to occupy all available space on the card.
 
 ## Content installation
