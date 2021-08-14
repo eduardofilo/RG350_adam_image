@@ -256,6 +256,8 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |PCSX4All (PlayStation)|Power or Select + Start|Open emulator menu that allows us to quit|
 |JzIntv|Select|Open emulator menu that allows us to quit|
 |JzIntv|Power|Quit|
+|JzIntv|R1|Virtual controller|
+|JzIntv|L1|Virtual keyboard|
 |ColecoD (ColecoVision)|Select + Start|Open emulator menu that allows us to quit|
 |Tac08 (PICO8)|Start|Open emulator menu that allows us to quit|
 

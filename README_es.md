@@ -256,6 +256,8 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |PCSX4All (PlayStation)|Power o Select + Start|Abre el menú del emulador que nos permite salir|
 |JzIntv|Select|Abre el menú del emulador que nos permite salir|
 |JzIntv|Power|Cierra el emulador|
+|JzIntv|R1|Controlador virtual|
+|JzIntv|L1|Teclado virtual|
 |ColecoD (ColecoVision)|Select + Start|Abre el menú del emulador que nos permite salir|
 |Tac08 (PICO8)|Start|Abre el menú del emulador que nos permite salir|
 
