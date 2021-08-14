@@ -249,6 +249,8 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |FBA (MAME, FBA y CPS)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
 |Neo Geo FBA RetroArch|A + B + Y|Entrar en ajustes UniBIOS|
 |xMAME|Select + L1 + R1|Salir del juego|
+|Daphne|L1|Insertar moneda|
+|Daphne|Start|Comenzar juego|
 |Daphne|Select|Salir del juego|
 |ReGBA (GBA)|Power o Select + Start|Abre el menú del emulador que nos permite salir|
 |PCSX4All (PlayStation)|Power o Select + Start|Abre el menú del emulador que nos permite salir|

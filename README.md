@@ -249,6 +249,8 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |FBA (MAME, FBA y CPS)|L1 + R1 + Start or Power|Open emulator menu that allows us to quit|
 |Neo Geo FBA RetroArch|A + B + Y|UniBIOS settings|
 |xMAME|Select + L1 + R1|Quit|
+|Daphne|L1|Insert coin|
+|Daphne|Start|Start game|
 |Daphne|Select|Quit|
 |ReGBA (GBA)|Power or Select + Start|Open emulator menu that allows us to quit|
 |PCSX4All (PlayStation)|Power or Select + Start|Open emulator menu that allows us to quit|
