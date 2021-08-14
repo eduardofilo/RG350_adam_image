@@ -265,6 +265,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |JzIntv|L1|Teclado virtual|
 |ColecoD (ColecoVision)|Select + Start|Abre el menú del emulador que nos permite salir|
 |Tac08 (PICO8)|Start|Abre el menú del emulador que nos permite salir|
+|Fuse (ZX Spectrum)|Select|Teclado virtual|
 |Cap32 (AMSTRAD CPC)|Y + Start|Teclado virtual. Una vez desplegado abrir/cerrar el menú de RA (Select + X) para que empiece a funcionar el stick izquierdo como ratón|
 |Vice 64 (Commodore 64)|Select|Teclado virtual|
 |PUAE (Commodores Amiga)|L1|Teclado virtual|
