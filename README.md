@@ -265,7 +265,7 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |JzIntv|L1|Virtual keyboard|
 |ColecoD (ColecoVision)|Select + Start|Open emulator menu that allows us to quit|
 |Tac08 (PICO8)|Start|Open emulator menu that allows us to quit|
-|Cap32 (AMSTRAD CPC)|Y + Start|Virtual keyboard|
+|Cap32 (AMSTRAD CPC)|Y + Start|Virtual keyboard. Once displayed, open/close the RA menu (Select + X) so that the left stick starts working as a mouse|
 |Vice 64 (Commodore 64)|Select|Virtual keyboard|
 |PUAE (Commodores Amiga)|L1|Virtual keyboard|
 
