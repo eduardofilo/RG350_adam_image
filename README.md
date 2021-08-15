@@ -252,8 +252,10 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |RetroArch|Select + Left/Right|Change savestate slot|
 |RetroArch|Select + Up/Down|Volume change|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Start or Power|Open emulator menu that allows us to quit|
+|FBA (MAME, FBA y CPS)|L1 + R1 + Y|Show/hide FPS counter|
 |Neo Geo FBA RetroArch|A + B + Y|UniBIOS settings|
 |xMAME|Select + L1 + R1|Quit|
+|xMAME|Start + R1|Show/hide FPS counter|
 |Daphne|L1|Insert coin|
 |Daphne|Start|Start game|
 |Daphne|Select|Quit|
@@ -329,7 +331,7 @@ Another situation in which we should change the emulator option is when the game
 
 To deactivate it, we will proceed in the same way but deactivating the option in step 5.
 
-In xMAME the FPS option is activated/deactivated at any time by pressing `Start + R1`.
+In xMAME the FPS option is activated/deactivated at any time by pressing `Start + R1`. In FBA the shortcut is `L1 + R1 + Y`.
 
 ## Telegram channel for updates
 
