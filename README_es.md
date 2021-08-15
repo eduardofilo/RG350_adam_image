@@ -251,9 +251,9 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |RetroArch|Select + Start|Cerrar juego|
 |RetroArch|Select + Left/Right|Cambiar slot savestate|
 |RetroArch|Select + Up/Down|Cambiar volumen|
+|RetroArch/Neo Geo FBA|A + B + Y|Entrar en ajustes UniBIOS|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Y|Mostrar/ocultar el contador FPS|
-|Neo Geo FBA RetroArch|A + B + Y|Entrar en ajustes UniBIOS|
 |xMAME|Select + L1 + R1|Salir del juego|
 |xMAME|Start + R1|Mostrar/ocultar el contador FPS|
 |Daphne|L1|Insertar moneda|
