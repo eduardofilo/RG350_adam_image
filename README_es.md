@@ -5,7 +5,7 @@
 Configuración de tarjeta interna (ranura INT) para consolas RG350 y RG280. Resultado de un proyecto de colaboración del Team RParadise formado por:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
-* [eduardofilo](https://apuntes.eduardofilo.es/)
+* [eduardófilo](https://apuntes.eduardofilo.es/)
 * Juanmote (Juanma)
 * [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA)
 

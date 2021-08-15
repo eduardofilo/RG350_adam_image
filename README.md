@@ -5,7 +5,7 @@
 Internal card setup (INT slot) for RG350 and RG280 consoles. Result of a collaboration project of Team RParadise formed by:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
-* [eduardofilo](https://apuntes.eduardofilo.es/)
+* [eduardófilo](https://apuntes.eduardofilo.es/)
 * Juanmote (Juanma)
 * [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA)
 
