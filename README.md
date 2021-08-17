@@ -4,22 +4,22 @@
 
 ## Table of contents
 
-    - [Introduction](#introduction)
-    - [Installation procedure](#installation-procedure)
-            - [Windows](#windows)
-            - [Linux](#linux)
-            - [Any system](#any-system)
-    - [Content installation](#content-installation)
-            - [External microSD format and label](#external-microsd-format-and-label)
-            - [ROMs](#roms)
-            - [Previews](#previews)
-            - [BIOS](#bios)
-    - [Controls](#controls)
-    - [Problem solving](#problem-solving)
-            - [Unsupported video mode](#unsupported-video-mode)
-            - [RetroArch force closing](#retroarch-force-closing)
-            - [Emulator selection](#emulator-selection)
-    - [Telegram channel for updates](#telegram-channel-for-updates)
+- [Introduction](#introduction)
+- [Installation procedure](#installation-procedure)
+    - [Windows](#windows)
+    - [Linux](#linux)
+    - [Any system](#any-system)
+- [Content installation](#content-installation)
+    - [External microSD format and label](#external-microsd-format-and-label)
+    - [ROMs](#roms)
+    - [Previews](#previews)
+    - [BIOS](#bios)
+- [Controls](#controls)
+- [Problem solving](#problem-solving)
+    - [Unsupported video mode](#unsupported-video-mode)
+    - [RetroArch force closing](#retroarch-force-closing)
+    - [Emulator selection](#emulator-selection)
+- [Telegram channel for updates](#telegram-channel-for-updates)
 
 ## Introduction
 
