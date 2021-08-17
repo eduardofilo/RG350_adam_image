@@ -2,6 +2,27 @@
 
 # Adam image
 
+## Table of contents
+
+    - [Introduction](#introduction)
+    - [Installation procedure](#installation-procedure)
+            - [Windows](#windows)
+            - [Linux](#linux)
+            - [Any system](#any-system)
+    - [Content installation](#content-installation)
+            - [External microSD format and label](#external-microsd-format-and-label)
+            - [ROMs](#roms)
+            - [Previews](#previews)
+            - [BIOS](#bios)
+    - [Controls](#controls)
+    - [Problem solving](#problem-solving)
+            - [Unsupported video mode](#unsupported-video-mode)
+            - [RetroArch force closing](#retroarch-force-closing)
+            - [Emulator selection](#emulator-selection)
+    - [Telegram channel for updates](#telegram-channel-for-updates)
+
+## Introduction
+
 Internal card setup (INT slot) for RG350 and RG280 consoles. Result of a collaboration project of Team RParadise formed by:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
