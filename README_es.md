@@ -2,24 +2,24 @@
 
 # Imagen Adán
 
-## Table of contents
+## Tabla de contenidos
 
-    - [Introducción](#introducción)
-    - [Procedimiento de instalación](#procedimiento-de-instalación)
-            - [Windows](#windows)
-            - [Linux](#linux)
-            - [Cualquier sistema](#cualquier-sistema)
-    - [Instalación de contenidos](#instalación-de-contenidos)
-            - [Formato y label de tarjeta externa](#formato-y-label-de-tarjeta-externa)
-            - [ROMs](#roms)
-            - [Previews](#previews)
-            - [BIOS](#bios)
-    - [Controles](#controles)
-    - [Solución de problemas](#solución-de-problemas)
-            - [Unsupported video mode](#unsupported-video-mode)
-            - [Forzar cierre de RetroArch](#forzar-cierre-de-retroarch)
-            - [Ajuste de emulador preferido](#ajuste-de-emulador-preferido)
-    - [Canal Telegram para comunicar actualizaciones](#canal-telegram-para-comunicar-actualizaciones)
+- [Introducción](#introducción)
+- [Procedimiento de instalación](#procedimiento-de-instalación)
+    - [Windows](#windows)
+    - [Linux](#linux)
+    - [Cualquier sistema](#cualquier-sistema)
+- [Instalación de contenidos](#instalación-de-contenidos)
+    - [Formato y label de tarjeta externa](#formato-y-label-de-tarjeta-externa)
+    - [ROMs](#roms)
+    - [Previews](#previews)
+    - [BIOS](#bios)
+- [Controles](#controles)
+- [Solución de problemas](#solución-de-problemas)
+    - [Unsupported video mode](#unsupported-video-mode)
+    - [Forzar cierre de RetroArch](#forzar-cierre-de-retroarch)
+    - [Ajuste de emulador preferido](#ajuste-de-emulador-preferido)
+- [Canal Telegram para comunicar actualizaciones](#canal-telegram-para-comunicar-actualizaciones)
 
 ## Introducción
 
