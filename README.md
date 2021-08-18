@@ -14,6 +14,7 @@
     - [ROMs](#roms)
     - [Previews](#previews)
     - [BIOS](#bios)
+    - [System access](#system-access)
 - [Controls](#controls)
 - [Problem solving](#problem-solving)
     - [Unsupported video mode](#unsupported-video-mode)
