@@ -223,6 +223,18 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Sí para MSX2+|
 |MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Sí para MSX2+|
 
+#### Acceso al sistema
+
+Una vez que la tarjeta con el sistema (INT) y con los contenidos (EXT) han sido insertadas en sus correspondientes ranuras, y la consola encendida, podemos acceder al sistema por SSH para hacer algunas personalizaciones que requieren este tipo de acceso (como editar los ficheros de configuración de SimpleMenu o Py Backup). Para lograr el acceso por SSH conectaremos la consola con un cable USB tipo C al ordenador utilizando el mismo conector que se utiliza para cargar (es decir el marcado con DC). En el caso de Windows puede ser necesario instalar [drivers](https://github.com/SeongGino/RetroGame350-AppRepo/blob/master/RG350-signed_driver.zip). En el ordenador podemos utilizar cualquier cliente de FTP configurado con el protocolo SFTP o SCP (por ejemplo WinSCP o Filezilla). El acceso a través del protocolo SSH normal puede lograrse desde una simple consola o terminal ya sea en Windows o Linux, tecleando el siguiente comando:
+
+```
+ssh od@10.1.1.2
+```
+
+El password predeterminado del usuario `od` es también `od`.
+
+Por defecto la imagen está configurada para hacer uso de este acceso SSH en modo RNDIS por medio del cable USB, aunque a través de la aplicación `USB Mode` que hay en la sección `settings` de GMenu2X (habrá por tanto que desactivar SimpleMenu como lanzador predeterminado momentáneamente), podemos cambiar al modo `Mass Storage` o MTP.
+
 ## Controles
 
 A continuación se listan algunas combinaciones de teclas o atajos interesantes que pueden utilizarse con el sistema OpenDingux, SimpleMenu, RetroArch y los emuladores standalone.
