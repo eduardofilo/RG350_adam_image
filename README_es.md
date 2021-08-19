@@ -327,6 +327,8 @@ En este caso proceder como sigue:
 
 Por último, si no se quiere hacer este cambio cada vez que se abra el juego, ir a `Main Menu > Quick Menu > Overrides` y seleccionar `Save Game Overrides`.
 
+Otro filtro que suele dar buen resultado en estas situaciones es `LQ2x`.
+
 #### Forzar cierre de RetroArch
 
 En ocasiones, al tratar de salir de RetroArch, éste se queda colgado y no retorna al frontend. En esos casos forzar el cierre de la aplicación en primer plano (RetroArch en ese momento) pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`.
