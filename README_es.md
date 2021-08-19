@@ -98,6 +98,10 @@ El procedimiento anterior se puede repetir para cambiar a otro modelo de consola
 
 La partición 2 contenida en el fichero de imagen, tiene unos 3,5GB (por eso se puede flashear sin problemas en tarjetas a partir de 4GB de capacidad). Durante el primer arranque, esta partición se expandirá hasta ocupar todo el espacio disponible en la tarjeta.
 
+En la primera parte de este vídeo del compañero [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ) podemos ver el proceso de instalación:
+
+[![Ver vídeo](https://img.youtube.com/vi/NCfoqQ5-Ll8/hqdefault.jpg)](https://www.youtube.com/watch?v=NCfoqQ5-Ll8 "Ver vídeo")
+
 ## Instalación de contenidos
 
 La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema OpenDingux, el frontend SimpleMenu, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
