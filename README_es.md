@@ -280,7 +280,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |SimpleMenu|B + A|Lanza el emulador sin pasar un juego como parámetro, si el emulador soporta ser abierto de manera independiente (por ejemplo con FBA permite abrir la interfaz UX)|
 |RetroArch|Select + A|Pausa|
 |RetroArch|Select + B|Reset|
-|RetroArch|Select + X|Menú RetroArch|
+|RetroArch|Select + X o Power|Menú RetroArch|
 |RetroArch|Select + Y|Avance rápido|
 |RetroArch|Select + R1|Guardar savestate|
 |RetroArch|Select + L1|Cargar savestate|

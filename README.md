@@ -280,7 +280,7 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |SimpleMenu|B + A|Launches the emulator itself instead of a rom, if it supports to be run as a standalone application|
 |RetroArch|Select + A|Pause|
 |RetroArch|Select + B|Reset|
-|RetroArch|Select + X|RetroArch Menu|
+|RetroArch|Select + X or Power|RetroArch Menu|
 |RetroArch|Select + Y|Fast forward|
 |RetroArch|Select + R1|Savestate save|
 |RetroArch|Select + L1|Savestate load|
