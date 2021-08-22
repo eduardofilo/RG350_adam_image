@@ -132,7 +132,7 @@ La ruta anterior en el PC se corresponderá con `/media/sdcard/roms` en el siste
 
 A continuación se muestra la tabla de los sistemas configurados en SimpleMenu con las rutas donde deberemos situar las ROMs y las extensiones que éstas deben tener:
 
-|Sistema|Ruta|Extensiones soportadas|
+|Sistema|Rutas|Extensiones soportadas|
 |:------|:-----------------|:---------------------|
 |MAME|roms/ARCADE|zip, 7z|
 |Capcom Play System|roms/CPS|zip, 7z|
@@ -170,7 +170,7 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |Commodore 64|roms/C64|crt, d64, t64, bin, 7z, zip|
 |MSX|roms/MSX|rom, ri, mx1, mx2, col, dsk, cas, sg, sc, m3u, zip, 7z|
 |Commodore Amiga|roms/AMIGA|adf, adz, dms, fdi, ipf, hdf, hdz, lha, slave, info, cue, ccd, nrg, mds, iso, chd, uae, m3u, zip, 7z|
-|Doom|roms/DOOM|wad, zip, 7z|
+|Doom|roms/DOOM/DOOM1, roms/DOOM/DOOM2|wad, zip, 7z|
 |Quake|roms/QUAKE|pak, zip, 7z|
 |MS-DOS|roms/DOSBOX|zip, dosz, exe, com, bat, iso, cue, ins, img, ima, vhd, m3u, m3u8, 7z|
 |ScummVM|roms/SCUMMVM|*|
