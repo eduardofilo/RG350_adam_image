@@ -335,7 +335,15 @@ Otro filtro que suele dar buen resultado en estas situaciones es `LQ2x`.
 
 #### Forzar cierre de RetroArch
 
-En ocasiones, al tratar de salir de RetroArch, éste se queda colgado y no retorna al frontend. En esos casos forzar el cierre de la aplicación en primer plano (RetroArch en ese momento) pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`.
+En ocasiones, al tratar de salir de RetroArch, éste se queda colgado y no retorna al frontend. En esos casos forzar el cierre de la aplicación en primer plano (RetroArch en ese momento) pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`. Esta combinación de teclas tampoco funciona siempre. En ese caso mantener la tecla `Power` unos segundos para provocar un apagado controlado de la consola.
+
+En resumen, los métodos para cerrar un juego en RetroArch son:
+
+1. `Start + Select` o `Quit RetroArch` desde el menú de RA.
+2. Si lo anterior no funciona, `Power + Select`.
+3. Si lo anterior no funciona, mantener `Power` unos segundos hasta que el sistema se apague.
+
+Hay que evitar pulsar `Reset` ya que se ha encontrado con bastante frecuencia que provoca la corrupción de la SD.
 
 #### Ajuste de emulador preferido
 

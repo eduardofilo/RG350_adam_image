@@ -335,7 +335,15 @@ Another filter that usually works well in these situations is `LQ2x`.
 
 #### RetroArch force closing
 
-Sometimes, when trying to exit RetroArch, it freezes and does not return to the frontend. In these cases, force close the application in the foreground (RetroArch at that moment) by pressing the shortcut `Power + Select`. It is important to press the keys in that order, that is, press `Power` a little before and without releasing it then press `Select`.
+Sometimes, when trying to exit RetroArch, it freezes and does not return to the frontend. In these cases, force close the application in the foreground (RetroArch at that moment) by pressing the shortcut `Power + Select`. It is important to press the keys in that order, that is, press `Power` a little before and without releasing it then press `Select`. This key combination doesn't always work either. In this case, hold down the `Power` key for a few seconds to cause a controlled shutdown of the console.
+
+In summary, the methods to close a game in RetroArch are:
+
+1. `Start + Select` or `Quit RetroArch` from RA menu.
+2. If the above does not work, `Power + Select`.
+3. If the above does not work, hold down `Power` a few seconds until the system shuts down.
+
+Avoid pressing `Reset` as it has been found quite often to cause SD corruption.
 
 #### Emulator selection
 
