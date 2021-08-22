@@ -14,6 +14,7 @@
     - [ROMs](#roms)
     - [Previews](#previews)
     - [BIOS](#bios)
+    - [Trucos RetroArch](#trucos-retroarch)
     - [Acceso al sistema](#acceso-al-sistema)
 - [Controles](#controles)
 - [Solución de problemas](#solución-de-problemas)
@@ -227,6 +228,30 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |MSX (fMSX)|bios/MSX2EXT.ROM| |`2183c2aff17cf4297bdb496de78c2e8a`|Sí para MSX2|
 |MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Sí para MSX2+|
 |MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Sí para MSX2+|
+
+#### Trucos RetroArch
+
+RetroArch lleva integrado un sistema de trucos en base a una serie de ficheros que se pueden obtener de [este repositorio](https://github.com/libretro/libretro-database/tree/master/cht). En la imagen, el directorio donde tenemos que colocar los ficheros, se ha redirigido a la tarjeta externa, al igual que con las ROMs y BIOS. En concreto al directorio `cheats` de la raíz de la tarjeta externa.
+
+Vamos a detallar el proceso utilizando como ejemplo el juego `Adventure Island` de Game Boy:
+
+1. Buscaremos el fichero correspondiente en el [repositorio](https://github.com/libretro/libretro-database/tree/master/cht). En concreto para este juego el fichero es [éste](https://github.com/libretro/libretro-database/blob/master/cht/Nintendo%20-%20Game%20Boy/Adventure%20Island%20(USA%2C%20Europe).cht).
+2. Lo copiaremos al directorio `cheats` en la raíz de la tarjeta EXT. En realidad lo más lógico es copiar colecciones completas de sistemas manteniendo la estructura de directorios que vemos en el repositorio.
+3. Una vez arrancada la consola con la tarjeta EXT en su lugar, abriremos el juego con RetroArch.
+4. Accedemos al menú de RetroArch (`Select + X` o `Power`).
+5. Seguimos la ruta: `Quick Menu > Cheats > Load Cheat File (Replace)`.
+6. Aparecerá un explorador de archivos que mostrará el contenido de la carpeta `cheats` de la tarjeta EXT. Localizamos el fichero correspondiente al juego y lo seleccionamos.
+
+    ![Cheats 1](images/cheats1.png)
+
+7. Volveremos a la pantalla de Cheats donde veremos que la parte inferior se ha cargado con los trucos. Allí podremos ajustar los que deseemos (el ajuste rápido se hace con las teclas izquierda/derecha de la cruceta).
+8. Finalmente aplicamos con `Apply Changes`.
+
+    ![Cheats 2](images/cheats2.png)
+
+9. Si queremos que los ajustes de trucos que hemos hecho se apliquen entre distintas sesiones de juego, tendremos que hacer un override para el juego.
+
+Instrucciones obtenidas de [esta guía](https://retrogamecorps.com/2020/12/24/guide-retroarch-on-rg350-and-rg280-devices/#Cheats) de Retro Game Corps.
 
 #### Acceso al sistema
 

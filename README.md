@@ -14,6 +14,7 @@
     - [ROMs](#roms)
     - [Previews](#previews)
     - [BIOS](#bios)
+    - [RetroArch cheats](#retroarch-cheats)
     - [System access](#system-access)
 - [Controls](#controls)
 - [Problem solving](#problem-solving)
@@ -227,6 +228,30 @@ The sizes and hashes indicated are from BIOS that have been proven functional, b
 |MSX (fMSX)|bios/MSX2EXT.ROM| |`2183c2aff17cf4297bdb496de78c2e8a`|Yes on MSX2|
 |MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Yes on MSX2+|
 |MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Yes on MSX2+|
+
+#### RetroArch cheats
+
+RetroArch has a built-in cheat system based on a series of files that can be obtained from [this repository](https://github.com/libretro/libretro-database/tree/master/cht). In the image, the directory where we have to place the files has been redirected to the EXT card, as with the ROMs and BIOS. Specifically to the `cheats` directory at the root of the EXT card.
+
+We are going to detail the process using the Game Boy game `Adventure Island` as an example:
+
+1. We will look for the corresponding file in the [repository](https://github.com/libretro/libretro-database/tree/master/cht). Specifically for this game the file is [this](https://github.com/libretro/libretro-database/blob/master/cht/Nintendo%20-%20Game%20Boy/Adventure%20Island%20(USA%2C%20Europe).cht).
+2. We will copy it to the `cheats` directory at the root of the EXT card. Actually, the most logical thing is to copy complete collections of systems, keeping the directory structure that we see in the repository.
+3. Once the console is booted with the EXT card in place, we will open the game with RetroArch.
+4. We access the RetroArch menu (`Select + X` or `Power`).
+5. We follow the route: `Quick Menu > Cheats > Load Cheat File (Replace)`.
+6. A file browser will appear showing the contents of the `cheats` folder on the EXT card. We locate the file corresponding to the game and select it.
+
+    ![Cheats 1](images/cheats1.png)
+
+7. We will return to the Cheats screen where we will see that the bottom part has been loaded with the cheats. There we can adjust the ones we want (quick adjustment is done with the left/right keys).
+8. Finally we select `Apply Changes`.
+
+    ![Cheats 2](images/cheats2.png)
+
+9. If we want the cheat settings we have made to apply between different game sessions, we will have to make an override to the game.
+
+More details on [this guide](https://retrogamecorps.com/2020/12/24/guide-retroarch-on-rg350-and-rg280-devices/#Cheats) by Retro Game Corps.
 
 #### System access
 
