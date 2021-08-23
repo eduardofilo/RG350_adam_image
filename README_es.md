@@ -45,6 +45,7 @@ La configuración está realizada en base a las siguientes piezas:
     * [FBA](https://github.com/plrguez/fba-sdl/releases/latest). Gracias a [plrguez](https://github.com/plrguez).
     * [JzIntv](https://github.com/eduardofilo/jzIntv/releases). Gracias a [DavidKnight247](https://github.com/DavidKnight247).
     * [PCSX4All](https://github.com/jdgleaver/RG350_pcsx4all/releases/latest). Gracias a [jdgleaver](https://github.com/jdgleaver).
+    * [PocketSNES](https://github.com/m45t3r/PocketSNES/releases/latest). Gracias a [m45t3r](https://github.com/m45t3r).
     * [ReGBA](https://github.com/jdgleaver/ReGBA/releases/latest). Gracias a [jdgleaver](https://github.com/jdgleaver).
     * [Tac08](https://0xcafed00d.itch.io/tac08-rg350). Gracias a [0xCAFED00D](https://itch.io/profile/0xcafed00d).
     * [VbEmu](https://gitlab.com/gameblabla/gameblabla-releases/-/blob/master/opk/gcw0/vbemu_gcw0.opk). Gracias a [gameblabla](https://gitlab.com/gameblabla).
