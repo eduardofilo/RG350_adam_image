@@ -14,7 +14,7 @@
     - [ROMs](#roms)
     - [Previews](#previews)
     - [BIOS](#bios)
-    - [Trucos RetroArch](#trucos-retroarch)
+    - [Trucos](#trucos)
     - [Acceso al sistema](#acceso-al-sistema)
 - [Controles](#controles)
 - [Solución de problemas](#solución-de-problemas)
@@ -230,7 +230,7 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Sí para MSX2+|
 |MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Sí para MSX2+|
 
-#### Trucos RetroArch
+#### Trucos
 
 RetroArch lleva integrado un sistema de trucos en base a una serie de ficheros que se pueden obtener de [este repositorio](https://github.com/libretro/libretro-database/tree/master/cht). En la imagen, el directorio donde tenemos que colocar los ficheros, se ha redirigido a la tarjeta externa, al igual que con las ROMs y BIOS. En concreto al directorio `cheats` de la raíz de la tarjeta externa.
 
@@ -253,6 +253,8 @@ Vamos a detallar el proceso utilizando como ejemplo el juego `Adventure Island` 
 9. Si queremos que los ajustes de trucos que hemos hecho se apliquen entre distintas sesiones de juego, tendremos que hacer un override para el juego.
 
 Instrucciones obtenidas de [esta guía](https://retrogamecorps.com/2020/12/24/guide-retroarch-on-rg350-and-rg280-devices/#Cheats) de Retro Game Corps.
+
+PCSX4All también soporta un sistema de trucos. Al igual que en RetroArch, el directorio donde tenemos que colocar los ficheros, se ha redirigido a la tarjeta externa. En concreto al directorio `cheats/PlayStation` de la raíz de la tarjeta externa. Hay que tener en cuenta que los trucos para PCSX4All no tienen el mismo formato que los que hay para `Sony - PlayStation` en el repositorio que hemos indicado antes para obtener trucos para RetroArch.
 
 #### Acceso al sistema
 

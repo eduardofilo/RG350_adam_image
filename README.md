@@ -14,7 +14,7 @@
     - [ROMs](#roms)
     - [Previews](#previews)
     - [BIOS](#bios)
-    - [RetroArch cheats](#retroarch-cheats)
+    - [Cheats](#cheats)
     - [System access](#system-access)
 - [Controls](#controls)
 - [Problem solving](#problem-solving)
@@ -230,7 +230,7 @@ The sizes and hashes indicated are from BIOS that have been proven functional, b
 |MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Yes on MSX2+|
 |MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Yes on MSX2+|
 
-#### RetroArch cheats
+#### Cheats
 
 RetroArch has a built-in cheat system based on a series of files that can be obtained from [this repository](https://github.com/libretro/libretro-database/tree/master/cht). In the image, the directory where we have to place the files has been redirected to the EXT card, as with the ROMs and BIOS. Specifically to the `cheats` directory at the root of the EXT card.
 
@@ -253,6 +253,8 @@ We are going to detail the process using the Game Boy game `Adventure Island` as
 9. If we want the cheat settings we have made to apply between different game sessions, we will have to make an override to the game.
 
 More details on [this guide](https://retrogamecorps.com/2020/12/24/guide-retroarch-on-rg350-and-rg280-devices/#Cheats) by Retro Game Corps.
+
+PCSX4All also supports a cheat system. As in RetroArch, the directory where we have to place the files has been redirected to the external card. Specifically to the `cheats/PlayStation` directory at the root of the external card. Keep in mind that the cheats for PCSX4All do not have the same format as those for `Sony - PlayStation` in the repository that we have indicated before to get cheats for RetroArch.
 
 #### System access
 
