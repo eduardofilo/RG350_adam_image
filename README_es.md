@@ -124,6 +124,8 @@ En Linux se puede hacer ejecutando el siguiente comando desde un terminal (en el
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
+Si tienes un Mac, no puedo ayudarte, pero echa un vistazo a los comentarios de [brunns](https://github.com/brunns) en la issue #8 de este repositorio.
+
 #### ROMs
 
 El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas donde tratará de localizar las ROMs y previsualizaciones de las mismas. Dichas rutas serán creadas en la tarjeta EXT cada vez que arranque el sistema (si no existen). Este proceso sólo funcionará si como decíamos en el apartado anterior, el formato de la tarjeta es FAT32 y **NO** tiene label. Si no queremos modificar la configuración de SimpleMenu, habrá que atenerse a estas rutas. En la tabla que hay más abajo, se indica en la segunda columna el nombre del directorio que tendrá que existir en la tarjeta externa cuando la montamos en el PC. Por ejemplo en el pantallazo siguiente está señalado el directorio de ROMs del sistema Game Boy, que como vemos se encuentra junto a todos los demás dentro de la carpeta `roms` en la raíz de la tarjeta.
