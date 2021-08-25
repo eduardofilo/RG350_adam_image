@@ -289,22 +289,20 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |OpenDingux|A (durante el arranque)|Muestra la salida de los scripts de arranque en lugar del logo de boot|
 |SimpleMenu|Start|Abre la pantalla de ajustes|
 |SimpleMenu|Select|Opciones de ROM. Permite seleccionar autoarranque, emulador (si se han definido varios en el sistema) y overclocking|
-|SimpleMenu|Up|Seleccionar juego anterior|
-|SimpleMenu|Down|Seleccionar juego siguiente|
-|SimpleMenu|Left|Salta a la página siguiente de juegos|
-|SimpleMenu|Right|Salta a la página anterior de juegos|
-|SimpleMenu|L1|Cambia al sistema anterior|
-|SimpleMenu|R1|Cambia al sistema siguiente|
-|SimpleMenu|L2|Abre la selección de Favoritos|
+|SimpleMenu|Up|Seleccionar juego/sección/grupo anterior|
+|SimpleMenu|Down|Seleccionar juego/sección/grupo siguiente|
+|SimpleMenu|Left|Salta a la página siguiente de la sección actual|
+|SimpleMenu|Right|Salta a la página anterior de la sección actual|
+|SimpleMenu|R1|Alterna entre la lista de juegos o el modo pantalla completa|
 |SimpleMenu|R2|Refresca la lista de juegos del sisema actual (en caso de haber añadido juegos nuevos con el frontend en ejecución)|
 |SimpleMenu|A|Abre el juego o aplicación seleccionado|
-|SimpleMenu|Y|Alterna entre la lista de juegos o el modo pantalla completa|
 |SimpleMenu|X|En los listados de juegos, marca el seleccionado como favorito; en la vista de Favoritos borra el juego de la lista|
-|SimpleMenu|B|En pulsación corta cambia al modo de selección de secciones; en pulsación larga permite las siguientes combinaciones de teclas|
-|SimpleMenu|B + Up|Desplaza el listado de juegos a la letra anterior|
-|SimpleMenu|B + Down|Desplaza el listado de juegos a la letra siguiente|
-|SimpleMenu|B + Left|Cambia al sistema anterior sin mostrar el logo|
-|SimpleMenu|B + Right|Cambia al sistema siguiente sin mostrar el logo|
+|SimpleMenu|Y|Abre la selección de Favoritos|
+|SimpleMenu|B|En pulsación corta vuelve atrás; en pulsación larga permite las siguientes combinaciones de teclas|
+|SimpleMenu|B + Left|Desplaza el listado de juegos a la letra anterior|
+|SimpleMenu|B + Right|Desplaza el listado de juegos a la letra siguiente|
+|SimpleMenu|B + Up|Cambia al sistema anterior sin mostrar el logo|
+|SimpleMenu|B + Down|Cambia al sistema siguiente sin mostrar el logo|
 |SimpleMenu|B + Select|Abre un juego aleatorio del sistema actual|
 |SimpleMenu|B + X|Borra el juego actual **SIN PEDIR CONFIRMACIÓN**; no funciona en las secciines Favoritos, Apps o Games|
 |SimpleMenu|B + A|Lanza el emulador sin pasar un juego como parámetro, si el emulador soporta ser abierto de manera independiente (por ejemplo con FBA permite abrir la interfaz UX)|

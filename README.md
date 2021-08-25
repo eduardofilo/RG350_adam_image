@@ -288,23 +288,21 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |OpenDingux|POWER + X|take screenshot (on ~/screenshots)|
 |OpenDingux|A (while powering on)|It'll skip the logo and show the output of the init scripts|
 |SimpleMenu|Start|Brings up the Settings screen|
-|SimpleMenu|Select|Rom options. Let's you select autolaunch, emulator (if multiple emulators are defined for the selected section) and overclocking|
-|SimpleMenu|Up|Selects the previous game|
-|SimpleMenu|Down|Selects the next game|
+|SimpleMenu|Select|ROM options. Let's you select autolaunch, emulator (if multiple emulators are defined for the selected section) and overclocking|
+|SimpleMenu|Up|Selects the previous game/section/group|
+|SimpleMenu|Down|Selects the next game/section/group|
 |SimpleMenu|Left|Skips to the previous page in the current section|
 |SimpleMenu|Right|Skips to the next page in the current section|
-|SimpleMenu|L1|Switches to the previous section|
-|SimpleMenu|R1|Switches to the next section|
-|SimpleMenu|L2|Goes to the favorites section|
+|SimpleMenu|R1|Switches between menu and fullscreen mode|
 |SimpleMenu|R2|Refreshes the current section (in case you added some ROMs while the menu is running)|
 |SimpleMenu|A|Launches a game/program|
-|SimpleMenu|Y|Switches between menu and fullscreen mode|
 |SimpleMenu|X|On regular sections, marks a game as a favorite, on the favorites section, it takes it off from the favorites list|
-|SimpleMenu|B|If pressed and released, it takes you to the section group selection screen. If pressed and held, it acts as a hotkey to be combined with other keys|
-|SimpleMenu|B + Up|Skips to the previous letter|
-|SimpleMenu|B + Down|Skips to the next letter|
-|SimpleMenu|B + Left|Goes to the previous section, without showing the logo|
-|SimpleMenu|B + Right|Goes to the next section, without showing the logo|
+|SimpleMenu|Y|Goes to the favorites section|
+|SimpleMenu|B|If pressed and released, it takes you one screen back. If pressed and held, it acts as a hotkey to be combined with other keys|
+|SimpleMenu|B + Left|Skips to the previous letter|
+|SimpleMenu|B + Right|Skips to the next letter|
+|SimpleMenu|B + Up|Goes to the previous section, without showing the logo|
+|SimpleMenu|B + Down|Goes to the next section, without showing the logo|
 |SimpleMenu|B + Select|Random select|
 |SimpleMenu|B + X|Deletes the selected rom **WITHOUT ASKING FOR CONFIRMATION**. Doesn't work on the favorites section or in the Apps and Games section|
 |SimpleMenu|B + A|Launches the emulator itself instead of a rom, if it supports to be run as a standalone application|
