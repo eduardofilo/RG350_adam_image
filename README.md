@@ -25,7 +25,7 @@
 
 ## Introduction
 
-Internal card setup (INT slot) for RG350 and RG280 consoles. Result of a collaboration project of Team RParadise formed by:
+Internal card setup (INT slot) for RG350, RG280, RG300X, PlayGo and PocketGo2 consoles. Result of a collaboration project of Team RParadise formed by:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardófilo](https://apuntes.eduardofilo.es/)

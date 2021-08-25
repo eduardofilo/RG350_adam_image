@@ -25,7 +25,7 @@
 
 ## Introducción
 
-Configuración de tarjeta interna (ranura INT) para consolas RG350 y RG280. Resultado de un proyecto de colaboración del Team RParadise formado por:
+Configuración de tarjeta interna (ranura INT) para consolas RG350, RG280, RG300X, PlayGo y PocketGo2. Resultado de un proyecto de colaboración del Team RParadise formado por:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardófilo](https://apuntes.eduardofilo.es/)
