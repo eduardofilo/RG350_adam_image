@@ -267,9 +267,14 @@ Once the card with the system (INT) and the contents (EXT) have been inserted in
 ssh od@10.1.1.2
 ```
 
-The default password for user `od` is also `od`.
+By default, SSH access is configured without a password.
+
+![Network access 1](images/network_access1.png)
 
 By default the image is configured to make use of this SSH access in RNDIS mode through the USB cable, although with `USB Mode` application that is in the` settings` section of GMenu2X (it will therefore be necessary to deactivate momentarily SimpleMenu as default frontend), we can switch to `Mass Storage` or MTP mode.
+
+![Network access 2](images/network_access2.png)
+![Network access 3](images/network_access3.png)
 
 ## Controls
 
