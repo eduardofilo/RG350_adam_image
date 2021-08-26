@@ -417,6 +417,10 @@ En xMAME la opción FPS se activa/desactiva en cualquier momento pulsando `Start
 
 A: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. Puedes usar [Py Backup](https://github.com/eduardofilo/RG350_py_backup#usage) para transferir savestates y configuraciones entre la instalación vieja y la nueva.
 
+**Q: ¿Hay algún indicador del nivel de batería?**
+
+A: Desde la versión v1.1, SimpleMenu muestra el nivel de batería en algunos themes (0A and SimUI). También se muestra un indicador de batería cuando se está ejecutando RetroArch y se entra en el menú (`Power` or `Select + X`). Por último, se puede salir a GMenu2X desde SimpleMenu cambiando la opción `Default launcher` a `no` y seleccionando después `Session: quit`.
+
 ## Canal Telegram para comunicar actualizaciones
 
 Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image
