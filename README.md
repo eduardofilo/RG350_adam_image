@@ -426,6 +426,10 @@ A: I'm sorry. At the moment only the flashing method is available. In the past w
 
 A: Since version v1.1, SimpleMenu shows battery level on some themes (0A and SimUI). You have also battery level when running RetroArch and entering in the menu (`Power` or `Select + X`). At last, you can exit to GMenu2X from SimpleMenu changing `Default launcher` option to `no` and then selecting `Session: quit`.
 
+**Q: Why are the override settings in RetroArch not preserved?**
+
+A: The key in this topic is to understand well the three levels of overrides that exists. If you change a setting and override it at the core level, but then there is an override on the same setting at the content level, the first will not be applied because the second takes precedence. [This guide](https://docs.libretro.com/guides/overrides/) is valuable.
+
 ## Telegram channel for updates
 
 Join this Telegram channel to get update notifications: https://t.me/adam_image

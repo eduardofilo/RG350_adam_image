@@ -426,6 +426,10 @@ A: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, 
 
 A: Desde la versión v1.1, SimpleMenu muestra el nivel de batería en algunos themes (0A and SimUI). También se muestra un indicador de batería cuando se está ejecutando RetroArch y se entra en el menú (`Power` or `Select + X`). Por último, se puede salir a GMenu2X desde SimpleMenu cambiando la opción `Default launcher` a `no` y seleccionando después `Session: quit`.
 
+**Q: ¿Por qué no se conservan los overrides de ajustes en RetroArch?**
+
+A: La clave en este tema es comprender bien los tres niveles de overrides que existen. Si se cambia un ajuste y se hace override a nivel de core, pero luego existe un override del mismo ajuste a novel de contenidos, el primero no se aplicará porque el segundo tiene prioridad. [Esta guía](https://docs.libretro.com/guides/overrides/) es muy útil.
+
 ## Canal Telegram para comunicar actualizaciones
 
 Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image
