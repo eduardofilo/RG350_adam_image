@@ -413,7 +413,7 @@ En xMAME la opción FPS se activa/desactiva en cualquier momento pulsando `Start
 
 ## FAQ
 
-**Q: ¿Tengo que volver a flashear con cada nueva imagen? ¿No existe un OPK para una actualización más ágil?
+**Q: ¿Tengo que volver a flashear con cada nueva imagen? ¿No existe un OPK para una actualización más ágil?**
 
 A: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. Puedes usar [Py Backup](https://github.com/eduardofilo/RG350_py_backup#usage) para transferir savestates y configuraciones entre la instalación vieja y la nueva.
 
