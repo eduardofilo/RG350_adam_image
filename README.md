@@ -21,6 +21,7 @@
     - [Unsupported video mode](#unsupported-video-mode)
     - [RetroArch force closing](#retroarch-force-closing)
     - [Emulator selection](#emulator-selection)
+- [FAQ](#faq)
 - [Telegram channel for updates](#telegram-channel-for-updates)
 
 ## Introduction
@@ -409,6 +410,12 @@ Another situation in which we should change the emulator option is when the game
 To deactivate it, we will proceed in the same way but deactivating the option in step 5.
 
 In xMAME the FPS option is activated/deactivated at any time by pressing `Start + R1`. In FBA the shortcut is `L1 + R1 + Y`.
+
+## FAQ
+
+**Q: Should I reflash again with any new image? Perhaps you have an OPK for a more streamlined update?
+
+A: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. You can use [Py Backup](https://github.com/eduardofilo/RG350_py_backup#usage) to transfer savestates and configurations between old and new installations.
 
 ## Telegram channel for updates
 
