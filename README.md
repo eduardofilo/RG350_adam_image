@@ -125,7 +125,7 @@ In Linux it can be done by executing the following command from a terminal (in t
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-If you have a Mac, I can't help you, but take a look at the comments by [brunns](https://github.com/brunns) on issue #8 of this repository.
+If you have a Mac, take a look at the comments in [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) of this repository. There are a pair of solutions, the easiest being to use [SD Card Formatter tool](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-mac-download/).
 
 #### ROMs
 
