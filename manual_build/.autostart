@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# author MashTec
+# modified by FGL82
+
+if [ -f /media/data/apps/SimpleMenu-OD-BETA.opk ]; then
+    /usr/bin/opkrun -m default.gcw0.desktop /media/data/apps/SimpleMenu-OD-BETA.opk
+elif [ -f /media/sdcard/apps/SimpleMenu-OD-BETA.opk ]; then
+    /usr/bin/opkrun -m default.gcw0.desktop /media/sdcard/apps/SimpleMenu-OD-BETA.opk
+elif [ -f /media/sdcard/APPS/SimpleMenu-OD-BETA.opk ]; then
+    /usr/bin/opkrun -m default.gcw0.desktop /media/sdcard/APPS/SimpleMenu-OD-BETA.opk
+else
+    /usr/bin/gmenu2x
+fi
