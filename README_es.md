@@ -267,7 +267,7 @@ Una vez que la tarjeta con el sistema (INT) y con los contenidos (EXT) han sido 
 ssh od@10.1.1.2
 ```
 
-Por defecto el acceso SSH está configurado sin password.
+El password del usuario `od` es también `od`, pero al acceder por SSH no se pide por la configuración hecha con la aplicación `Password` (sólo accesible desde GMenu2X en la sección `settings`).
 
 ![Network access 1](images/network_access1.png)
 

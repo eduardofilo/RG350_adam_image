@@ -267,7 +267,7 @@ Once the card with the system (INT) and the contents (EXT) have been inserted in
 ssh od@10.1.1.2
 ```
 
-By default, SSH access is configured without a password.
+The password of user `od` is also` od`, but when accessing by SSH it is not requested by the configuration made with the `Password` application (only accessible from GMenu2X in the `settings` section).
 
 ![Network access 1](images/network_access1.png)
 
