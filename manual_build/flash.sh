@@ -6,7 +6,7 @@ if [ $# -ne 1 ] ; then
 fi
 
 sudo umount /dev/mmcblk0p*
-gunzip adan_v${1}.img.gz -c | sudo dd of=/dev/mmcblk0 bs=2M status=progress conv=fsync
+gunzip releases/adan_v${1}.img.gz -c | sudo dd of=/dev/mmcblk0 bs=2M status=progress conv=fsync
 
 sudo sync
 
