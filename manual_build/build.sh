@@ -4,7 +4,15 @@
 P1_MOUNTING_POINT=/media/edumoreno/E556-AAD5
 P2_MOUNTING_POINT=/media/edumoreno/07ce62be-aa5c-7740-9129-de5763f111e0
 ODBETA_VERSION=2021-08-25
+ZERO_FILL=true
+INSTALL_ODBETA_MODS=true
 # END PARAMETER ZONE
+
+
+DIRECTORY=$(pwd)
+ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
+ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
+
 
 if [ $# -ne 1 ] ; then
     echo -e "usage: ./build.sh <v>\n  <v>: version; e.g. 1.1"
@@ -20,14 +28,6 @@ if [ ! -d ${P2_MOUNTING_POINT} ] ; then
     echo -e "P2 must be mounted in ${P2_MOUNTING_POINT} and not detected, so exiting."
     exit 1
 fi
-
-DIRECTORY=$(pwd)
-ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
-ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
-
-ZERO_FILL=true
-INSTALL_ODBETA_MODS=true
-
 
 if [ ${INSTALL_ODBETA_MODS} = true ] ; then
     if [ ! -f ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} ] ; then
