@@ -101,9 +101,15 @@ El procedimiento anterior se puede repetir para cambiar a otro modelo de consola
 
 La partición 2 contenida en el fichero de imagen, tiene unos 3,5GB (por eso se puede flashear sin problemas en tarjetas a partir de 4GB de capacidad). Durante el primer arranque, esta partición se expandirá hasta ocupar todo el espacio disponible en la tarjeta.
 
+**ADVERTENCIA**: Aunque en las instrucciones anteriores, aparece PlayGo / PocketGo2 v1 como consolas soportadas, varios usuarios han comprobado que dicho soporte es incorrecto, por lo que será retirado en futuras versiones.
+
 En la primera parte de este vídeo del compañero [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ) podemos ver el proceso de instalación:
 
 [![Ver vídeo](https://img.youtube.com/vi/NCfoqQ5-Ll8/hqdefault.jpg)](https://www.youtube.com/watch?v=NCfoqQ5-Ll8 "Ver vídeo")
+
+Aquí otro vídeo del compañero [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA):
+
+[![Ver vídeo](https://img.youtube.com/vi/wgyaeOCvzKI/hqdefault.jpg)](https://www.youtube.com/watch?v=wgyaeOCvzKI "Ver vídeo")
 
 ## Instalación de contenidos
 
