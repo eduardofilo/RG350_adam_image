@@ -101,8 +101,6 @@ The above procedure can be repeated to change to another console model at any ti
 
 Partition 2 contained in the image file has about 3.5GB (so it can be flashed without problems on cards with a capacity of 4GB or greater). During the first boot, this partition will expand to occupy all available space on the card.
 
-**WARNING**: Although in the previous instructions, PlayGo / PocketGo2 v1 appear as supported consoles, several users have verified that this support is incorrect, so it will be withdrawn in future versions.
-
 In the first part of this video from [Retro Game Corps](https://www.youtube.com/channel/UCoZQiN0o7f36H7PaW4fVhFw) we can see the installation process:
 
 [![See video](https://img.youtube.com/vi/kdIdiQ-dO_Y/hqdefault.jpg)](https://www.youtube.com/watch?v=kdIdiQ-dO_Y "See video")
@@ -438,7 +436,7 @@ A4: Just delete `/media/data/local/home/.retroarch/config` directory and `/media
 
 **Q5: Does the console's HDMI output work?**
 
-A5: Yes. To activate it, you have to connect it before booting, i.e., turn on the console with the cable in place. If it doesn't work on a first boot, just reboot. In my tests it has always worked from the second reboot. 
+A5: Yes. To activate it, you have to connect it before booting, i.e., turn on the console with the cable in place. If it doesn't work on a first boot, just reboot. In my tests it has always worked from the second reboot.
 
 ## Telegram channel for updates
 

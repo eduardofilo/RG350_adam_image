@@ -60,7 +60,7 @@ if [ ${INSTALL_ODBETA_MODS} = true ] ; then
     cat uzImage.bin rg280v.dtb > ${P1_MOUNTING_POINT}/rg280v/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg280v/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg280v/uzImage.bin.sha1
     cat uzImage.bin rg350.dtb > ${P1_MOUNTING_POINT}/rg350/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg350/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg350/uzImage.bin.sha1
     cat uzImage.bin rg350m.dtb > ${P1_MOUNTING_POINT}/rg350m/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg350m/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg350m/uzImage.bin.sha1
-    cat uzImage.bin playgo.dtb > ${P1_MOUNTING_POINT}/playgo/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/playgo/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/playgo/uzImage.bin.sha1
+    cat uzImage.bin pocketgo2v2.dtb > ${P1_MOUNTING_POINT}/pocketgo2v2/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/pocketgo2v2/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/pocketgo2v2/uzImage.bin.sha1
     cat uzImage.bin rg300x.dtb > ${P1_MOUNTING_POINT}/rg300x/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg300x/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg300x/uzImage.bin.sha1
 
     sudo rm -rf ${DIRECTORY}/select_kernel/squashfs-root

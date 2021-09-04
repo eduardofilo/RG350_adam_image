@@ -12,7 +12,7 @@ DIR=""
 while [[ $DIR == "" ]]
 do
     # Ask for console model
-    result=$(dialog --stdout --nocancel --title "Select model" --menu "$TEXT" 0 0 0 1 "RG280V" 2 "RG280M" 3 "RG350/P / PocketGo2 v2" 4 "RG350M" 5 "PlayGo / PocketGo2 v1" 6 "RG300X")
+    result=$(dialog --stdout --nocancel --title "Select model" --menu "$TEXT" 0 0 0 1 "RG280V" 2 "RG280M" 3 "RG350/P" 4 "RG350M" 5 "PocketGo2 v2" 6 "RG300X")
 
     case $result in
       1)
@@ -32,7 +32,7 @@ do
         ;;
 
       5)
-        DIR="playgo"
+        DIR="pocketgo2v2"
         ;;
 
       6)
@@ -53,4 +53,3 @@ clear
 dialog --msgbox "Modification completed!\n\nNow eject the card safelly from your computer and insert in your ${DIR}." 16 0
 
 clear
-

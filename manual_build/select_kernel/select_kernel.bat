@@ -1,11 +1,11 @@
 @echo off
 
-:again 
+:again
    echo     1: RG280V
    echo     2: RG280M
-   echo     3: RG350/P / PocketGo2 v2
+   echo     3: RG350/P
    echo     4: RG350M
-   echo     5: PlayGo / PocketGo2 v1
+   echo     5: PocketGo2 v2
    echo     6: RG300X
    set /p answer=Select your console model:
    if /i "%answer:~,1%" EQU "1" (
@@ -25,7 +25,7 @@
 	goto install_kernel
    )
    if /i "%answer:~,1%" EQU "5" (
-    set dir=playgo
+    set dir=pocketgo2v2
 	goto install_kernel
    )
    if /i "%answer:~,1%" EQU "6" (
