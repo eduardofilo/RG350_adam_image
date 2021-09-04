@@ -420,17 +420,21 @@ In xMAME the FPS option is activated/deactivated at any time by pressing `Start 
 
 ## FAQ
 
-**Q: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?**
+**Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?**
 
-A: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. You can use [Py Backup](https://github.com/eduardofilo/RG350_py_backup#usage) to transfer savestates and configurations between old and new installations.
+A1: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. You can use [Py Backup](https://github.com/eduardofilo/RG350_py_backup#usage) to transfer savestates and configurations between old and new installations.
 
-**Q: Is there a battery level indicator?**
+**Q2: Is there a battery level indicator?**
 
-A: Since version v1.1, SimpleMenu shows battery level on some themes (0A and SimUI). You have also battery level when running RetroArch and entering in the menu (`Power` or `Select + X`). At last, you can exit to GMenu2X from SimpleMenu changing `Default launcher` option to `no` and then selecting `Session: quit`.
+A2: Since version v1.1, SimpleMenu shows battery level on some themes (0A and SimUI). You have also battery level when running RetroArch and entering in the menu (`Power` or `Select + X`). At last, you can exit to GMenu2X from SimpleMenu changing `Default launcher` option to `no` and then selecting `Session: quit`.
 
-**Q: Why are the override settings in RetroArch not preserved?**
+**Q3: Why are the override settings in RetroArch not preserved?**
 
-A: The key in this topic is to understand well the three levels of overrides that exists. If you change a setting and override it at the core level, but then there is an override on the same setting at the content level, the first will not be applied because the second takes precedence. [This guide](https://docs.libretro.com/guides/overrides/) is valuable.
+A3: The key in this topic is to understand well the three levels of overrides that exists. If you change a setting and override it at the core level, but then there is an override on the same setting at the content level, the first will not be applied because the second takes precedence. [This guide](https://docs.libretro.com/guides/overrides/) is valuable.
+
+**Q4: How can I reset the RetroArch configuration so that I can mount my own overrides without being affected by the ones in the image?**
+
+A4: Just delete `/media/data/local/home/.retroarch/config` directory and `/media/data/local/home/.retroarch/retroarch.cfg` file.
 
 ## Telegram channel for updates
 
