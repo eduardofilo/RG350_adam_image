@@ -154,8 +154,8 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |Nintendo Virtual Boy|roms/VB|vb, vboy, bin, zip, 7z|
 |SEGA SG-1000|roms/SG1000|zip, sg, 7z|
 |SEGA Master System|roms/SMS|zip, sms, 7z|
-|SEGA Megadrive|roms/MD|zip, bin, smd, md, 7z|
-|SEGA CD|roms/SEGACD|bin, chd, 7z, zip|
+|SEGA Megadrive|roms/MD|zip, bin, smd, md, mdx, gen, 7z|
+|SEGA CD|roms/SEGACD|bin, chd, cue|
 |SEGA 32X|roms/32X|zip, 32x, 7z|
 |Atari 2600|roms/A2600|bin, a26, 7z, zip|
 |Atari 5200|roms/A5200|bin, a52, 7z, zip|
