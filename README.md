@@ -436,6 +436,10 @@ A3: The key in this topic is to understand well the three levels of overrides th
 
 A4: Just delete `/media/data/local/home/.retroarch/config` directory and `/media/data/local/home/.retroarch/retroarch.cfg` file.
 
+**Q5: Does the console's HDMI output work?**
+
+A5: Yes. To activate it, you have to connect it before booting, i.e., turn on the console with the cable in place. If it doesn't work on a first boot, just reboot. In my tests it has always worked from the second reboot. 
+
 ## Telegram channel for updates
 
 Join this Telegram channel to get update notifications: https://t.me/adam_image

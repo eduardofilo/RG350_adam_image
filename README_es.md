@@ -440,6 +440,10 @@ A3: La clave en este tema es comprender bien los tres niveles de overrides que e
 
 A4: Sólo hay que borrar el directorio `/media/data/local/home/.retroarch/config` y el fichero `/media/data/local/home/.retroarch/retroarch.cfg`.
 
+**Q5: ¿Funciona la salida HDMI de la consola?**
+
+A5: Sí. Para activarla hay que conectarla antes de arrancar, es decir encender la consola con el cable puesto. Si no funciona en un primer arranque, reiniciar. En mis pruebas ha funcionado siempre a partir del segundo reinicio.
+
 ## Canal Telegram para comunicar actualizaciones
 
 Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image
