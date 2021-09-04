@@ -26,7 +26,7 @@
 
 ## Introduction
 
-Internal card setup (INT slot) for RG350, RG280, RG300X, PlayGo and PocketGo2 consoles. Result of a collaboration project of Team RParadise formed by:
+Internal card (INT slot) setup for Ingenic JZ4770 chip-based portable emulation consoles (specifically those mentioned in the description of [this commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), i.e. RG350, RG280, RG300X, PlayGo and PlayGoPocketGo2 consoles. Result of a collaboration project of Team RParadise formed by:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardófilo](https://apuntes.eduardofilo.es/)
@@ -269,7 +269,7 @@ Once the card with the system (INT) and the contents (EXT) have been inserted in
 ssh od@10.1.1.2
 ```
 
-The password of user `od` is also` od`, but when accessing by SSH it is not requested by the configuration made with the `Password` application (only accessible from GMenu2X in the `settings` section).
+El password del usuario `od` es `untoqebboqvboqudrn`. If you want to change or disable it, you must use the `Password` application (only accessible from GMenu2X in the `settings` section).
 
 ![Network access 1](images/network_access1.png)
 

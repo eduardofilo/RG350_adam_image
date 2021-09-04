@@ -26,7 +26,7 @@
 
 ## Introducción
 
-Configuración de tarjeta interna (ranura INT) para consolas RG350, RG280, RG300X, PlayGo y PocketGo2. Resultado de un proyecto de colaboración del Team RParadise formado por:
+Configuración de tarjeta interna (ranura INT) para consolas portátiles de emulación basadas en chip Ingenic JZ4770 (concretamente las que se mencionan en la descripción de [este commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), es decir RG350, RG280, RG300X, PlayGo y PlayGo/PocketGo2. Resultado de un proyecto de colaboración del Team RParadise formado por:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardófilo](https://apuntes.eduardofilo.es/)
@@ -273,7 +273,7 @@ Una vez que la tarjeta con el sistema (INT) y con los contenidos (EXT) han sido 
 ssh od@10.1.1.2
 ```
 
-El password del usuario `od` es también `od`, pero al acceder por SSH no se pide por la configuración hecha con la aplicación `Password` (sólo accesible desde GMenu2X en la sección `settings`).
+El password del usuario `od` es `untoqebboqvboqudrn`. Si se quiere cambiar o desactivar, hay que utilizar la aplicación `Password` (sólo accesible desde GMenu2X en la sección `settings`).
 
 ![Network access 1](images/network_access1.png)
 

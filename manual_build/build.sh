@@ -54,7 +54,7 @@ if [ ${INSTALL_ODBETA_MODS} = true ] ; then
     cp modules.squashfs.sha1 ${P1_MOUNTING_POINT}
     cp ${DIRECTORY}/select_kernel/select_kernel.bat ${P1_MOUNTING_POINT}
     cp ${DIRECTORY}/select_kernel/select_kernel.sh ${P1_MOUNTING_POINT}
-    
+
     echo "Generating kernels"
     cat uzImage.bin rg280m.dtb > ${P1_MOUNTING_POINT}/rg280m/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg280m/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg280m/uzImage.bin.sha1
     cat uzImage.bin rg280v.dtb > ${P1_MOUNTING_POINT}/rg280v/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg280v/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg280v/uzImage.bin.sha1
@@ -62,7 +62,7 @@ if [ ${INSTALL_ODBETA_MODS} = true ] ; then
     cat uzImage.bin rg350m.dtb > ${P1_MOUNTING_POINT}/rg350m/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg350m/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg350m/uzImage.bin.sha1
     cat uzImage.bin playgo.dtb > ${P1_MOUNTING_POINT}/playgo/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/playgo/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/playgo/uzImage.bin.sha1
     cat uzImage.bin rg300x.dtb > ${P1_MOUNTING_POINT}/rg300x/uzImage.bin && sha1sum ${P1_MOUNTING_POINT}/rg300x/uzImage.bin | awk '{ print $1 }'>${P1_MOUNTING_POINT}/rg300x/uzImage.bin.sha1
-    
+
     sudo rm -rf ${DIRECTORY}/select_kernel/squashfs-root
 fi
 
@@ -111,12 +111,17 @@ sudo rm ${P2_MOUNTING_POINT}/local/home/.sm64-port/sm64_save_file.bin 2> /dev/nu
 echo "Putting up version file flag"
 echo ${1} | sudo tee ${P2_MOUNTING_POINT}/adam_version.txt > /dev/null
 
+echo "Changing shadow file"
+sudo cp shadow_with_pwd ${P2_MOUNTING_POINT}/local/etc/shadow
+sudo chown 0:0 ${P2_MOUNTING_POINT}/local/etc/shadow
+sudo chmod 600 ${P2_MOUNTING_POINT}/local/etc/shadow
+
 echo "Setting up first boot"
 sudo touch ${P2_MOUNTING_POINT}/.resize_me
 sudo cp .autostart ${P2_MOUNTING_POINT}/local/home/
-sudo chown 1000:users ${P2_MOUNTING_POINT}/local/home/.autostart
+sudo chown 1000:100 ${P2_MOUNTING_POINT}/local/home/.autostart
 sudo cp last_state.sav ${P2_MOUNTING_POINT}/local/home/.simplemenu
-sudo chown 1000:users ${P2_MOUNTING_POINT}/local/home/.simplemenu/last_state.sav
+sudo chown 1000:100 ${P2_MOUNTING_POINT}/local/home/.simplemenu/last_state.sav
 
 if [ ${ZERO_FILL} = true ] ; then
     echo "Filling P1 with zeros"
@@ -143,11 +148,14 @@ sudo umount /dev/mmcblk0p1
 sudo sync
 sleep 1
 
-echo "Erasing .resize_me"
+echo "Erasing .resize_me and changing shadow"
 sudo mount -t ext4 /dev/mmcblk0p2 temp_mnt
 sync
 sleep 1
 sudo rm temp_mnt/.resize_me
+sudo cp shadow_without_pwd temp_mnt/local/etc/shadow
+sudo chown 0:0 temp_mnt/local/etc/shadow
+sudo chmod 600 temp_mnt/local/etc/shadow
 sudo sync
 sleep 1
 sudo umount /dev/mmcblk0p2
