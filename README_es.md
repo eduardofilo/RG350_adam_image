@@ -155,9 +155,9 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |SEGA Megadrive|roms/MD|zip, bin, smd, md, mdx, gen, 7z|
 |SEGA CD|roms/SEGACD|bin, chd, cue|
 |SEGA 32X|roms/32X|zip, 32x, 7z|
-|Atari 2600|roms/A2600|bin, a26, 7z, zip|
-|Atari 5200|roms/A5200|bin, a52, 7z, zip|
-|Atari 7800|roms/A7800|bin, a78, 7z, zip|
+|Atari 2600|roms/A2600|bin, a26, zip, 7z|
+|Atari 5200|roms/A5200|bin, a52, zip, 7z|
+|Atari 7800|roms/A7800|bin, a78, zip, 7z|
 |Inteillivision|roms/INTELLI|int|
 |ColecoVision|roms/COLECO|rom, col|
 |SNK Neo Geo|roms/NEOGEO|zip, 7z|
@@ -318,7 +318,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |SimpleMenu|B + A|Lanza el emulador sin pasar un juego como parámetro, si el emulador soporta ser abierto de manera independiente (por ejemplo con FBA permite abrir la interfaz UX)|
 |RetroArch|Select + A|Pausa|
 |RetroArch|Select + B|Reset|
-|RetroArch|Select + X o Power|Menú RetroArch|
+|RetroArch|Select + X o Power|Menú RetroArch. En algunos cores (G&W por ejemplo) el atajo `Select + X` colisiona con los atajos propios del core; utilizar `Power` en ese caso|
 |RetroArch|Select + Y|Avance rápido|
 |RetroArch|Select + R1|Guardar savestate|
 |RetroArch|Select + L1|Cargar savestate|
@@ -357,7 +357,7 @@ Algunos cores de RetroArch muestran la siguiente pantalla de error al trabajar e
 
 ![Unsupported video mode 1](images/unsupported_video1.png)
 
-En este caso proceder como sigue:
+Estos casos se suelen solucionar activando algún filtro y jugando con las opciones de scaling de vídeo. Uno de los filtros que suele dar buen resultado es: `Upscale_256x-320x240`. El procedimiento completo para realizar estos cambios sería:
 
 1. Abrir menú RetroArch (`Select + X`).
 2. Ir a `Main Menu > Settings > Video > Scaling` y marcar las opciones `Integer Scale` y `Keep Aspect Ratio`.
@@ -419,6 +419,8 @@ Otra situación en las que nos conviene cambiar es cuando el juego se ejecuta le
 Para desactivarlo procederemos de la misma forma pero desactivando la opción del paso 5.
 
 En xMAME la opción FPS se activa/desactiva en cualquier momento pulsando `Start + R1`. En FBA la combinación es `L1 + R1 + Y`.
+
+Un caso especial es el del sistema CPS. En esta imagen se ha optado por juntar en un mismo sistema los CPS1 y CPS2 (no hay core de RetroArch para CPS3 y en general es un sistema para el que las máquinas que pueden utilizar esta imagen no tienen potencia suficiente). Se ha preferido hacerlo así por el reducido número de juegos de ambos sistemas y por las facilidades que ofrece SimpleMenu para seleccionar el core que queremos utilizar para cada juego. Así, en este sistema (o mejor dicho en la reunión de los dos sistemas CPS1 y CPS2), será imprescindible hacer el ajuste en los juegos de CPS2. El core de CPS1 es el predeterminado y por eso sólo será necesario ajustar los de CPS2.
 
 ## FAQ
 

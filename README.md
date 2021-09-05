@@ -151,9 +151,9 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 |SEGA Megadrive|roms/MD|zip, bin, smd, md, mdx, gen, 7z|
 |SEGA CD|roms/SEGACD|bin, chd, cue|
 |SEGA 32X|roms/32X|zip, 32x, 7z|
-|Atari 2600|roms/A2600|bin, a26, 7z, zip|
-|Atari 5200|roms/A5200|bin, a52, 7z, zip|
-|Atari 7800|roms/A7800|bin, a78, 7z, zip|
+|Atari 2600|roms/A2600|bin, a26, zip, 7z|
+|Atari 5200|roms/A5200|bin, a52, zip, 7z|
+|Atari 7800|roms/A7800|bin, a78, zip, 7z|
 |Inteillivision|roms/INTELLI|int|
 |ColecoVision|roms/COLECO|rom, col|
 |SNK Neo Geo|roms/NEOGEO|zip, 7z|
@@ -314,7 +314,7 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |SimpleMenu|B + A|Launches the emulator itself instead of a rom, if it supports to be run as a standalone application|
 |RetroArch|Select + A|Pause|
 |RetroArch|Select + B|Reset|
-|RetroArch|Select + X or Power|RetroArch Menu|
+|RetroArch|Select + X or Power|RetroArch Menu. In some cores (`G&W` for example) the `Select + X` shortcut collides with the core's own shortcuts; use `Power` in that case.|
 |RetroArch|Select + Y|Fast forward|
 |RetroArch|Select + R1|Savestate save|
 |RetroArch|Select + L1|Savestate load|
@@ -353,7 +353,7 @@ Some RetroArch cores show the following error screen when working in resolutions
 
 ![Unsupported video mode 1](images/unsupported_video1.png)
 
-In this case proceed as follows:
+These cases many times are solved by activating a filter and playing with the video scaling options. One of the filters that usually works well is: `Upscale_256x-320x240`. The complete procedure to make these changes would be:
 
 1. Open RetroArch menu (`Select + X`).
 2. Go to `Main Menu > Settings > Video > Scaling` and check `Integer Scale` and `Keep Aspect Ratio` options.
@@ -415,6 +415,8 @@ Another situation in which we should change the emulator option is when the game
 To deactivate it, we will proceed in the same way but deactivating the option in step 5.
 
 In xMAME the FPS option is activated/deactivated at any time by pressing `Start + R1`. In FBA the shortcut is `L1 + R1 + Y`.
+
+A special case is that of the CPS system. In this image, it has been chosen to combine CPS1 and CPS2 in the same system (there is no RetroArch core for CPS3 and in general it is a system for which the machines that can use this image do not have enough power). It has been preferred to do this way due to the reduced number of games on both systems and because of the facilities that SimpleMenu offers to select the core that we want to use for each game. Thus, in this system (or rather in the union of CPS1 and CPS2 systems), it will be essential to make the adjustment in the CPS2 games. The core of CPS1 is the default and therefore it will only be necessary to adjust those of CPS2.
 
 ## FAQ
 

@@ -5,6 +5,7 @@ SD_DEV=/dev/mmcblk0
 ODBETA_VERSION=2021-09-04
 ZERO_FILL=true
 INSTALL_ODBETA_MODS=false
+MAKE_PGv1=false
 # END PARAMETER ZONE
 
 
@@ -17,7 +18,9 @@ rootcheck () {
     if [ $(id -u) != "0" ]
     then
         sudo "$0" "$@"
-        sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+        if [ ${MAKE_PGv1} = true ] ; then
+            sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+        fi
         sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}.img.gz
         exit $?
     fi
@@ -129,39 +132,45 @@ fi
 
 cd ${DIRECTORY}
 
-echo "Building P1 for PlayGo/PG2 v1 image"
 cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rootfs.squashfs ${DIRECTORY}/mnt_p1
 cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/mininit-syspart ${DIRECTORY}/mnt_p1
 cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/mininit-syspart.sha1 ${DIRECTORY}/mnt_p1
 cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs ${DIRECTORY}/mnt_p1
 cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs.sha1 ${DIRECTORY}/mnt_p1
-cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/uzImage.bin
-sha1sum ${DIRECTORY}/mnt_p1/uzImage.bin | awk '{ print $1 }' > ${DIRECTORY}/mnt_p1/uzImage.bin.sha1
 
-if [ ${ZERO_FILL} = true ] ; then
-    echo "Filling P1 with zeros"
-    dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
-    rm ${DIRECTORY}/mnt_p1/zero.txt && sync
-    echo "Filling P2 with zeros"
-    dd if=/dev/zero of=${DIRECTORY}/mnt_p2/zero.txt status=progress 2> /dev/null && sync
-    rm ${DIRECTORY}/mnt_p2/zero.txt && sync
+if [ ${MAKE_PGv1} = true ] ; then
+    echo "Building P1 for PlayGo/PG2 v1 image"
+    cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/uzImage.bin | awk '{ print $1 }' > ${DIRECTORY}/mnt_p1/uzImage.bin.sha1
+
+    if [ ${ZERO_FILL} = true ] ; then
+        echo "Filling P1 with zeros"
+        dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
+        rm ${DIRECTORY}/mnt_p1/zero.txt && sync
+        echo "Filling P2 with zeros"
+        dd if=/dev/zero of=${DIRECTORY}/mnt_p2/zero.txt status=progress 2> /dev/null && sync
+        rm ${DIRECTORY}/mnt_p2/zero.txt && sync
+    fi
+
+    echo "Unmounting P1 and P2"
+    umount ${SD_DEV}p*
+
+    echo "Flashing bootloader for PlayGo/PG2 v1 image"
+    dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
+    sync
+    sleep 1
+
+    echo "Making card dump for PlayGo/PG2 v1 image"
+    dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+
+    echo "Remounting P1"
+    mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
+    sync
+    sleep 1
+else
+    echo "Unmounting P2"
+    umount ${SD_DEV}p2
 fi
-
-echo "Unmounting P1 and P2"
-umount ${SD_DEV}p*
-
-echo "Flashing bootloader for PlayGo/PG2 v1 image"
-dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
-sync
-sleep 1
-
-echo "Making card dump for PlayGo/PG2 v1 image"
-dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
-
-echo "Remounting P1"
-mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
-sync
-sleep 1
 
 echo "Building P1 for main image"
 rm ${DIRECTORY}/mnt_p1/uzImage.bin 2> /dev/null
