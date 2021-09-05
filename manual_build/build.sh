@@ -38,6 +38,9 @@ cd ${DIRECTORY}
 echo "Unmounting P1 and P2"
 umount ${SD_DEV}p* 2> /dev/null
 
+echo "Checking and reparing P2"
+e2fsck -f -y ${SD_DEV}p2
+
 echo "Remounting P1 and P2"
 mkdir ${DIRECTORY}/mnt_p1
 mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
