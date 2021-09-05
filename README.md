@@ -182,6 +182,10 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 |Pico8|roms/PICO8|png|
 |TIC80|roms/TIC80|tic, 7z, zip|
 
+Some comments about the supported extensions:
+
+* PlayStation: ROMs in `cue+bin` format do not work compressed in ZIP. On the contrary, in `iso` format, they do open when they are supplied compressed in ZIP.
+
 #### Previews
 
 The previews should be placed in a directory with name `.previews` within each of the ROM directories in the previous list. For example, the previews of GB should be located in `roms/GB/.previews`, this being the path from the root of the external card when mounted in the PC. The preview files have to be PNGs with the same name as the game (except for the extension).
