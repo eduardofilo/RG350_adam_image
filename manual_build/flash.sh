@@ -1,39 +1,57 @@
 #!/bin/bash
 
+# BEGIN PARAMETER ZONE
+SD_DEV=/dev/mmcblk0
+# END PARAMETER ZONE
+
+
+DIRECTORY=$(pwd)
+
+# Check if we're root and re-execute if we're not.
+rootcheck () {
+    if [ $(id -u) != "0" ]
+    then
+        sudo "$0" "$@"
+        exit $?
+    fi
+}
+
 if [ $# -ne 1 ] ; then
     echo "usage: ./flash.sh <v>"
     exit 1
 fi
 
+rootcheck "${@}"
+
+echo "Unmounting P1 and P2"
+umount ${SD_DEV}p* 2> /dev/null
+
 echo "Flashing"
-sudo umount /dev/mmcblk0p*
-gunzip ../releases/adan_v${1}.img.gz -c | sudo dd of=/dev/mmcblk0 bs=2M status=progress conv=fsync
-sudo sync
+gunzip ../releases/adam_v${1}.img.gz -c | dd of=${SD_DEV} bs=2M status=progress conv=fsync
+sync
 sleep 2
 
-echo "Installing RG280V kernel"
-mkdir temp_mnt
-sudo mount -t vfat /dev/mmcblk0p1 temp_mnt
+echo "Remounting P1 and P2"
+mkdir ${DIRECTORY}/mnt_p1
+mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
+mkdir ${DIRECTORY}/mnt_p2
+mount -t ext4 ${SD_DEV}p2 ${DIRECTORY}/mnt_p2
 sync
-sleep 1
-sudo cp temp_mnt/rg280v/* temp_mnt
-sudo sync
-sleep 1
-sudo umount /dev/mmcblk0p1
-sudo sync
 sleep 1
 
+echo "Installing RG280V kernel"
+cp ${DIRECTORY}/mnt_p1/rg280v/* ${DIRECTORY}/mnt_p1
+sync
+
 echo "Erasing .resize_me and changing shadow"
-sudo mount -t ext4 /dev/mmcblk0p2 temp_mnt
+rm ${DIRECTORY}/mnt_p2/.resize_me
+cp ${DIRECTORY}/shadow_without_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
+chmod 600 ${DIRECTORY}/mnt_p2/local/etc/shadow
 sync
 sleep 1
-sudo rm temp_mnt/.resize_me
-sudo cp shadow_without_pwd temp_mnt/local/etc/shadow
-sudo chown 0:0 temp_mnt/local/etc/shadow
-sudo chmod 600 temp_mnt/local/etc/shadow
-sudo sync
-sleep 1
-sudo umount /dev/mmcblk0p2
-sudo sync
-sleep 1
-rmdir temp_mnt
+
+echo "Final unmount"
+umount ${SD_DEV}p*
+rmdir ${DIRECTORY}/mnt_p1
+rmdir ${DIRECTORY}/mnt_p2
