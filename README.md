@@ -349,6 +349,8 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |Vice 64 (Commodore 64)|Select|Virtual keyboard|
 |PUAE (Commodores Amiga)|L1|Virtual keyboard|
 
+Don't miss [this cheatsheet](Adam.Image.Cheatsheet.v1.1a.pdf) made by @iammeat that includes all the above controls in a much more convenient format.
+
 ## Problem solving
 
 #### Unsupported video mode

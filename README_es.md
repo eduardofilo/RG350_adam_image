@@ -353,6 +353,8 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |Vice 64 (Commodore 64)|Select|Teclado virtual|
 |PUAE (Commodores Amiga)|L1|Teclado virtual|
 
+No te pierdas [esta cheatsheet](Adam.Image.Cheatsheet.v1.1a.pdf) elaborada por @iammeat que incluye todos los controles anteriores en un formato mucho más conveniente.
+
 ## Solución de problemas
 
 #### Unsupported video mode
