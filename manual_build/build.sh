@@ -33,11 +33,12 @@ fi
 
 rootcheck "${@}"
 
+cd ${DIRECTORY}
+
 echo "Unmounting P1 and P2"
 umount ${SD_DEV}p* 2> /dev/null
 
 echo "Remounting P1 and P2"
-cd ${DIRECTORY}
 mkdir ${DIRECTORY}/mnt_p1
 mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
 mkdir ${DIRECTORY}/mnt_p2
@@ -163,13 +164,11 @@ if [ ${MAKE_PGv1} = true ] ; then
     echo "Making card dump for PlayGo/PG2 v1 image"
     dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
 
-    echo "Remounting P1"
+    echo "Remounting P1 and P2"
     mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
+    mount -t ext4 ${SD_DEV}p2 ${DIRECTORY}/mnt_p2
     sync
     sleep 1
-else
-    echo "Unmounting P2"
-    umount ${SD_DEV}p2
 fi
 
 echo "Building P1 for main image"
@@ -200,10 +199,15 @@ if [ ${ZERO_FILL} = true ] ; then
     echo "Filling P1 with zeros"
     dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
     rm ${DIRECTORY}/mnt_p1/zero.txt && sync
+    if [ ! ${MAKE_PGv1} = true ] ; then
+        echo "Filling P2 with zeros"
+        dd if=/dev/zero of=${DIRECTORY}/mnt_p2/zero.txt status=progress 2> /dev/null && sync
+        rm ${DIRECTORY}/mnt_p2/zero.txt && sync
+    fi
 fi
 
-echo "Unmounting P1"
-umount ${SD_DEV}p1
+echo "Unmounting P1 and P2"
+umount ${SD_DEV}p*
 
 echo "Flashing bootloader for main image"
 dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
