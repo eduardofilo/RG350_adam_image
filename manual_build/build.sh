@@ -38,8 +38,8 @@ cd ${DIRECTORY}
 echo "Unmounting P1 and P2"
 umount ${SD_DEV}p* 2> /dev/null
 
-echo "Checking and reparing P2"
-e2fsck -f -y ${SD_DEV}p2
+echo "Checking and fixing P2"
+e2fsck -f -y ${SD_DEV}p2 > /dev/null
 
 echo "Remounting P1 and P2"
 mkdir ${DIRECTORY}/mnt_p1
@@ -97,6 +97,7 @@ rm ${DIRECTORY}/mnt_p2/local/share/xmame/xmame52/nvram/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/share/xmame/sm_bridge/*.pyc 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.sm64-port/sm64_save_file.bin 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.simplemenu/rom_preferences/* 2> /dev/null
+rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
 
 echo "Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
@@ -107,7 +108,9 @@ chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
 chmod 600 ${DIRECTORY}/mnt_p2/local/etc/shadow
 
 echo "Setting up first boot"
-touch ${DIRECTORY}/mnt_p2/.resize_me
+if [ ${INSTALL_ODBETA_MODS} = true ] ; then
+    touch ${DIRECTORY}/mnt_p2/.resize_me
+fi
 cp ${DIRECTORY}/.autostart ${DIRECTORY}/mnt_p2/local/home/
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.autostart
 cp ${DIRECTORY}/last_state.sav ${DIRECTORY}/mnt_p2/local/home/.simplemenu
@@ -147,17 +150,19 @@ if [ ${MAKE_PGv1} = true ] ; then
     cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/uzImage.bin
     sha1sum ${DIRECTORY}/mnt_p1/uzImage.bin | awk '{ print $1 }' > ${DIRECTORY}/mnt_p1/uzImage.bin.sha1
 
+    echo "Unmounting P2"
+    umount ${SD_DEV}p2
+
     if [ ${ZERO_FILL} = true ] ; then
         echo "Filling P1 with zeros"
         dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
         rm ${DIRECTORY}/mnt_p1/zero.txt && sync
-        echo "Filling P2 with zeros"
-        dd if=/dev/zero of=${DIRECTORY}/mnt_p2/zero.txt status=progress 2> /dev/null && sync
-        rm ${DIRECTORY}/mnt_p2/zero.txt && sync
+        echo "Filling P2 with 0xFF"
+        zerofree -v -f 0xFF ${SD_DEV}p2
     fi
 
-    echo "Unmounting P1 and P2"
-    umount ${SD_DEV}p*
+    echo "Unmounting P1"
+    umount ${SD_DEV}p1
 
     echo "Flashing bootloader for PlayGo/PG2 v1 image"
     dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
@@ -198,19 +203,21 @@ sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin | awk '{ print $1 }'>${DIREC
 cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg300x.dtb > ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1
 
+echo "Unmounting P2"
+umount ${SD_DEV}p2
+
 if [ ${ZERO_FILL} = true ] ; then
     echo "Filling P1 with zeros"
     dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
     rm ${DIRECTORY}/mnt_p1/zero.txt && sync
     if [ ! ${MAKE_PGv1} = true ] ; then
-        echo "Filling P2 with zeros"
-        dd if=/dev/zero of=${DIRECTORY}/mnt_p2/zero.txt status=progress 2> /dev/null && sync
-        rm ${DIRECTORY}/mnt_p2/zero.txt && sync
+        echo "Filling P2 with 0xFF"
+        zerofree -v -f 0xFF ${SD_DEV}p2
     fi
 fi
 
-echo "Unmounting P1 and P2"
-umount ${SD_DEV}p*
+echo "Unmounting P1"
+umount ${SD_DEV}p1
 
 echo "Flashing bootloader for main image"
 dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
@@ -233,7 +240,7 @@ cp ${DIRECTORY}/mnt_p1/rg280v/* ${DIRECTORY}/mnt_p1
 sync
 
 echo "Erasing .resize_me and changing shadow"
-rm ${DIRECTORY}/mnt_p2/.resize_me
+rm ${DIRECTORY}/mnt_p2/.resize_me 2> /dev/null
 cp ${DIRECTORY}/shadow_without_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
 chmod 600 ${DIRECTORY}/mnt_p2/local/etc/shadow
