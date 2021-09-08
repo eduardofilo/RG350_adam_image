@@ -2,6 +2,8 @@
 
 # BEGIN PARAMETER ZONE
 SD_DEV=/dev/mmcblk0
+SD_P1=${SD_DEV}p1
+SD_P2=${SD_DEV}p2
 ODBETA_VERSION=2021-09-04
 ZERO_FILL=true
 INSTALL_ODBETA_MODS=false
@@ -36,16 +38,17 @@ rootcheck "${@}"
 cd ${DIRECTORY}
 
 echo "Unmounting P1 and P2"
-umount ${SD_DEV}p* 2> /dev/null
+umount ${SD_P1} 2> /dev/null
+umount ${SD_P2} 2> /dev/null
 
 echo "Checking and fixing P2"
-e2fsck -f -y ${SD_DEV}p2 > /dev/null
+e2fsck -f -y ${SD_P2} > /dev/null
 
 echo "Remounting P1 and P2"
 mkdir ${DIRECTORY}/mnt_p1
-mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
+mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
 mkdir ${DIRECTORY}/mnt_p2
-mount -t ext4 ${SD_DEV}p2 ${DIRECTORY}/mnt_p2
+mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
 sync
 sleep 1
 
@@ -151,18 +154,18 @@ if [ ${MAKE_PGv1} = true ] ; then
     sha1sum ${DIRECTORY}/mnt_p1/uzImage.bin | awk '{ print $1 }' > ${DIRECTORY}/mnt_p1/uzImage.bin.sha1
 
     echo "Unmounting P2"
-    umount ${SD_DEV}p2
+    umount ${SD_P2}
 
     if [ ${ZERO_FILL} = true ] ; then
         echo "Filling P1 with zeros"
         dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
         rm ${DIRECTORY}/mnt_p1/zero.txt && sync
         echo "Filling P2 with 0xFF"
-        zerofree -v -f 0xFF ${SD_DEV}p2
+        zerofree -v -f 0xFF ${SD_P2}
     fi
 
     echo "Unmounting P1"
-    umount ${SD_DEV}p1
+    umount ${SD_P1}
 
     echo "Flashing bootloader for PlayGo/PG2 v1 image"
     dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
@@ -173,8 +176,8 @@ if [ ${MAKE_PGv1} = true ] ; then
     dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
 
     echo "Remounting P1 and P2"
-    mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
-    mount -t ext4 ${SD_DEV}p2 ${DIRECTORY}/mnt_p2
+    mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
+    mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
     sync
     sleep 1
 fi
@@ -204,7 +207,7 @@ cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/selec
 sha1sum ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1
 
 echo "Unmounting P2"
-umount ${SD_DEV}p2
+umount ${SD_P2}
 
 if [ ${ZERO_FILL} = true ] ; then
     echo "Filling P1 with zeros"
@@ -212,12 +215,12 @@ if [ ${ZERO_FILL} = true ] ; then
     rm ${DIRECTORY}/mnt_p1/zero.txt && sync
     if [ ! ${MAKE_PGv1} = true ] ; then
         echo "Filling P2 with 0xFF"
-        zerofree -v -f 0xFF ${SD_DEV}p2
+        zerofree -v -f 0xFF ${SD_P2}
     fi
 fi
 
 echo "Unmounting P1"
-umount ${SD_DEV}p1
+umount ${SD_P1}
 
 echo "Flashing bootloader for main image"
 dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
@@ -230,8 +233,8 @@ dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../r
 rm -rf ${DIRECTORY}/select_kernel/squashfs-root
 
 echo "Remounting P1 and P2"
-mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
-mount -t ext4 ${SD_DEV}p2 ${DIRECTORY}/mnt_p2
+mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
+mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
 sync
 sleep 1
 
@@ -248,6 +251,7 @@ sync
 sleep 1
 
 echo "Final unmount"
-umount ${SD_DEV}p*
+umount ${SD_P1}
+umount ${SD_P2}
 rmdir ${DIRECTORY}/mnt_p1
 rmdir ${DIRECTORY}/mnt_p2
