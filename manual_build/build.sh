@@ -118,6 +118,8 @@ cp ${DIRECTORY}/.autostart ${DIRECTORY}/mnt_p2/local/home/
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.autostart
 cp ${DIRECTORY}/last_state.sav ${DIRECTORY}/mnt_p2/local/home/.simplemenu
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/last_state.sav
+sync
+sleep 1
 
 echo "## Unmounting P2"
 umount ${SD_P2}
