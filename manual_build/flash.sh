@@ -2,6 +2,8 @@
 
 # BEGIN PARAMETER ZONE
 SD_DEV=/dev/mmcblk0
+SD_P1=${SD_DEV}p1
+SD_P2=${SD_DEV}p2
 # END PARAMETER ZONE
 
 
@@ -24,7 +26,8 @@ fi
 rootcheck "${@}"
 
 echo "Unmounting P1 and P2"
-umount ${SD_DEV}p* 2> /dev/null
+umount ${SD_P1} 2> /dev/null
+umount ${SD_P2} 2> /dev/null
 
 echo "Flashing"
 gunzip ../releases/adam_v${1}.img.gz -c | dd of=${SD_DEV} bs=2M status=progress conv=fsync
@@ -33,9 +36,9 @@ sleep 2
 
 echo "Remounting P1 and P2"
 mkdir ${DIRECTORY}/mnt_p1
-mount -t vfat ${SD_DEV}p1 ${DIRECTORY}/mnt_p1
+mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
 mkdir ${DIRECTORY}/mnt_p2
-mount -t ext4 ${SD_DEV}p2 ${DIRECTORY}/mnt_p2
+mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
 sync
 sleep 1
 
@@ -52,6 +55,7 @@ sync
 sleep 1
 
 echo "Final unmount"
-umount ${SD_DEV}p*
+umount ${SD_P1}
+umount ${SD_P2}
 rmdir ${DIRECTORY}/mnt_p1
 rmdir ${DIRECTORY}/mnt_p2
