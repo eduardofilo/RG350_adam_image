@@ -4,10 +4,10 @@
 SD_DEV=/dev/mmcblk0
 SD_P1=${SD_DEV}p1
 SD_P2=${SD_DEV}p2
-ODBETA_VERSION=2021-09-04
+ODBETA_VERSION=2021-09-07
 ZERO_FILL=true
 INSTALL_ODBETA_MODS=false
-MAKE_PGv1=false
+MAKE_PGv1=true
 # END PARAMETER ZONE
 
 
@@ -37,22 +37,22 @@ rootcheck "${@}"
 
 cd ${DIRECTORY}
 
-echo "Unmounting P1 and P2"
+echo "## Unmounting P1 and P2"
 umount ${SD_P1} 2> /dev/null
 umount ${SD_P2} 2> /dev/null
+sleep 1
 
-echo "Checking and fixing P2"
+echo "## Checking and fixing P2"
 e2fsck -f -y ${SD_P2} > /dev/null
 
-echo "Remounting P1 and P2"
+echo "## Remounting P1 and P2"
 mkdir ${DIRECTORY}/mnt_p1
 mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
 mkdir ${DIRECTORY}/mnt_p2
 mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
-sync
 sleep 1
 
-echo "P1 cleaning"
+echo "## P1 cleaning"
 rm ${DIRECTORY}/mnt_p1/modules.squashfs.bak 2> /dev/null
 rm ${DIRECTORY}/mnt_p1/rootfs.squashfs.bak 2> /dev/null
 rm ${DIRECTORY}/mnt_p1/rootfs.squashfs.bak.sha1 2> /dev/null
@@ -71,7 +71,7 @@ rm -rf ${DIRECTORY}/mnt_p1/rg300x 2> /dev/null && sync
 rm ${DIRECTORY}/mnt_p1/select_kernel.bat 2> /dev/null && sync
 rm ${DIRECTORY}/mnt_p1/select_kernel.sh 2> /dev/null && sync
 
-echo "P2 cleaning"
+echo "## P2 cleaning"
 rm ${DIRECTORY}/mnt_p2/local/home/screenshots/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.ash_history 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.python_history 2> /dev/null
@@ -102,15 +102,15 @@ rm ${DIRECTORY}/mnt_p2/local/home/.sm64-port/sm64_save_file.bin 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.simplemenu/rom_preferences/* 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
 
-echo "Putting up version file flag"
+echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
 
-echo "Changing shadow file"
+echo "## Changing shadow file"
 cp ${DIRECTORY}/shadow_with_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
 chmod 600 ${DIRECTORY}/mnt_p2/local/etc/shadow
 
-echo "Setting up first boot"
+echo "## Setting up first boot"
 if [ ${INSTALL_ODBETA_MODS} = true ] ; then
     touch ${DIRECTORY}/mnt_p2/.resize_me
 fi
@@ -119,8 +119,18 @@ chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.autostart
 cp ${DIRECTORY}/last_state.sav ${DIRECTORY}/mnt_p2/local/home/.simplemenu
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/last_state.sav
 
+echo "## Unmounting P2"
+umount ${SD_P2}
+sleep 1
+
+if [ ${ZERO_FILL} = true ] ; then
+    echo "## Filling P2 with 0xFF"
+    zerofree -v -f 0xFF ${SD_P2}
+fi
+
+
 if [ ! -f ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} ] ; then
-    echo "Downloading ODBeta distribution"
+    echo "## Downloading ODBeta distribution"
     ODBETA_DIST_URL=${ODBETA_BASE_URL}/${ODBETA_DIST_FILE}
     wget -q -P ${DIRECTORY}/select_kernel ${ODBETA_DIST_URL}
     status=$?
@@ -133,7 +143,7 @@ cd ${DIRECTORY}/select_kernel
 unsquashfs ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} > /dev/null
 
 if [ ${INSTALL_ODBETA_MODS} = true ] ; then
-    echo "Installing script S99resize_p2.sh in rootfs.squashfs"
+    echo "## Installing script S99resize_p2.sh in rootfs.squashfs"
     cd ${DIRECTORY}/select_kernel/squashfs-root/gcw0
     unsquashfs rootfs.squashfs > /dev/null
     cp ${DIRECTORY}/S99resize_p2.sh ${DIRECTORY}/select_kernel/squashfs-root/gcw0/squashfs-root/etc/init.d
@@ -149,40 +159,33 @@ cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs ${DIRECTORY}/m
 cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs.sha1 ${DIRECTORY}/mnt_p1
 
 if [ ${MAKE_PGv1} = true ] ; then
-    echo "Building P1 for PlayGo/PG2 v1 image"
+    echo "## Building P1 for PlayGo/PG2 v1 image"
     cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/uzImage.bin
     sha1sum ${DIRECTORY}/mnt_p1/uzImage.bin | awk '{ print $1 }' > ${DIRECTORY}/mnt_p1/uzImage.bin.sha1
 
-    echo "Unmounting P2"
-    umount ${SD_P2}
-
     if [ ${ZERO_FILL} = true ] ; then
-        echo "Filling P1 with zeros"
+        echo "## Filling P1 with zeros"
         dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
         rm ${DIRECTORY}/mnt_p1/zero.txt && sync
-        echo "Filling P2 with 0xFF"
-        zerofree -v -f 0xFF ${SD_P2}
     fi
 
-    echo "Unmounting P1"
+    echo "## Unmounting P1"
     umount ${SD_P1}
 
-    echo "Flashing bootloader for PlayGo/PG2 v1 image"
+    echo "## Flashing bootloader for PlayGo/PG2 v1 image"
     dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
     sync
     sleep 1
 
-    echo "Making card dump for PlayGo/PG2 v1 image"
+    echo "## Making card dump for PlayGo/PG2 v1 image"
     dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
-
-    echo "Remounting P1 and P2"
-    mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
-    mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
-    sync
-    sleep 1
 fi
 
-echo "Building P1 for main image"
+echo "## Remounting P1"
+mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
+sleep 1
+
+echo "## Building P1 for main image"
 rm ${DIRECTORY}/mnt_p1/uzImage.bin 2> /dev/null
 rm ${DIRECTORY}/mnt_p1/uzImage.bin.sha1 2> /dev/null
 cp ${DIRECTORY}/select_kernel/select_kernel.bat ${DIRECTORY}/mnt_p1
@@ -206,43 +209,36 @@ sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin | awk '{ print $1 }'>${DIREC
 cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg300x.dtb > ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1
 
-echo "Unmounting P2"
-umount ${SD_P2}
-
 if [ ${ZERO_FILL} = true ] ; then
-    echo "Filling P1 with zeros"
+    echo "## Filling P1 with zeros"
     dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
     rm ${DIRECTORY}/mnt_p1/zero.txt && sync
-    if [ ! ${MAKE_PGv1} = true ] ; then
-        echo "Filling P2 with 0xFF"
-        zerofree -v -f 0xFF ${SD_P2}
-    fi
 fi
 
-echo "Unmounting P1"
+echo "## Unmounting P1"
 umount ${SD_P1}
+sleep 1
 
-echo "Flashing bootloader for main image"
+echo "## Flashing bootloader for main image"
 dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
 sync
 sleep 1
 
-echo "Making card dump for main image"
+echo "## Making card dump for main image"
 dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}.img.gz
 
 rm -rf ${DIRECTORY}/select_kernel/squashfs-root
 
-echo "Remounting P1 and P2"
+echo "## Remounting P1 and P2"
 mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
 mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
-sync
 sleep 1
 
-echo "Installing RG280V kernel"
+echo "## Installing RG280V kernel"
 cp ${DIRECTORY}/mnt_p1/rg280v/* ${DIRECTORY}/mnt_p1
 sync
 
-echo "Erasing .resize_me and changing shadow"
+echo "## Erasing .resize_me and changing shadow"
 rm ${DIRECTORY}/mnt_p2/.resize_me 2> /dev/null
 cp ${DIRECTORY}/shadow_without_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
@@ -250,7 +246,7 @@ chmod 600 ${DIRECTORY}/mnt_p2/local/etc/shadow
 sync
 sleep 1
 
-echo "Final unmount"
+echo "## Final unmount"
 umount ${SD_P1}
 umount ${SD_P2}
 rmdir ${DIRECTORY}/mnt_p1
