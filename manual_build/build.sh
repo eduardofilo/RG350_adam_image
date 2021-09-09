@@ -181,11 +181,12 @@ if [ ${MAKE_PGv1} = true ] ; then
 
     echo "## Making card dump for PlayGo/PG2 v1 image"
     dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
-fi
+    sync
 
-echo "## Remounting P1"
-mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
-sleep 1
+    echo "## Remounting P1"
+    mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
+    sleep 1
+fi
 
 echo "## Building P1 for main image"
 rm ${DIRECTORY}/mnt_p1/uzImage.bin 2> /dev/null
