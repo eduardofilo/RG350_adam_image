@@ -47,7 +47,9 @@ cp ${DIRECTORY}/mnt_p1/rg280v/* ${DIRECTORY}/mnt_p1
 sync
 
 echo "Erasing .resize_me and changing shadow"
-rm ${DIRECTORY}/mnt_p2/.resize_me
+if [ -f ${DIRECTORY}/mnt_p2/.resize_me ] ; then
+    rm ${DIRECTORY}/mnt_p2/.resize_me
+fi
 cp ${DIRECTORY}/shadow_without_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
 chmod 600 ${DIRECTORY}/mnt_p2/local/etc/shadow
