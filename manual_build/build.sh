@@ -105,6 +105,10 @@ rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
 echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
 
+echo "## Installing directory scaffolding script"
+cp ${DIRECTORY}/S01_create_ext_scaffolding.sh ${DIRECTORY}/mnt_p2/local/etc/init.d
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
+
 echo "## Changing shadow file"
 cp ${DIRECTORY}/shadow_with_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
