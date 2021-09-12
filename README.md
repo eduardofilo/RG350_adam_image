@@ -108,7 +108,7 @@ At this point, the card will be ready to work on the console model that we have 
 
 The above procedure can be repeated to change to another console model at any time. That is, the image is compatible with the four supported console models, so the same card will serve us for several machines.
 
-Partition 2 contained in the image file has about 3.5GB (so it can be flashed without problems on cards with a capacity of 4GB or greater). During the first boot, this partition will expand to occupy all available space on the card.
+Partition 2 contained in the image file has about 3.5GB (so it can be flashed without problems on cards with a capacity of 4GB or greater). In this version of the image, this partition will not auto expand to fill the available space on the card. If you want to do it (although it is not necessary since the heavy contents go on the EXT card), it can be done with the [DiskGenius](https://www.diskgenius.com/) utilities for Windows or [GParted](https://gparted.org/) for Linux.
 
 In the first part of this video from [Retro Game Corps](https://www.youtube.com/channel/UCoZQiN0o7f36H7PaW4fVhFw) we can see the installation process:
 
@@ -134,7 +134,7 @@ In Linux it can be done by executing the following command from a terminal (in t
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-If you have a Mac, take a look at the comments in [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) of this repository. There are a pair of solutions, the easiest being to use [SD Card Formatter tool](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-mac-download/).
+If you have a Mac, take a look at the comments in [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) of this repository. There are some options provided.
 
 #### ROMs
 
@@ -233,9 +233,9 @@ The sizes and hashes indicated are from BIOS that have been proven functional, b
 |Commodore Amiga|bios/kick40060.CD32.ext|524288|`bb72565701b1b6faece07d68ea5da639`|No|
 |Atari Lynx|bios/lynxboot.img|512|`fcd403db69f54290b51035d82f835e7b`|Yes|
 |Phillips Videopac|bios/o2rom.bin|1024|`562d5ebf9e030a40d6fabfc2f33139fd`|Yes|
-|SNK Neo Geo|bios/neogeo.zip|1950023|`36241192dae2823eaf3bf464dde6dbc6`|Yes on FBA, No on RetroArch|
+|SNK Neo Geo|roms/NEOGEO/neogeo.zip| | |Yes|
 |Nintendo GBA|bios/gba_bios.bin|16384|`a860e8c0b6d573d191e4ec7db1b1e4f6`|No, although recommended|
-|PlayStation|bios/SCPH1001.BIN|524288|`924e392ed05558ffdb115408c263dccf`|No, although very recommended|
+|PlayStation|bios/SCPH1001.BIN|524288|`924e392ed05558ffdb115408c263dccf`|Yes, since the HLE BIOS has been disabled in the PCSX4All configuration|
 |Nintendo GB|bios/gb_bios.bin|256|`32fbbd84168d3482956eb3c5051637f5`|No|
 |Nintendo GBC|bios/gbc_bios.bin|2304|`dbfce9db9deaa2567f6a84fde55f9680`|No|
 |Pokemon Mini|bios/bios.min|4096|`1e4fb124a3a886865acb574f388c803d`|Yes|
@@ -397,6 +397,10 @@ In summary, the methods to close an application or emulator are:
 3. If the above does not work, hold down `Power` a few seconds until the system shuts down.
 
 Avoid pressing `Reset` as it has been found quite often to cause SD corruption.
+
+#### OC risks
+
+Another situation that leads to SD corruption in some users is overclocking. Thus, whenever it is going to try, it is recommended to make a backup of the savestates and configurations that we do not want to lose with [Py Backup](https://github.com/eduardofilo/RG350_py_backup/blob/master/README.md).
 
 #### Emulator selection
 

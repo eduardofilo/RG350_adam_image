@@ -106,7 +106,7 @@ Al llegar a este punto, la tarjeta estará lista para funcionar sobre el modelo 
 
 El procedimiento anterior se puede repetir para cambiar a otro modelo de consola en cualquier momento. Es decir, la imagen es compatible con los cuatro modelos de consola soportados por lo que una misma tarjeta nos servirá para varias máquinas.
 
-La partición 2 contenida en el fichero de imagen, tiene unos 3,5GB (por eso se puede flashear sin problemas en tarjetas a partir de 4GB de capacidad). Durante el primer arranque, esta partición se expandirá hasta ocupar todo el espacio disponible en la tarjeta.
+La partición 2 contenida en el fichero de imagen, tiene unos 3,5GB (por eso se puede flashear sin problemas en tarjetas a partir de 4GB de capacidad). En esta versión de la imagen, esta partición no se auto expandirá hasta ocupar el espacio disponible en la tarjeta. Si se quiere hacer (aunque no es necesario dado que los contenidos pesados van en la tarjeta EXT), se puede hacer con las utilidades [DiskGenius](https://www.diskgenius.com/) de Windows o [GParted](https://gparted.org/) de Linux.
 
 En la primera parte de este vídeo del compañero [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ) podemos ver el proceso de instalación:
 
@@ -136,7 +136,7 @@ En Linux se puede hacer ejecutando el siguiente comando desde un terminal (en el
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-Si tienes un Mac, echa un vistazo a los comentarios a la [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) de este repositorio. Allí se dan un par de soluciones, siendo la más sencilla utilizar la utilidad [SD Card Formatter tool](https://www.sdcard.org/downloads/formatter/sd-memory-card-formatter-for-mac-download/).
+Si tienes un Mac, echa un vistazo a los comentarios a la [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) de este repositorio. Allí se aportan algunas opciones.
 
 #### ROMs
 
@@ -235,9 +235,9 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |Commodore Amiga|bios/kick40060.CD32.ext|524288|`bb72565701b1b6faece07d68ea5da639`|No|
 |Atari Lynx|bios/lynxboot.img|512|`fcd403db69f54290b51035d82f835e7b`|Sí|
 |Phillips Videopac|bios/o2rom.bin|1024|`562d5ebf9e030a40d6fabfc2f33139fd`|Sí|
-|SNK Neo Geo|bios/neogeo.zip|1950023|`36241192dae2823eaf3bf464dde6dbc6`|Sí en FBA, No en RetroArch|
+|SNK Neo Geo|roms/NEOGEO/neogeo.zip| | |Sí|
 |Nintendo GBA|bios/gba_bios.bin|16384|`a860e8c0b6d573d191e4ec7db1b1e4f6`|No, aunque recomendable|
-|PlayStation|bios/SCPH1001.BIN|524288|`924e392ed05558ffdb115408c263dccf`|No, aunque muy recomendable|
+|PlayStation|bios/SCPH1001.BIN|524288|`924e392ed05558ffdb115408c263dccf`|Sí ya que en la configuración de PCSX4All se ha deshabilitado la BIOS HLE|
 |Nintendo GB|bios/gb_bios.bin|256|`32fbbd84168d3482956eb3c5051637f5`|No|
 |Nintendo GBC|bios/gbc_bios.bin|2304|`dbfce9db9deaa2567f6a84fde55f9680`|No|
 |Pokemon Mini|bios/bios.min|4096|`1e4fb124a3a886865acb574f388c803d`|Sí|
@@ -397,6 +397,10 @@ En resumen, los métodos para forzar el cierre de las aplicaciones o emuladores 
 3. Si lo anterior no funciona, mantener `Power` unos segundos hasta que el sistema se apague.
 
 Hay que evitar pulsar `Reset` ya que se ha encontrado con bastante frecuencia que provoca la corrupción de la SD.
+
+#### Riesgo haciendo Overclocking
+
+Otra situación que conduce a la corrupción de la SD en algunos usuarios es el uso del overcloking. Así pues siempre que se vaya a intentar, se recomienda hacer un backup de los savestates y configuraciones que no queramos perder con [Py Backup](https://github.com/eduardofilo/RG350_py_backup/blob/master/README_es.md).
 
 #### Ajuste de emulador preferido
 
