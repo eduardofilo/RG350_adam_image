@@ -5,7 +5,8 @@
 ## Tabla de contenidos
 
 - [Introducción](#introducción)
-- [Procedimiento de instalación](#procedimiento-de-instalación)
+- [Actualización de v1.1 a v1.2](#actualización-de-v11-a-v12)
+- [Procedimiento de instalación](#instalación-desde-cero)
     - [Windows](#windows)
     - [Linux](#linux)
     - [Cualquier sistema](#cualquier-sistema)
@@ -26,7 +27,7 @@
 
 ## Introducción
 
-Configuración de tarjeta interna (ranura INT) para consolas portátiles de emulación basadas en chip Ingenic JZ4770 (concretamente las que se mencionan en la descripción de [este commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), es decir RG350, RG280, RG300X, PlayGo y PlayGo/PocketGo2. Resultado de un proyecto de colaboración del Team RParadise formado por:
+Configuración de tarjeta interna (ranura INT) para consolas portátiles de emulación basadas en chip Ingenic JZ4770 (concretamente las que se mencionan en la descripción de [este commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), es decir RG350, RG280, RG300X y PlayGo/PocketGo2 v2. Resultado de un proyecto de colaboración del Team RParadise formado por:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardófilo](https://apuntes.eduardofilo.es/)
@@ -54,10 +55,16 @@ La configuración está realizada en base a las siguientes piezas:
     * [Commander](https://github.com/od-contrib/commander/releases/latest). Gracias a [glebm](https://github.com/glebm).
     * [PyBackup](https://github.com/eduardofilo/RG350_py_backup/releases/latest)
 
-## Procedimiento de instalación
+## Actualización de v1.1 a v1.2
+
+Si se ha estado utilizando la consola con la versión anterior de la imagen, seguramente nos interese guardar los savestates de las partidas que hayamos jugado y algunos ajustes personales. Así pues, **ANTES** de flashear la última versión de la imagen, conviene hacer backup de algunas de estas cosas. Para facilitar esta tarea se ha creado la aplicación `Py Backup` que se describe [aquí](https://github.com/eduardofilo/RG350_py_backup/blob/master/README_es.md) y que viene preconfigurada con los archivos más importantes de los que conviene hacer backup periódicamente. Por cambios en el fichero de configuración de Py Backup entre las versiones 1.1 y 1.2, el procedimiento de actualización en esta versión se complica ligeramente al tener que sustituir dicho fichero antes de hacer el backup. En el siguiente vídeo podemos ver todo el proceso de actualización desde la imagen v1.1 a la v1.2.
+
+[![Ver vídeo](https://img.youtube.com/vi/Qih9NzvCCHg/hqdefault.jpg)](https://www.youtube.com/watch?v=Qih9NzvCCHg "Ver vídeo")
+
+## Instalación desde cero
 
 1. Descargar la imagen del apartado [releases de este repositorio](https://github.com/eduardofilo/RG350_adam_image/releases/latest).
-2. Sin necesidad de descomprimir, flashear el archivo (`img.gz`) con [Balena Etcher](https://www.balena.io/etcher/) sobre una tarjeta microSD de al menos 4GB.
+2. Sin necesidad de descomprimir, flashear el archivo (`img.xz`) con [Balena Etcher](https://www.balena.io/etcher/) sobre una tarjeta microSD de al menos 4GB.
 3. Montar la microSD en un ordenador. Si la acabamos de flashear, dependiendo del sistema operativo, puede ser necesario extraerla del lector y volverla a insertar. En Windows se montará una de las dos particiones que contiene la tarjeta y la otra dará error. El error es normal dado que la segunda partición es de tipo Linux.
 4. Colocar el kernel adecuado al modelo de nuestra consola. Esto puede hacerse de varias maneras en función del sistema operativo del PC.
 

@@ -5,7 +5,8 @@
 ## Table of contents
 
 - [Introduction](#introduction)
-- [Installation procedure](#installation-procedure)
+- [Upgrade from v1.1 to v1.2](#upgrade-from-v11-to-v12)
+- [Fresh installation](#fresh-installation)
     - [Windows](#windows)
     - [Linux](#linux)
     - [Any system](#any-system)
@@ -26,7 +27,7 @@
 
 ## Introduction
 
-Internal card (INT slot) setup for Ingenic JZ4770 chip-based portable emulation consoles (specifically those mentioned in the description of [this commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), i.e. RG350, RG280, RG300X, PlayGo and PlayGoPocketGo2 consoles. Result of a collaboration project of Team RParadise formed by:
+Internal card (INT slot) setup for Ingenic JZ4770 chip-based portable emulation consoles (specifically those mentioned in the description of [this commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), i.e. RG350, RG280, RG300X and PlayGo/PocketGo2 v2 consoles. Result of a collaboration project of Team RParadise formed by:
 
 * [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
 * [eduardófilo](https://apuntes.eduardofilo.es/)
@@ -54,10 +55,18 @@ The setup is made based on the following parts:
     * [Commander](https://github.com/od-contrib/commander/releases/latest). Thanks to [glebm](https://github.com/glebm).
     * [PyBackup](https://github.com/eduardofilo/RG350_py_backup/releases/latest)
 
-## Installation procedure
+## Upgrade from v1.1 to v1.2
+
+## Actualización de v1.1 a v1.2
+
+If you have been using the console with the previous version of the image, surely we are interested in saving the savestates of the games we have played and some personal settings. So, **BEFORE** flashing the latest version of the image, some of these things should be backed up. To facilitate this task, the `Py Backup` application has been created, which is described [here](https://github.com/eduardofilo/RG350_py_backup/blob/master/README.md) and comes preconfigured with the most important files that should be periodically backed up. Due to changes in the Py Backup configuration file between versions 1.1 and 1.2, the update procedure in this version is slightly complicated by having to replace that file before making the backup. In the following video we can see the entire upgrade process from image v1.1 to v1.2.
+
+[![See video](https://img.youtube.com/vi/Qih9NzvCCHg/hqdefault.jpg)](https://www.youtube.com/watch?v=Qih9NzvCCHg "See video")
+
+## Fresh installation
 
 1. Download the dump file from the [releases section of this repository](https://github.com/eduardofilo/RG350_adam_image/releases/latest).
-2. Flash the file (`img.gz`) without decompressing with [Balena Etcher](https://www.balena.io/etcher/) on a microSD card of at least 4GB.
+2. Flash the file (`img.xz`) without decompressing with [Balena Etcher](https://www.balena.io/etcher/) on a microSD card of at least 4GB.
 3. Mount the microSD in a computer. If we just flashed it, depending on the operating system, it may be necessary to remove it from the reader and reinsert it. In Windows, one of the two partitions containing the card will be mounted and the other will give an error. The error is normal since the second partition is Linux type.
 4. Place the kernel suitable to the console model. This can be done in several ways depending on the PC operating system.
 
