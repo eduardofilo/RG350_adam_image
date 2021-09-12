@@ -21,9 +21,9 @@ rootcheck () {
     then
         sudo "$0" "$@"
         if [ ${MAKE_PGv1} = true ] ; then
-            sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+            sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.xz
         fi
-        sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}.img.gz
+        sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}.img.xz
         exit $?
     fi
 }
@@ -86,6 +86,8 @@ rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/playlists 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/records 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/records_config 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/saves 2> /dev/null
+mkdir ${DIRECTORY}/mnt_p2/local/home/.retroarch/saves
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.retroarch/saves
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/screenshots 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/shaders 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/states 2> /dev/null
@@ -184,7 +186,8 @@ if [ ${MAKE_PGv1} = true ] ; then
     sleep 1
 
     echo "## Making card dump for PlayGo/PG2 v1 image"
-    dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+    #dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+    dd if=${SD_DEV} bs=2M count=1600 status=progress | xz -z -f -9 > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.xz
     sync
 
     echo "## Remounting P1"
@@ -232,7 +235,8 @@ sync
 sleep 1
 
 echo "## Making card dump for main image"
-dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}.img.gz
+#dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}.img.gz
+dd if=${SD_DEV} bs=2M count=1600 status=progress | xz -z -f -9 > ${DIRECTORY}/../releases/adam_v${1}.img.xz
 
 rm -rf ${DIRECTORY}/select_kernel/squashfs-root
 
