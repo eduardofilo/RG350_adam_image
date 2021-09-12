@@ -440,11 +440,15 @@ En xMAME la opción FPS se activa/desactiva en cualquier momento pulsando `Start
 
 Un caso especial es el del sistema CPS. En esta imagen se ha optado por juntar en un mismo sistema los CPS1 y CPS2 (no hay core de RetroArch para CPS3 y en general es un sistema para el que las máquinas que pueden utilizar esta imagen no tienen potencia suficiente). Se ha preferido hacerlo así por el reducido número de juegos de ambos sistemas y por las facilidades que ofrece SimpleMenu para seleccionar el core que queremos utilizar para cada juego. Así, en este sistema (o mejor dicho en la reunión de los dos sistemas CPS1 y CPS2), será imprescindible hacer el ajuste en los juegos de CPS2. El core de CPS1 es el predeterminado y por eso sólo será necesario ajustar los de CPS2.
 
+#### La consola no arranca tras flashear
+
+Lo más probable será que no se ha realizado el procedimiento de instalación del kernel descrito [aquí](#instalación-desde-cero). Si se arranca la consola sin haber instalado el kernel, el LED verde de encendido se ilumina débilmente. En esa situación la consola no se puede apagar (a no ser que desconectemos la batería o esperemos a que se descargue completamente). Se ha comprobado que en algunas tarjetas, aunque extraigamos la tarjeta, instalemos el kernel, volvamos a insertarla y pulsemos el RESET, seguirá sin arrancar. En esas situaciones, la única forma que se ha encontrado para salir del callejón sin salida (aparte de la idea comentada antes de desconectar la batería o esperar a que se descargue completamente) es insertar otra tarjeta que no dé este problema, pulsar RESET y tras el arranque del sistema en esta tarjeta de apoyo, apagar normalmente. Si ahora insertamos la primera tarjeta recien flasheada donde se haya realizado el procedimiento de instalación del kernel, esta vez (con un encendido en frío de la máquina) arrancará normalmente.
+
 ## FAQ
 
 **Q1: ¿Tengo que volver a flashear con cada nueva imagen? ¿No existe un OPK para una actualización más ágil?**
 
-A1: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. Puedes usar [Py Backup](https://github.com/eduardofilo/RG350_py_backup#usage) para transferir savestates y configuraciones entre la instalación vieja y la nueva.
+A1: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. El procedimiento completo para actualizar entre una versión de la imagen y la siguiente se describe [aquí](#actualización-de-v11-a-v12).
 
 **Q2: ¿Hay algún indicador del nivel de batería?**
 

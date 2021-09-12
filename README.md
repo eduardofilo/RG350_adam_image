@@ -440,11 +440,15 @@ In xMAME the FPS option is activated/deactivated at any time by pressing `Start 
 
 A special case is that of the CPS system. In this image, it has been chosen to combine CPS1 and CPS2 in the same system (there is no RetroArch core for CPS3 and in general it is a system for which the machines that can use this image do not have enough power). It has been preferred to do this way due to the reduced number of games on both systems and because of the facilities that SimpleMenu offers to select the core that we want to use for each game. Thus, in this system (or rather in the union of CPS1 and CPS2 systems), it will be essential to make the adjustment in the CPS2 games. The core of CPS1 is the default and therefore it will only be necessary to adjust those of CPS2.
 
+#### Console does not boot after flashing
+
+Most likely, the kernel installation procedure described [here](#install-from-scratch) has not been performed. If the console is booted without the kernel installed, the green power LED lights dimly. In this situation, the console cannot be turned off (unless we disconnect the battery or wait for it to discharge completely). It has been verified that in some cards, even if we remove the card, install the kernel, reinsert it and press RESET, it will still not boot. In these situations, the only way that has been found to get out of the vicious circle (apart from the idea mentioned before disconnecting the battery or waiting for it to discharge completely) is to insert another card that does not give this problem, press RESET and after system boot on this card, shutdown normally. If now we insert the first newly flashed card where the kernel installation procedure has been performed, this time (with a cold boot of the machine) it will boot normally.
+
 ## FAQ
 
 **Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?**
 
-A1: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. You can use [Py Backup](https://github.com/eduardofilo/RG350_py_backup#usage) to transfer savestates and configurations between old and new installations.
+A1: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. The complete procedure to upgrade between one version of the image and the next one is described [here](#upgrade-from-v11-to-v12).
 
 **Q2: Is there a battery level indicator?**
 
