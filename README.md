@@ -20,7 +20,7 @@
 - [Controls](#controls)
 - [Problem solving](#problem-solving)
     - [Unsupported video mode](#unsupported-video-mode)
-    - [RetroArch force closing](#retroarch-force-closing)
+    - [Applications force closing](#applications-force-closing)
     - [Emulator selection](#emulator-selection)
 - [FAQ](#faq)
 - [Telegram channel for updates](#telegram-channel-for-updates)
@@ -384,13 +384,15 @@ Finally, to not make this change every time you open the game, go to `Main Menu 
 
 Another filter that usually works well in these situations is `LQ2x`.
 
-#### RetroArch force closing
+#### Applications force closing
 
-Sometimes, when trying to exit RetroArch, it freezes and does not return to the frontend. In these cases, force close the application in the foreground (RetroArch at that moment) by pressing the shortcut `Power + Select`. It is important to press the keys in that order, that is, press `Power` a little before and without releasing it then press `Select`. This key combination doesn't always work either. In this case, hold down the `Power` key for a few seconds to cause a controlled shutdown of the console.
+If the application or emulator that we were running crashes, it can be forced to close by pressing the key combination `Power + Select`. It is important to press the keys in that order, that is, press a little before `Power` and without releasing it then press` Select`. If this key combination does not work either, hold down the `Power` key for a few seconds to cause a controlled shutdown of the console.
 
-In summary, the methods to close a game in RetroArch are:
 
-1. `Start + Select` or `Quit RetroArch` from RA menu.
+
+In summary, the methods to close an application or emulator are:
+
+1. First try normal closing (`Power + Select` for example in RetroArch).
 2. If the above does not work, `Power + Select`.
 3. If the above does not work, hold down `Power` a few seconds until the system shuts down.
 

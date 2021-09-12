@@ -20,7 +20,7 @@
 - [Controles](#controles)
 - [Solución de problemas](#solución-de-problemas)
     - [Unsupported video mode](#unsupported-video-mode)
-    - [Forzar cierre de RetroArch](#forzar-cierre-de-retroarch)
+    - [Forzar cierre de aplicaciones](#forzar-cierre-de-aplicaciones)
     - [Ajuste de emulador preferido](#ajuste-de-emulador-preferido)
 - [FAQ](#faq)
 - [Canal Telegram para comunicar actualizaciones](#canal-telegram-para-comunicar-actualizaciones)
@@ -386,13 +386,13 @@ Por último, si no se quiere hacer este cambio cada vez que se abra el juego, ir
 
 Otro filtro que suele dar buen resultado en estas situaciones es `LQ2x`.
 
-#### Forzar cierre de RetroArch
+#### Forzar cierre de aplicaciones
 
-En ocasiones, al tratar de salir de RetroArch, éste se queda colgado y no retorna al frontend. En esos casos forzar el cierre de la aplicación en primer plano (RetroArch en ese momento) pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`. Esta combinación de teclas tampoco funciona siempre. En ese caso mantener la tecla `Power` unos segundos para provocar un apagado controlado de la consola.
+Si en alguna ocasión la aplicación o emulador que tuviéramos en ejecución se quedara colgada, se puede forzar su cierre pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`. Si esta combinación de teclas tampoco funcionara, mantener la tecla `Power` unos segundos para provocar un apagado controlado de la consola.
 
-En resumen, los métodos para cerrar un juego en RetroArch son:
+En resumen, los métodos para forzar el cierre de las aplicaciones o emuladores son:
 
-1. `Start + Select` o `Quit RetroArch` desde el menú de RA.
+1. Primero intentar el cierre normal (`Power + Select` por ejemplo en RetroArch).
 2. Si lo anterior no funciona, `Power + Select`.
 3. Si lo anterior no funciona, mantener `Power` unos segundos hasta que el sistema se apague.
 
