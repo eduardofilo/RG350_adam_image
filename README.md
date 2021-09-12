@@ -336,7 +336,8 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |RetroArch|Select + Start|Quit|
 |RetroArch|Select + Left/Right|Change savestate slot|
 |RetroArch|Select + Up/Down|Volume change|
-|RetroArch/Neo Geo FBA|A + B + Y|UniBIOS settings|
+|RetroArch/Neo Geo FBA|Hold Start|UniBIOS settings|
+|RetroArch/CPS2|R2 or R3|Test menu on some games|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Start or Power|Open emulator menu that allows us to quit|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Y|Show/hide FPS counter|
 |xMAME|Select + L1 + R1|Quit|
