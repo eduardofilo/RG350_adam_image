@@ -295,6 +295,7 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 
 |Context|Shorcut|Function|
 |:--------|:---------------|:-----|
+|OpenDingux|Hold POWER|Power off|
 |OpenDingux|POWER + START + SELECT|Reboot|
 |OpenDingux|POWER + UP|Volume up|
 |OpenDingux|POWER + DOWN|Volume down|

@@ -297,6 +297,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 
 |Situación|Atajo de teclado|Efecto|
 |:--------|:---------------|:-----|
+|OpenDingux|Mantener POWER|Apagar el sistema|
 |OpenDingux|POWER + START + SELECT|Reinicio del sistema|
 |OpenDingux|POWER + UP|Subir volumen sonido|
 |OpenDingux|POWER + DOWN|Bajar volumen sonido|
