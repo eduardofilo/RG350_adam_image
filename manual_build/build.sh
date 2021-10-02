@@ -8,6 +8,7 @@ ODBETA_VERSION=2021-09-07
 ZERO_FILL=true
 INSTALL_ODBETA_MODS=false
 MAKE_PGv1=true
+COMP=xz     # gz or xz
 # END PARAMETER ZONE
 
 
@@ -21,9 +22,9 @@ rootcheck () {
     then
         sudo "$0" "$@"
         if [ ${MAKE_PGv1} = true ] ; then
-            sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.xz
+            sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.${COMP}
         fi
-        sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}.img.xz
+        sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}.img.${COMP}
         exit $?
     fi
 }
@@ -187,8 +188,11 @@ if [ ${MAKE_PGv1} = true ] ; then
     sleep 1
 
     echo "## Making card dump for PlayGo/PG2 v1 image"
-    #dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
-    dd if=${SD_DEV} bs=2M count=1600 status=progress | xz -z -f -9 > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.xz
+    if [ ${COMP} = "gz" ] ; then
+        dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+    else
+        dd if=${SD_DEV} bs=2M count=1600 status=progress | xz -z -f -9 > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.xz
+    fi
     sync
 
     echo "## Remounting P1"
@@ -236,8 +240,11 @@ sync
 sleep 1
 
 echo "## Making card dump for main image"
-#dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}.img.gz
-dd if=${SD_DEV} bs=2M count=1600 status=progress | xz -z -f -9 > ${DIRECTORY}/../releases/adam_v${1}.img.xz
+if [ ${COMP} = "gz" ] ; then
+    dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}.img.gz
+else
+    dd if=${SD_DEV} bs=2M count=1600 status=progress | xz -z -f -9 > ${DIRECTORY}/../releases/adam_v${1}.img.xz
+fi
 
 rm -rf ${DIRECTORY}/select_kernel/squashfs-root
 

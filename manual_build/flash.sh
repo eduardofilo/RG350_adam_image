@@ -30,8 +30,11 @@ umount ${SD_P1} 2> /dev/null
 umount ${SD_P2} 2> /dev/null
 
 echo "Flashing"
-#gunzip ../releases/adam_v${1}.img.gz -c | dd of=${SD_DEV} bs=2M status=progress conv=fsync
-xzcat ../releases/adam_v${1}.img.xz | dd of=${SD_DEV} bs=2M status=progress conv=fsync
+if [ ! -f ../releases/adam_v${1}.img.gz ] ; then
+    gunzip ../releases/adam_v${1}.img.gz -c | dd of=${SD_DEV} bs=2M status=progress conv=fsync
+else
+    xzcat ../releases/adam_v${1}.img.xz | dd of=${SD_DEV} bs=2M status=progress conv=fsync
+fi
 sync
 sleep 2
 
