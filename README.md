@@ -463,6 +463,14 @@ A3: The key in this topic is to understand well the three levels of overrides th
 
 A4: Just delete `/media/data/local/home/.retroarch/config` directory and `/media/data/local/home/.retroarch/retroarch.cfg` file.
 
+**Q5: NeoGeo ROMs with FBA standalone emulator do not sync screen well on RG350M (I guess not on RG3300X either). How can it be fixed?**
+
+A5: This is a problem with the hardware scaling that this emulator does when you have that screen. The solution is to disable it through the FBA interface itself or UX. To do this, temporarily disable SimpleMenu as the default launcher, open the `FBA UX` emulator from GMenu2X, locate the game that we want to adjust (it may be necessary to add the path of the NEOGEO ROMs to `ROMs Paths`), open it and in the Option menu that appears change `Hardware scaling` to `Off`. The change is saved at the game level so if we later launch it from SimpleMenu, it will be applied even if we do not go through that intermediate settings screen.
+
+![FBA Hardware scaling](images/fba_hardware_scaling.png)
+
+If you don't want to make the fix game by game, you can change it in `Main settings > Default ROM settings > Default Run Game settings > Hardware scaling`, but keep in mind that this change will affect games from other systems that did not have problems with scaling.
+
 ## Telegram channel for updates
 
 Join this Telegram channel to get update notifications: https://t.me/adam_image

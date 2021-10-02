@@ -459,9 +459,17 @@ A2: Desde la versión v1.1, SimpleMenu muestra el nivel de batería en algunos t
 
 A3: La clave en este tema es comprender bien los tres niveles de overrides que existen. Si se cambia un ajuste y se hace override a nivel de core, pero luego existe un override del mismo ajuste a novel de contenidos, el primero no se aplicará porque el segundo tiene prioridad. [Esta guía](https://docs.libretro.com/guides/overrides/) es muy útil.
 
-**Q4: ¿Cómo se puede resetear la configuración de RetroArch de manera que pueda montar mis propios overrides sin verme afectados por los que incorpora la imagen?**
+**Q4: ¿Cómo se puede resetear la configuración de RetroArch de manera que pueda montar mis propios overrides sin que se vean afectados por los que incorpora la imagen?**
 
 A4: Sólo hay que borrar el directorio `/media/data/local/home/.retroarch/config` y el fichero `/media/data/local/home/.retroarch/retroarch.cfg`.
+
+**Q5: Las ROMs de NeoGeo con el emulador FBA standalone no sincronizan bien la pantalla en RG350M (supongo que tampoco en RG3300X). ¿Cómo puede arreglarse?**
+
+A5: Se trata de un problema con el hardware scaling que hace ese emulador cuando se tiene esa pantalla. La solución es desactivarlo por medio del interfaz propio de FBA o UX. Para ello, desactivar momentaneamente SimpleMenu como lanzador predeterminado, abrir desde GMenu2X el emulador `FBA UX`, localizar el juego que nos interesa ajustar (puede ser necesario añadir la ruta de las ROMs de NEOGEO a `ROMs Paths`), abrirlo y en el menú de opciones que aparece cambiar `Hardware scaling` a `Off`. El cambio se guarda a nivel de juego por lo que si luego más tarde lo lanzamos desde SimpleMenu, se aplicará aunque no pasemos por esa pantalla intermedia de ajustes.
+
+![FBA Hardware scaling](images/fba_hardware_scaling.png)
+
+Si no se quiere hacer el ajuste juego a juego, puede cambiarse en `Main settings > Default ROM settings > Default Run Game settings > Hardware scaling`, pero hay que tener en cuenta que este cambio afectará a los juegos de otros sistemas que no tenían el problema de Neo Geo.
 
 ## Canal Telegram para comunicar actualizaciones
 
