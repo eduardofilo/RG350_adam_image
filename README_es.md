@@ -341,13 +341,13 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |RetroArch|Select + Up/Down|Cambiar volumen|
 |RetroArch/Neo Geo FBA|Mantener pulsado Start|Entrar en ajustes UniBIOS|
 |RetroArch/CPS2|R2 o R3|Test menu en algunos juegos|
-|FBA (MAME, FBA and CPS)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
-|FBA (MAME, FBA and CPS)|L1 + R1 + Y|Mostrar/ocultar el contador FPS|
-|FBA (MAME, FBA and CPS)|L1 + R1 + B|Guardar savestate|
-|FBA (MAME, FBA and CPS)|L1 + R1 + A|Cargar savestate|
-|FBA (MAME, FBA and CPS)|Select|Insertar moneda|
-|FBA (MAME, FBA and CPS)|Start|Comenzar Jugador 1|
-|FBA (MAME, FBA and CPS)|Select + Start|Comenzar Jugador 2|
+|FBA (MAME, FBA y CPS)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
+|FBA (MAME, FBA y CPS)|L1 + R1 + Y|Mostrar/ocultar el contador FPS|
+|FBA (MAME, FBA y CPS)|L1 + R1 + B|Guardar savestate|
+|FBA (MAME, FBA y CPS)|L1 + R1 + A|Cargar savestate|
+|FBA (MAME, FBA y CPS)|Select|Insertar moneda|
+|FBA (MAME, FBA y CPS)|Start|Comenzar Jugador 1|
+|FBA (MAME, FBA y CPS)|Select + Start|Comenzar Jugador 2|
 |xMAME|Select + L1 + R1|Salir del juego|
 |xMAME|Start + R1|Mostrar/ocultar el contador FPS|
 |Daphne|L1|Insertar moneda|
