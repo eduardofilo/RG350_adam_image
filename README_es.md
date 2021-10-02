@@ -168,8 +168,8 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |Inteillivision|roms/INTELLI|int|
 |ColecoVision|roms/COLECO|rom, col|
 |SNK Neo Geo|roms/NEOGEO|zip, 7z|
-|NEC PC Engine|roms/PCE|pce, tg16, cue, 7z, zip|
-|NEC PC Engine CD|roms/PCECD|pce, tg16, cue, chd, 7z, zip|
+|NEC PC Engine|roms/PCE|pce, tg16, cue, zip, 7z|
+|NEC PC Engine CD|roms/PCECD|pce, tg16, cue, chd, zip, 7z|
 |Sony PlayStation|roms/PS|mdf, zip, pbp, cue, bin, img, ccd, sub, chd|
 |Nintendo Game Boy|roms/GB|gb, gz, zip, 7z|
 |Nintendo Game Boy Color|roms/GBC|gbc, zip, 7z|
