@@ -341,6 +341,11 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |RetroArch/CPS2|R2 or R3|Test menu on some games|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Start or Power|Open emulator menu that allows us to quit|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Y|Show/hide FPS counter|
+|FBA (MAME, FBA y CPS)|L1 + R1 + B|Savestate save|
+|FBA (MAME, FBA y CPS)|L1 + R1 + A|Savestate load|
+|FBA (MAME, FBA y CPS)|Select|Insert coin|
+|FBA (MAME, FBA y CPS)|Start|Start Player 1|
+|FBA (MAME, FBA y CPS)|Select + Start|Start Player 2|
 |xMAME|Select + L1 + R1|Quit|
 |xMAME|Start + R1|Show/hide FPS counter|
 |Daphne|L1|Insert coin|
