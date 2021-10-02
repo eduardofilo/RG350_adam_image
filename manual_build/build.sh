@@ -5,8 +5,8 @@ SD_DEV=/dev/mmcblk0
 SD_P1=${SD_DEV}p1
 SD_P2=${SD_DEV}p2
 ODBETA_VERSION=2021-09-07
-ZERO_FILL=true
 INSTALL_ODBETA_MODS=false
+ZERO_FILL=true
 MAKE_PGv1=true
 COMP=xz     # gz or xz
 # END PARAMETER ZONE
