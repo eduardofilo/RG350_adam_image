@@ -439,7 +439,11 @@ Para desactivarlo procederemos de la misma forma pero desactivando la opción de
 
 En xMAME la opción FPS se activa/desactiva en cualquier momento pulsando `Start + R1`. En FBA la combinación es `L1 + R1 + Y`.
 
-Un caso especial es el del sistema CPS. En esta imagen se ha optado por juntar en un mismo sistema los CPS1 y CPS2 (no hay core de RetroArch para CPS3 y en general es un sistema para el que las máquinas que pueden utilizar esta imagen no tienen potencia suficiente). Se ha preferido hacerlo así por el reducido número de juegos de ambos sistemas y por las facilidades que ofrece SimpleMenu para seleccionar el core que queremos utilizar para cada juego. Así, en este sistema (o mejor dicho en la reunión de los dos sistemas CPS1 y CPS2), será imprescindible hacer el ajuste en los juegos de CPS2. El core de CPS1 es el predeterminado y por eso sólo será necesario ajustar los de CPS2.
+Un caso especial es el del sistema CPS. En esta imagen se ha optado por juntar en un mismo sistema los CPS1 y CPS2 (no hay core de RetroArch para CPS3 y en general es un sistema para el que las máquinas que pueden utilizar esta imagen no tienen potencia suficiente). Se ha preferido hacerlo así por el reducido número de juegos de ambos sistemas y por las facilidades que ofrece SimpleMenu para seleccionar el core que queremos utilizar para cada juego. Así, en este sistema (o mejor dicho en la reunión de los dos sistemas CPS1 y CPS2), será imprescindible hacer el ajuste en los juegos de CPS2. El core de CPS1 es el predeterminado y por eso sólo será necesario ajustar los de CPS2. La lista completa de juegos CPS2 es la siguiente (se indica el nombre del fichero de la ROM .zip, no el nombre real del juego). Gracias a @ridsama por elaborar la lista:
+
+```
+1944, 19xx, armwar, avsp, batcir, choko, csclub, cybots, ddsom, ddtod, dimahoo, dstlk, ecofghtr, gigawing, hsf2, megaman2, mmatrix, mpang, mshvsf, msh, mvsc, nwarr, progear, pzloop2, ringdest, sfa2, sfa3, sfa, sfz2al, sgemf, spf2t, ssf2t, ssf2, vhunt2, vsav2, vsav, xmcota, xmvsf
+```
 
 #### La consola no arranca tras flashear
 
