@@ -103,6 +103,7 @@ rm ${DIRECTORY}/mnt_p2/local/share/xmame/sm_bridge/*.pyc 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.sm64-port/sm64_save_file.bin 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.simplemenu/rom_preferences/* 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
+rm ${DIRECTORY}/mnt_p2/local/home/.fba/configs/* 2> /dev/null
 
 echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
