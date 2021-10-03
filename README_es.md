@@ -112,10 +112,6 @@ En la primera parte de este vídeo del compañero [Brumagix Gamer](https://www.y
 
 [![Ver vídeo](https://img.youtube.com/vi/NCfoqQ5-Ll8/hqdefault.jpg)](https://www.youtube.com/watch?v=NCfoqQ5-Ll8 "Ver vídeo")
 
-Aquí otro vídeo del compañero [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA):
-
-[![Ver vídeo](https://img.youtube.com/vi/wgyaeOCvzKI/hqdefault.jpg)](https://www.youtube.com/watch?v=wgyaeOCvzKI "Ver vídeo")
-
 ## Instalación de contenidos
 
 La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene el sistema OpenDingux, el frontend SimpleMenu, los cores RetroArch y unos pocos emuladores independientes. Toda la configuración se ha hecho con la idea de que los contenidos sean aportados desde la tarjeta que colocaremos en la ranura marcada como EXT.
