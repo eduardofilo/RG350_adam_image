@@ -23,6 +23,11 @@ if [ $# -ne 1 ] ; then
     exit 1
 fi
 
+if [ ! -b ${SD_DEV} ] ; then
+    echo "Dev ${SD_DEV} not found"
+    exit 1
+fi
+
 rootcheck "${@}"
 
 echo "Unmounting P1 and P2"
