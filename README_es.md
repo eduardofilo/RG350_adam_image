@@ -464,6 +464,40 @@ A2: Desde la versión v1.1, SimpleMenu muestra el nivel de batería en algunos t
 
 A3: La clave en este tema es comprender bien los tres niveles de overrides que existen. Si se cambia un ajuste y se hace override a nivel de core, pero luego existe un override del mismo ajuste a novel de contenidos, el primero no se aplicará porque el segundo tiene prioridad. [Esta guía](https://docs.libretro.com/guides/overrides/) es muy útil.
 
+Vamos a mostrar un ejemplo de uno de estos casos que se pregunta más a menudo. Se trata de activar la opción para mantener la relación de aspecto de la pantalla en GBC (en los greps siguientes no hay que tener en cuenta el fichero `GB.cfg` que no es relevante para este caso). Esa opción se llama `video_dingux_ipu_keep_aspect` en los ficheros de configuración de RetroArch. Lo que sigue es la situación de partida de ese ajuste en los diferentes ficheros que se aplica, tal y como está en la imagen recien flasheada:
+
+```
+rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect retroarch.cfg
+video_dingux_ipu_keep_aspect = "true"
+rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect config/Gambatte/*
+config/Gambatte/GB.cfg:video_dingux_ipu_keep_aspect = "false"
+config/Gambatte/GBC.cfg:video_dingux_ipu_keep_aspect = "false"
+config/Gambatte/Gambatte.cfg:video_dingux_ipu_keep_aspect = "false"
+```
+
+En palabras, el ajuste `keep aspect ratio` está activado a un nivel general (primer grep), pero desactivado en los overrides a nivel de core y de contenido (segundo grep).
+
+Lo esperable sería que activando la opción a nivel de contenido empezara a aplicarse, pero RetroArch tiene una especie de economía de ajustes y cuando ve que un ajuste a cualquier nivel, encaja con el ajuste general, simplemente elimina ese ajuste del override. Como resultado, cuando cambiamos ese ajuste a `true` y luego creamos el override a nivel de contenido, lo que ocurre en realidad es que el override se pierde y se empieza a aplicar el que está a nivel de core, que, como puede verse, es todavía `false`.
+
+```
+rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect retroarch.cfg
+video_dingux_ipu_keep_aspect = "true"
+rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect config/Gambatte/*
+config/Gambatte/GB.cfg:video_dingux_ipu_keep_aspect = "false"
+config/Gambatte/Gambatte.cfg:video_dingux_ipu_keep_aspect = "false"
+```
+
+La solución es hacer otro override a nivel de core (lo que borra el ajuste a ese nivel también), dejando únicamente el ajuste general.
+
+```
+rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect retroarch.cfg
+video_dingux_ipu_keep_aspect = "true"
+rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect config/Gambatte/*
+config/Gambatte/GB.cfg:video_dingux_ipu_keep_aspect = "false"
+```
+
+En resumen, hay que activar el mantener la relación de aspecto y crear overrides a nivel de core y de contenido al mismo tiempo. Es un lío sí.
+
 **Q4: ¿Cómo se puede resetear la configuración de RetroArch de manera que pueda montar mis propios overrides sin que se vean afectados por los que incorpora la imagen?**
 
 A4: Sólo hay que borrar el directorio `/media/data/local/home/.retroarch/config` y el fichero `/media/data/local/home/.retroarch/retroarch.cfg`.
