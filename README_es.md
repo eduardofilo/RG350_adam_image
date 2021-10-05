@@ -475,7 +475,7 @@ config/Gambatte/GBC.cfg:video_dingux_ipu_keep_aspect = "false"
 config/Gambatte/Gambatte.cfg:video_dingux_ipu_keep_aspect = "false"
 ```
 
-En palabras, el ajuste `keep aspect ratio` está activado a un nivel general (primer grep), pero desactivado en los overrides a nivel de core y de contenido (segundo grep).
+En palabras, el ajuste `Keep Aspect Ratio` está activado a un nivel general (primer grep), pero desactivado en los overrides a nivel de core y de contenido (segundo grep).
 
 Lo esperable sería que activando la opción a nivel de contenido empezara a aplicarse, pero RetroArch tiene una especie de economía de ajustes y cuando ve que un ajuste a cualquier nivel, encaja con el ajuste general, simplemente elimina ese ajuste del override. Como resultado, cuando cambiamos ese ajuste a `true` y luego creamos el override a nivel de contenido, lo que ocurre en realidad es que el override se pierde y se empieza a aplicar el que está a nivel de core, que, como puede verse, es todavía `false`.
 
