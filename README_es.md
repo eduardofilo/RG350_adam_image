@@ -464,7 +464,7 @@ A2: Desde la versión v1.1, SimpleMenu muestra el nivel de batería en algunos t
 
 A3: La clave en este tema es comprender bien los tres niveles de overrides que existen. Si se cambia un ajuste y se hace override a nivel de core, pero luego existe un override del mismo ajuste a novel de contenidos, el primero no se aplicará porque el segundo tiene prioridad. [Esta guía](https://docs.libretro.com/guides/overrides/) es muy útil.
 
-Vamos a mostrar un ejemplo de uno de estos casos que se pregunta más a menudo. Se trata de activar la opción para mantener la relación de aspecto de la pantalla en GBC (en los greps siguientes no hay que tener en cuenta el fichero `GB.cfg` que no es relevante para este caso). Esa opción se llama `video_dingux_ipu_keep_aspect` en los ficheros de configuración de RetroArch. Lo que sigue es la situación de partida de ese ajuste en los diferentes ficheros que se aplica, tal y como está en la imagen recien flasheada:
+Vamos a mostrar un ejemplo de uno de estos casos que se pregunta más a menudo. Se trata de activar la opción para mantener la relación de aspecto de la pantalla en GB o GBC. Vamos a fijarnos en GBC en concreto por lo que en los greps siguientes no hay que tener en cuenta el fichero `GB.cfg`. Esa opción se llama `video_dingux_ipu_keep_aspect` en los ficheros de configuración de RetroArch. Lo que sigue es la situación de partida de ese ajuste en los diferentes ficheros que se aplica, tal y como está en la imagen recien flasheada:
 
 ```
 rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect retroarch.cfg

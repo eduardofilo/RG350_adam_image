@@ -468,7 +468,7 @@ A2: Since version v1.1, SimpleMenu shows battery level on some themes (0A and Si
 
 A3: The key in this topic is to understand well the three levels of overrides that exists. If you change a setting and override it at the core level, but then there is an override on the same setting at the content level, the first will not be applied because the second takes precedence. [This guide](https://docs.libretro.com/guides/overrides/) is valuable.
 
-We are going to show an example of one of these cases that is most often asked. It is about activating the option to keep the aspect ratio in GBC (in the following greps do not take into account the file `GB.cfg` that it isn't relevant to this case). That option is called `video_dingux_ipu_keep_aspect` in RA config files. This is the default situation of that setting on the different files that apply, as they are in the image just flashed:
+We are going to show an example of one of these cases that is most often asked. It is about activating the option to keep the aspect ratio in GB or GBC. We are going to look at GBC in particular, so in the following greps we do not have to take into account the file `GB.cfg`. That option is called `video_dingux_ipu_keep_aspect` in RA config files. This is the default situation of that setting on the different files that apply, as they are in the image just flashed:
 
 ```
 rg280v:~/.retroarch $ grep video_dingux_ipu_keep_aspect retroarch.cfg
