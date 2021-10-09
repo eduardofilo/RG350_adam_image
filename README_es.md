@@ -40,7 +40,7 @@ La configuración está realizada en base a las siguientes piezas:
 * [SimpleMenu](https://github.com/fgl82/simplemenu). Gracias a [FGL82](https://github.com/fgl82). Con los siguientes themes:
     * [0A](https://github.com/fgl82/0A). Gracias a [FGL82](https://github.com/fgl82).
     * [BigCody](https://github.com/fgl82/BigCody). Gracias a [FGL82](https://github.com/fgl82).
-    * [ComicBook](https://github.com/retrogamecorps/ComicBook). Gracias a [retrogamecorps](https://github.com/retrogamecorps).
+    * [ComicBook320x240](https://github.com/retrogamecorps/ComicBook320x240) y [ComicBook](https://github.com/retrogamecorps/ComicBook). Gracias a [retrogamecorps](https://github.com/retrogamecorps).
     * [SimUI](https://github.com/dkodr/SimUI). Gracias a [dkodr](https://github.com/dkodr).
 * [RetroArch](https://www.retroarch.com/?page=platforms). La combinación de Wrappers OPK se ha generado con el script [RG3550_auto_ra_installer](https://github.com/eduardofilo/RG350_auto_ra_installer) en base a [este fichero](https://github.com/eduardofilo/RG350_auto_ra_installer/blob/master/adam.csv).
     * [Oficial](https://buildbot.libretro.com/nightly/dingux/mips32/). Gracias principalmente a [jdgleaver](https://github.com/jdgleaver).
