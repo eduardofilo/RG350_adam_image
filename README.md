@@ -194,6 +194,7 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 |ScummVM|roms/SCUMMVM|*|
 |Pico8|roms/PICO8|png|
 |TIC80|roms/TIC80|tic, 7z, zip|
+|BBC Micro|roms/BBCMICRO|ssd|
 
 Some comments about the supported extensions:
 
@@ -249,6 +250,9 @@ The sizes and hashes indicated are from BIOS that have been proven functional, b
 |MSX (fMSX)|bios/MSX2EXT.ROM| |`2183c2aff17cf4297bdb496de78c2e8a`|Yes on MSX2|
 |MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Yes on MSX2+|
 |MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Yes on MSX2+|
+|BBC Micro|bios/acorn_dnfs|16384|`5daed103918277e2065dd7e8d23e57a5`|Yes|
+|BBC Micro|bios/basic|16384|`2cc67be4624df4dc66617742571a8e3d`|Yes|
+|BBC Micro|bios/os12|16384|`0a59a5ba15fe8557b5f7fee32bbd393a`|Yes|
 
 #### Cheats
 
@@ -368,6 +372,8 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |Cap32 (AMSTRAD CPC)|Y + Start|Virtual keyboard. Once displayed, open/close the RA menu (Select + X) so that the left stick starts working as a mouse|
 |Vice 64 (Commodore 64)|Select|Virtual keyboard|
 |PUAE (Commodores Amiga)|L1|Virtual keyboard|
+|BeebEm (BBC Micro)|L1|Open emulator menu that allows us to quit|
+|BeebEm (BBC Micro)|R1|Virtual keyboard|
 
 Don't miss [this cheatsheet](resources/Adam.Image.Cheatsheet.v1.1a.pdf) made by @iammeat that includes all the above controls in a much more convenient format.
 

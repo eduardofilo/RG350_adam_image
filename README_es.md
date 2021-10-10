@@ -192,6 +192,7 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |ScummVM|roms/SCUMMVM|*|
 |Pico8|roms/PICO8|png|
 |TIC80|roms/TIC80|tic, 7z, zip|
+|BBC Micro|roms/BBCMICRO|ssd|
 
 Algunas aclaraciones sobre las extensiones soportadas:
 
@@ -247,6 +248,9 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |MSX (fMSX)|bios/MSX2EXT.ROM| |`2183c2aff17cf4297bdb496de78c2e8a`|Sí para MSX2|
 |MSX (fMSX)|bios/MSX2P.ROM|32768|`847cc025ffae665487940ff2639540e5`|Sí para MSX2+|
 |MSX (fMSX)|bios/MSX2PEXT.ROM|16384|`7c8243c71d8f143b2531f01afa6a05dc`|Sí para MSX2+|
+|BBC Micro|bios/acorn_dnfs|16384|`5daed103918277e2065dd7e8d23e57a5`|Sí|
+|BBC Micro|bios/basic|16384|`2cc67be4624df4dc66617742571a8e3d`|Sí|
+|BBC Micro|bios/os12|16384|`0a59a5ba15fe8557b5f7fee32bbd393a`|Sí|
 
 #### Trucos
 
@@ -366,6 +370,8 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |Cap32 (AMSTRAD CPC)|Y + Start|Teclado virtual. Una vez desplegado abrir/cerrar el menú de RA (Select + X) para que empiece a funcionar el stick izquierdo como ratón|
 |Vice 64 (Commodore 64)|Select|Teclado virtual|
 |PUAE (Commodores Amiga)|L1|Teclado virtual|
+|BeebEm (BBC Micro)|L1|Abre el menú del emulador que nos permite salir|
+|BeebEm (BBC Micro)|R1|Teclado virtual|
 
 No te pierdas [esta cheatsheet](resources/Adam.Image.Cheatsheet.v1.1a.pdf) elaborada por @iammeat que incluye todos los controles anteriores en un formato mucho más conveniente.
 
