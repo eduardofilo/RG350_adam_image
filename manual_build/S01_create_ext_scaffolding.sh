@@ -19,7 +19,7 @@ then
         roms/WSC roms/POKEMINI roms/SUPERVISION roms/ZX             \
         roms/AMSTRAD roms/C64 roms/MSX roms/AMIGA roms/DOOM/DOOM    \
         roms/DOOM/DOOM2 roms/QUAKE roms/DOSBOX roms/SCUMMVM         \
-        roms/PICO8 roms/TIC80
+        roms/PICO8 roms/TIC80 roms/BBCMICRO roms/FDS
     do
       if [ ! -d "/media/sdcard/${dir}/.previews" ]; then
         mkdir -p "/media/sdcard/${dir}/.previews"
