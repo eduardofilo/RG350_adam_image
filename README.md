@@ -156,7 +156,8 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 |Capcom Play System|roms/CPS|zip, 7z|
 |Final Burn Alpha|roms/FBA|zip|
 |Daphne|roms/DAPHNE|zip|
-|Nintendo NES|roms/FC|zip, nes, 7z|
+|Nintendo NES|roms/FC|nes, zip, 7z|
+|Nintendo Famicom Disk System|roms/FDS|fds, zip, 7z|
 |Nintendo SNES|roms/SFC|smc, sfc, zip, 7z|
 |Nintendo Virtual Boy|roms/VB|vb, vboy, bin, zip, 7z|
 |SEGA SG-1000|roms/SG1000|zip, sg, 7z|
@@ -253,6 +254,7 @@ The sizes and hashes indicated are from BIOS that have been proven functional, b
 |BBC Micro|bios/acorn_dnfs|16384|`5daed103918277e2065dd7e8d23e57a5`|Yes|
 |BBC Micro|bios/basic|16384|`2cc67be4624df4dc66617742571a8e3d`|Yes|
 |BBC Micro|bios/os12|16384|`0a59a5ba15fe8557b5f7fee32bbd393a`|Yes|
+|Famicom Disk System|bios/disksys.rom|8192|`ca30b50f880eb660a320674ed365ef7a`|Yes|
 
 #### Cheats
 

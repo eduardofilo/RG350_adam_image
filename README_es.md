@@ -154,7 +154,8 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |Capcom Play System|roms/CPS|zip, 7z|
 |Final Burn Alpha|roms/FBA|zip|
 |Daphne|roms/DAPHNE|zip|
-|Nintendo NES|roms/FC|zip, nes, 7z|
+|Nintendo NES|roms/FC|nes, zip, 7z|
+|Nintendo Famicom Disk System|roms/FDS|fds, zip, 7z|
 |Nintendo SNES|roms/SFC|smc, sfc, zip, 7z|
 |Nintendo Virtual Boy|roms/VB|vb, vboy, bin, zip, 7z|
 |SEGA SG-1000|roms/SG1000|zip, sg, 7z|
@@ -251,6 +252,7 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |BBC Micro|bios/acorn_dnfs|16384|`5daed103918277e2065dd7e8d23e57a5`|Sí|
 |BBC Micro|bios/basic|16384|`2cc67be4624df4dc66617742571a8e3d`|Sí|
 |BBC Micro|bios/os12|16384|`0a59a5ba15fe8557b5f7fee32bbd393a`|Sí|
+|Famicom Disk System|bios/disksys.rom|8192|`ca30b50f880eb660a320674ed365ef7a`|Sí|
 
 #### Trucos
 
