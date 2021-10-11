@@ -194,7 +194,7 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 |ScummVM|roms/SCUMMVM|*|
 |Pico8|roms/PICO8|png|
 |TIC80|roms/TIC80|tic, 7z, zip|
-|BBC Micro|roms/BBCMICRO|ssd|
+|BBC Micro|roms/BBCMICRO|ssd,dsd,uef|
 
 Some comments about the supported extensions:
 
