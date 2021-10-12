@@ -56,6 +56,7 @@ The setup is made based on the following parts:
     * [Tac08](https://0xcafed00d.itch.io/tac08-rg350). Thanks to [0xCAFED00D](https://itch.io/profile/0xcafed00d).
     * [VbEmu](https://gitlab.com/gameblabla/gameblabla-releases/-/blob/master/opk/gcw0/vbemu_gcw0.opk). Thanks to [gameblabla](https://gitlab.com/gameblabla).
     * [xMAME](http://www.slaanesh.net/). Thanks to [Slaanesh](https://www.blogger.com/profile/15791750842821351775). Installed [this](https://github.com/eduardofilo/RG350_xmame_sm_bridge) settings interface.
+    * [ScummVM](https://github.com/goldmojo/scummvm-rg350). Thanks to [goldmojo](https://github.com/goldmojo).
     * [Commander](https://github.com/od-contrib/commander/releases/latest). Thanks to [glebm](https://github.com/glebm).
     * [PyBackup](https://github.com/eduardofilo/RG350_py_backup/releases/latest)
 
