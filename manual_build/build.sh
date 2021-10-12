@@ -4,7 +4,7 @@
 SD_DEV=/dev/mmcblk0
 SD_P1=${SD_DEV}p1
 SD_P2=${SD_DEV}p2
-ODBETA_VERSION=2021-09-07
+ODBETA_VERSION=2021-10-03
 INSTALL_ODBETA_MODS=false
 ZERO_FILL=true
 MAKE_PGv1=true
@@ -101,10 +101,12 @@ rm ${DIRECTORY}/mnt_p2/local/share/xmame/xmame69/nvram/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/share/xmame/xmame52/nvram/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/share/xmame/xmame52/nvram/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/share/xmame/sm_bridge/*.pyc 2> /dev/null
-rm ${DIRECTORY}/mnt_p2/local/home/.sm64-port/sm64_save_file.bin 2> /dev/null
-rm ${DIRECTORY}/mnt_p2/local/home/.simplemenu/rom_preferences/* 2> /dev/null
+rm -rf ${DIRECTORY}/mnt_p2/local/home/.sm64-port 2> /dev/null
+rm -rf ${DIRECTORY}/mnt_p2/local/home/.simplemenu/rom_preferences/* 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.fba/configs/* 2> /dev/null
+rm ${DIRECTORY}/mnt_p2/local/home/.scummvmrc 2> /dev/null
+rm ${DIRECTORY}/mnt_p2/local/home/.local/share/scummvm/saves/* 2> /dev/null
 
 echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
@@ -113,10 +115,27 @@ echo "## Installing directory scaffolding script"
 cp ${DIRECTORY}/S01_create_ext_scaffolding.sh ${DIRECTORY}/mnt_p2/local/etc/init.d
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
 
-echo "## Changing shadow file"
+echo "## Installing Py Backup config"
+cp ${DIRECTORY}/config.ini ${DIRECTORY}/mnt_p2/local/home/.py_backup/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.py_backup/config.ini
+
+echo "## Installing SimpleMenu alias"
+cp ${DIRECTORY}/alias.txt ${DIRECTORY}/mnt_p2/local/home/.simplemenu/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/alias.txt
+
+echo "## Settings etc files"
 cp ${DIRECTORY}/shadow_with_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
 chmod 600 ${DIRECTORY}/mnt_p2/local/etc/shadow
+cp ${DIRECTORY}/brightness.state ${DIRECTORY}/mnt_p2/local/etc/
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/brightness.state
+chmod 644 ${DIRECTORY}/mnt_p2/local/etc/brightness.state
+cp ${DIRECTORY}/usb.conf ${DIRECTORY}/mnt_p2/local/etc/
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/usb.conf
+chmod 644 ${DIRECTORY}/mnt_p2/local/etc/usb.conf
+cp ${DIRECTORY}/volume.state ${DIRECTORY}/mnt_p2/local/etc/
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/volume.state
+chmod 755 ${DIRECTORY}/mnt_p2/local/etc/volume.state
 
 echo "## Setting up first boot"
 if [ ${INSTALL_ODBETA_MODS} = true ] ; then
@@ -137,7 +156,6 @@ if [ ${ZERO_FILL} = true ] ; then
     echo "## Filling P2 with 0xFF"
     zerofree -v -f 0xFF ${SD_P2}
 fi
-
 
 if [ ! -f ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} ] ; then
     echo "## Downloading ODBeta distribution"

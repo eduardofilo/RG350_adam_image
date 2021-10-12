@@ -5,7 +5,7 @@
 ## Table of contents
 
 - [Introduction](#introduction)
-- [Upgrade from v1.1 to v1.2](#upgrade-from-v11-to-v12)
+- [Upgrade](#upgrade)
 - [Fresh installation](#fresh-installation)
     - [Windows](#windows)
     - [Linux](#linux)
@@ -60,11 +60,15 @@ The setup is made based on the following parts:
     * [Commander](https://github.com/od-contrib/commander/releases/latest). Thanks to [glebm](https://github.com/glebm).
     * [PyBackup](https://github.com/eduardofilo/RG350_py_backup/releases/latest)
 
-## Upgrade from v1.1 to v1.2
+## Upgrade
 
-If you have been using the console with the previous version of the image, surely we are interested in saving the savestates of the games we have played and some personal settings. So, **BEFORE** flashing the latest version of the image, some of these things should be backed up. To facilitate this task, the `Py Backup` application has been created, which is described [here](https://github.com/eduardofilo/RG350_py_backup/blob/master/README.md) and comes preconfigured with the most important files that should be periodically backed up. Due to changes in the Py Backup configuration file between versions 1.1 and 1.2, the update procedure in this version is slightly complicated by having to replace that file before making the backup. In the following video we can see the entire upgrade process from image v1.1 to v1.2.
+If you have been using the console with the previous version of the image, surely we are interested in saving the savestates of the games we have played and some personal settings. So, **BEFORE** flashing the latest version of the image, some of these things should be backed up. To facilitate this task, the `Py Backup` application can be used, which is described [here](https://github.com/eduardofilo/RG350_py_backup/blob/master/README.md) and comes preconfigured with the most important files that should be periodically backed up.
+
+Due to changes in the Py Backup configuration file between versions 1.1 and 1.2, the update procedure from 1.1 version is slightly complicated by having to replace that file before making the backup. In the following video we can see the entire upgrade process from image v1.1 to v1.2.
 
 [![See video](https://img.youtube.com/vi/Qih9NzvCCHg/hqdefault.jpg)](https://www.youtube.com/watch?v=Qih9NzvCCHg "See video")
+
+If we update from 1.2 to 1.3 we can skip the first 6 steps of the previous video, that is, start at step 7.
 
 ## Fresh installation
 
@@ -191,7 +195,7 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 |Doom|roms/DOOM/DOOM, roms/DOOM/DOOM2|wad, zip, 7z|
 |Quake|roms/QUAKE|pak, zip, 7z|
 |MS-DOS|roms/DOSBOX|zip, dosz, exe, com, bat, iso, cue, ins, img, ima, vhd, m3u, m3u8, 7z|
-|ScummVM|roms/SCUMMVM|*|
+|ScummVM|roms/SCUMMVM|svm|
 |Pico8|roms/PICO8|png|
 |TIC80|roms/TIC80|tic, 7z, zip|
 |BBC Micro|roms/BBCMICRO|ssd,dsd,uef|
@@ -199,6 +203,11 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 Some comments about the supported extensions:
 
 * PlayStation: ROMs in `cue+bin` format do not work compressed in ZIP. On the contrary, in `iso` format, they do open when they are supplied compressed in ZIP.
+* ScummVM: ScummVM games are made up of several files, so they will have to be kept in directories. The extension `svm` indicated in the former list corresponds to an empty file whose name is the ID of the game that we will extract from [this list](https://www.scummvm.org/compatibility/) and that we will place in the directory where we have the rest of the game files. For example, for the game "The Secret of Monkey Island" we will need the files that we can consult in the [ScummVM wiki](https://wiki.scummvm.org/index.php?title=Category:Supported_Games). Specifically for this game [we see](https://wiki.scummvm.org/index.php?title=The_Secret_of_Monkey_Island) that we will need the files `MONKEY.000` and `MONKEY.001` that we will place in a directory of any name within the directory configured in SimpleMenu (`<EXT_SD>/roms/SCUMMVM`). It will be in this same directory where we will have to place the empty file `svm`. According to the ScummVM compatibility list, the ID of "The Secret of Monkey Island" is `monkey`, so the file that we will place inside the game directory will be `monkey.svm`. Finally, if we want SimpleMenu to show the full name of the game, we will only have to incorporate an entry like the following in the SimpleMenu alias file (`/home/media/data/local/.simplemenu/alias.txt`):
+
+    ```
+    monkey=The Secret of Monkey Island
+    ```
 
 #### Previews
 
