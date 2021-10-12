@@ -62,8 +62,6 @@ The setup is made based on the following parts:
 
 ## Upgrade from v1.1 to v1.2
 
-## Actualización de v1.1 a v1.2
-
 If you have been using the console with the previous version of the image, surely we are interested in saving the savestates of the games we have played and some personal settings. So, **BEFORE** flashing the latest version of the image, some of these things should be backed up. To facilitate this task, the `Py Backup` application has been created, which is described [here](https://github.com/eduardofilo/RG350_py_backup/blob/master/README.md) and comes preconfigured with the most important files that should be periodically backed up. Due to changes in the Py Backup configuration file between versions 1.1 and 1.2, the update procedure in this version is slightly complicated by having to replace that file before making the backup. In the following video we can see the entire upgrade process from image v1.1 to v1.2.
 
 [![See video](https://img.youtube.com/vi/Qih9NzvCCHg/hqdefault.jpg)](https://www.youtube.com/watch?v=Qih9NzvCCHg "See video")
