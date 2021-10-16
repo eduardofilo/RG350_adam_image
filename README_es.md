@@ -532,6 +532,15 @@ A5: Se trata de un problema con el hardware scaling que hace ese emulador cuando
 
 Si no se quiere hacer el ajuste juego a juego, puede cambiarse en `Main settings > Default ROM settings > Default Run Game settings > Hardware scaling`, pero hay que tener en cuenta que este cambio afectará a los juegos de otros sistemas que no tenían el problema de Neo Geo.
 
+**Q6: No puedo modificar la configuración de RetroArch, obtengo el error `Failed saving config to...`**
+
+A6: Para modificar la configuración general de RetroArch, no debe haber ningún contenido (ROM) cargado. Esto puede hacerse de varias formas:
+
+1. Tras lanzar RetroArch mediante alguna ROM, abrir el menú de éste (`Power` o `Select + X`) y usar el comando `Close Content`.
+2. Abrir el lanzador de RetroArch. En versiones de la imagen 1.2 o anteriores, sólo se puede hacer desde GMenu2X, encontrándose en la sección `emulators`. A partir de 1.3 también hay un lanzador en la sección `Apps` de SimpleMenu.
+
+De todas formas no suele ser habitual manipular la configuración general de RetroArch. Lo que la mayoría de las veces conviene es hacer un override a nivel de core, directorio o juego. Revisar la FAQ número 3 para más detalles.
+
 ## Canal Telegram para comunicar actualizaciones
 
 Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image

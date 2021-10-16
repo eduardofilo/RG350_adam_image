@@ -534,6 +534,15 @@ A5: This is a problem with the hardware scaling that this emulator does when you
 
 If you don't want to make the fix game by game, you can change it in `Main settings > Default ROM settings > Default Run Game settings > Hardware scaling`, but keep in mind that this change will affect games from other systems that did not have problems with scaling.
 
+**Q6: I can't modify RetroArch config, error `Failed saving config to...` is displayed**
+
+A6: To modify the general configuration of RetroArch, there must be no content (ROM) loaded. This can be done in a number of ways:
+
+1. After launching RetroArch through a ROM, open RA menu (`Power` or `Select + X`) and use the `Close Content` command.
+2. Open the RetroArch launcher. In image versions 1.2 or earlier, it can only be done from GMenu2X, in the `emulators` section. As of 1.3 there is also a launcher in the `Apps` section of SimpleMenu.
+
+In any case, it is not usual to manipulate the general configuration of RetroArch. What most of the time is convenient is to override at the core, content (directory) or game level. Check FAQ number 3 for more details.
+
 ## Telegram channel for updates
 
 Join this Telegram channel to get update notifications: https://t.me/adam_image
