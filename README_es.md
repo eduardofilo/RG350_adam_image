@@ -141,7 +141,7 @@ En Linux se puede hacer ejecutando el siguiente comando desde un terminal (en el
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-Si tienes un Mac, echa un vistazo a los comentarios a la [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) de este repositorio. Allí se aportan algunas opciones.
+Si tienes un Mac, echa un vistazo a los comentarios a la [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) de este repositorio. Allí se aportan algunas opciones. Otra opción comentada en algunos foros consiste en instalar el paquete `dosfstools` (con `brew install dosfstools`), añadir `/usr/local/sbin` al PATH y ejecutar el comando que se ha comentado para Linux anteriormente.
 
 #### ROMs
 
