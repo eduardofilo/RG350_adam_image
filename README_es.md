@@ -476,7 +476,7 @@ Lo más probable será que no se ha realizado el procedimiento de instalación d
 
 **Q1: ¿Tengo que volver a flashear con cada nueva imagen? ¿No existe un OPK para una actualización más ágil?**
 
-A1: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. El procedimiento completo para actualizar entre una versión de la imagen y la siguiente se describe [aquí](#actualización-de-v11-a-v12).
+A1: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. El procedimiento completo para actualizar entre una versión de la imagen y la siguiente se describe [aquí](#actualización).
 
 **Q2: ¿Hay algún indicador del nivel de batería?**
 

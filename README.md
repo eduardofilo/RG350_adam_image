@@ -478,7 +478,7 @@ Most likely, the kernel installation procedure described [here](#install-from-sc
 
 **Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?**
 
-A1: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. The complete procedure to upgrade between one version of the image and the next one is described [here](#upgrade-from-v11-to-v12).
+A1: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. The complete procedure to upgrade between one version of the image and the next one is described [here](#upgrade).
 
 **Q2: Is there a battery level indicator?**
 
