@@ -412,7 +412,7 @@ Another filter that usually works well in these situations is `LQ2x`.
 
 #### Applications force closing
 
-If the application or emulator that we were running crashes, it can be forced to close by pressing the key combination `Power + Select`. It is important to press the keys in that order, that is, press a little before `Power` and without releasing it then press` Select`. If this key combination does not work either, hold down the `Power` key for a few seconds to cause a controlled shutdown of the console.
+If the application or emulator that we were running hangs, it can be forced to close by pressing the key combination `Power + Select`. It is important to press the keys in that order, that is, press a little before `Power` and without releasing it then press` Select`. If this key combination does not work either, hold down the `Power` key for a few seconds to cause a controlled shutdown of the console.
 
 
 

@@ -412,7 +412,7 @@ Otro filtro que suele dar buen resultado en estas situaciones es `LQ2x`.
 
 #### Forzar cierre de aplicaciones
 
-Si en alguna ocasión la aplicación o emulador que tuviéramos en ejecución se quedara colgada, se puede forzar su cierre pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`. Si esta combinación de teclas tampoco funcionara, mantener la tecla `Power` unos segundos para provocar un apagado controlado de la consola.
+Si en alguna ocasión la aplicación o emulador que tuviéramos en ejecución se quedara congelada, se puede forzar su cierre pulsando la combinación de teclas `Power + Select`. Es importante pulsar las teclas en ese orden, es decir, pulsar un poco antes `Power` y sin soltarlo pulsar entonces `Select`. Si esta combinación de teclas tampoco funcionara, mantener la tecla `Power` unos segundos para provocar un apagado controlado de la consola.
 
 En resumen, los métodos para forzar el cierre de las aplicaciones o emuladores son:
 
