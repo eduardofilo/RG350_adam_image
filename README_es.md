@@ -358,8 +358,8 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |RetroArch|Select + Up/Down|Cambiar volumen|
 |RetroArch/Neo Geo FBA|Mantener pulsado Start|Entrar en ajustes UniBIOS|
 |RetroArch/CPS2|R2 o R3|Test menu en algunos juegos|
-|RetroArch/Famicom Disk System|L1|Selección de cara de disco|
-|RetroArch/Famicom Disk System|R1|Inserción/eyección de disco|
+|RetroArch/Famicom Disk System|L1|Cambiar cara de disco|
+|RetroArch/Famicom Disk System|R1|Insertar/eyectar disco|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Start o Power|Abre el menú del emulador que nos permite salir|
 |FBA (MAME, FBA y CPS)|L1 + R1 + Y|Mostrar/ocultar el contador FPS|
 |FBA (MAME, FBA y CPS)|L1 + R1 + B|Guardar savestate|
