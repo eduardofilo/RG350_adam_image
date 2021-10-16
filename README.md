@@ -358,6 +358,8 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |RetroArch|Select + Up/Down|Volume change|
 |RetroArch/Neo Geo FBA|Hold Start|UniBIOS settings|
 |RetroArch/CPS2|R2 or R3|Test menu on some games|
+|RetroArch/Famicom Disk System|L1|Side disk selection|
+|RetroArch/Famicom Disk System|R1|Disk insertion/ejection|
 |FBA (MAME, FBA and CPS)|L1 + R1 + Start or Power|Open emulator menu that allows us to quit|
 |FBA (MAME, FBA and CPS)|L1 + R1 + Y|Show/hide FPS counter|
 |FBA (MAME, FBA and CPS)|L1 + R1 + B|Savestate save|
