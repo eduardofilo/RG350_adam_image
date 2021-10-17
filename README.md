@@ -19,9 +19,6 @@
     - [System access](#system-access)
 - [Controls](#controls)
 - [Problem solving](#problem-solving)
-    - [Unsupported video mode](#unsupported-video-mode)
-    - [Applications force closing](#applications-force-closing)
-    - [Emulator selection](#emulator-selection)
 - [FAQ](#faq)
 - [Telegram channel for updates](#telegram-channel-for-updates)
 

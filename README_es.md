@@ -19,9 +19,6 @@
     - [Acceso al sistema](#acceso-al-sistema)
 - [Controles](#controles)
 - [Solución de problemas](#solución-de-problemas)
-    - [Unsupported video mode](#unsupported-video-mode)
-    - [Forzar cierre de aplicaciones](#forzar-cierre-de-aplicaciones)
-    - [Ajuste de emulador preferido](#ajuste-de-emulador-preferido)
 - [FAQ](#faq)
 - [Canal Telegram para comunicar actualizaciones](#canal-telegram-para-comunicar-actualizaciones)
 
