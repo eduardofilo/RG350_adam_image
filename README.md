@@ -481,15 +481,15 @@ Most likely, the kernel installation procedure described [here](#install-from-sc
 
 ## FAQ
 
-**Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?**
+#### Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?
 
 A1: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. The complete procedure to upgrade between one version of the image and the next one is described [here](#upgrade).
 
-**Q2: Is there a battery level indicator?**
+#### Q2: Is there a battery level indicator?
 
 A2: Since version v1.1, SimpleMenu shows battery level on some themes (0A and SimUI). You have also battery level when running RetroArch and entering in the menu (`Power` or `Select + X`). At last, you can exit to GMenu2X from SimpleMenu changing `Default launcher` option to `no` and then selecting `Session: quit`.
 
-**Q3: Why are the override settings in RetroArch not preserved?**
+#### Q3: Why are the override settings in RetroArch not preserved?
 
 A3: The key in this topic is to understand well the three levels of overrides that exists. If you change a setting and override it at the core level, but then there is an override on the same setting at the content level, the first will not be applied because the second takes precedence. [This guide](https://docs.libretro.com/guides/overrides/) is valuable.
 
@@ -527,11 +527,11 @@ config/Gambatte/GB.cfg:video_dingux_ipu_keep_aspect = "false"
 
 In short, you have to activate the keep aspect ratio and save the overrides at the core and content level at same time. It is a mess yes.
 
-**Q4: How can I reset the RetroArch configuration so that I can mount my own overrides without being affected by the ones in the image?**
+#### Q4: How can I reset the RetroArch configuration so that I can mount my own overrides without being affected by the ones in the image?
 
 A4: Just delete `/media/data/local/home/.retroarch/config` directory and `/media/data/local/home/.retroarch/retroarch.cfg` file.
 
-**Q5: NeoGeo ROMs with FBA standalone emulator do not sync screen well on RG350M (I guess on RG3300X neither). How can it be fixed?**
+#### Q5: NeoGeo ROMs with FBA standalone emulator do not sync screen well on RG350M (I guess on RG3300X neither). How can it be fixed?
 
 A5: This is a problem with the hardware scaling that this emulator does when you have that screen. The solution is to disable it through the FBA interface itself or UX. To do this, temporarily disable SimpleMenu as the default launcher, open the `FBA UX` emulator from GMenu2X, locate the game that we want to adjust (it may be necessary to add the path of the NEOGEO ROMs to `ROMs Paths`), open it and in the Option menu that appears change `Hardware scaling` to `Off`. The change is saved at the game level so if we later launch it from SimpleMenu, it will be applied even if we do not go through that intermediate settings screen.
 
@@ -539,7 +539,7 @@ A5: This is a problem with the hardware scaling that this emulator does when you
 
 If you don't want to make the fix game by game, you can change it in `Main settings > Default ROM settings > Default Run Game settings > Hardware scaling`, but keep in mind that this change will affect games from other systems that did not have problems with scaling.
 
-**Q6: I can't modify RetroArch config, error `Failed saving config to...` is displayed**
+#### Q6: I can't modify RetroArch config, error `Failed saving config to...` is displayed
 
 A6: To modify the general configuration of RetroArch, there must be no content (ROM) loaded. This can be done in a number of ways:
 
