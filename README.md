@@ -295,7 +295,7 @@ Once the card with the system (INT) and the contents (EXT) have been inserted in
 ssh od@10.1.1.2
 ```
 
-El password del usuario `od` es `untoqebboqvboqudrn`. If you want to change or disable it, you must use the `Password` application (only accessible from GMenu2X in the `settings` section).
+The password for `od` user is `untoqebboqvboqudrn`. If you want to change or disable it, you must use the `Password` application (only accessible from GMenu2X in the `settings` section).
 
 ![Network access 1](images/network_access1.png)
 
