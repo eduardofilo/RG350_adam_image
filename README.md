@@ -7,9 +7,6 @@
 - [Introduction](#introduction)
 - [Upgrade](#upgrade)
 - [Fresh installation](#fresh-installation)
-    - [Windows](#windows)
-    - [Linux](#linux)
-    - [Any system](#any-system)
 - [Content installation](#content-installation)
     - [External microSD format and label](#external-microsd-format-and-label)
     - [ROMs](#roms)
@@ -127,7 +124,7 @@ The card that we have just prepared is empty of contents. It only contains the O
 
 Before continuing, we will make a brief comment on the legal considerations of installing such contents. The matter is complex. If you are interested, a good article is [this Retro Game Corps post](https://retrogamecorps.com/2020/08/18/legal-guide-is-downloading-retro-game-files-roms-illegal/). Although there are few legal precedents on the subject, the problem primarily affects BIOS and ROMs. In a simplified way, it is usually considered that we can handle the ROMs of the games and the BIOS of the machines that we own. Actually it is more of a rule based on common sense, since as we say, there are few legal sentences on the subject and of course the opinion of the different participants in the industry is not consistent.
 
-#### External microSD format and label
+### External microSD format and label
 
 For all the preconfigured paths in the setup to work, the external microSD card needs to be in FAT32 format and **NOT** have label defined. In case of having a label, it will have to be removed.
 
@@ -143,7 +140,7 @@ sudo fatlabel /dev/mmcblk0p1 -r
 
 If you have a Mac, take a look at the comments in [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) of this repository. There are some options provided. Another option discussed in some forums is to install the `dosfstools` package (with `brew install dosfstools`), add `/usr/local/sbin` to the PATH, and run the command discussed above for Linux.
 
-#### ROMs
+### ROMs
 
 The SimpleMenu frontend has been configured with a series of predefined paths where it will try to locate the ROMs and graphical previews. These routes will be created on the EXT card each time the system boots (if they do not exist). This process will only work if, as we said in the previous section, the card format is FAT32 and it does **NOT** have a label. If we do not want to modify the SimpleMenu configuration, we will have to stick to these paths. In the table below, the name of the directory that will have to exist on the external card when we mount it on the PC is indicated in the second column. For example, in the following screenshot the ROMs directory of the Game Boy system is selected, which as we can see, is located next to all the others within the `roms` folder at the root of the card.
 
@@ -209,7 +206,7 @@ Some comments about the supported extensions:
     monkey=The Secret of Monkey Island
     ```
 
-#### Previews
+### Previews
 
 The previews should be placed in a directory with name `.previews` within each of the ROM directories in the previous list. For example, the previews of GB should be located in `roms/GB/.previews`, this being the path from the root of the external card when mounted in the PC. The preview files have to be PNGs with the same name as the game (except for the extension).
 
@@ -221,7 +218,7 @@ If we have followed the paths indicated above, later in SimpleMenu the game will
 
 ![Previews path 3](images/previews_path3.png)
 
-#### BIOS
+### BIOS
 
 All the emulators installed in the image (RetroArch included) have redirected the paths where the BIOS should be to the `bios` directory on the external card. Similar to the case of ROMs, the `bios` directory at the root of the external card will correspond to the path `/media/sdcard/bios` on the console system.
 
@@ -264,7 +261,7 @@ The sizes and hashes indicated are from BIOS that have been proven functional, b
 |BBC Micro|bios/os12|16384|`0a59a5ba15fe8557b5f7fee32bbd393a`|Yes|
 |Famicom Disk System|bios/disksys.rom|8192|`ca30b50f880eb660a320674ed365ef7a`|Yes|
 
-#### Cheats
+### Cheats
 
 RetroArch has a built-in cheat system based on a series of files that can be obtained from [this repository](https://github.com/libretro/libretro-database/tree/master/cht). In the image, the directory where we have to place the files has been redirected to the EXT card, as with the ROMs and BIOS. Specifically to the `cheats` directory at the root of the EXT card.
 
@@ -290,7 +287,7 @@ More details on [this guide](https://retrogamecorps.com/2020/12/24/guide-retroar
 
 PCSX4All also supports a cheat system. As in RetroArch, the directory where we have to place the files has been redirected to the external card. Specifically to the `cheats/PlayStation` directory at the root of the external card. Keep in mind that the cheats for PCSX4All do not have the same format as those for `Sony - PlayStation` in the repository that we have indicated before to get cheats for RetroArch.
 
-#### System access
+### System access
 
 Once the card with the system (INT) and the contents (EXT) have been inserted in their corresponding slots, and the console turned on, we can access the system by SSH to make some customizations that require this type of access (such as editing SimpleMenu or Py Backup configuration files). To achieve access by SSH we will connect the console with an USB type C cable to the computer using the same connector that is used for charging (that is, the one marked with DC). In Windows, it may be necessary to install [drivers](https://github.com/SeongGino/RetroGame350-AppRepo/blob/master/RG350-signed_driver.zip). On the computer we can use any FTP client configured with the SFTP or SCP protocol (for example WinSCP or Filezilla). Access through the normal SSH protocol can be achieved from a simple console or terminal either on Windows or Linux, by typing the following command:
 

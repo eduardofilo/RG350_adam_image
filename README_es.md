@@ -7,9 +7,6 @@
 - [Introducción](#introducción)
 - [Actualización](#actualización)
 - [Procedimiento de instalación](#instalación-desde-cero)
-    - [Windows](#windows)
-    - [Linux](#linux)
-    - [Cualquier sistema](#cualquier-sistema)
 - [Instalación de contenidos](#instalación-de-contenidos)
     - [Formato y label de tarjeta externa](#formato-y-label-de-tarjeta-externa)
     - [ROMs](#roms)
@@ -127,7 +124,7 @@ La tarjeta que acabamos de preparar está vacía de contenidos. Sólo contiene e
 
 Antes de continuar, hacer un breve comentario sobre las consideraciones legales de la instalación de dichos contenidos. El asunto es complejo. Si se tiene interés en profundizar, un buen artículo es [este post de Retro Game Corps](https://retrogamecorps.com/2020/08/18/legal-guide-is-downloading-retro-game-files-roms-illegal/) (en inglés). Aunque existen pocos precedentes legales sobre el tema, el problema afecta fundamentalmente a las BIOS y las ROMs. De forma simplificada se suele considerar que podemos manejar las ROMs de los juegos y las BIOS de las máquinas que tengamos en propiedad. En realidad se trata más de una regla basada en el sentido común, ya que como decimos, existen pocas sentencias sobre el tema y desde luego la opinión de los distintos participantes en la industria no es consistente.
 
-#### Formato y label de tarjeta externa
+### Formato y label de tarjeta externa
 
 Para que todas las rutas preconfiguradas en la imagen funcionen, es necesario que la tarjeta microSD externa tenga formato FAT32 y **NO** tenga definida una etiqueta o label. En caso de tener label habrá que borrarlo.
 
@@ -143,7 +140,7 @@ sudo fatlabel /dev/mmcblk0p1 -r
 
 Si tienes un Mac, echa un vistazo a los comentarios a la [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) de este repositorio. Allí se aportan algunas opciones. Otra opción comentada en algunos foros consiste en instalar el paquete `dosfstools` (con `brew install dosfstools`), añadir `/usr/local/sbin` al PATH y ejecutar el comando que se ha comentado para Linux anteriormente.
 
-#### ROMs
+### ROMs
 
 El frontend SimpleMenu ha sido configurado con una serie de rutas predefinidas donde tratará de localizar las ROMs y previsualizaciones de las mismas. Dichas rutas serán creadas en la tarjeta EXT cada vez que arranque el sistema (si no existen). Este proceso sólo funcionará si como decíamos en el apartado anterior, el formato de la tarjeta es FAT32 y **NO** tiene label. Si no queremos modificar la configuración de SimpleMenu, habrá que atenerse a estas rutas. En la tabla que hay más abajo, se indica en la segunda columna el nombre del directorio que tendrá que existir en la tarjeta externa cuando la montamos en el PC. Por ejemplo en el pantallazo siguiente está señalado el directorio de ROMs del sistema Game Boy, que como vemos se encuentra junto a todos los demás dentro de la carpeta `roms` en la raíz de la tarjeta.
 
@@ -209,7 +206,7 @@ Algunas aclaraciones sobre las extensiones soportadas:
     monkey=The Secret of Monkey Island
     ```
 
-#### Previews
+### Previews
 
 Las previews deberán colocarse en un directorio de nombre `.previews` dentro de cada uno de los directorios de ROMs del listado anterior. Por ejemplo las previews de las ROMs de GB deberán situarse en `roms/GB/.previews` siendo esta la ruta desde la raíz de la tarjeta externa cuando la montamos en el PC. Los ficheros de preview tienen que ser PNGs con el mismo nombre del juego (excepto la extensión).
 
@@ -221,7 +218,7 @@ Si hemos respetado las rutas indicadas anteriormente, más tarde en SimpleMenu e
 
 ![Previews path 3](images/previews_path3.png)
 
-#### BIOS
+### BIOS
 
 Todos los emuladores instalados en la imagen (RetroArch incluido) tienen redirigidas las rutas donde deben estar las BIOS al directorio `bios` en la tarjeta externa. De forma similar al caso de las ROMs, el directorio `bios` en la raíz de la tarjeta externa, se corresponderá con la ruta `/media/sdcard/bios` en el sistema de la consola.
 
@@ -264,7 +261,7 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |BBC Micro|bios/os12|16384|`0a59a5ba15fe8557b5f7fee32bbd393a`|Sí|
 |Famicom Disk System|bios/disksys.rom|8192|`ca30b50f880eb660a320674ed365ef7a`|Sí|
 
-#### Trucos
+### Trucos
 
 RetroArch lleva integrado un sistema de trucos en base a una serie de ficheros que se pueden obtener de [este repositorio](https://github.com/libretro/libretro-database/tree/master/cht). En la imagen, el directorio donde tenemos que colocar los ficheros, se ha redirigido a la tarjeta externa, al igual que con las ROMs y BIOS. En concreto al directorio `cheats` de la raíz de la tarjeta externa.
 
@@ -290,7 +287,7 @@ Instrucciones obtenidas de [esta guía](https://retrogamecorps.com/2020/12/24/gu
 
 PCSX4All también soporta un sistema de trucos. Al igual que en RetroArch, el directorio donde tenemos que colocar los ficheros, se ha redirigido a la tarjeta externa. En concreto al directorio `cheats/PlayStation` de la raíz de la tarjeta externa. Hay que tener en cuenta que los trucos para PCSX4All no tienen el mismo formato que los que hay para `Sony - PlayStation` en el repositorio que hemos indicado antes para obtener trucos para RetroArch.
 
-#### Acceso al sistema
+### Acceso al sistema
 
 Una vez que la tarjeta con el sistema (INT) y con los contenidos (EXT) han sido insertadas en sus correspondientes ranuras, y la consola encendida, podemos acceder al sistema por SSH para hacer algunas personalizaciones que requieren este tipo de acceso (como editar los ficheros de configuración de SimpleMenu o Py Backup). Para lograr el acceso por SSH conectaremos la consola con un cable USB tipo C al ordenador utilizando el mismo conector que se utiliza para cargar (es decir el marcado con DC). En el caso de Windows puede ser necesario instalar [drivers](https://github.com/SeongGino/RetroGame350-AppRepo/blob/master/RG350-signed_driver.zip). En el ordenador podemos utilizar cualquier cliente de FTP configurado con el protocolo SFTP o SCP (por ejemplo WinSCP o Filezilla). El acceso a través del protocolo SSH normal puede lograrse desde una simple consola o terminal ya sea en Windows o Linux, tecleando el siguiente comando:
 
