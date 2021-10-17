@@ -471,6 +471,12 @@ Un caso especial es el del sistema CPS. En esta imagen se ha optado por juntar e
 
 Lo más probable será que no se ha realizado el procedimiento de instalación del kernel descrito [aquí](#instalación-desde-cero). Si se arranca la consola sin haber instalado el kernel, el LED verde de encendido se ilumina débilmente. En esa situación la consola no se puede apagar (a no ser que desconectemos la batería o esperemos a que se descargue completamente). Se ha comprobado que en algunas tarjetas, aunque extraigamos la tarjeta, instalemos el kernel, volvamos a insertarla y pulsemos el RESET, seguirá sin arrancar. En esas situaciones, la única forma que se ha encontrado para salir del callejón sin salida (aparte de la idea comentada antes de desconectar la batería o esperar a que se descargue completamente) es insertar otra tarjeta que no dé este problema, pulsar RESET y tras el arranque del sistema en esta tarjeta de apoyo, apagar normalmente. Si ahora insertamos la primera tarjeta recien flasheada donde se haya realizado el procedimiento de instalación del kernel, esta vez (con un encendido en frío de la máquina) arrancará normalmente.
 
+#### La consola no se puede apagar
+
+Nos referimos a la situación en que tratamos de apagar la consola mediante el lanzador `Power off` de GMenu2X o el comando `Shutdown` de SimpleMenu. Todos los casos de este tipo encontrados han estado relacionados con reinicios espontáneos del sistema, normalmente tras entrar y salir del modo de suspensión varias veces. A partir de ese reinicio espontáneo, la consola no se podía apagar, es decir, volvía a arrancar por si sola al intentar apagarla. La solución consiste en utilizar el Reset. Para evitar corrupciones de la tarjeta del sistema, se recomienda pulsar el Reset justo cuando el sistema acabe de cerrarse (podemos guiarnos por cuando la pantalla se pone en negro). En el siguiente vídeo puede verse un ejemplo del fenómeno y su solución:
+
+[![Ver vídeo](https://img.youtube.com/vi/hf4fGnCjfTw/hqdefault.jpg)](https://www.youtube.com/watch?v=hf4fGnCjfTw "Ver vídeo")
+
 ## FAQ
 
 #### Q1: ¿Tengo que volver a flashear con cada nueva imagen? ¿No existe un OPK para una actualización más ágil?

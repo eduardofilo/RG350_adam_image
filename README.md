@@ -473,6 +473,12 @@ A special case is that of the CPS system. In this image, it has been chosen to c
 
 Most likely, the kernel installation procedure described [here](#install-from-scratch) has not been performed. If the console is booted without the kernel installed, the green power LED lights dimly. In this situation, the console cannot be turned off (unless we disconnect the battery or wait for it to discharge completely). It has been verified that in some cards, even if we remove the card, install the kernel, reinsert it and press RESET, it will still not boot. In these situations, the only way that has been found to get out of the vicious circle (apart from the idea mentioned before disconnecting the battery or waiting for it to discharge completely) is to insert another card that does not give this problem, press RESET and after system boot on this card, shutdown normally. If now we insert the first newly flashed card where the kernel installation procedure has been performed, this time (with a cold boot of the machine) it will boot normally.
 
+#### Console cannot be powered off
+
+We refer to the situation where we try to power off the console using the GMenu2X `Power off` launcher or the SimpleMenu `Shutdown` command. All cases of this type found have been related to spontaneous reboots of the system, usually after entering and exiting sleep mode several times. From that spontaneous restart, the console could not be turned off, that is, it would restart by itself when trying to power it off. The solution is to use the Reset. To avoid corruptions of the system card, it is recommended to press Reset just when the system finishes shutting down (we can be guided by when the screen goes black). An example of the phenomenon and its solution can be seen in the following video:
+
+[![See video](https://img.youtube.com/vi/hf4fGnCjfTw/hqdefault.jpg)](https://www.youtube.com/watch?v=hf4fGnCjfTw "See video")
+
 ## FAQ
 
 #### Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?
