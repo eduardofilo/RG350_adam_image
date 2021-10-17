@@ -71,6 +71,8 @@ Due to changes in the Py Backup configuration file between versions 1.1 and 1.2,
 
 If we update from 1.2 to 1.3 we can skip the first 6 steps of the previous video, that is, start at step 7.
 
+**IMPORTANT WARNING**: Due to changes in the internal format of the files stored in `rom_preferences` and `favorites.sav` in version 11 of SimpleMenu installed from image 1.3, the backup copies of these files from a previous version should not be restored. The `rom_preferences` actually have not changed the internal format of the files but does their location. Before they were all in the root of that same directory and now they go in subdirectories with the name of the corresponding system. Therefore, with a little attention, a backup of these files could be used, but it would be necessary to do the restoration manually or move the files to the directories where SimpleMenu is now going to look for them.
+
 ## Fresh installation
 
 1. Download the dump file from the [releases section of this repository](https://github.com/eduardofilo/RG350_adam_image/releases/latest).
