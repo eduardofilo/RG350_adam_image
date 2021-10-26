@@ -4,7 +4,7 @@
 if mount|grep -q /media/sdcard
 then
     for dir in apps backups bios bios/PlayStation cheats/PlayStation roms   \
-        OpenBOR OpenBOR/Paks
+        OpenBOR/Paks
     do
       if [ ! -d "/media/sdcard/${dir}" ]; then
         mkdir -p "/media/sdcard/${dir}"
