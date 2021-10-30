@@ -368,9 +368,9 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |Daphne|L1|Insert coin|
 |Daphne|Start|Start game|
 |Daphne|Select|Quit|
-|PocketSNES (SNES)|Power|Open emulator menu that allows us to quit|
-|ReGBA (GBA)|Power or Select + Start|Open emulator menu that allows us to quit|
-|PCSX4All (PlayStation)|Power or Select + Start|Open emulator menu that allows us to quit|
+|PocketSNES (SNES)|Select + Start or Power|Open emulator menu that allows us to quit|
+|ReGBA (GBA)|Select + Start or Power|Open emulator menu that allows us to quit|
+|PCSX4All (PlayStation)|Select + Start or Power|Open emulator menu that allows us to quit|
 |JzIntv|Select|Open emulator menu that allows us to quit|
 |JzIntv|Power|Quit|
 |JzIntv|R1|Virtual controller|
