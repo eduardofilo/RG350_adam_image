@@ -103,6 +103,7 @@ rm ${DIRECTORY}/mnt_p2/local/share/xmame/xmame52/nvram/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/share/xmame/sm_bridge/*.pyc 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.sm64-port 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.simplemenu/rom_preferences/* 2> /dev/null
+rm ${DIRECTORY}/mnt_p2/local/home/.simplemenu/*.log 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.fba/configs/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.scummvmrc 2> /dev/null
