@@ -108,6 +108,8 @@ rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.fba/configs/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.scummvmrc 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.local/share/scummvm/saves/* 2> /dev/null
+rm ${DIRECTORY}/mnt_p2/local/home/.pocketsnes/*.srm 2> /dev/null
+rm ${DIRECTORY}/mnt_p2/local/home/.pocketsnes/*.sv? 2> /dev/null
 
 echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
