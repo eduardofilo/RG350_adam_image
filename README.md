@@ -310,17 +310,17 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 
 |Context|Shorcut|Function|
 |:--------|:---------------|:-----|
-|OpenDingux|Hold POWER|Power off|
-|OpenDingux|POWER + START + SELECT|Reboot|
-|OpenDingux|POWER + UP|Volume up|
-|OpenDingux|POWER + DOWN|Volume down|
-|OpenDingux|POWER + RIGHT|Brightness up|
-|OpenDingux|POWER + LEFT|Brightness down|
-|OpenDingux|POWER + B|Mouse mode (formerly POWER + L1)|
-|OpenDingux|POWER + A|Hardware scaling ratio mode|
-|OpenDingux|POWER + SELECT|Kill current app|
-|OpenDingux|POWER + Y|Sleep mode (tap POWER to resume)|
-|OpenDingux|POWER + X|take screenshot (on ~/screenshots)|
+|OpenDingux|Hold Power|Power off|
+|OpenDingux|Power + Start + Select|Reboot|
+|OpenDingux|Power + Select|Kill current app|
+|OpenDingux|Power + UP|Volume up|
+|OpenDingux|Power + DOWN|Volume down|
+|OpenDingux|Power + RIGHT|Brightness up|
+|OpenDingux|Power + LEFT|Brightness down|
+|OpenDingux|Power + A|Hardware scaling ratio mode|
+|OpenDingux|Power + B|Mouse mode (formerly POWER + L1)|
+|OpenDingux|Power + Y|Sleep mode (tap POWER to resume)|
+|OpenDingux|Power + X|take screenshot (on ~/screenshots)|
 |OpenDingux|A (while powering on)|It'll skip the logo and show the output of the init scripts|
 |SimpleMenu|Start|Brings up the Settings screen|
 |SimpleMenu|Select|ROM options. Let's you select autolaunch, emulator (if multiple emulators are defined for the selected section) and overclocking|
@@ -331,9 +331,9 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |SimpleMenu|R1|Switches between menu and fullscreen mode|
 |SimpleMenu|R2|Refreshes the current section (in case you added some ROMs while the menu is running)|
 |SimpleMenu|A|Launches a game/program|
+|SimpleMenu|B|If pressed and released, it takes you one screen back. If pressed and held, it acts as a hotkey to be combined with other keys|
 |SimpleMenu|X|On regular sections, marks a game as a favorite, on the favorites section, it takes it off from the favorites list|
 |SimpleMenu|Y|Goes to the favorites section|
-|SimpleMenu|B|If pressed and released, it takes you one screen back. If pressed and held, it acts as a hotkey to be combined with other keys|
 |SimpleMenu|B + Left|Skips to the previous letter|
 |SimpleMenu|B + Right|Skips to the next letter|
 |SimpleMenu|B + Up|Goes to the previous section, without showing the logo|

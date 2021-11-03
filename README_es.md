@@ -311,16 +311,16 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |Situación|Atajo de teclado|Efecto|
 |:--------|:---------------|:-----|
 |OpenDingux|Mantener POWER|Apagar el sistema|
-|OpenDingux|POWER + START + SELECT|Reinicio del sistema|
-|OpenDingux|POWER + UP|Subir volumen sonido|
-|OpenDingux|POWER + DOWN|Bajar volumen sonido|
-|OpenDingux|POWER + RIGHT|Subir brillo pantalla|
-|OpenDingux|POWER + LEFT|Bajar brillo pantalla|
-|OpenDingux|POWER + B|Activa/desactiva el modo ratónmouse mode (anteriormente POWER + L1)|
-|OpenDingux|POWER + A|Modo de relación de aspecto en el escalado por hardware|
-|OpenDingux|POWER + SELECT|Forzar cierre de aplicación actual|
-|OpenDingux|POWER + Y|Suspender sistema (pulsar POWER para despertar)|
-|OpenDingux|POWER + X|Captura de pantalla (en `~/screenshots`)|
+|OpenDingux|Power + Start + Select|Reinicio del sistema|
+|OpenDingux|Power + Select|Forzar cierre de aplicación actual|
+|OpenDingux|Power + UP|Subir volumen sonido|
+|OpenDingux|Power + DOWN|Bajar volumen sonido|
+|OpenDingux|Power + RIGHT|Subir brillo pantalla|
+|OpenDingux|Power + LEFT|Bajar brillo pantalla|
+|OpenDingux|Power + A|Modo de relación de aspecto en el escalado por hardware|
+|OpenDingux|Power + B|Activa/desactiva el modo ratónmouse mode (anteriormente POWER + L1)|
+|OpenDingux|Power + Y|Suspender sistema (pulsar POWER para despertar)|
+|OpenDingux|Power + X|Captura de pantalla (en `~/screenshots`)|
 |OpenDingux|A (durante el arranque)|Muestra la salida de los scripts de arranque en lugar del logo de boot|
 |SimpleMenu|Start|Abre la pantalla de ajustes|
 |SimpleMenu|Select|Opciones de ROM. Permite seleccionar autoarranque, emulador (si se han definido varios en el sistema) y overclocking|
@@ -331,9 +331,9 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |SimpleMenu|R1|Alterna entre la lista de juegos o el modo pantalla completa|
 |SimpleMenu|R2|Refresca la lista de juegos del sisema actual (en caso de haber añadido juegos nuevos con el frontend en ejecución)|
 |SimpleMenu|A|Abre el juego o aplicación seleccionado|
+|SimpleMenu|B|En pulsación corta vuelve atrás; en pulsación larga permite las siguientes combinaciones de teclas|
 |SimpleMenu|X|En los listados de juegos, marca el seleccionado como favorito; en la vista de Favoritos borra el juego de la lista|
 |SimpleMenu|Y|Abre la selección de Favoritos|
-|SimpleMenu|B|En pulsación corta vuelve atrás; en pulsación larga permite las siguientes combinaciones de teclas|
 |SimpleMenu|B + Left|Desplaza el listado de juegos a la letra anterior|
 |SimpleMenu|B + Right|Desplaza el listado de juegos a la letra siguiente|
 |SimpleMenu|B + Up|Cambia al sistema anterior sin mostrar el logo|
