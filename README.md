@@ -322,6 +322,7 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |OpenDingux|Power + Y|Sleep mode (tap POWER to resume)|
 |OpenDingux|Power + X|take screenshot (on ~/screenshots)|
 |OpenDingux|A (while powering on)|It'll skip the logo and show the output of the init scripts|
+|OpenDingux|Select (while powering on)|Boot mode. Check [this guide](https://boards.dingoonity.org/retrominirs-90/a-quick-guide-to-flashing-opendingux-on-the-rs-90-using-windows-10-x64/msg186557/#msg186557)|
 |SimpleMenu|Start|Brings up the Settings screen|
 |SimpleMenu|Select|ROM options. Let's you select autolaunch, emulator (if multiple emulators are defined for the selected section) and overclocking|
 |SimpleMenu|Up|Selects the previous game/section/group|

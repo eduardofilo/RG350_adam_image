@@ -318,10 +318,11 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |OpenDingux|Power + RIGHT|Subir brillo pantalla|
 |OpenDingux|Power + LEFT|Bajar brillo pantalla|
 |OpenDingux|Power + A|Modo de relación de aspecto en el escalado por hardware|
-|OpenDingux|Power + B|Activa/desactiva el modo ratónmouse mode (anteriormente POWER + L1)|
+|OpenDingux|Power + B|Activa/desactiva el modo ratón (anteriormente POWER + L1)|
 |OpenDingux|Power + Y|Suspender sistema (pulsar POWER para despertar)|
 |OpenDingux|Power + X|Captura de pantalla (en `~/screenshots`)|
 |OpenDingux|A (durante el arranque)|Muestra la salida de los scripts de arranque en lugar del logo de boot|
+|OpenDingux|Select (durante el arranque)|Boot mode. Revisar [esta guía](https://boards.dingoonity.org/retrominirs-90/a-quick-guide-to-flashing-opendingux-on-the-rs-90-using-windows-10-x64/msg186557/#msg186557)|
 |SimpleMenu|Start|Abre la pantalla de ajustes|
 |SimpleMenu|Select|Opciones de ROM. Permite seleccionar autoarranque, emulador (si se han definido varios en el sistema) y overclocking|
 |SimpleMenu|Up|Seleccionar juego/sección/grupo anterior|
