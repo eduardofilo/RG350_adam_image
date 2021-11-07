@@ -289,7 +289,9 @@ PCSX4All también soporta un sistema de trucos. Al igual que en RetroArch, el di
 
 ### Acceso al sistema
 
-Una vez que la tarjeta con el sistema (INT) y con los contenidos (EXT) han sido insertadas en sus correspondientes ranuras, y la consola encendida, podemos acceder al sistema por SSH para hacer algunas personalizaciones que requieren este tipo de acceso (como editar los ficheros de configuración de SimpleMenu o Py Backup). Para lograr el acceso por SSH conectaremos la consola con un cable USB tipo C al ordenador utilizando el mismo conector que se utiliza para cargar (es decir el marcado con DC). En el caso de Windows puede ser necesario instalar [drivers](https://github.com/SeongGino/RetroGame350-AppRepo/blob/master/RG350-signed_driver.zip). En el ordenador podemos utilizar cualquier cliente de FTP configurado con el protocolo SFTP o SCP (por ejemplo WinSCP o Filezilla). El acceso a través del protocolo SSH normal puede lograrse desde una simple consola o terminal ya sea en Windows o Linux, tecleando el siguiente comando:
+Una vez que la tarjeta con el sistema (INT) y con los contenidos (EXT) han sido insertadas en sus correspondientes ranuras, y la consola encendida, podemos acceder al sistema por SSH para hacer algunas personalizaciones que requieren este tipo de acceso (como editar los ficheros de configuración de SimpleMenu o Py Backup). Para lograr el acceso por SSH conectaremos la consola con un cable USB tipo C al ordenador utilizando el mismo conector que se utiliza para cargar (es decir el marcado con DC). En el caso de Windows puede ser necesario instalar [drivers](https://github.com/SeongGino/RetroGame350-AppRepo/blob/master/RG350-signed_driver.zip). En caso de problemas instalando estos drivers, ver [este vídeo](https://www.youtube.com/watch?v=Ib5qfYv6ijc).
+
+En el ordenador podemos utilizar cualquier cliente de FTP configurado con el protocolo SFTP o SCP (por ejemplo WinSCP o Filezilla). El acceso a través del protocolo SSH normal puede lograrse desde una simple consola o terminal ya sea en Windows o Linux, tecleando el siguiente comando:
 
 ```
 ssh od@10.1.1.2
