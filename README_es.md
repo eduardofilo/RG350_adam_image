@@ -549,6 +549,14 @@ A6: Para modificar la configuración general de RetroArch, no debe haber ningún
 
 De todas formas no suele ser habitual manipular la configuración general de RetroArch. Lo que la mayoría de las veces conviene es hacer un override a nivel de core, directorio o juego. Revisar la FAQ número 3 para más detalles.
 
+#### Q7: ¿Cómo puedo bajar el volumen mínimo sin llegar a desactivar el sonido? El mínimo es todavía muy alto.
+
+Efectivamente el valor mínimo del canal PCM, que es el único de `alsamixer` que afecta al volumen general, incluso en su valor mínimo antes del mute (32 / -30dB) se escucha demasiado alto en un ambiente silencioso.
+
+![alsamixer](images/alsamixer.png)
+
+Sin tocar el sistema, lo único que se puede hacer es jugar con las opciones de sonido que puedan tener algunos de los emuladores. Afortunadamente RetroArch incluye en los ajustes de audio la posibilidad de atenuar la salida. El ajuste se encuentra en la ruta: `MAIN MENU > Settings > Audio > Volume Gain (dB)`. Se ha encontrado que el valor `-10dB` es un buen equilibrio, de manera que el ajuste del volumen mínimo del sistema antes de mute ya resulta adecuado, y el máximo es suficientemente potente. Si optamos por hacer este ajuste, lo mejor es hacerlo a nivel de la configuración general, para lo que hay que seguir los pasos comentados en la [FAQ número 6](#q6-no-puedo-modificar-la-configuraci%C3%B3n-de-retroarch-obtengo-el-error-failed-saving-config-to).
+
 ## Canal Telegram para comunicar actualizaciones
 
 Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image

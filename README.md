@@ -551,6 +551,14 @@ A6: To modify the general configuration of RetroArch, there must be no content (
 
 In any case, it is not usual to manipulate the general configuration of RetroArch. What most of the time is convenient is to override at the core, content (directory) or game level. Check FAQ number 3 for more details.
 
+#### Q7: How can I lower the minimum volume without actually muting the sound? The minimum is still very high.
+
+Indeed the minimum value of the PCM channel, which is the only one of the `alsamixer` that affects the overall volume, even at its minimum value before the mute (32 / -30dB) is heard too loud in a quiet environment.
+
+![alsamixer](images/alsamixer.png)
+
+Without touching the system, the only thing that can be done is to play with the sound options that some of the emulators may have. Fortunately RetroArch includes in the audio settings the possibility of attenuating the output. The setting is found in the path: `MAIN MENU > Settings > Audio > Volume Gain (dB)`. The `-10dB` value has been found to be a good balance, so setting the minimum system volume before mute is already adequate, and the maximum is powerful enough. If we choose to make this adjustment, it is best to do it at the general configuration level, for which we must follow the steps commented in [FAQ number 6](#q6-i-cant-modify-retroarch-config-error-failed-saving-config-to-is-displayed).
+
 ## Telegram channel for updates
 
 Join this Telegram channel to get update notifications: https://t.me/adam_image
