@@ -111,16 +111,12 @@ rm ${DIRECTORY}/mnt_p2/local/home/.py_backup/log.txt 2> /dev/null
 echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
 
-echo "## Installing directory scaffolding script"
-if [ ! -f ${DIRECTORY}/S01_create_ext_scaffolding.sh ] ; then
-    rm -f ${DIRECTORY}/S01_create_ext_scaffolding.sh
-fi
+echo "## Installing userspace init.d scripts"
+rm -f ${DIRECTORY}/mnt_p2/local/etc/init.d/* 2> /dev/null
 cp ${DIRECTORY}/S10_create_ext_scaffolding.sh ${DIRECTORY}/mnt_p2/local/etc/init.d
-chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
-
-echo "## Installing SM disable script"
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/init.d/S10_create_ext_scaffolding.sh
 cp ${DIRECTORY}/S20_disable_sm.sh ${DIRECTORY}/mnt_p2/local/etc/init.d
-chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/init.d/S20_disable_sm.sh
 
 echo "## Installing Py Backup config"
 cp ${DIRECTORY}/config.ini ${DIRECTORY}/mnt_p2/local/home/.py_backup/
