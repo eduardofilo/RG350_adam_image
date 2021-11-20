@@ -116,7 +116,11 @@ echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
 
 echo "## Installing directory scaffolding script"
-cp ${DIRECTORY}/S01_create_ext_scaffolding.sh ${DIRECTORY}/mnt_p2/local/etc/init.d
+cp ${DIRECTORY}/S10_create_ext_scaffolding.sh ${DIRECTORY}/mnt_p2/local/etc/init.d
+chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
+
+echo "## Installing SM disable script"
+cp ${DIRECTORY}/S10_create_ext_scaffolding.sh ${DIRECTORY}/mnt_p2/local/etc/init.d
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
 
 echo "## Installing Py Backup config"
