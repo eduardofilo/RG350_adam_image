@@ -43,9 +43,6 @@ umount ${SD_P1} 2> /dev/null
 umount ${SD_P2} 2> /dev/null
 sleep 1
 
-echo "## Checking and fixing P2"
-e2fsck -f -y ${SD_P2} > /dev/null
-
 echo "## Remounting P1 and P2"
 mkdir ${DIRECTORY}/mnt_p1
 mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
@@ -104,7 +101,6 @@ rm ${DIRECTORY}/mnt_p2/local/share/xmame/sm_bridge/*.pyc 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.sm64-port 2> /dev/null
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.simplemenu/rom_preferences/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.simplemenu/*.log 2> /dev/null
-rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.fba/configs/* 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.scummvmrc 2> /dev/null
 rm ${DIRECTORY}/mnt_p2/local/home/.local/share/scummvm/saves/* 2> /dev/null
@@ -164,6 +160,20 @@ if [ ${ZERO_FILL} = true ] ; then
     echo "## Filling P2 with 0xFF"
     zerofree -v -f 0xFF ${SD_P2}
 fi
+
+echo "## Checking and fixing P2"
+e2fsck -f -y ${SD_P2} > /dev/null
+
+echo "## Remounting P2"
+mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
+sleep 1
+
+echo "## Erasing lost+found on P2"
+rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
+
+echo "## Unmounting P2"
+umount ${SD_P2}
+sleep 1
 
 if [ ! -f ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} ] ; then
     echo "## Downloading ODBeta distribution"
