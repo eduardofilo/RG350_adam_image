@@ -301,7 +301,7 @@ The password for `od` user is `untoqebboqvboqudrn`. If you want to change or dis
 
 ![Network access 1](images/network_access1.png)
 
-By default the image is configured to make use of this SSH access in RNDIS mode through the USB cable, although with `USB Mode` application, we can switch to `Mass Storage` or MTP mode.
+By default the image is configured to make use of USB access in `Ethernet > RNDIS` mode, although with `USB Mode` application, we can switch to `Mass Storage` (MTP) or `Ethernet > ECM`.
 
 ![Network access 2](images/network_access2.png)
 ![Network access 3](images/network_access3.png)

@@ -301,7 +301,7 @@ El password del usuario `od` es `untoqebboqvboqudrn`. Si se quiere cambiar o des
 
 ![Network access 1](images/network_access1.png)
 
-Por defecto la imagen está configurada para hacer uso de este acceso SSH en modo RNDIS por medio del cable USB, aunque a través de la aplicación `USB Mode`, podemos cambiar al modo `Mass Storage` o MTP.
+Por defecto la imagen está configurada para hacer uso del acceso USB en modo `Ethernet > RNDIS`, aunque a través de la aplicación `USB Mode`, podemos cambiar al modo `Mass Storage` (MTP) o `Ethernet > ECM`.
 
 ![Network access 2](images/network_access2.png)
 ![Network access 3](images/network_access3.png)
@@ -532,7 +532,7 @@ En resumen, hay que activar el mantener la relación de aspecto y crear override
 
 A4: Sólo hay que borrar el directorio `/media/data/local/home/.retroarch/config` y el fichero `/media/data/local/home/.retroarch/retroarch.cfg`.
 
-### Q5: Las ROMs de NeoGeo con el emulador FBA standalone no sincronizan bien la pantalla en RG350M (supongo que tampoco en RG3300X). ¿Cómo puede arreglarse?
+#### Q5: Las ROMs de NeoGeo con el emulador FBA standalone no sincronizan bien la pantalla en RG350M (supongo que tampoco en RG3300X). ¿Cómo puede arreglarse?
 
 A5: Se trata de un problema con el hardware scaling que hace ese emulador cuando se tiene esa pantalla. La solución es desactivarlo por medio del interfaz propio de FBA o UX. Para ello, desactivar momentaneamente SimpleMenu como lanzador predeterminado, abrir desde GMenu2X el emulador `FBA UX`, localizar el juego que nos interesa ajustar (puede ser necesario añadir la ruta de las ROMs de NEOGEO a `ROMs Paths`), abrirlo y en el menú de opciones que aparece cambiar `Hardware scaling` a `Off`. El cambio se guarda a nivel de juego por lo que si luego más tarde lo lanzamos desde SimpleMenu, se aplicará aunque no pasemos por esa pantalla intermedia de ajustes.
 
