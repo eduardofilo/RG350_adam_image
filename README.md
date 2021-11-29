@@ -138,7 +138,7 @@ In Linux it can be done by executing the following command from a terminal (in t
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-Si tienes un Mac, por ahora la mejor opción es la descrita en la [Starter Guide de Retro Game Corps](https://retrogamecorps.com/2021/08/20/rg350-rg280-series-starter-guide/#Setup), aportada por @Asppire y que se transcribe a continuación:
+If you have a Mac, for now the best option is the one described in the [Retro Game Corps Starter Guide](https://retrogamecorps.com/2021/08/20/rg350-rg280-series-starter-guide/#Setup), contributed by @Asppire and which is transcribed below:
 
 > “Erase” the disk using the Mac’s built-in Disk Utility app, with the format MS-DOS (FAT), name it whatever you want. Then, on the left side of the Disk Utility app you should see the SD card. Right-click on it and select “Rename” and now delete the name and just press the SPACE bar once so that the name looks blank. On the device, it will register as being blank and work appropriately.
 
