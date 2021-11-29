@@ -138,7 +138,9 @@ In Linux it can be done by executing the following command from a terminal (in t
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-If you have a Mac, take a look at the comments in [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) of this repository. There are some options provided. Another option discussed in some forums is to install the `dosfstools` package (with `brew install dosfstools`), add `/usr/local/sbin` to the PATH, and run the command discussed above for Linux.
+Si tienes un Mac, por ahora la mejor opción es la descrita en la [Starter Guide de Retro Game Corps](https://retrogamecorps.com/2021/08/20/rg350-rg280-series-starter-guide/#Setup), aportada por @Asppire y que se transcribe a continuación:
+
+> “Erase” the disk using the Mac’s built-in Disk Utility app, with the format MS-DOS (FAT), name it whatever you want. Then, on the left side of the Disk Utility app you should see the SD card. Right-click on it and select “Rename” and now delete the name and just press the SPACE bar once so that the name looks blank. On the device, it will register as being blank and work appropriately.
 
 ### ROMs
 

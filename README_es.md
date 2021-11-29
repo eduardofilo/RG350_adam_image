@@ -138,7 +138,9 @@ En Linux se puede hacer ejecutando el siguiente comando desde un terminal (en el
 sudo fatlabel /dev/mmcblk0p1 -r
 ```
 
-Si tienes un Mac, echa un vistazo a los comentarios a la [issue #8](https://github.com/eduardofilo/RG350_adam_image/issues/8) de este repositorio. Allí se aportan algunas opciones. Otra opción comentada en algunos foros consiste en instalar el paquete `dosfstools` (con `brew install dosfstools`), añadir `/usr/local/sbin` al PATH y ejecutar el comando que se ha comentado para Linux anteriormente.
+Si tienes un Mac, por ahora la mejor opción es la descrita en la [Starter Guide de Retro Game Corps](https://retrogamecorps.com/2021/08/20/rg350-rg280-series-starter-guide/#Setup), aportada por @Asppire y que se transcribe a continuación:
+
+> "Borra" el disco usando la aplicación `Disk Utility` integrada en el sistema, dando formato MS-DOS (FAT) y con cualquier nombre. Luego, en el lado izquierdo de la aplicación `Disk Utility`, debería aparecer la tarjeta SD. Haz click con el botón derecho sobre ella, selecciona `Rename` y ahora borra el nombre y sustitúyelo por un espacio, de manera que el nombre parezca quedar vacío. Una vez montada en OpenDingux, se interpretará como vacío y funcionará adecuadamente.
 
 ### ROMs
 
