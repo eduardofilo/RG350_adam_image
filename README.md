@@ -555,7 +555,7 @@ In any case, it is not usual to manipulate the general configuration of RetroArc
 
 #### Q7: How can I lower the minimum volume without actually muting the sound? The minimum is still very high.
 
-Indeed the minimum value of the PCM channel, which is the only one of the `alsamixer` that affects the overall volume, even at its minimum value before the mute (32 / -30dB) is heard too loud in a quiet environment.
+This problem affects mainly to RG280V. That is because in that machine the speakers are connected directly to the DAC (digital analog converter) and not to the chain DAC->Headphone port like in other devices. In RG280V the volume control is only affected by PCM channel in `alsamixer`, and even at its minimum value before the mute (32 / -30dB) is heard too loud in a quiet environment.
 
 ![alsamixer](images/alsamixer.png)
 
