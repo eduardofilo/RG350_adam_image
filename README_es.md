@@ -553,7 +553,7 @@ De todas formas no suele ser habitual manipular la configuración general de Ret
 
 #### Q7: ¿Cómo puedo bajar el volumen mínimo sin llegar a desactivar el sonido? El mínimo es todavía muy alto.
 
-Efectivamente el valor mínimo del canal PCM, que es el único de `alsamixer` que afecta al volumen general, incluso en su valor mínimo antes del mute (32 / -30dB) se escucha demasiado alto en un ambiente silencioso.
+Este problema afecta principalmente a RG280V. Eso es porque en esta máquina los altavoces están conectados directamente al DAC (convertidor analógico digital) y no a la cadena DAC->puerto de auriculares como en otros dispositivos. En RG280V, el control de volumen solo se ve afectado por el canal PCM en `alsamixer`, e incluso en su valor mínimo antes del mute (32 / -30dB) se escucha demasiado alto en un ambiente silencioso.
 
 ![alsamixer](images/alsamixer.png)
 
