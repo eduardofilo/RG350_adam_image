@@ -21,14 +21,9 @@
 
 ## Introducción
 
-Configuración de tarjeta interna (ranura INT) para consolas portátiles de emulación basadas en chip Ingenic JZ4770 (concretamente las que se mencionan en la descripción de [este commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), es decir RG350, RG280, RG300X y PlayGo/PocketGo2 v2. Resultado de un proyecto de colaboración del Team RParadise formado por:
+Adán es una imagen para la ranura de tarjeta microSD interna de una serie de consolas portátiles de emulación basadas en chip Ingenic JZ4770. Concretamente las que se mencionan en la descripción de [este commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3), es decir RG350, RG280, RG300X y PlayGo/PocketGo2 v2.
 
-* [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
-* [eduardófilo](https://apuntes.eduardofilo.es/)
-* Juanmote (Juanma)
-* [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA)
-
-La configuración está realizada en base a las siguientes piezas:
+La imagen es un volcado tras realizar una instalación de los siguientes paquetes:
 
 * [OpenDingux](http://od.abstraction.se/opendingux/latest/). Gracias principalmente a [pcercuei](https://github.com/pcercuei).
 * [SimpleMenu](https://github.com/fgl82/simplemenu). Gracias a [FGL82](https://github.com/fgl82). Con los siguientes themes:
@@ -54,6 +49,13 @@ La configuración está realizada en base a las siguientes piezas:
     * [ScummVM](https://github.com/goldmojo/scummvm-rg350). Gracias a [goldmojo](https://github.com/goldmojo).
     * [Commander](https://github.com/od-contrib/commander/releases/latest). Gracias a [glebm](https://github.com/glebm).
     * [PyBackup](https://github.com/eduardofilo/RG350_py_backup/releases/latest)
+
+Resultado de un proyecto de colaboración del Team RParadise formado por:
+
+* [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
+* [eduardófilo](https://apuntes.eduardofilo.es/)
+* Juanmote (Juanma)
+* [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA)
 
 ## Actualización
 

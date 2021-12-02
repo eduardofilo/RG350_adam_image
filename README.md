@@ -21,14 +21,9 @@
 
 ## Introduction
 
-Internal card (INT slot) setup for Ingenic JZ4770 chip-based portable emulation consoles (specifically those mentioned in the description of [this commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3)), i.e. RG350, RG280, RG300X and PlayGo/PocketGo2 v2 consoles. Result of a collaboration project of Team RParadise formed by:
+Adam is an image for the internal microSD card slot of a series of Ingenic JZ4770 chip-based portable emulation consoles. Specifically those mentioned in the description of [this commit](https://github.com/OpenDingux/linux/commit/8fdd85c7198ab553dcbb36d3d62441fc9b655ed3), i.e. RG350, RG280, RG300X and PlayGo/PocketGo2 v2.
 
-* [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
-* [eduardófilo](https://apuntes.eduardofilo.es/)
-* Juanmote (Juanma)
-* [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA)
-
-The setup is made based on the following parts:
+The image is a dump after installing the following packages:
 
 * [OpenDingux](http://od.abstraction.se/opendingux/latest/). Mainly thanks to [pcercuei](https://github.com/pcercuei).
 * [SimpleMenu](https://github.com/fgl82/simplemenu). Thanks to [FGL82](https://github.com/fgl82). With this themes:
@@ -54,6 +49,13 @@ The setup is made based on the following parts:
     * [ScummVM](https://github.com/goldmojo/scummvm-rg350). Thanks to [goldmojo](https://github.com/goldmojo).
     * [Commander](https://github.com/od-contrib/commander/releases/latest). Thanks to [glebm](https://github.com/glebm).
     * [PyBackup](https://github.com/eduardofilo/RG350_py_backup/releases/latest)
+
+Result of a collaboration project of Team RParadise formed by:
+
+* [Brumagix Gamer](https://www.youtube.com/channel/UCrdNisYjDd7qI1Zv2ZLwBrQ)
+* [eduardófilo](https://apuntes.eduardofilo.es/)
+* Juanmote (Juanma)
+* [La Retro Cueva](https://www.youtube.com/channel/UCQm1VwD4sFoOUx6rq-at7jA)
 
 ## Upgrade
 
