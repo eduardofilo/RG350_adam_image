@@ -565,6 +565,16 @@ Without touching the system, the only thing that can be done is to play with the
 
 ![RA audio gain](images/ra_audio_gain.png)
 
+#### Q8: Can I update Adam with the latest OpenDingux beta builds?
+
+Of course. Adam is just a normal installation of the packages listed at the beginning of this document, i.e. OpenDingux beta, RetroArch, SimpleMenu and a few standalone emulators. None of them have been modified, so they should work as expected. Not only can you upgrade the packages but you are encouraged to do so, to help their development.
+
+Although it is recommended to follow the instructions given in each package, these are the general instructions to upgrade each type of package:
+
+* OpenDingux beta: Download the build you want to install (usually the latest) from its [distribution site](http://od.abstraction.se/opendingux/latest/). Copy the type of OPK suited for your console (in Adam's case, it will always be the `gcw0` kind) into the apps directory of the external card. Locate the launcher in the applications section of GMenu2X or SimpleMenu, open it and follow on-screen instructions.
+* RetroArch: The package that can be found on the [distribution site](https://buildbot.libretro.com/nightly/dingux/mips32-odbeta/) contains the parts that must be installed manually on the console (an OPK to launch RA in frontend mode and do the general configuration, a binary that must be copied to `/media/data/local/bin` and the home directory containing the cores and basic configuration). Alternatively you can use [this installer](https://github.com/eduardofilo/RG350_auto_ra_installer) from which a package designed to fit Adam is offered in the [releases](https://github.com/eduardofilo/RG350_auto_ra_installer/releases).
+* SimpleMenu and standalone emulators: All these applications work like normal OPKs. Therefore, to update them, you just have to locate the version you want to install (for example, the SimpleMenu releases are obtained from [here](https://github.com/fgl82/simplemenu/releases)) and copy them to the `/media/data/apps` directory. They can also be copied to the apps directory of the external card, but in that case if we don't delete the equivalent in `/media/data/apps`, they will appear twice in frontend.
+
 ## Telegram channel for updates
 
 Join this Telegram channel to get update notifications: https://t.me/adam_image
