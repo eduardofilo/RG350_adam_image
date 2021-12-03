@@ -488,15 +488,15 @@ Nos referimos a la situación en que tratamos de apagar la consola mediante el l
 
 #### Q1: ¿Tengo que volver a flashear con cada nueva imagen? ¿No existe un OPK para una actualización más ágil?
 
-A1: Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. El procedimiento completo para actualizar entre una versión de la imagen y la siguiente se describe [aquí](#actualización).
+Lo siento. Por ahora el flasheo es el único medio disponible. En el pasado, con otra imagen, publiqué un OPK para hacer las actualizaciones, pero hubo muchos problemas con las personalizaciones que los usuarios hacían que afectaba al sistema de aplicación de los parches. El procedimiento completo para actualizar entre una versión de la imagen y la siguiente se describe [aquí](#actualización).
 
 #### Q2: ¿Hay algún indicador del nivel de batería?
 
-A2: Desde la versión v1.1, SimpleMenu muestra el nivel de batería en algunos themes (0A and SimUI). También se muestra un indicador de batería cuando se está ejecutando RetroArch y se entra en el menú (`Power` or `Select + X`). Por último, se puede salir a GMenu2X desde SimpleMenu cambiando la opción `Default launcher` a `no` y seleccionando después `Session: quit`.
+Desde la versión v1.1, SimpleMenu muestra el nivel de batería en algunos themes (0A and SimUI). También se muestra un indicador de batería cuando se está ejecutando RetroArch y se entra en el menú (`Power` or `Select + X`). Por último, se puede salir a GMenu2X desde SimpleMenu cambiando la opción `Default launcher` a `no` y seleccionando después `Session: quit`.
 
 #### Q3: ¿Por qué no se conservan los overrides de ajustes en RetroArch?
 
-A3: La clave en este tema es comprender bien los tres niveles de overrides que existen. Si se cambia un ajuste y se hace override a nivel de core, pero luego existe un override del mismo ajuste a novel de contenidos, el primero no se aplicará porque el segundo tiene prioridad. [Esta guía](https://docs.libretro.com/guides/overrides/) es muy útil.
+La clave en este tema es comprender bien los tres niveles de overrides que existen. Si se cambia un ajuste y se hace override a nivel de core, pero luego existe un override del mismo ajuste a novel de contenidos, el primero no se aplicará porque el segundo tiene prioridad. [Esta guía](https://docs.libretro.com/guides/overrides/) es muy útil.
 
 Vamos a mostrar un ejemplo de uno de estos casos que se pregunta más a menudo. Se trata de activar la opción para mantener la relación de aspecto de la pantalla en GB o GBC. Vamos a fijarnos en GBC en concreto por lo que en los greps siguientes no hay que tener en cuenta el fichero `GB.cfg`. Esa opción se llama `video_dingux_ipu_keep_aspect` en los ficheros de configuración de RetroArch. Lo que sigue es la situación de partida de ese ajuste en los diferentes ficheros que se aplica, tal y como está en la imagen recien flasheada:
 
@@ -534,11 +534,11 @@ En resumen, hay que activar el mantener la relación de aspecto y crear override
 
 #### Q4: ¿Cómo se puede resetear la configuración de RetroArch de manera que pueda montar mis propios overrides sin que se vean afectados por los que incorpora la imagen?
 
-A4: Sólo hay que borrar el directorio `/media/data/local/home/.retroarch/config` y el fichero `/media/data/local/home/.retroarch/retroarch.cfg`.
+Sólo hay que borrar el directorio `/media/data/local/home/.retroarch/config` y el fichero `/media/data/local/home/.retroarch/retroarch.cfg`.
 
 #### Q5: Las ROMs de NeoGeo con el emulador FBA standalone no sincronizan bien la pantalla en RG350M (supongo que tampoco en RG3300X). ¿Cómo puede arreglarse?
 
-A5: Se trata de un problema con el hardware scaling que hace ese emulador cuando se tiene esa pantalla. La solución es desactivarlo por medio del interfaz propio de FBA o UX. Para ello, desactivar momentaneamente SimpleMenu como lanzador predeterminado, abrir desde GMenu2X el emulador `FBA UX`, localizar el juego que nos interesa ajustar (puede ser necesario añadir la ruta de las ROMs de NEOGEO a `ROMs Paths`), abrirlo y en el menú de opciones que aparece cambiar `Hardware scaling` a `Off`. El cambio se guarda a nivel de juego por lo que si luego más tarde lo lanzamos desde SimpleMenu, se aplicará aunque no pasemos por esa pantalla intermedia de ajustes.
+Se trata de un problema con el hardware scaling que hace ese emulador cuando se tiene esa pantalla. La solución es desactivarlo por medio del interfaz propio de FBA o UX. Para ello, desactivar momentaneamente SimpleMenu como lanzador predeterminado, abrir desde GMenu2X el emulador `FBA UX`, localizar el juego que nos interesa ajustar (puede ser necesario añadir la ruta de las ROMs de NEOGEO a `ROMs Paths`), abrirlo y en el menú de opciones que aparece cambiar `Hardware scaling` a `Off`. El cambio se guarda a nivel de juego por lo que si luego más tarde lo lanzamos desde SimpleMenu, se aplicará aunque no pasemos por esa pantalla intermedia de ajustes.
 
 ![FBA Hardware scaling](images/fba_hardware_scaling.png)
 
@@ -546,7 +546,7 @@ Si no se quiere hacer el ajuste juego a juego, puede cambiarse en `Main settings
 
 #### Q6: No puedo modificar la configuración de RetroArch, obtengo el error `Failed saving config to...`
 
-A6: Para modificar la configuración general de RetroArch, no debe haber ningún contenido (ROM) cargado. Esto puede hacerse de varias formas:
+Para modificar la configuración general de RetroArch, no debe haber ningún contenido (ROM) cargado. Esto puede hacerse de varias formas:
 
 1. Tras lanzar RetroArch mediante alguna ROM, abrir el menú de éste (`Power` o `Select + X`) y usar el comando `Close Content`.
 2. Abrir el lanzador de RetroArch. En versiones de la imagen 1.2 o anteriores, sólo se puede hacer desde GMenu2X, encontrándose en la sección `emulators`. A partir de 1.3 también hay un lanzador en la sección `Apps` de SimpleMenu.
