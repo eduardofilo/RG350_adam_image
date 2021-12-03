@@ -490,15 +490,15 @@ We refer to the situation where we try to power off the console using the GMenu2
 
 #### Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?
 
-A1: I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. The complete procedure to upgrade between one version of the image and the next one is described [here](#upgrade).
+I'm sorry. At the moment only the flashing method is available. In the past with another image, I published an OPK to make the update, but give me many problems because user tweaks made it difficult to apply the patches. The complete procedure to upgrade between one version of the image and the next one is described [here](#upgrade).
 
 #### Q2: Is there a battery level indicator?
 
-A2: Since version v1.1, SimpleMenu shows battery level on some themes (0A and SimUI). You have also battery level when running RetroArch and entering in the menu (`Power` or `Select + X`). At last, you can exit to GMenu2X from SimpleMenu changing `Default launcher` option to `no` and then selecting `Session: quit`.
+Since version v1.1, SimpleMenu shows battery level on some themes (0A and SimUI). You have also battery level when running RetroArch and entering in the menu (`Power` or `Select + X`). At last, you can exit to GMenu2X from SimpleMenu changing `Default launcher` option to `no` and then selecting `Session: quit`.
 
 #### Q3: Why are the override settings in RetroArch not preserved?
 
-A3: The key in this topic is to understand well the three levels of overrides that exists. If you change a setting and override it at the core level, but then there is an override on the same setting at the content level, the first will not be applied because the second takes precedence. [This guide](https://docs.libretro.com/guides/overrides/) is valuable.
+The key in this topic is to understand well the three levels of overrides that exists. If you change a setting and override it at the core level, but then there is an override on the same setting at the content level, the first will not be applied because the second takes precedence. [This guide](https://docs.libretro.com/guides/overrides/) is valuable.
 
 We are going to show an example of one of these cases that is most often asked. It is about activating the option to keep the aspect ratio in GB or GBC. We are going to look at GBC in particular, so in the following greps we do not have to take into account the file `GB.cfg`. That option is called `video_dingux_ipu_keep_aspect` in RA config files. This is the default situation of that setting on the different files that apply, as they are in the image just flashed:
 
@@ -536,11 +536,11 @@ In short, you have to activate the keep aspect ratio and save the overrides at t
 
 #### Q4: How can I reset the RetroArch configuration so that I can mount my own overrides without being affected by the ones in the image?
 
-A4: Just delete `/media/data/local/home/.retroarch/config` directory and `/media/data/local/home/.retroarch/retroarch.cfg` file.
+Just delete `/media/data/local/home/.retroarch/config` directory and `/media/data/local/home/.retroarch/retroarch.cfg` file.
 
 #### Q5: NeoGeo ROMs with FBA standalone emulator do not sync screen well on RG350M (I guess on RG3300X neither). How can it be fixed?
 
-A5: This is a problem with the hardware scaling that this emulator does when you have that screen. The solution is to disable it through the FBA interface itself or UX. To do this, temporarily disable SimpleMenu as the default launcher, open the `FBA UX` emulator from GMenu2X, locate the game that we want to adjust (it may be necessary to add the path of the NEOGEO ROMs to `ROMs Paths`), open it and in the Option menu that appears change `Hardware scaling` to `Off`. The change is saved at the game level so if we later launch it from SimpleMenu, it will be applied even if we do not go through that intermediate settings screen.
+This is a problem with the hardware scaling that this emulator does when you have that screen. The solution is to disable it through the FBA interface itself or UX. To do this, temporarily disable SimpleMenu as the default launcher, open the `FBA UX` emulator from GMenu2X, locate the game that we want to adjust (it may be necessary to add the path of the NEOGEO ROMs to `ROMs Paths`), open it and in the Option menu that appears change `Hardware scaling` to `Off`. The change is saved at the game level so if we later launch it from SimpleMenu, it will be applied even if we do not go through that intermediate settings screen.
 
 ![FBA Hardware scaling](images/fba_hardware_scaling.png)
 
@@ -548,7 +548,7 @@ If you don't want to make the fix game by game, you can change it in `Main setti
 
 #### Q6: I can't modify RetroArch config, error `Failed saving config to...` is displayed
 
-A6: To modify the general configuration of RetroArch, there must be no content (ROM) loaded. This can be done in a number of ways:
+To modify the general configuration of RetroArch, there must be no content (ROM) loaded. This can be done in a number of ways:
 
 1. After launching RetroArch through a ROM, open RA menu (`Power` or `Select + X`) and use the `Close Content` command.
 2. Open the RetroArch launcher. In image versions 1.2 or earlier, it can only be done from GMenu2X, in the `emulators` section. As of 1.3 there is also a launcher in the `Apps` section of SimpleMenu.
