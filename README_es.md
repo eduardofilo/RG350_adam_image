@@ -573,6 +573,15 @@ Aunque se recomienda seguir las instrucciones particulares de cada paquete, ést
 * RetroArch: El paquete que puede encontrarse en el [sitio de distribución](https://buildbot.libretro.com/nightly/dingux/mips32-odbeta/) contiene las piezas que hay que instalar manualmente en la consola (un OPK para lanzar RA a modo frontend y hacer la configuración general, un binario que hay que copiar en `/media/data/local/bin` y el directorio de home que contiene los cores y configuraciones básicas). Alternativamente puede usarse [éste instalador](https://github.com/eduardofilo/RG350_auto_ra_installer) del que se ofrecen en las [releases](https://github.com/eduardofilo/RG350_auto_ra_installer/releases) un paquete diseñado para encajar en Adán.
 * SimpleMenu y emuladores independientes: Todas estas aplicaciones funcionan como OPKs normales. Por tanto para actualizarlas, tan sólo hay que localizar la versión que se quiera instalar (por ejemplo las releases de SimpleMenu se obtienen de [aquí](https://github.com/fgl82/simplemenu/releases)) y copiarlas al directorio `/media/data/apps`. También pueden copiarse al directorio `apps` de la tarjeta externa, pero en ese caso si no borramos el equivalente en `/media/data/apps`, nos aparecerán por duplicado en los lanzadores.
 
+#### Q9: ¿Es posible utilizar un adaptador WiFi?
+
+Sí, aunque la lista de chipsets soportados es reducida. De momento los soportados son los siguientes:
+
+* Realtek RTL8192CU
+* Mediatek MT7601U
+
+Si en el futuro nuevos chipsets son incorporados al sistema, aparecerán listados en el directorio `/lib/modules/5.15.0-rc6-opendingux/kernel/drivers/net/wireless/`
+
 ## Canal Telegram para comunicar actualizaciones
 
 Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image

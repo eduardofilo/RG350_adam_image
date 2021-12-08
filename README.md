@@ -575,6 +575,15 @@ Although it is recommended to follow the instructions given in each package, the
 * RetroArch: The package that can be found on the [distribution site](https://buildbot.libretro.com/nightly/dingux/mips32-odbeta/) contains the parts that must be installed manually on the console (an OPK to launch RA in frontend mode and do the general configuration, a binary that must be copied to `/media/data/local/bin` and the home directory containing the cores and basic configuration). Alternatively you can use [this installer](https://github.com/eduardofilo/RG350_auto_ra_installer) from which a package designed to fit Adam is offered in the [releases](https://github.com/eduardofilo/RG350_auto_ra_installer/releases).
 * SimpleMenu and standalone emulators: All these applications work like normal OPKs. Therefore, to update them, you just have to locate the version you want to install (for example, the SimpleMenu releases are obtained from [here](https://github.com/fgl82/simplemenu/releases)) and copy them to the `/media/data/apps` directory. They can also be copied to the `apps` directory of the external card, but in that case if we don't delete the equivalent in `/media/data/apps`, they will appear twice in frontend.
 
+#### Q9: Is it possible to use a WiFi dongle?
+
+Yes, although the list of supported chipsets is limited. At the moment the supported ones are the following:
+
+* Realtek RTL8192CU
+* Mediatek MT7601U
+
+If new chipsets are incorporated into the system in the future, they will be listed in the directory `/lib/modules/5.15.0-rc6-opendingux/kernel/drivers/net/wireless/`
+
 ## Telegram channel for updates
 
 Join this Telegram channel to get update notifications: https://t.me/adam_image
