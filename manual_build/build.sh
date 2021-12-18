@@ -4,7 +4,7 @@
 SD_DEV=/dev/mmcblk0
 SD_P1=${SD_DEV}p1
 SD_P2=${SD_DEV}p2
-ODBETA_VERSION=2021-10-15
+ODBETA_VERSION=2021-12-12
 INSTALL_ODBETA_MODS=false
 ZERO_FILL=true
 MAKE_PGv1=true
@@ -52,6 +52,7 @@ sleep 1
 
 echo "## P1 cleaning"
 rm ${DIRECTORY}/mnt_p1/modules.squashfs.bak 2> /dev/null
+rm ${DIRECTORY}/mnt_p1/modules.squashfs.bak.sha1 2> /dev/null
 rm ${DIRECTORY}/mnt_p1/rootfs.squashfs.bak 2> /dev/null
 rm ${DIRECTORY}/mnt_p1/rootfs.squashfs.bak.sha1 2> /dev/null
 rm ${DIRECTORY}/mnt_p1/uzImage.bak 2> /dev/null
@@ -66,6 +67,8 @@ rm -rf ${DIRECTORY}/mnt_p1/rg350 2> /dev/null && sync
 rm -rf ${DIRECTORY}/mnt_p1/rg350m 2> /dev/null && sync
 rm -rf ${DIRECTORY}/mnt_p1/pocketgo2v2 2> /dev/null && sync
 rm -rf ${DIRECTORY}/mnt_p1/rg300x 2> /dev/null && sync
+rm -rf ${DIRECTORY}/mnt_p1/pocketgo2v1 2> /dev/null && sync
+rm -rf ${DIRECTORY}/mnt_p1/gcw0 2> /dev/null && sync
 rm ${DIRECTORY}/mnt_p1/select_kernel.bat 2> /dev/null && sync
 rm ${DIRECTORY}/mnt_p1/select_kernel.sh 2> /dev/null && sync
 
@@ -169,6 +172,8 @@ sleep 1
 
 echo "## Erasing lost+found on P2"
 rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
+sync
+sleep 1
 
 echo "## Unmounting P2"
 umount ${SD_P2}
@@ -204,9 +209,15 @@ cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs ${DIRECTORY}/m
 cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs.sha1 ${DIRECTORY}/mnt_p1
 
 if [ ${MAKE_PGv1} = true ] ; then
-    echo "## Building P1 for PlayGo/PG2 v1 image"
-    cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/uzImage.bin
-    sha1sum ${DIRECTORY}/mnt_p1/uzImage.bin | awk '{ print $1 }' > ${DIRECTORY}/mnt_p1/uzImage.bin.sha1
+    echo "## Building P1 for PlayGo/PG2 v1 and GCW-Zero image"
+    cp ${DIRECTORY}/select_kernel/select_kernel_gcw0.bat ${DIRECTORY}/mnt_p1/select_kernel.bat
+    cp ${DIRECTORY}/select_kernel/select_kernel_gcw0.sh ${DIRECTORY}/mnt_p1/select_kernel.sh
+    mkdir ${DIRECTORY}/mnt_p1/pocketgo2v1
+    mkdir ${DIRECTORY}/mnt_p1/gcw0
+    cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin.sha1
+    cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/gcw0.dtb > ${DIRECTORY}/mnt_p1/gcw0/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/gcw0/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/gcw0/uzImage.bin.sha1
 
     if [ ${ZERO_FILL} = true ] ; then
         echo "## Filling P1 with zeros"
@@ -217,12 +228,12 @@ if [ ${MAKE_PGv1} = true ] ; then
     echo "## Unmounting P1"
     umount ${SD_P1}
 
-    echo "## Flashing bootloader for PlayGo/PG2 v1 image"
+    echo "## Flashing bootloader for PlayGo/PG2 v1 and GCW-Zero image"
     dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
     sync
     sleep 1
 
-    echo "## Making card dump for PlayGo/PG2 v1 image"
+    echo "## Making card dump for PlayGo/PG2 v1 and GCW-Zero image"
     if [ ${COMP} = "gz" ] ; then
         dd if=${SD_DEV} bs=2M count=1600 status=progress | gzip -9 - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
     else
@@ -233,11 +244,14 @@ if [ ${MAKE_PGv1} = true ] ; then
     echo "## Remounting P1"
     mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1
     sleep 1
+
+    rm -rf ${DIRECTORY}/mnt_p1/pocketgo2v1 2> /dev/null && sync
+    rm -rf ${DIRECTORY}/mnt_p1/gcw0 2> /dev/null && sync
+    rm ${DIRECTORY}/mnt_p1/select_kernel.bat 2> /dev/null && sync
+    rm ${DIRECTORY}/mnt_p1/select_kernel.sh 2> /dev/null && sync
 fi
 
 echo "## Building P1 for main image"
-rm ${DIRECTORY}/mnt_p1/uzImage.bin 2> /dev/null
-rm ${DIRECTORY}/mnt_p1/uzImage.bin.sha1 2> /dev/null
 cp ${DIRECTORY}/select_kernel/select_kernel.bat ${DIRECTORY}/mnt_p1
 cp ${DIRECTORY}/select_kernel/select_kernel.sh ${DIRECTORY}/mnt_p1
 mkdir ${DIRECTORY}/mnt_p1/rg280m
