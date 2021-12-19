@@ -582,6 +582,17 @@ Sí, aunque la lista de chipsets soportados es reducida. De momento los soportad
 
 Si en el futuro nuevos chipsets son incorporados al sistema, aparecerán listados en el directorio `/lib/modules/5.15.0-rc6-opendingux/kernel/drivers/net/wireless/`
 
+#### 10: He cargado ROMs en la tarjeta externa pero no me aparecen en SimpleMenu
+
+Hay varias cosas a tener en cuenta para que las ROMs se visualicen:
+
+1. El formato de la tarjeta externa debe ser FAT32.
+2. Las ROMs deben encontrarse en los directorios adecuados para el sistema al que pertenecen y que se encuentran listados en la tabla que hay en la sección [ROMs](#roms).
+3. Las extensiones de los ficheros de las ROMs deben ser las que se indican en la tabla que hay en la sección [ROMs](#roms).
+4. Para acceder al listado de ROMs del sistema que nos interese ver, hay que utilizar los atajos de navegación entre sistemas y grupos que se indican en la tabla que hay en la sección [Controles](#controles). Básicamente son `B` para subir un nivel, `A` para bajar un nivel y `Arriba/Abajo` para moverse entre los distintos elementos que hay en cada nivel. Por ejemplo en el siguiente vídeo se muestra cómo llegar al listado de ROMs de Game Boy desde la sección `Applications` que aparece de forma predeterminada tras flashear la imagen.
+
+[![Ver vídeo](https://img.youtube.com/vi/0npzNmlPJb0/hqdefault.jpg)](https://www.youtube.com/watch?v=0npzNmlPJb0 "Ver vídeo")
+
 ## Canal Telegram para comunicar actualizaciones
 
 Se ha creado este canal de Telegram para comunicar más fácilmente las actualizaciones de esta imagen: https://t.me/adam_image
