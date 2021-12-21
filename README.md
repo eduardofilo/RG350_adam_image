@@ -482,9 +482,19 @@ Most likely, the kernel installation procedure described [here](#install-from-sc
 
 #### Console cannot be powered off
 
-We refer to the situation where we try to power off the console using the GMenu2X `Power off` launcher or the SimpleMenu `Shutdown` command. All cases of this type found have been related to spontaneous reboots of the system, usually after entering and exiting sleep mode several times. From that spontaneous restart, the console could not be turned off, that is, it would restart by itself when trying to power it off. The solution is to use the Reset. To avoid corruptions of the system card, it is recommended to press Reset just when the system finishes shutting down (we can be guided by when the screen goes black). An example of the phenomenon and its solution can be seen in the following video:
+We refer to the situation where we try to power off the console using the GMenu2X `Power off` launcher or the SimpleMenu `Shutdown` command. When the problem occurs, just when the console should be turned off, it starts a new boot, making it impossible to turn it off completely. So far two situations have been found that can cause this problem (apart from the case of the PG2v1 which has its own scenario). One case is after a spontaneous reboot of the system after going in and out of sleep mode several times in succession. The other is after using the HDMI output and disconnecting it (see discussion #131). The solution is to use the Reset. To avoid corruptions of the system card, it is recommended to press Reset just when the system finishes shutting down (we can be guided by when the screen goes black). An example of the phenomenon and its solution can be seen in the following video:
 
 [![See video](https://img.youtube.com/vi/hf4fGnCjfTw/hqdefault.jpg)](https://www.youtube.com/watch?v=hf4fGnCjfTw "See video")
+
+#### Console cannot be powered off (PG2v1)
+
+This is a special case of the previous one. Only occurs with PlayGo / PocketGo2 v1 consoles. In this case the trigger is the disconnection or complete discharge of the battery. User @esmith13 in the scope of issue #7 describes a workaround as follows:
+
+>Download the stock firmware for the PG2v1 from here: https://github.com/retrogamehandheld/PocketGo2/wiki/Firmware-and-software-updates
+>Write it to a spare mSD card and boot your device with it once then shutdown properly (it will stay off as expected).
+>Swap back to your ADAM image mSD card and resume normal use.
+>You should be good as long as you don't completely re-flash your ADAM Image mSD card from scratch, pull out your battery, or allow your battery to drain completely. If any of those does happen, just boot from the stock image once to fix the issue again.
+>Rinse and repeat.
 
 ## FAQ
 

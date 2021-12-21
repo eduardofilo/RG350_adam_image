@@ -480,9 +480,19 @@ Lo más probable será que no se ha realizado el procedimiento de instalación d
 
 #### La consola no se puede apagar
 
-Nos referimos a la situación en que tratamos de apagar la consola mediante el lanzador `Power off` de GMenu2X o el comando `Shutdown` de SimpleMenu. Todos los casos de este tipo encontrados han estado relacionados con reinicios espontáneos del sistema, normalmente tras entrar y salir del modo de suspensión varias veces. A partir de ese reinicio espontáneo, la consola no se podía apagar, es decir, volvía a arrancar por si sola al intentar apagarla. La solución consiste en utilizar el Reset. Para evitar corrupciones de la tarjeta del sistema, se recomienda pulsar el Reset justo cuando el sistema acabe de cerrarse (podemos guiarnos por cuando la pantalla se pone en negro). En el siguiente vídeo puede verse un ejemplo del fenómeno y su solución:
+Nos referimos a la situación en que tratamos de apagar la consola mediante el lanzador `Power off` de GMenu2X o el comando `Shutdown` de SimpleMenu. Cuando sucede el problema, justo cuando la consola debería quedar apagada, inicia un nuevo arranque, resultando imposible apagarla completamente. Hasta ahora se han encontrado dos situaciones que pueden producir este problema (aparte del caso de la PG2v1 que tiene su propio escenario). Un caso es tras un reinicio espontáneo del sistema tras entrar y salir varias veces sucesivas del modo de suspensión. El otro es tras haber utilizado la salida HDMI y haberla desconectado (ver discussion #131). La solución consiste en utilizar el Reset. Para evitar corrupciones de la tarjeta del sistema, se recomienda pulsar el Reset justo cuando el sistema acabe de cerrarse (podemos guiarnos por cuando la pantalla se pone en negro). En el siguiente vídeo puede verse un ejemplo del fenómeno y su solución:
 
 [![Ver vídeo](https://img.youtube.com/vi/hf4fGnCjfTw/hqdefault.jpg)](https://www.youtube.com/watch?v=hf4fGnCjfTw "Ver vídeo")
+
+#### La consola no se puede apagar (PG2v1)
+
+Este es un caso especial del anterior. Sólo ocurre con las consolas PlayGo/PocketGo2 v1. En este caso el desencadenante es la desconexión o descarga completa de la batería. El usuario @esmith13 en el ámbito de la issue #7 describe la solución como sigue:
+
+>Descarga el firmware stock para la PG2v1 desde aquí: https://github.com/retrogamehandheld/PocketGo2/wiki/Firmware-and-software-updates
+>Grábalo a una tarjeta mSD vacía y arranca una vez la consola con ella, luego apaga normalmente (quedará apagada como debería ser).
+>Cambia a la tarjeta mSD con la imagen ADAM y a partir de entonces todo volverá a la normalidad.
+>Debería ir bien mientras no reflashees de nuevo tu tarjeta mSD con la imagen ADAM, desconectes la batería, o permitas que se descargue completamente. Si algo de esto ocurre, vuelve a arrancar una vez desde la imagen stock para solucionar el problema otra vez.
+>Enjuagar y repetir.
 
 ## FAQ
 
