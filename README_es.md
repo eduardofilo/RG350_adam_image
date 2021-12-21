@@ -488,11 +488,11 @@ Nos referimos a la situación en que tratamos de apagar la consola mediante el l
 
 Este es un caso especial del anterior. Sólo ocurre con las consolas PlayGo/PocketGo2 v1. En este caso el desencadenante es la desconexión o descarga completa de la batería. El usuario @esmith13 en el ámbito de la issue #7 describe la solución como sigue:
 
->Descarga el firmware stock para la PG2v1 desde aquí: https://github.com/retrogamehandheld/PocketGo2/wiki/Firmware-and-software-updates
->Grábalo a una tarjeta mSD vacía y arranca una vez la consola con ella, luego apaga normalmente (quedará apagada como debería ser).
->Cambia a la tarjeta mSD con la imagen ADAM y a partir de entonces todo volverá a la normalidad.
->Debería ir bien mientras no reflashees de nuevo tu tarjeta mSD con la imagen ADAM, desconectes la batería, o permitas que se descargue completamente. Si algo de esto ocurre, vuelve a arrancar una vez desde la imagen stock para solucionar el problema otra vez.
->Enjuagar y repetir.
+> Descarga el firmware stock para la PG2v1 desde aquí: https://github.com/retrogamehandheld/PocketGo2/wiki/Firmware-and-software-updates
+> Grábalo a una tarjeta mSD vacía y arranca una vez la consola con ella, luego apaga normalmente (quedará apagada como debería ser).
+> Cambia a la tarjeta mSD con la imagen ADAM y a partir de entonces todo volverá a la normalidad.
+> Debería ir bien mientras no reflashees de nuevo tu tarjeta mSD con la imagen ADAM, desconectes la batería, o permitas que se descargue completamente. Si algo de esto ocurre, vuelve a arrancar una vez desde la imagen stock para solucionar el problema otra vez.
+> Enjuagar y repetir.
 
 ## FAQ
 
