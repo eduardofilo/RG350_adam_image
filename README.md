@@ -490,11 +490,15 @@ We refer to the situation where we try to power off the console using the GMenu2
 
 This is a special case of the previous one. Only occurs with PlayGo / PocketGo2 v1 consoles. In this case the trigger is the disconnection or complete discharge of the battery. User @esmith13 in the scope of issue #7 describes a workaround as follows:
 
-> Download the stock firmware for the PG2v1 from here: https://github.com/retrogamehandheld/PocketGo2/wiki/Firmware-and-software-updates
-> Write it to a spare mSD card and boot your device with it once then shutdown properly (it will stay off as expected).
-> Swap back to your ADAM image mSD card and resume normal use.
-> You should be good as long as you don't completely re-flash your ADAM Image mSD card from scratch, pull out your battery, or allow your battery to drain completely. If any of those does happen, just boot from the stock image once to fix the issue again.
-> Rinse and repeat.
+>Download the stock firmware for the PG2v1 from here: https://github.com/retrogamehandheld/PocketGo2/wiki/Firmware-and-software-updates
+>
+>Write it to a spare mSD card and boot your device with it once then shutdown properly (it will stay off as expected).
+>
+>Swap back to your ADAM image mSD card and resume normal use.
+>
+>You should be good as long as you don't completely re-flash your ADAM Image mSD card from scratch, pull out your battery, or allow your battery to drain completely. If any of those does happen, just boot from the stock image once to fix the issue again.
+>
+>Rinse and repeat.
 
 ## FAQ
 
