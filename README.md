@@ -210,6 +210,8 @@ Some comments about the supported extensions:
     monkey=The Secret of Monkey Island
     ```
 
+* Quake: The files of the different Expansion Paks must respect the directory structure described [here](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks).
+
 ### Previews
 
 The previews should be placed in a directory with name `.previews` within each of the ROM directories in the previous list. For example, the previews of GB should be located in `roms/GB/.previews`, this being the path from the root of the external card when mounted in the PC. The preview files have to be PNGs with the same name as the game (except for the extension).
