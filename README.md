@@ -598,7 +598,7 @@ Yes, although the list of supported chipsets is limited. At the moment the suppo
 
 If new chipsets are incorporated into the system in the future, they will be listed in the directory `/lib/modules/5.15.0-rc6-opendingux/kernel/drivers/net/wireless/`
 
-#### 10: I have loaded ROMs on the external card but they do not show up in SimpleMenu
+#### 10: Why don't appear in SimpleMenu the ROMs I just loaded onto the external card?
 
 There are several things to keep in mind so that the ROMs are displayed:
 
@@ -608,6 +608,14 @@ There are several things to keep in mind so that the ROMs are displayed:
 4. To access the list of ROMs of the system that we are interested in, use the navigation shortcuts between systems and groups indicated in the table in the [Controls](# controls) section. Basically they are `B` to go up one level, `A` to go down one level and `Up/Down` to move between the different elements in each level. For example, the following video shows how to get to the list of Game Boy ROMs from the `Applications` section that appears by default after flashing the image.
 
 [![See video](https://img.youtube.com/vi/0npzNmlPJb0/hqdefault.jpg)](https://www.youtube.com/watch?v=0npzNmlPJb0 "See video")
+
+#### 11: Why does not show battery levels correctly the battery indicator?
+
+Battery are one of the most analog elements on the console. No two are the same. To manage this reality, modern smartphones keep a lot of information about previous charges and the rate and conditions in which the discharge occurs. With all this information, they estimate a battery capacity that is as realistic as possible. In the console system, this data is not kept, so the battery capacity is estimated directly from the voltage that it offers at a certain moment. Fixed values are used for the voltage associated with the maximum and minimum charge (4.2V and 3.4V respectively), which may not be suitable for all batteries, hence some consoles misjudge the charge level.
+
+There is also a sensor on the charging connector, but this only determines if there is a cable connected to the console, not that the battery is charging, that is, the other end of the cable may be disconnected and most programs will indicate that the console is being powered.
+
+Finally, the load indicators of the different programs (GMenu2X, SimpleMenu, RetroArch, RG350 test) can be programmed differently, so there may be discrepancies between them.
 
 ## Telegram channel for updates
 

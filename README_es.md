@@ -596,7 +596,7 @@ Sí, aunque la lista de chipsets soportados es reducida. De momento los soportad
 
 Si en el futuro nuevos chipsets son incorporados al sistema, aparecerán listados en el directorio `/lib/modules/5.15.0-rc6-opendingux/kernel/drivers/net/wireless/`
 
-#### 10: He cargado ROMs en la tarjeta externa pero no me aparecen en SimpleMenu
+#### 10: ¿Por qué no aparecen en SimpleMenu las ROMs que acabo de cargar en la tarjeta externa?
 
 Hay varias cosas a tener en cuenta para que las ROMs se visualicen:
 
@@ -606,6 +606,14 @@ Hay varias cosas a tener en cuenta para que las ROMs se visualicen:
 4. Para acceder al listado de ROMs del sistema que nos interese ver, hay que utilizar los atajos de navegación entre sistemas y grupos que se indican en la tabla que hay en la sección [Controles](#controles). Básicamente son `B` para subir un nivel, `A` para bajar un nivel y `Arriba/Abajo` para moverse entre los distintos elementos que hay en cada nivel. Por ejemplo en el siguiente vídeo se muestra cómo llegar al listado de ROMs de Game Boy desde la sección `Applications` que aparece de forma predeterminada tras flashear la imagen.
 
 [![Ver vídeo](https://img.youtube.com/vi/0npzNmlPJb0/hqdefault.jpg)](https://www.youtube.com/watch?v=0npzNmlPJb0 "Ver vídeo")
+
+#### 11: ¿Por qué el indicador de batería no muestra los niveles correctos?
+
+La batería es uno de los elementos más analógicos que hay en la consola. No hay dos iguales. Para gestionar esta realidad, los modernos smartphones mantienen mucha información sobre las cargas previas y el ritmo y condiciones en que se produce la descarga. Con toda esa información estiman una capacidad de la batería lo más realista posible. En el sistema de la consola no se mantienen esos datos por lo que la capacidad de la batería se estima directamente a partir del voltaje que ésta ofrece en un determinado momento. Como valores para el voltaje asociado a la carga máxima y mínima se utilizan unos valores fijos (4,2V y 3,4V respectivamente) que pueden no ser adecuados para todas las baterías, de ahí que algunas consolas estimen mal el nivel de carga.
+
+Hay también un sensor en el conector de carga, pero éste sólo determina si hay un cable conectado a la consola, no que la batería se esté cargando, es decir, el otro extremo del cable puede estar desconectado y la mayoría de los programas indicará que la consola está siendo alimentada.
+
+Por último comentar que los indicadores de carga de los distintos programas (GMenu2X, SimpleMenu, RetroArch, RG350 test) pueden estar programados de distinta forma, por lo que puede haber discrepancias entre ellos.
 
 ## Canal Telegram para comunicar actualizaciones
 
