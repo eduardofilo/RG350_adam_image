@@ -500,6 +500,25 @@ This is a special case of the previous one. Only occurs with PlayGo / PocketGo2 
 >
 >Rinse and repeat.
 
+#### Boot loop after power on
+
+Actually, in this situation, the system is completely up and running. The problem is usually related to SimpleMenu when it is the default launcher if it have trouble restoring the last state. This can happen if the files that SimpleMenu addresses through its configuration files have been manually modified. It can also happen if these files itself have been modified (those found in `/media/data/local/home/.simplemenu/section_groups`). The solution is usually to delete the status file so that it can be regenerated. This file is `last_state.sav` and it is located inside the home directory of SimpleMenu, i.e. `/media/data/local/home/.simplemenu`.
+
+Since version 1.3.1 of the image, there is a way to solve the problem from the console. The steps to find the solution are as follows:
+
+1. Hold Power during 2 seconds to poweroff system.
+2. Power on while pressing `B` during complete boot.
+3. Open Commander.
+4. Delete `last_state.sav` in `.simplemenu` directory.
+5. Close Commander.
+6. Open SimpleMenu.
+7. Restore lost settings.
+8. We are done.
+
+In the following video we can see the whole process:
+
+[![See video](https://img.youtube.com/vi/iuYlIC36uDg/hqdefault.jpg)](https://www.youtube.com/watch?v=iuYlIC36uDg "See video")
+
 ## FAQ
 
 #### Q1: Should I reflash every time a new image appears? Perhaps you have an OPK for a more streamlined update?

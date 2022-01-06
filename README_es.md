@@ -498,6 +498,25 @@ Este es un caso especial del anterior. Sólo ocurre con las consolas PlayGo/Pock
 >
 >Enjuagar y repetir.
 
+#### Bucle de reinicios tras arrancar
+
+En realidad en esta situación que vamos a describir el sistema está completamente arrancado y funcionando. El problema suele estar relacionado con SimpleMenu cuando es el lanzador predeterminado si tiene problemas para restaurar el estado previo. Esto puede ocurrir si se ha modificado manualmente los ficheros que SimpleMenu direcciona a través de sus ficheros de configuración. También puede suceder si se han modificado dichos ficheros (los que se encuentran en `/media/data/local/home/.simplemenu/section_groups`). La solución suele ser borrar el fichero de estado para que se regenere. Dicho fichero es `last_state.sav` y se encuentra dentro del directorio home de SimpleMenu, es decir `/media/data/local/home/.simplemenu`.
+
+Desde la versión 1.3.1 de la imagen, hay una forma de solucionar el problema desde la misma consola. Los pasos para encontrar la solución son los siguientes:
+
+1. Mantener pulsada la tecla Power durante un par de segundos para apagar el sistema.
+2. Encender el sistema mientras se mantiene pulsada la tecla `B` durante el arranque completo.
+3. Abrir Commander.
+4. Borrar el fichero `last_state.sav` dentro del directorio `.simplemenu`.
+5. Cerrar Commander.
+6. Abrir SimpleMenu.
+7. Restablecer los ajustes que se habrán perdido.
+8. La situación ahora debería ser normal.
+
+En el siguiente vídeo podemos ver todo el proceso:
+
+[![Ver vídeo](https://img.youtube.com/vi/iuYlIC36uDg/hqdefault.jpg)](https://www.youtube.com/watch?v=iuYlIC36uDg "Ver vídeo")
+
 ## FAQ
 
 #### Q1: ¿Tengo que volver a flashear con cada nueva imagen? ¿No existe un OPK para una actualización más ágil?
