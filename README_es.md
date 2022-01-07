@@ -210,7 +210,7 @@ Algunas aclaraciones sobre las extensiones soportadas:
     monkey=The Secret of Monkey Island
     ```
 
-* Quake: Los ficheros de los distintos Expansion Paks deben respetar la estructura de directorios que se describe [aquí](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks).
+* Quake: Los cuatro directorios configurados en este sistema respetan la estructura necesaria para los distintos Expansion Paks que se describen [aquí](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks).
 
 ### Previews
 
