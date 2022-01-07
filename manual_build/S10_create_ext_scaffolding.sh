@@ -18,8 +18,9 @@ then
         roms/GBC roms/GBA roms/GW roms/GG roms/LYNX roms/NGP        \
         roms/WSC roms/POKEMINI roms/SUPERVISION roms/ZX             \
         roms/AMSTRAD roms/C64 roms/MSX roms/AMIGA roms/DOOM/DOOM    \
-        roms/DOOM/DOOM2 roms/QUAKE roms/DOSBOX roms/SCUMMVM         \
-        roms/PICO8 roms/TIC80 roms/BBCMICRO roms/FDS roms/SGB
+        roms/DOOM/DOOM2 roms/DOSBOX roms/SCUMMVM roms/PICO8         \
+        roms/TIC80 roms/BBCMICRO roms/FDS roms/SGB roms/QUAKE/id1   \
+        roms/QUAKE/hipnotic roms/QUAKE/rogue roms/QUAKE/dopa
     do
       if [ ! -d "/media/sdcard/${dir}/.previews" ]; then
         mkdir -p "/media/sdcard/${dir}/.previews"

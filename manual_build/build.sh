@@ -125,9 +125,23 @@ echo "## Installing Py Backup config"
 cp ${DIRECTORY}/config.ini ${DIRECTORY}/mnt_p2/local/home/.py_backup/
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.py_backup/config.ini
 
-echo "## Installing SimpleMenu alias"
-cp ${DIRECTORY}/alias.txt ${DIRECTORY}/mnt_p2/local/home/.simplemenu/
+echo "## Installing SimpleMenu files"
+cp ${DIRECTORY}/simplemenu/alias.txt ${DIRECTORY}/mnt_p2/local/home/.simplemenu/
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/alias.txt
+cp "${DIRECTORY}/simplemenu/apps and games.ini" ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/
+chown 1000:100 "${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/apps and games.ini"
+cp ${DIRECTORY}/simplemenu/arcades.ini ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/arcades.ini
+cp ${DIRECTORY}/simplemenu/consoles.ini ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/consoles.ini
+cp ${DIRECTORY}/simplemenu/handhelds.ini ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/handhelds.ini
+cp "${DIRECTORY}/simplemenu/home computers.ini" ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/
+chown 1000:100 "${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/home computers.ini"
+cp ${DIRECTORY}/simplemenu/.autostart ${DIRECTORY}/mnt_p2/local/home/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.autostart
+cp ${DIRECTORY}/simplemenu/last_state.sav ${DIRECTORY}/mnt_p2/local/home/.simplemenu
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/last_state.sav
 
 echo "## Settings etc files"
 cp ${DIRECTORY}/shadow_with_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
@@ -143,14 +157,10 @@ cp ${DIRECTORY}/volume.state ${DIRECTORY}/mnt_p2/local/etc/
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/volume.state
 chmod 755 ${DIRECTORY}/mnt_p2/local/etc/volume.state
 
-echo "## Setting up first boot"
 if [ ${INSTALL_ODBETA_MODS} = true ] ; then
+    echo "## Setting the resize flag"
     touch ${DIRECTORY}/mnt_p2/.resize_me
 fi
-cp ${DIRECTORY}/.autostart ${DIRECTORY}/mnt_p2/local/home/
-chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.autostart
-cp ${DIRECTORY}/last_state.sav ${DIRECTORY}/mnt_p2/local/home/.simplemenu
-chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/last_state.sav
 sync
 sleep 1
 
