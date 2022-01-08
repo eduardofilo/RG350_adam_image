@@ -201,7 +201,7 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |TIC80|roms/TIC80|tic, 7z, zip|
 |BBC Micro|roms/BBCMICRO|ssd, dsd, uef|
 
-Algunas aclaraciones sobre las extensiones soportadas:
+Aclaraciones sobre algunos sistemas:
 
 * PlayStation: Las ROMs en formato `cue+bin` no funcionan comprimidas en ZIP. En formato `iso` en cambio sí se abren cuando se suministran comprimidas en ZIP.
 * ScummVM: Los juegos ScummVM están compuestos de varios ficheros, por lo que habrá que mantenerlos en directorios. La extensión `svm` indicada en la lista anterior corresponde a un fichero vacío que tenga como nombre el ID del juego que extraeremos de [esta lista](https://www.scummvm.org/compatibility/) y que colocaremos en el directorio donde tengamos el resto de los ficheros del juego. Por ejemplo para el juego "The Secret of Monkey Island" necesitaremos los ficheros que podemos consultar en el [wiki de ScummVM](https://wiki.scummvm.org/index.php?title=Category:Supported_Games). En concreto para este juego [vemos](https://wiki.scummvm.org/index.php?title=The_Secret_of_Monkey_Island) que necesitaremos los ficheros `MONKEY.000` y `MONKEY.001` que colocaremos en un directorio de cualquier nombre dentro del directorio configurado en SimpleMenu (`<EXT_SD>/roms/SCUMMVM`). Será en este mismo directorio donde tendremos que colocar el fichero vacío `svm`. Según la lista de compatibilidad de ScummVM, el ID de "The Secret of Monkey Island" es `monkey`, por lo que el fichero que colocaremos dentro del directorio del juego será `monkey.svm`. Por último, si queremos que SimpleMenu muestre el nombre completo del juego, sólo tendremos que incorporar una entrada como la siguiente en el fichero de alias de SimpleMenu (`/home/media/data/local/.simplemenu/alias.txt`):
@@ -211,6 +211,13 @@ Algunas aclaraciones sobre las extensiones soportadas:
     ```
 
 * Quake: Los cuatro directorios configurados en este sistema respetan la estructura necesaria para los distintos Expansion Paks que se describen [aquí](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks).
+* MAME: En este sistema hay 3 tipos de emuladores distintos, algunos de ellos soportando romsets distintos a su vez. Se indica a continuación la lista de los romsets soportados en cada combinación. Se enlaza al datafile utilizado en cada caso que puede servir para comprobar la compatibilidad de las ROMs:
+    * RetroArch core MAME2003: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
+    * RetroArch core MAME2003+: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
+    * FBA: [0.2.97.44](https://archive.org/download/rg350_arcade/FBN_v0.2.97.44.dat)
+    * xMAME romset 84: [0.84](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_084.rar)
+    * xMAME romset 69: [0.69](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_069.rar)
+    * xMAME romset 52: [0.37b16](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_037-52.rar), también conocido como 0.52
 
 ### Previews
 
