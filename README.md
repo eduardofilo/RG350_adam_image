@@ -210,7 +210,7 @@ Comments about some systems:
     monkey=The Secret of Monkey Island
     ```
 
-* Quake: The four directories configured in this system respect the structure necessary for the different Expansion Paks that are described [here](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks).
+* Quake: The four directories configured in this system respect the structure necessary for the different Expansion Paks that are described [here](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). The names of the files (`pak0.pak`, `pak1.pak`, ...) within the different directories cannot be changed, but the previews can be used to distinguish one from the other.
 * MAME: In this system there are 3 different types of emulators, some of them supporting different romsets in turn. The list of romsets supported in each combination is indicated below, with a link to the datafile used in each case that can be used to check the compatibility of the ROMs.
     * RetroArch core MAME2003: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
     * RetroArch core MAME2003+: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
