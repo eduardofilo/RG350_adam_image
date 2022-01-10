@@ -195,29 +195,52 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |Commodore Amiga|roms/AMIGA|adf, adz, dms, fdi, ipf, hdf, hdz, lha, slave, info, cue, ccd, nrg, mds, iso, chd, uae, m3u, zip, 7z, rp9|
 |Doom|roms/DOOM/DOOM, roms/DOOM/DOOM2|wad, zip, 7z|
 |Quake|roms/QUAKE/id1, roms/QUAKE/hipnotic, roms/QUAKE/rogue, roms/QUAKE/dopa|pak, zip, 7z|
+|Quake2|roms/QUAKE2/baseq2, roms/QUAKE2/rogue, roms/QUAKE2/xatrix, roms/QUAKE2/zaero|pak|
 |MS-DOS|roms/DOSBOX|zip, dosz, exe, com, bat, iso, cue, ins, img, ima, vhd, m3u, m3u8, 7z|
 |ScummVM|roms/SCUMMVM|svm|
 |Pico8|roms/PICO8|png|
 |TIC80|roms/TIC80|tic, 7z, zip|
 |BBC Micro|roms/BBCMICRO|ssd, dsd, uef|
 
-Aclaraciones sobre algunos sistemas:
+A contnuación se indican aclaraciones sobre algunos sistemas.
 
-* PlayStation: Las ROMs en formato `cue+bin` no funcionan comprimidas en ZIP. En formato `iso` en cambio sí se abren cuando se suministran comprimidas en ZIP.
-* ScummVM: Los juegos ScummVM están compuestos de varios ficheros, por lo que habrá que mantenerlos en directorios. La extensión `svm` indicada en la lista anterior corresponde a un fichero vacío que tenga como nombre el ID del juego que extraeremos de [esta lista](https://www.scummvm.org/compatibility/) y que colocaremos en el directorio donde tengamos el resto de los ficheros del juego. Por ejemplo para el juego "The Secret of Monkey Island" necesitaremos los ficheros que podemos consultar en el [wiki de ScummVM](https://wiki.scummvm.org/index.php?title=Category:Supported_Games). En concreto para este juego [vemos](https://wiki.scummvm.org/index.php?title=The_Secret_of_Monkey_Island) que necesitaremos los ficheros `MONKEY.000` y `MONKEY.001` que colocaremos en un directorio de cualquier nombre dentro del directorio configurado en SimpleMenu (`<EXT_SD>/roms/SCUMMVM`). Será en este mismo directorio donde tendremos que colocar el fichero vacío `svm`. Según la lista de compatibilidad de ScummVM, el ID de "The Secret of Monkey Island" es `monkey`, por lo que el fichero que colocaremos dentro del directorio del juego será `monkey.svm`. Por último, si queremos que SimpleMenu muestre el nombre completo del juego, sólo tendremos que incorporar una entrada como la siguiente en el fichero de alias de SimpleMenu (`/home/media/data/local/.simplemenu/alias.txt`):
+#### PlayStation
 
-    ```
-    monkey=The Secret of Monkey Island
-    ```
+Las ROMs en formato `cue+bin` no funcionan comprimidas en ZIP. En formato `iso` en cambio sí se abren cuando se suministran comprimidas en ZIP.
 
-* Quake: Los cuatro directorios configurados en este sistema respetan la estructura necesaria para los distintos Expansion Paks que se describen [aquí](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). Los nombres de los ficheros (`pak0.pak`, `pak1.pak`, ...) dentro de los distintos directorios, no se puede cambiar, pero se pueden usar las previews para distinguir unos de otros.
-* MAME: En este sistema hay 3 tipos de emuladores distintos, algunos de ellos soportando romsets distintos a su vez. Se indica a continuación la lista de los romsets soportados en cada combinación. Se enlaza al datafile utilizado en cada caso que puede servir para comprobar la compatibilidad de las ROMs:
-    * RetroArch core MAME2003: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
-    * RetroArch core MAME2003+: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
-    * FBA: [0.2.97.44](https://archive.org/download/rg350_arcade/FBN_v0.2.97.44.dat)
-    * xMAME romset 84: [0.84](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_084.rar)
-    * xMAME romset 69: [0.69](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_069.rar)
-    * xMAME romset 52: [0.37b16](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_037-52.rar), también conocido como 0.52
+#### ScummVM
+
+Los juegos ScummVM están compuestos de varios ficheros, por lo que habrá que mantenerlos en directorios. La extensión `svm` indicada en la lista anterior corresponde a un fichero vacío que tenga como nombre el ID del juego que extraeremos de [esta lista](https://www.scummvm.org/compatibility/) y que colocaremos en el directorio donde tengamos el resto de los ficheros del juego. Por ejemplo para el juego "The Secret of Monkey Island" necesitaremos los ficheros que podemos consultar en el [wiki de ScummVM](https://wiki.scummvm.org/index.php?title=Category:Supported_Games). En concreto para este juego [vemos](https://wiki.scummvm.org/index.php?title=The_Secret_of_Monkey_Island) que necesitaremos los ficheros `MONKEY.000` y `MONKEY.001` que colocaremos en un directorio de cualquier nombre dentro del directorio configurado en SimpleMenu (`<EXT_SD>/roms/SCUMMVM`). Será en este mismo directorio donde tendremos que colocar el fichero vacío `svm`. Según la lista de compatibilidad de ScummVM, el ID de "The Secret of Monkey Island" es `monkey`, por lo que el fichero que colocaremos dentro del directorio del juego será `monkey.svm`. Por último, si queremos que SimpleMenu muestre el nombre completo del juego, sólo tendremos que incorporar una entrada como la siguiente en el fichero de alias de SimpleMenu (`/home/media/data/local/.simplemenu/alias.txt`):
+
+```
+monkey=The Secret of Monkey Island
+```
+
+#### Quake
+
+Los cuatro directorios configurados en este sistema respetan la estructura necesaria para los distintos Expansion Paks que se describen [aquí](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). Los nombres de los ficheros (`pak0.pak`, `pak1.pak`, ...) dentro de los distintos directorios, no se puede cambiar, pero se pueden usar las previews para distinguir unos de otros.
+
+#### Quake2
+
+Los cuatro directorios en este sistema se corresponden con el juego principal más los 3 mission packs soportados. Hay que respetar además los nombres finales de los directorios donde se mantienen los ficheros `.pak`. Hay cuatro cores distintos para cada una de las cuatro variantes. Es necesario ajustar el OPK correspondiente en SimpleMenu o abrir el adecuado en GMenu2X. La correspondencia es como sigue:
+
+|Juego|Core RetroArch|OPK Wrapper|Directorio para paks|
+|:----|:-------------|:----------|:-------------------|
+|Quake 2|vitaquake2_libretro.so|retroarch_rg350_QUAKE2.opk|baseq2|
+|Quake 2 'Ground Zero' mission pack|vitaquake2-rogue_libretro.so|retroarch_rg350_QUAKE2_rogue.opk|rogue|
+|Quake 2 'The Reckoning' mission pack|vitaquake2-xatrix_libretro.so|retroarch_rg350_QUAKE2_xatrix.opk|xatrix|
+|Quake 2 'Zaero' mission pack|vitaquake2-zaero_libretro.so|retroarch_rg350_QUAKE2_zaero.opk|zaero|
+
+#### MAME
+
+En este sistema hay 3 tipos de emuladores distintos, algunos de ellos soportando romsets distintos a su vez. Se indica a continuación la lista de los romsets soportados en cada combinación. Se enlaza al datafile utilizado en cada caso que puede servir para comprobar la compatibilidad de las ROMs:
+
+* RetroArch core MAME2003: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
+* RetroArch core MAME2003+: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
+* FBA: [0.2.97.44](https://archive.org/download/rg350_arcade/FBN_v0.2.97.44.dat)
+* xMAME romset 84: [0.84](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_084.rar)
+* xMAME romset 69: [0.69](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_069.rar)
+* xMAME romset 52: [0.37b16](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_037-52.rar), también conocido como 0.52
 
 ### Previews
 

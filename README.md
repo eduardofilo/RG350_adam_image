@@ -201,23 +201,34 @@ Below is the table of the systems configured in SimpleMenu with the paths where 
 |TIC80|roms/TIC80|tic, 7z, zip|
 |BBC Micro|roms/BBCMICRO|ssd, dsd, uef|
 
-Comments about some systems:
+Clarifications on some systems are indicated below.
 
-* PlayStation: ROMs in `cue+bin` format do not work compressed in ZIP. On the contrary, in `iso` format, they do open when they are supplied compressed in ZIP.
-* ScummVM: ScummVM games are made up of several files, so they will have to be kept in directories. The extension `svm` indicated in the former list corresponds to an empty file whose name is the ID of the game that we will extract from [this list](https://www.scummvm.org/compatibility/) and that we will place in the directory where we have the rest of the game files. For example, for the game "The Secret of Monkey Island" we will need the files that we can consult in the [ScummVM wiki](https://wiki.scummvm.org/index.php?title=Category:Supported_Games). Specifically for this game [we see](https://wiki.scummvm.org/index.php?title=The_Secret_of_Monkey_Island) that we will need the files `MONKEY.000` and `MONKEY.001` that we will place in a directory of any name within the directory configured in SimpleMenu (`<EXT_SD>/roms/SCUMMVM`). It will be in this same directory where we will have to place the empty file `svm`. According to the ScummVM compatibility list, the ID of "The Secret of Monkey Island" is `monkey`, so the file that we will place inside the game directory will be `monkey.svm`. Finally, if we want SimpleMenu to show the full name of the game, we will only have to incorporate an entry like the following in the SimpleMenu alias file (`/home/media/data/local/.simplemenu/alias.txt`):
+#### PlayStation
 
-    ```
-    monkey=The Secret of Monkey Island
-    ```
+ROMs in `cue+bin` format do not work compressed in ZIP. On the contrary, in `iso` format, they do open when they are supplied compressed in ZIP.
 
-* Quake: The four directories configured in this system respect the structure necessary for the different Expansion Paks that are described [here](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). The names of the files (`pak0.pak`, `pak1.pak`, ...) within the different directories cannot be changed, but the previews can be used to distinguish one from the other.
-* MAME: In this system there are 3 different types of emulators, some of them supporting different romsets in turn. The list of romsets supported in each combination is indicated below, with a link to the datafile used in each case that can be used to check the compatibility of the ROMs.
-    * RetroArch core MAME2003: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
-    * RetroArch core MAME2003+: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
-    * FBA: [0.2.97.44](https://archive.org/download/rg350_arcade/FBN_v0.2.97.44.dat)
-    * xMAME romset 84: [0.84](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_084.rar)
-    * xMAME romset 69: [0.69](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_069.rar)
-    * xMAME romset 52: [0.37b16](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_037-52.rar), a.k.a. 0.52
+#### ScummVM
+
+ScummVM games are made up of several files, so they will have to be kept in directories. The extension `svm` indicated in the former list corresponds to an empty file whose name is the ID of the game that we will extract from [this list](https://www.scummvm.org/compatibility/) and that we will place in the directory where we have the rest of the game files. For example, for the game "The Secret of Monkey Island" we will need the files that we can consult in the [ScummVM wiki](https://wiki.scummvm.org/index.php?title=Category:Supported_Games). Specifically for this game [we see](https://wiki.scummvm.org/index.php?title=The_Secret_of_Monkey_Island) that we will need the files `MONKEY.000` and `MONKEY.001` that we will place in a directory of any name within the directory configured in SimpleMenu (`<EXT_SD>/roms/SCUMMVM`). It will be in this same directory where we will have to place the empty file `svm`. According to the ScummVM compatibility list, the ID of "The Secret of Monkey Island" is `monkey`, so the file that we will place inside the game directory will be `monkey.svm`. Finally, if we want SimpleMenu to show the full name of the game, we will only have to incorporate an entry like the following in the SimpleMenu alias file (`/home/media/data/local/.simplemenu/alias.txt`):
+
+```
+monkey=The Secret of Monkey Island
+```
+
+#### Quake
+
+The four directories configured in this system respect the structure necessary for the different Expansion Paks that are described [here](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). The names of the files (`pak0.pak`, `pak1.pak`, ...) within the different directories cannot be changed, but the previews can be used to distinguish one from the other.
+
+#### MAME
+
+In this system there are 3 different types of emulators, some of them supporting different romsets in turn. The list of romsets supported in each combination is indicated below, with a link to the datafile used in each case that can be used to check the compatibility of the ROMs.
+
+* RetroArch core MAME2003: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
+* RetroArch core MAME2003+: [v0.78](https://www.progettosnaps.net/download/?tipo=dat_mame&file=/dats/MAME/MAME_Dats_078.rar)
+* FBA: [0.2.97.44](https://archive.org/download/rg350_arcade/FBN_v0.2.97.44.dat)
+* xMAME romset 84: [0.84](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_084.rar)
+* xMAME romset 69: [0.69](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_069.rar)
+* xMAME romset 52: [0.37b16](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_037-52.rar), a.k.a. 0.52
 
 ### Previews
 
@@ -631,9 +642,9 @@ If new chipsets are incorporated into the system in the future, they will be lis
 There are several things to keep in mind so that the ROMs are displayed:
 
 1. The format of the external card must be FAT32.
-2. The ROMs must be found in the appropriate directories for the system to which they belong and which are listed in the table in the [ROMs](# roms) section.
-3. The extensions of the ROMs files must be those indicated in the table in the [ROMs](# roms) section.
-4. To access the list of ROMs of the system that we are interested in, use the navigation shortcuts between systems and groups indicated in the table in the [Controls](# controls) section. Basically they are `B` to go up one level, `A` to go down one level and `Up/Down` to move between the different elements in each level. For example, the following video shows how to get to the list of Game Boy ROMs from the `Applications` section that appears by default after flashing the image.
+2. The ROMs must be found in the appropriate directories for the system to which they belong and which are listed in the table in the [ROMs](#roms) section.
+3. The extensions of the ROMs files must be those indicated in the table in the [ROMs](#roms) section.
+4. To access the list of ROMs of the system that we are interested in, use the navigation shortcuts between systems and groups indicated in the table in the [Controls](#controls) section. Basically they are `B` to go up one level, `A` to go down one level and `Up/Down` to move between the different elements in each level. For example, the following video shows how to get to the list of Game Boy ROMs from the `Applications` section that appears by default after flashing the image.
 
 [![See video](https://img.youtube.com/vi/0npzNmlPJb0/hqdefault.jpg)](https://www.youtube.com/watch?v=0npzNmlPJb0 "See video")
 
