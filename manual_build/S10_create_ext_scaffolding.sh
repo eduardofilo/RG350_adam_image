@@ -20,7 +20,9 @@ then
         roms/AMSTRAD roms/C64 roms/MSX roms/AMIGA roms/DOOM/DOOM    \
         roms/DOOM/DOOM2 roms/DOSBOX roms/SCUMMVM roms/PICO8         \
         roms/TIC80 roms/BBCMICRO roms/FDS roms/SGB roms/QUAKE/id1   \
-        roms/QUAKE/hipnotic roms/QUAKE/rogue roms/QUAKE/dopa
+        roms/QUAKE/hipnotic roms/QUAKE/rogue roms/QUAKE/dopa        \
+        roms/QUAKE2/baseq2 roms/QUAKE2/rogue roms/QUAKE2/xatrix     \
+        roms/QUAKE2/zaero
     do
       if [ ! -d "/media/sdcard/${dir}/.previews" ]; then
         mkdir -p "/media/sdcard/${dir}/.previews"

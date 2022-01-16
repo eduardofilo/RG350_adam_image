@@ -219,6 +219,17 @@ monkey=The Secret of Monkey Island
 
 The four directories configured in this system respect the structure necessary for the different Expansion Paks that are described [here](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). The names of the files (`pak0.pak`, `pak1.pak`, ...) within the different directories cannot be changed, but the previews can be used to distinguish one from the other.
 
+#### Quake2
+
+The four directories in this system correspond to the main game plus the 3 supported mission packs. You must also respect the final names of the directories where the `.pak` files are kept. There are four different cores for each of the four variants. Since the names of the files to launch are always `pak0.pak`, the only way to distinguish the different games in the SimpleMenu listings is through the previews. You need to set the corresponding OPK in SimpleMenu or open the appropriate one in GMenu2X. The correspondence is as follows:
+
+|Game|RetroArch core|OPK Wrapper|Directory for paks|
+|:----|:-------------|:----------|:-------------------|
+|Quake 2|vitaquake2_libretro.so|retroarch_rg350_QUAKE2.opk|baseq2|
+|Quake 2 'Ground Zero' mission pack|vitaquake2-rogue_libretro.so|retroarch_rg350_QUAKE2_rogue.opk|rogue|
+|Quake 2 'The Reckoning' mission pack|vitaquake2-xatrix_libretro.so|retroarch_rg350_QUAKE2_xatrix.opk|xatrix|
+|Quake 2 'Zaero' mission pack|vitaquake2-zaero_libretro.so|retroarch_rg350_QUAKE2_zaero.opk|zaero|
+
 #### MAME
 
 In this system there are 3 different types of emulators, some of them supporting different romsets in turn. The list of romsets supported in each combination is indicated below, with a link to the datafile used in each case that can be used to check the compatibility of the ROMs.

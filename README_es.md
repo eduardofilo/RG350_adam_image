@@ -222,7 +222,7 @@ Los cuatro directorios configurados en este sistema respetan la estructura neces
 
 #### Quake2
 
-Los cuatro directorios en este sistema se corresponden con el juego principal más los 3 mission packs soportados. Hay que respetar además los nombres finales de los directorios donde se mantienen los ficheros `.pak`. Hay cuatro cores distintos para cada una de las cuatro variantes. Es necesario ajustar el OPK correspondiente en SimpleMenu o abrir el adecuado en GMenu2X. La correspondencia es como sigue:
+Los cuatro directorios en este sistema se corresponden con el juego principal más los 3 mission packs soportados. Hay que respetar además los nombres finales de los directorios donde se mantienen los ficheros `.pak`. Hay cuatro cores distintos para cada una de las cuatro variantes. Como los nombres de los ficheros que se lanzan son siempre `pak0.pak`, la única forma de distinguir los distintos juegos en los listados de SimpleMenu es por medio de las previews. Es necesario ajustar el OPK correspondiente en SimpleMenu o abrir el adecuado en GMenu2X. La correspondencia es como sigue:
 
 |Juego|Core RetroArch|OPK Wrapper|Directorio para paks|
 |:----|:-------------|:----------|:-------------------|
