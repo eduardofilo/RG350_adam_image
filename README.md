@@ -370,7 +370,7 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |SimpleMenu|R1|Switches between menu and fullscreen mode|
 |SimpleMenu|R2|Refreshes the current section (in case you added some ROMs while the menu is running)|
 |SimpleMenu|A|Launches a game/program|
-|SimpleMenu|B|If pressed and released, it takes you one screen back. If pressed and held, it acts as a hotkey to be combined with other keys|
+|SimpleMenu|B|It takes you one screen back|
 |SimpleMenu|X|On regular sections, marks a game as a favorite, on the favorites section, it takes it off from the favorites list|
 |SimpleMenu|Y|Goes to the favorites section|
 |SimpleMenu|B + Left|Skips to the previous letter|

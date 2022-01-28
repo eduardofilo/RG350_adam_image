@@ -370,7 +370,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |SimpleMenu|R1|Alterna entre la lista de juegos o el modo pantalla completa|
 |SimpleMenu|R2|Refresca la lista de juegos del sisema actual (en caso de haber añadido juegos nuevos con el frontend en ejecución)|
 |SimpleMenu|A|Abre el juego o aplicación seleccionado|
-|SimpleMenu|B|En pulsación corta vuelve atrás; en pulsación larga permite las siguientes combinaciones de teclas|
+|SimpleMenu|B|Vuelve atrás|
 |SimpleMenu|X|En los listados de juegos, marca el seleccionado como favorito; en la vista de Favoritos borra el juego de la lista|
 |SimpleMenu|Y|Abre la selección de Favoritos|
 |SimpleMenu|B + Left|Desplaza el listado de juegos a la letra anterior|
