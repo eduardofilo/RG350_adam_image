@@ -142,6 +142,8 @@ cp ${DIRECTORY}/simplemenu/.autostart ${DIRECTORY}/mnt_p2/local/home/
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.autostart
 cp ${DIRECTORY}/simplemenu/last_state.sav ${DIRECTORY}/mnt_p2/local/home/.simplemenu
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/last_state.sav
+cp ${DIRECTORY}/simplemenu/config.ini ${DIRECTORY}/mnt_p2/local/home/.simplemenu
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/config.ini
 
 echo "## Settings etc files"
 cp ${DIRECTORY}/shadow_with_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
