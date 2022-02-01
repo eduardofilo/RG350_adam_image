@@ -145,6 +145,10 @@ chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/last_state.sav
 cp ${DIRECTORY}/simplemenu/config.ini ${DIRECTORY}/mnt_p2/local/home/.simplemenu
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/config.ini
 
+echo "## Patching RetroArch"
+cp ${DIRECTORY}/retroarch/dosbox_pure_libretro.so ${DIRECTORY}/mnt_p2/local/home/.retroarch/cores/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.retroarch/cores/dosbox_pure_libretro.so
+
 echo "## Settings etc files"
 cp ${DIRECTORY}/shadow_with_pwd ${DIRECTORY}/mnt_p2/local/etc/shadow
 chown 0:0 ${DIRECTORY}/mnt_p2/local/etc/shadow
