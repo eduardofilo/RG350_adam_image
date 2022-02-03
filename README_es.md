@@ -194,8 +194,8 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |MSX|roms/MSX|rom, ri, mx1, mx2, col, dsk, cas, sg, sc, m3u, zip, 7z|
 |Commodore Amiga|roms/AMIGA|adf, adz, dms, fdi, ipf, hdf, hdz, lha, slave, info, cue, ccd, nrg, mds, iso, chd, uae, m3u, zip, 7z, rp9|
 |Doom|roms/DOOM/DOOM, roms/DOOM/DOOM2|wad, zip, 7z|
-|Quake|roms/QUAKE/id1, roms/QUAKE/hipnotic, roms/QUAKE/rogue, roms/QUAKE/dopa|fbl|
-|Quake2|roms/QUAKE2/baseq2, roms/QUAKE2/rogue, roms/QUAKE2/xatrix, roms/QUAKE2/zaero|fbl|
+|Quake|roms/QUAKE/id1, roms/QUAKE/hipnotic, roms/QUAKE/rogue, roms/QUAKE/dopa|pak|
+|Quake2|roms/QUAKE2/baseq2, roms/QUAKE2/rogue, roms/QUAKE2/xatrix, roms/QUAKE2/zaero|pak|
 |MS-DOS|roms/DOSBOX|zip, dosz, exe, com, bat, iso, cue, ins, img, ima, vhd, m3u, m3u8, 7z|
 |ScummVM|roms/SCUMMVM|svm|
 |Pico8|roms/PICO8|png|
