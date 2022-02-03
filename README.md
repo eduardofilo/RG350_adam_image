@@ -220,6 +220,8 @@ monkey=The Secret of Monkey Island
 
 The four directories configured in this system respect the structure necessary for the different Expansion Paks that are described [here](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). The names of the files (`pak0.pak`, `pak1.pak`, ...) within the different directories cannot be changed, but the previews can be used to distinguish one from the other.
 
+Since `pak` files cannot be renamed, they get confused between different games and several appear per game when only `pak0.pak` needs to be launched. A trick commented by @neilswann80 in discussion #177 is applied consisting of creating a link to the file to launch that we can rename. Links have the `fbl` extension and is therefore the extension configured in SimpleMenu. The 4 links for the 4 supported games are automatically generated when the console is booted with the external card installed. Therefore the four supported games will appear in SimpleMenu even if they are not installed. They are only the links and therefore we must continue installing the datafiles of the four supported Quake variants.
+
 #### Quake2
 
 The four directories in this system correspond to the main game plus the 3 supported mission packs. You must also respect the final names of the directories where the `.pak` files are kept. There are four different cores for each of the four variants. Since the names of the files to launch are always `pak0.pak`, the only way to distinguish the different games in the SimpleMenu listings is through the previews. You need to set the corresponding OPK in SimpleMenu or open the appropriate one in GMenu2X. The correspondence is as follows:
@@ -230,6 +232,8 @@ The four directories in this system correspond to the main game plus the 3 suppo
 |Quake 2 'Ground Zero' mission pack|vitaquake2-rogue_libretro.so|retroarch_rg350_QUAKE2_rogue.opk|rogue|
 |Quake 2 'The Reckoning' mission pack|vitaquake2-xatrix_libretro.so|retroarch_rg350_QUAKE2_xatrix.opk|xatrix|
 |Quake 2 'Zaero' mission pack|vitaquake2-zaero_libretro.so|retroarch_rg350_QUAKE2_zaero.opk|zaero|
+
+The same technique described in Quake has been used, that is, `fbl` links are generated for the four supported games and that extension is configured in SimpleMenu.
 
 #### MAME
 

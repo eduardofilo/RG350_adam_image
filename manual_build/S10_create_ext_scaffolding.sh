@@ -28,4 +28,16 @@ then
         mkdir -p "/media/sdcard/${dir}/.previews"
       fi
     done
+
+    # Quake launchers
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/id1/Quake.fbl"
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/hipnotic/Mission pack 1.fbl"
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/rogue/Mission pack 2.fbl"
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/dopa/Episode 5. Dimension of the Past.fbl"
+
+    # Quake2 launchers
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/baseq2/Quake II.fbl"
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/rogue/Ground Zero.fbl"
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/xatrix/The Reckoning.fbl"
+    echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/zaero/Zaero.fbl"
 fi

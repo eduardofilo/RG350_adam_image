@@ -194,8 +194,8 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |MSX|roms/MSX|rom, ri, mx1, mx2, col, dsk, cas, sg, sc, m3u, zip, 7z|
 |Commodore Amiga|roms/AMIGA|adf, adz, dms, fdi, ipf, hdf, hdz, lha, slave, info, cue, ccd, nrg, mds, iso, chd, uae, m3u, zip, 7z, rp9|
 |Doom|roms/DOOM/DOOM, roms/DOOM/DOOM2|wad, zip, 7z|
-|Quake|roms/QUAKE/id1, roms/QUAKE/hipnotic, roms/QUAKE/rogue, roms/QUAKE/dopa|pak, zip, 7z|
-|Quake2|roms/QUAKE2/baseq2, roms/QUAKE2/rogue, roms/QUAKE2/xatrix, roms/QUAKE2/zaero|pak|
+|Quake|roms/QUAKE/id1, roms/QUAKE/hipnotic, roms/QUAKE/rogue, roms/QUAKE/dopa|fbl|
+|Quake2|roms/QUAKE2/baseq2, roms/QUAKE2/rogue, roms/QUAKE2/xatrix, roms/QUAKE2/zaero|fbl|
 |MS-DOS|roms/DOSBOX|zip, dosz, exe, com, bat, iso, cue, ins, img, ima, vhd, m3u, m3u8, 7z|
 |ScummVM|roms/SCUMMVM|svm|
 |Pico8|roms/PICO8|png|
@@ -220,6 +220,8 @@ monkey=The Secret of Monkey Island
 
 Los cuatro directorios configurados en este sistema respetan la estructura necesaria para los distintos Expansion Paks que se describen [aquí](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). Los nombres de los ficheros (`pak0.pak`, `pak1.pak`, ...) dentro de los distintos directorios, no se puede cambiar, pero se pueden usar las previews para distinguir unos de otros.
 
+Como los ficheros `pak` no se pueden renombrar, se confunden entre los distintos juegos y aparecen varios por juego cuando sólo hay que lanzar el `pak0.pak` se ha utilizado un truco comentado por @neilswann80 en la discussion #177 consistente en crear un link al fichero a lanzar que sí podremos renombrar. Los links tienen extensión `fbl` y es por tanto la extensión configurada en SimpleMenu. Los 4 links para los 4 juegos soportados se generan automáticamente al arrancar la consola con la tarjeta externa instalada. Por tanto los cuatro juegos soportados aparecerán desde un principio en SimpleMenu aunque no se encuentren instalados. Sólo son los links y por tanto debemos seguir instalando los datafiles de las cuatro variantes de Quake soportadas.
+
 #### Quake2
 
 Los cuatro directorios en este sistema se corresponden con el juego principal más los 3 mission packs soportados. Hay que respetar además los nombres finales de los directorios donde se mantienen los ficheros `.pak`. Hay cuatro cores distintos para cada una de las cuatro variantes. Como los nombres de los ficheros que se lanzan son siempre `pak0.pak`, la única forma de distinguir los distintos juegos en los listados de SimpleMenu es por medio de las previews. Es necesario ajustar el OPK correspondiente en SimpleMenu o abrir el adecuado en GMenu2X. La correspondencia es como sigue:
@@ -230,6 +232,8 @@ Los cuatro directorios en este sistema se corresponden con el juego principal m�
 |Quake 2 'Ground Zero' mission pack|vitaquake2-rogue_libretro.so|retroarch_rg350_QUAKE2_rogue.opk|rogue|
 |Quake 2 'The Reckoning' mission pack|vitaquake2-xatrix_libretro.so|retroarch_rg350_QUAKE2_xatrix.opk|xatrix|
 |Quake 2 'Zaero' mission pack|vitaquake2-zaero_libretro.so|retroarch_rg350_QUAKE2_zaero.opk|zaero|
+
+Se ha utilizado la misma técnica descrita en Quake, es decir se generan links `fbl` para los cuatro juegos soportados y se configura esa extensión en SimpleMenu.
 
 #### MAME
 
