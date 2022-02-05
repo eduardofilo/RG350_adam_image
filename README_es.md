@@ -238,6 +238,8 @@ Este sistema de autoinstalación hace dos cosas:
 
 Habrá que acordarse de configurar los juegos que habrán aparecido en el listado para ser lanzados desde el emulador standalone al igual que hicimos con el fichero `detect.svm` que por cierto ya podremos borrar puesto que ya no será necesario.
 
+Más detalles sobre este proceso [aquí](https://github.com/plaidman/rg350p/wiki/scummvm-standalone-improvements) gracias a [@plaidman](https://github.com/plaidman).
+
 #### Quake
 
 Los cuatro directorios configurados en este sistema respetan la estructura necesaria para los distintos Expansion Paks que se describen [aquí](https://docs.libretro.com/library/tyrquake/#loading-quake-and-expansion-paks). Los nombres de los ficheros (`pak0.pak`, `pak1.pak`, ...) dentro de los distintos directorios, no se puede cambiar, pero se pueden usar las previews para distinguir unos de otros.
