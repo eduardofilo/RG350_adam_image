@@ -38,7 +38,7 @@ La imagen es un volcado tras realizar una instalación de los siguientes paquete
 * Aplicaciones standalone:
     * [ColecoD](https://boards.dingoonity.org/gcw-releases/colecod-v1-0/). Gracias a [@alekmaul](https://github.com/alekmaul).
     * [Daphne](https://github.com/DavidKnight247/Daphne). Gracias a [@DavidKnight247](https://github.com/DavidKnight247).
-    * [FBA](https://github.com/plrguez/fba-sdl/releases/latest). Gracias a [@plrguez](https://github.com/plrguez).
+    * [FBA](https://github.com/plrguez/fba-sdl/releases/tag/r19_2021-10-18-.44_od_beta-fix-06). Gracias a [@plrguez](https://github.com/plrguez).
     * [JzIntv](https://github.com/eduardofilo/jzIntv/releases). Gracias a [@DavidKnight247](https://github.com/DavidKnight247).
     * [PCSX4All](https://github.com/jdgleaver/RG350_pcsx4all/releases/tag/1.5). Gracias a [@jdgleaver](https://github.com/jdgleaver).
     * [PocketSNES](https://github.com/m45t3r/PocketSNES/releases/latest). Gracias a [@m45t3r](https://github.com/m45t3r).

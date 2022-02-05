@@ -38,7 +38,7 @@ The image is a dump after installing the following packages:
 * Standalone applications:
     * [ColecoD](https://boards.dingoonity.org/gcw-releases/colecod-v1-0/). Thanks to [@alekmaul](https://github.com/alekmaul).
     * [Daphne](https://github.com/DavidKnight247/Daphne). Thanks to [@DavidKnight247](https://github.com/DavidKnight247).
-    * [FBA](https://github.com/plrguez/fba-sdl/releases/latest). Thanks to [@plrguez](https://github.com/plrguez).
+    * [FBA](https://github.com/plrguez/fba-sdl/releases/tag/r19_2021-10-18-.44_od_beta-fix-06). Thanks to [@plrguez](https://github.com/plrguez).
     * [JzIntv](https://github.com/eduardofilo/jzIntv/releases). Thanks to [@DavidKnight247](https://github.com/DavidKnight247).
     * [PCSX4All](https://github.com/jdgleaver/RG350_pcsx4all/releases/tag/1.5). Thanks to [@jdgleaver](https://github.com/jdgleaver).
     * [PocketSNES](https://github.com/m45t3r/PocketSNES/releases/latest). Thanks to [@m45t3r](https://github.com/m45t3r).
