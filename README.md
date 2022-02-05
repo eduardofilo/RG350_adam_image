@@ -25,29 +25,32 @@ Adam is an image for the internal microSD card slot of a series of Ingenic JZ477
 
 The image is a dump after installing the following packages:
 
-* [OpenDingux](http://od.abstraction.se/opendingux/latest/). Mainly thanks to [pcercuei](https://github.com/pcercuei).
-* [SimpleMenu](https://github.com/fgl82/simplemenu). Thanks to [FGL82](https://github.com/fgl82). With this themes:
-    * [0A](https://github.com/fgl82/0A). Thanks to [FGL82](https://github.com/fgl82).
-    * [BigCody](https://github.com/fgl82/BigCody). Thanks to [FGL82](https://github.com/fgl82).
-    * [ComicBook320x240](https://github.com/retrogamecorps/ComicBook320x240) and [ComicBook](https://github.com/retrogamecorps/ComicBook). Thanks to [retrogamecorps](https://github.com/retrogamecorps).
-    * [SimUI](https://github.com/dkodr/SimUI). Thanks to [dkodr](https://github.com/dkodr).
-* [RetroArch](https://www.retroarch.com/?page=platforms). The combination of OPK wrappers has been built with script [RG3550_auto_ra_installer](https://github.com/eduardofilo/RG350_auto_ra_installer) based on [this definition file](https://github.com/eduardofilo/RG350_auto_ra_installer/blob/master/adam.csv).
-    * [Oficial](https://buildbot.libretro.com/nightly/dingux/mips32/).  Mainly thanks to [jdgleaver](https://github.com/jdgleaver).
-    * [Poligraf](https://github.com/Poligraf/opendingux_ra_cores_unofficial). Thanks to [Poligraf](https://github.com/Poligraf).
+* [OpenDingux](http://od.abstraction.se/opendingux/latest/). Mainly thanks to [@pcercuei](https://github.com/pcercuei).
+* [SimpleMenu](https://github.com/fgl82/simplemenu/releases/tag/10.3). Thanks to [@FGL82](https://github.com/fgl82). With this themes:
+    * [0A](https://github.com/fgl82/0A). Thanks to [@FGL82](https://github.com/fgl82).
+    * [BetaMax](https://github.com/Yarkiebrown/BetaMax-SimpleMenu-theme). Thanks to [@Yarkiebrown](https://github.com/Yarkiebrown).
+    * [BigCody](https://github.com/fgl82/BigCody). Thanks to [@FGL82](https://github.com/fgl82).
+    * [ComicBook320x240](https://github.com/retrogamecorps/ComicBook320x240) and [ComicBook](https://github.com/retrogamecorps/ComicBook). Thanks to [@retrogamecorps](https://github.com/retrogamecorps).
+    * [SimUI](https://github.com/dkodr/SimUI). Thanks to [@dkodr](https://github.com/dkodr).
+* [RetroArch](https://www.retroarch.com/?page=platforms). The combination of OPK wrappers has been built with script [RG3550_auto_ra_installer](https://github.com/eduardofilo/RG350_auto_ra_installer) based on [this definition file](https://github.com/eduardofilo/RG350_auto_ra_installer/blob/master/all.csv).
+    * [Oficial](https://buildbot.libretro.com/nightly/dingux/mips32/).  Mainly thanks to [@jdgleaver](https://github.com/jdgleaver).
+    * [Poligraf](https://github.com/Poligraf/opendingux_ra_cores_unofficial). Thanks to [@Poligraf](https://github.com/Poligraf).
 * Standalone applications:
-    * [ColecoD](https://boards.dingoonity.org/gcw-releases/colecod-v1-0/). Thanks to [alekmaul](https://github.com/alekmaul).
-    * [Daphne](https://github.com/DavidKnight247/Daphne). Thanks to [DavidKnight247](https://github.com/DavidKnight247).
-    * [FBA](https://github.com/plrguez/fba-sdl/releases/latest). Thanks to [plrguez](https://github.com/plrguez).
-    * [JzIntv](https://github.com/eduardofilo/jzIntv/releases). Thanks to [DavidKnight247](https://github.com/DavidKnight247).
-    * [PCSX4All](https://github.com/jdgleaver/RG350_pcsx4all/releases/latest). Thanks to [jdgleaver](https://github.com/jdgleaver).
-    * [PocketSNES](https://github.com/m45t3r/PocketSNES/releases/latest). Thanks to [m45t3r](https://github.com/m45t3r).
-    * [ReGBA](https://github.com/jdgleaver/ReGBA/releases/latest). Thanks to [jdgleaver](https://github.com/jdgleaver).
-    * [Tac08](https://0xcafed00d.itch.io/tac08-rg350). Thanks to [0xCAFED00D](https://itch.io/profile/0xcafed00d).
-    * [VbEmu](https://gitlab.com/gameblabla/gameblabla-releases/-/blob/master/opk/gcw0/vbemu_gcw0.opk). Thanks to [gameblabla](https://gitlab.com/gameblabla).
-    * [xMAME](http://www.slaanesh.net/). Thanks to [Slaanesh](https://www.blogger.com/profile/15791750842821351775). Installed [this](https://github.com/eduardofilo/RG350_xmame_sm_bridge) settings interface.
-    * [BeebEm](https://github.com/plrguez/beebem-od). Thanks to [plrguez](https://github.com/plrguez).
-    * [ScummVM](https://github.com/goldmojo/scummvm-rg350). Thanks to [goldmojo](https://github.com/goldmojo).
-    * [Commander](https://github.com/od-contrib/commander/releases/latest). Thanks to [glebm](https://github.com/glebm).
+    * [ColecoD](https://boards.dingoonity.org/gcw-releases/colecod-v1-0/). Thanks to [@alekmaul](https://github.com/alekmaul).
+    * [Daphne](https://github.com/DavidKnight247/Daphne). Thanks to [@DavidKnight247](https://github.com/DavidKnight247).
+    * [FBA](https://github.com/plrguez/fba-sdl/releases/latest). Thanks to [@plrguez](https://github.com/plrguez).
+    * [JzIntv](https://github.com/eduardofilo/jzIntv/releases). Thanks to [@DavidKnight247](https://github.com/DavidKnight247).
+    * [PCSX4All](https://github.com/jdgleaver/RG350_pcsx4all/releases/tag/1.5). Thanks to [@jdgleaver](https://github.com/jdgleaver).
+    * [PocketSNES](https://github.com/m45t3r/PocketSNES/releases/latest). Thanks to [@m45t3r](https://github.com/m45t3r).
+    * [ReGBA](https://github.com/jdgleaver/ReGBA/releases/latest). Thanks to [@jdgleaver](https://github.com/jdgleaver).
+    * [Tac08](https://0xcafed00d.itch.io/tac08-rg350). Thanks to [@0xCAFED00D](https://itch.io/profile/0xcafed00d).
+    * [VbEmu](https://gitlab.com/gameblabla/gameblabla-releases/-/blob/master/opk/gcw0/vbemu_gcw0.opk). Thanks to [@gameblabla](https://gitlab.com/gameblabla).
+    * [xMAME](http://www.slaanesh.net/). Thanks to [@Slaanesh](https://www.blogger.com/profile/15791750842821351775). Installed [this](https://github.com/eduardofilo/RG350_xmame_sm_bridge) settings interface.
+    * [BeebEm](https://github.com/plrguez/beebem-od). Thanks to [@plrguez](https://github.com/plrguez).
+    * [ScummVM](https://downloads.scummvm.org/frs/scummvm/). Mainly thanks to [@citral23](https://github.com/citral23).
+    * [Commander](https://github.com/od-contrib/commander/releases/latest). Thanks to [@glebm](https://github.com/glebm).
+    * [uae4all](https://github.com/goldmojo/uae4all/releases/tag/Release-1-params-20201111-r2). Thanks to [@goldmojo](https://github.com/goldmojo).
+    * [GMU](https://github.com/plrguez/gmu-odbeta/releases/tag/v0.10.2-rc1-odbeta-20211024). Thanks to [@plrguez](https://github.com/plrguez).
     * [PyBackup](https://github.com/eduardofilo/RG350_py_backup/releases/latest)
 
 Result of a collaboration project of Team RParadise formed by:
@@ -65,7 +68,7 @@ Due to changes in the Py Backup configuration file between versions 1.1 and 1.2,
 
 [![See video](https://img.youtube.com/vi/Qih9NzvCCHg/hqdefault.jpg)](https://www.youtube.com/watch?v=Qih9NzvCCHg "See video")
 
-If we update from 1.2 to 1.3 we can skip the first 6 steps of the previous video, that is, start at step 7.
+If we update from 1.2 to 1.3 or 1.4 we can skip the first 6 steps of the previous video, that is, start at step 7.
 
 **IMPORTANT WARNING**: Due to changes in the internal format of the files stored in `rom_preferences` and `favorites.sav` in version 11 of SimpleMenu installed from image 1.3, the backup copies of these files from a previous version should not be restored. The `rom_preferences` actually have not changed the internal format of the files but does their location. Before they were all in the root of that same directory and now they go in subdirectories with the name of the corresponding system. Therefore, with a little attention, a backup of these files could be used, but it would be necessary to do the restoration manually or move the files to the directories where SimpleMenu is now going to look for them.
 
