@@ -173,7 +173,7 @@ A continuación se muestra la tabla de los sistemas configurados en SimpleMenu c
 |Atari 5200|roms/A5200|bin, a52, zip, 7z|
 |Atari 7800|roms/A7800|bin, a78, zip, 7z|
 |Inteillivision|roms/INTELLI|int|
-|ColecoVision|roms/COLECO|rom, col|
+|ColecoVision|roms/COLECO|col, cv, bin, rom, zip, 7z|
 |SNK Neo Geo|roms/NEOGEO|zip, 7z|
 |NEC PC Engine|roms/PCE|pce, tg16, cue, zip, 7z|
 |NEC PC Engine CD|roms/PCECD|pce, tg16, cue, chd, zip, 7z|
@@ -210,11 +210,30 @@ Las ROMs en formato `cue+bin` no funcionan comprimidas en ZIP. En formato `iso` 
 
 #### ScummVM
 
+A partir de la versión 1.4, la forma de instalar los juegos para este sistema difiere mucho entre utilizar el core RetroArch o el emulador standalone. Habrá que decantarse desde un principio por uno u otro emulador y proceder como se indica a continuación:
+
+##### RetroArch
+
 Los juegos ScummVM están compuestos de varios ficheros, por lo que habrá que mantenerlos en directorios. La extensión `svm` indicada en la lista anterior corresponde a un fichero vacío que tenga como nombre el ID del juego que extraeremos de [esta lista](https://www.scummvm.org/compatibility/) y que colocaremos en el directorio donde tengamos el resto de los ficheros del juego. Por ejemplo para el juego "The Secret of Monkey Island" necesitaremos los ficheros que podemos consultar en el [wiki de ScummVM](https://wiki.scummvm.org/index.php?title=Category:Supported_Games). En concreto para este juego [vemos](https://wiki.scummvm.org/index.php?title=The_Secret_of_Monkey_Island) que necesitaremos los ficheros `MONKEY.000` y `MONKEY.001` que colocaremos en un directorio de cualquier nombre dentro del directorio configurado en SimpleMenu (`<EXT_SD>/roms/SCUMMVM`). Será en este mismo directorio donde tendremos que colocar el fichero vacío `svm`. Según la lista de compatibilidad de ScummVM, el ID de "The Secret of Monkey Island" es `monkey`, por lo que el fichero que colocaremos dentro del directorio del juego será `monkey.svm`. Por último, si queremos que SimpleMenu muestre el nombre completo del juego, sólo tendremos que incorporar una entrada como la siguiente en el fichero de alias de SimpleMenu (`/home/media/data/local/.simplemenu/alias.txt`):
 
 ```
 monkey=The Secret of Monkey Island
 ```
+
+##### Standalone
+
+Este emulador incorpora un sistema de autoinstalación. Para que el sistema funcione tenemos que crear un fichero vacío de nombre `detect.svm` en la raíz del directorio donde tengamos todos los juegos. En Adán ese directorio será `<EXT_SD>/roms/SCUMMVM`. Podemos crear el fichero desde el ordenador por ejemplo. Una vez instalado el fichero, arrancaremos la consola y accederemos al sistema ScummVM en SimpleMenu. En el listado de juegos sólo deberíamos ver el fichero recién creado. Ajustaremos el emulador `scummvm-2.5.1-gcw0.opk` para lanzar ese fichero y lo abriremos. Tras unos segundos volveremos a SimpleMenu donde deberíamos ver correctamente instalados los juegos que teníamos en el directorio de este sistema.
+
+![ScummVM autodetect 1](images/scummvm_autodetect1.png)
+
+![ScummVM autodetect 2](images/scummvm_autodetect2.png)
+
+Este sistema de autoinstalación hace dos cosas:
+
+1. Genera los ficheros `.svm` que actúan como lanzadores de los juegos y lo hace con nombres largos, por lo que no será necesario actualizar el fichero `alias.txt` de SimpleMenu como se comentaba en las instrucciones dadas para el core RetroArch de ScummVM.
+2. Genera el fichero `.scummvmrc` en el directorio home de la partición principal del sistema (en la tarjeta interna), por lo que en caso de volver a instalar la imagen hay que acordarse de respaldar este fichero o repetir el sistema de autoinstalación.
+
+Habrá que acordarse de configurar los juegos que habrán aparecido en el listado para ser lanzados desde el emulador standalone al igual que hicimos con el fichero `detect.svm` que por cierto ya podremos borrar puesto que ya no será necesario.
 
 #### Quake
 
