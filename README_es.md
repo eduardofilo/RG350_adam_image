@@ -70,6 +70,8 @@ Por cambios en el fichero de configuración de Py Backup entre las versiones 1.1
 
 Si actualizamos desde 1.2 a 1.3 o 1.4 podemos saltarnos los 6 primeros pasos del vídeo anterior, es decir, empezar en el paso 7.
 
+**CONSEJO IMPORTANTE**: Es áltamente recomendable no flashear directamente sobre la misma tarjeta donde tuviéramos la instalación anterior. Haciéndolo sobre una tarjeta distinta y conservándola durante un tiempo, siempre podremos recuperar algún fichero que echemos en falta (como algún savestate).
+
 **AVISO IMPORTANTE**: Por cambios en el formato interno de los ficheros almacenados en `rom_preferences` y `favorites.sav` en la versión 11 de SimpleMenu instalada a partir de la imagen 1.3, no se deben restaurar las copias de seguridad de estos ficheros procedentes de una versión anterior. Los `rom_preferences` en realidad no hay cambiado el formato interno de los ficheros sino su ubicación. Antes estaban todos en la raíz de ese mismo directorio y ahora van en subdirectorios con el nombre del sistema correspondiente. Por tanto, con un poco de atención, podría aprovecharse un backup de estos ficheros, pero habría que hacer la restauración manualmente o mover los ficheros a los directorios donde ahora SimpleMenu va a buscarlos.
 
 ## Instalación desde cero
