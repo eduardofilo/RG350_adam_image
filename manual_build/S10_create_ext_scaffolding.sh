@@ -33,33 +33,36 @@ then
     roms/QUAKE/dopa roms/QUAKE2/baseq2 roms/QUAKE2/rogue          \
     roms/QUAKE2/xatrix roms/QUAKE2/zaero
   do
-    if [ -e "/media/sdcard/${dir}/pak0.pak" ]; then
-      # Quake launchers
-      if [ ${dir} = roms/QUAKE/id1 ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/id1/Quake.fbl"
-      fi
-      if [ ${dir} = roms/QUAKE/hipnotic ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/hipnotic/Mission pack 1.fbl"
-      fi
-      if [ ${dir} = roms/QUAKE/rogue ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/rogue/Mission pack 2.fbl"
-      fi
-      if [ ${dir} = roms/QUAKE/dopa ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/dopa/Episode 5. Dimension of the Past.fbl"
-      fi
-      # Quake 2 launchers
-      if [ ${dir} = roms/QUAKE2/baseq2 ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/baseq2/Quake II.fbl"
-      fi
-      if [ ${dir} = roms/QUAKE2/rogue ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/rogue/Ground Zero.fbl"
-      fi
-      if [ ${dir} = roms/QUAKE2/xatrix ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/xatrix/The Reckoning.fbl"
-      fi
-      if [ ${dir} = roms/QUAKE2/zaero ]; then
-        echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/zaero/Zaero.fbl"
-      fi
-    fi
+		count=`ls -1 /media/sdcard/${dir}/*.fbl 2>/dev/null | wc -l`
+		if [ $count -eq 0 ]; then
+			if [ -e "/media/sdcard/${dir}/pak0.pak" ]; then
+				# Quake launchers
+				if [ ${dir} = roms/QUAKE/id1 ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/id1/Quake.fbl"
+				fi
+				if [ ${dir} = roms/QUAKE/hipnotic ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/hipnotic/Mission pack 1.fbl"
+				fi
+				if [ ${dir} = roms/QUAKE/rogue ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/rogue/Mission pack 2.fbl"
+				fi
+				if [ ${dir} = roms/QUAKE/dopa ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE/dopa/Episode 5. Dimension of the Past.fbl"
+				fi
+				# Quake 2 launchers
+				if [ ${dir} = roms/QUAKE2/baseq2 ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/baseq2/Quake II.fbl"
+				fi
+				if [ ${dir} = roms/QUAKE2/rogue ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/rogue/Ground Zero.fbl"
+				fi
+				if [ ${dir} = roms/QUAKE2/xatrix ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/xatrix/The Reckoning.fbl"
+				fi
+				if [ ${dir} = roms/QUAKE2/zaero ]; then
+					echo "exec=pak0.pak" > "/media/sdcard/roms/QUAKE2/zaero/Zaero.fbl"
+				fi
+			fi
+		fi
   done
 fi
