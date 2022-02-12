@@ -128,6 +128,8 @@ chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.py_backup/config.ini
 echo "## Installing SimpleMenu files"
 cp ${DIRECTORY}/simplemenu/alias.txt ${DIRECTORY}/mnt_p2/local/home/.simplemenu/
 chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/alias.txt
+cp ${DIRECTORY}/simplemenu/alias_PICO-8.txt ${DIRECTORY}/mnt_p2/local/home/.simplemenu/
+chown 1000:100 ${DIRECTORY}/mnt_p2/local/home/.simplemenu/alias_PICO-8.txt
 cp "${DIRECTORY}/simplemenu/apps and games.ini" ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/
 chown 1000:100 "${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/apps and games.ini"
 cp ${DIRECTORY}/simplemenu/arcades.ini ${DIRECTORY}/mnt_p2/local/home/.simplemenu/section_groups/
