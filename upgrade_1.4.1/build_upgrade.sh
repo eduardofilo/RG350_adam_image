@@ -19,6 +19,8 @@ fi
 
 rootcheck "${@}"
 
+rm -rf ${DIRECTORY}/root
+
 mkdir -p ${DIRECTORY}/root/media/data/local/etc/init.d
 cp ${DIRECTORY}/../manual_build/S10_create_ext_scaffolding.sh ${DIRECTORY}/root/media/data/local/etc/init.d/S10_create_ext_scaffolding.sh
 
