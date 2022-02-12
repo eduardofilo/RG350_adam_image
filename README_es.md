@@ -64,11 +64,9 @@ Resultado de un proyecto de colaboración del Team RParadise formado por:
 
 Si se ha estado utilizando la consola con la versión anterior de la imagen, seguramente nos interese guardar los savestates de las partidas que hayamos jugado y algunos ajustes personales. Así pues, **ANTES** de flashear la última versión de la imagen, conviene hacer backup de algunas de estas cosas. Para facilitar esta tarea se puede utilizar la aplicación `Py Backup` que se describe [aquí](https://github.com/eduardofilo/RG350_py_backup/blob/master/README_es.md) y que viene preconfigurada con los archivos más importantes de los que conviene hacer backup periódicamente.
 
-Por cambios en el fichero de configuración de Py Backup entre las versiones 1.1 y 1.2, el procedimiento de actualización desde la versión 1,1 se complica ligeramente al tener que sustituir dicho fichero antes de hacer el backup. En el siguiente vídeo podemos ver todo el proceso de actualización desde la imagen v1.1 a la v1.2.
+En el siguiente vídeo se muestra el proceso completo de actualización. **IMPORTANTE**: Los pasos 1 al 6 del vídeo sólo serán necesarios en el caso de que la release que vayamos a instalar incorpore entre sus ficheros una configuración para Py Backup mejorada (`config.ini`).
 
 [![Ver vídeo](https://img.youtube.com/vi/Qih9NzvCCHg/hqdefault.jpg)](https://www.youtube.com/watch?v=Qih9NzvCCHg "Ver vídeo")
-
-Si actualizamos desde 1.2 a 1.3 o 1.4 podemos saltarnos los 6 primeros pasos del vídeo anterior, es decir, empezar en el paso 7.
 
 **CONSEJO IMPORTANTE**: Es áltamente recomendable no flashear directamente sobre la misma tarjeta donde tuviéramos la instalación anterior. Haciéndolo sobre una tarjeta distinta y conservándola durante un tiempo, siempre podremos recuperar algún fichero que echemos en falta (como algún savestate).
 
