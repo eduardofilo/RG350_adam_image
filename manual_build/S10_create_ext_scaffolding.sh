@@ -30,39 +30,30 @@ then
     done
 
 
-    for dir in roms/QUAKE/id1 roms/QUAKE/hipnotic roms/QUAKE/rogue   \
-        roms/QUAKE/dopa roms/QUAKE2/baseq2 roms/QUAKE2/rogue         \
+    for dir in roms/QUAKE/id1 roms/QUAKE/hipnotic roms/QUAKE/rogue  \
+        roms/QUAKE/dopa roms/QUAKE2/baseq2 roms/QUAKE2/rogue        \
         roms/QUAKE2/xatrix roms/QUAKE2/zaero
     do
       count=`ls -1 /media/sdcard/${dir}/*.fbl 2>/dev/null | wc -l`
-      if [ $count -eq 0 ]; then
-        if [ -e "/media/sdcard/${dir}/pak0.pak" ]; then
-          # Quake launchers
-          if [ ${dir} = roms/QUAKE/id1 ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/Quake.fbl"
-          fi
-          if [ ${dir} = roms/QUAKE/hipnotic ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/Mission pack 1.fbl"
-          fi
-          if [ ${dir} = roms/QUAKE/rogue ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/Mission pack 2.fbl"
-          fi
-          if [ ${dir} = roms/QUAKE/dopa ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/Episode 5. Dimension of the Past.fbl"
-          fi
-          # Quake 2 launchers
-          if [ ${dir} = roms/QUAKE2/baseq2 ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/Quake II.fbl"
-          fi
-          if [ ${dir} = roms/QUAKE2/rogue ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/Ground Zero.fbl"
-          fi
-          if [ ${dir} = roms/QUAKE2/xatrix ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/The Reckoning.fbl"
-          fi
-          if [ ${dir} = roms/QUAKE2/zaero ]; then
-            echo "exec=pak0.pak" > "/media/sdcard/${dir}/Zaero.fbl"
-          fi
+      if [ $count -eq 0 ] && [ -e "/media/sdcard/${dir}/pak0.pak" ]; then
+        # Quake launchers
+        if [ ${dir} = roms/QUAKE/id1 ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/Quake.fbl"
+        elif [ ${dir} = roms/QUAKE/hipnotic ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/Mission pack 1.fbl"
+        elif [ ${dir} = roms/QUAKE/rogue ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/Mission pack 2.fbl"
+        elif [ ${dir} = roms/QUAKE/dopa ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/Episode 5. Dimension of the Past.fbl"
+        # Quake 2 launchers
+        elif [ ${dir} = roms/QUAKE2/baseq2 ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/Quake II.fbl"
+        elif [ ${dir} = roms/QUAKE2/rogue ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/Ground Zero.fbl"
+        elif [ ${dir} = roms/QUAKE2/xatrix ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/The Reckoning.fbl"
+        elif [ ${dir} = roms/QUAKE2/zaero ]; then
+          echo "exec=pak0.pak" > "/media/sdcard/${dir}/Zaero.fbl"
         fi
       fi
     done
