@@ -326,6 +326,7 @@ Los tamaños y hashes indicados son de BIOS que se han comprobado funcionales, p
 |BBC Micro|bios/basic|16384|`2cc67be4624df4dc66617742571a8e3d`|Sí|
 |BBC Micro|bios/os12|16384|`0a59a5ba15fe8557b5f7fee32bbd393a`|Sí|
 |Famicom Disk System|bios/disksys.rom|8192|`ca30b50f880eb660a320674ed365ef7a`|Sí|
+|ColecoVision|bios/colecovision.rom|8192|`2c66f5911e5b42b8ebe113403548eee7`|Sí con core gearcoleco_libretro de RA; No con standalone ColecoD|
 
 ### Trucos
 
