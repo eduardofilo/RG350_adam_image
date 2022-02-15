@@ -36,9 +36,9 @@ then
           QUAKE/rogue)		echo "$pak" > "${dir1}/${dir2}/Mission pack 2.fbl" ;;
           QUAKE/dopa)		echo "$pak" > "${dir1}/${dir2}/Episode 5. Dimension of the Past.fbl" ;;
           QUAKE2/baseq2)	echo "$pak" > "${dir1}/${dir2}/Quake II.fbl" ;;
-          QUAKE2/rogue)     echo "$pak" > "${dir1}/${dir2}/Ground Zero.fbl" ;;
+          QUAKE2/rogue)         echo "$pak" > "${dir1}/${dir2}/Ground Zero.fbl" ;;
           QUAKE2/xatrix)	echo "$pak" > "${dir1}/${dir2}/The Reckoning.fbl" ;;
-          QUAKE2/zaero)     echo "$pak" > "${dir1}/${dir2}/Zaero.fbl" ;;
+          QUAKE2/zaero)         echo "$pak" > "${dir1}/${dir2}/Zaero.fbl" ;;
         esac
       fi
     done
