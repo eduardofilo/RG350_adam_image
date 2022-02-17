@@ -24,21 +24,22 @@ then
       fi
     done
 
-    dir1="/media/sdcard/roms" && pak="exec=pak0.pak"
+    pak="exec=pak0.pak"
     for dir2 in QUAKE/id1 QUAKE/hipnotic QUAKE/rogue QUAKE/dopa     \
         QUAKE2/baseq2 QUAKE2/rogue QUAKE2/xatrix QUAKE2/zaero
     do
-      count=`ls -1 ${dir1}/${dir2}/*.fbl 2>/dev/null | wc -l`
-      if [ $count -eq 0 ] && [ -e "${dir1}/${dir2}/pak0.pak" ]; then
+      dir="/media/sdcard/roms/${dir2}"
+      count=`ls -1 ${dir}/*.fbl 2>/dev/null | wc -l`
+      if [ $count -eq 0 ] && [ -e "${dir}/pak0.pak" ]; then
         case ${dir2} in
-          QUAKE/id1)		echo "$pak" > "${dir1}/${dir2}/Quake.fbl" ;;
-          QUAKE/hipnotic)	echo "$pak" > "${dir1}/${dir2}/Mission pack 1.fbl" ;;
-          QUAKE/rogue)		echo "$pak" > "${dir1}/${dir2}/Mission pack 2.fbl" ;;
-          QUAKE/dopa)		echo "$pak" > "${dir1}/${dir2}/Episode 5. Dimension of the Past.fbl" ;;
-          QUAKE2/baseq2)	echo "$pak" > "${dir1}/${dir2}/Quake II.fbl" ;;
-          QUAKE2/rogue)         echo "$pak" > "${dir1}/${dir2}/Ground Zero.fbl" ;;
-          QUAKE2/xatrix)	echo "$pak" > "${dir1}/${dir2}/The Reckoning.fbl" ;;
-          QUAKE2/zaero)         echo "$pak" > "${dir1}/${dir2}/Zaero.fbl" ;;
+          QUAKE/id1)      echo "$pak" > "${dir}/Quake.fbl" ;;
+          QUAKE/hipnotic) echo "$pak" > "${dir}/Mission pack 1.fbl" ;;
+          QUAKE/rogue)    echo "$pak" > "${dir}/Mission pack 2.fbl" ;;
+          QUAKE/dopa)     echo "$pak" > "${dir}/Episode 5. Dimension of the Past.fbl" ;;
+          QUAKE2/baseq2)  echo "$pak" > "${dir}/Quake II.fbl" ;;
+          QUAKE2/rogue)   echo "$pak" > "${dir}/Ground Zero.fbl" ;;
+          QUAKE2/xatrix)  echo "$pak" > "${dir}/The Reckoning.fbl" ;;
+          QUAKE2/zaero)   echo "$pak" > "${dir}/Zaero.fbl" ;;
         esac
       fi
     done
