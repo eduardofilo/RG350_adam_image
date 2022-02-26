@@ -362,7 +362,7 @@ On the computer we can use any FTP client configured with the SFTP or SCP protoc
 ssh od@10.1.1.2
 ```
 
-The password for `od` user is `untoqebboqvboqudrn`. If you want to change or disable it, you must use the `Password` application (only accessible from GMenu2X in the `settings` section).
+The password for `od` user is `untoqebboqvboqudrn`. If you want to change or disable it, you must use the `Password` application (in the `settings` section of GMenu2X or `apps` of SimpleMenu).
 
 ![Network access 1](images/network_access1.png)
 

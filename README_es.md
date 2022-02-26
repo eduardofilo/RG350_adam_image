@@ -364,7 +364,7 @@ En el ordenador podemos utilizar cualquier cliente de FTP configurado con el pro
 ssh od@10.1.1.2
 ```
 
-El password del usuario `od` es `untoqebboqvboqudrn`. Si se quiere cambiar o desactivar, hay que utilizar la aplicación `Password` (sólo accesible desde GMenu2X en la sección `settings`).
+El password del usuario `od` es `untoqebboqvboqudrn`. Si se quiere cambiar o desactivar, hay que utilizar la aplicación `Password` (en la sección `settings` de GMenu2X o `apps` de SimpleMenu).
 
 ![Network access 1](images/network_access1.png)
 
