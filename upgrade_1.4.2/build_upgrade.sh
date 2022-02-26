@@ -29,9 +29,11 @@ echo ${1} > ${DIRECTORY}/root/media/data/adam_version.txt
 
 mkdir -p ${DIRECTORY}/root/media/data/local/home/.py_backup
 cp ${DIRECTORY}/../manual_build/config.ini ${DIRECTORY}/root/media/data/local/home/.py_backup/config.ini
+chown -R 1000:100 ${DIRECTORY}/root/media/data/local/home
 
 mkdir -p ${DIRECTORY}/root/media/data/local/home/.simplemenu
 cp ${DIRECTORY}/../manual_build/simplemenu/alias_PICO-8.txt ${DIRECTORY}/root/media/data/local/home/.simplemenu/alias_PICO-8.txt
+chown -R 1000:100 ${DIRECTORY}/root/media/data/local/home
 
 mkdir -p ${DIRECTORY}/root/media/data/local/home/.simplemenu/section_groups
 cp "${DIRECTORY}/../manual_build/simplemenu/home computers.ini" "${DIRECTORY}/root/media/data/local/home/.simplemenu/section_groups/home computers.ini"
@@ -46,11 +48,12 @@ chown -R 1000:100 ${DIRECTORY}/root/media/data/apps
 # Previews
 mkdir -p ${DIRECTORY}/root/media/data/local/home/.simplemenu/apps/.previews
 cp ${DIRECTORY}/passwd.png "${DIRECTORY}/root/media/data/local/home/.simplemenu/apps/.previews/sudo -S od-passwd-config od.png"
-chown -R 1000:100 ${DIRECTORY}/root/media/data/apps/.previews
+chown -R 1000:100 ${DIRECTORY}/root/media/data/local/home
 
 # Alias file because of issue #210
+mkdir -p ${DIRECTORY}/root/media/data/local/home/.simplemenu
 cp ${DIRECTORY}/../manual_build/simplemenu/alias.txt ${DIRECTORY}/root/media/data/local/home/.simplemenu/alias.txt
-chown 1000:100 ${DIRECTORY}/root/media/data/local/home/.simplemenu/alias.txt
+chown -R 1000:100 ${DIRECTORY}/root/media/data/local/home
 
 cd ${DIRECTORY}
 tar --directory=${DIRECTORY}/root/ -czvf ${DIRECTORY}/../releases/upgrade_${1}.tgz media
