@@ -454,7 +454,7 @@ A continuación se listan algunas combinaciones de teclas o atajos interesantes 
 |BeebEm (BBC Micro)|L1|Abre el menú del emulador que nos permite salir|
 |BeebEm (BBC Micro)|R1|Teclado virtual|
 
-No te pierdas [esta cheatsheet](resources/Adam.Image.Cheatsheet.v1.3.pdf) elaborada por @iammeat que incluye todos los controles anteriores en un formato mucho más conveniente.
+No te pierdas [esta cheatsheet](https://github.com/eduardofilo/RG350_adam_image/blob/39374ad5ea51dd60627358626dd1531e352e0b59/resources/Adam%20Image%20Cheatsheet%20v1.3.pdf) elaborada por @iammeat que incluye todos los controles anteriores en un formato mucho más conveniente.
 
 ## Solución de problemas
 
