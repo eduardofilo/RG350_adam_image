@@ -452,7 +452,7 @@ Here are some cool shortcuts that can be used with the OpenDingux system, Simple
 |BeebEm (BBC Micro)|L1|Open emulator menu that allows us to quit|
 |BeebEm (BBC Micro)|R1|Virtual keyboard|
 
-Don't miss [this cheatsheet](resources/Adam.Image.Cheatsheet.v1.3.pdf) made by @iammeat that includes all the above controls in a much more convenient format.
+Don't miss [this cheatsheet](https://github.com/eduardofilo/RG350_adam_image/blob/39374ad5ea51dd60627358626dd1531e352e0b59/resources/Adam%20Image%20Cheatsheet%20v1.3.pdf) made by @iammeat that includes all the above controls in a much more convenient format.
 
 ## Problem solving
 
