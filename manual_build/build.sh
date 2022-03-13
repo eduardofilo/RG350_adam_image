@@ -182,20 +182,7 @@ if [ ${ZERO_FILL} = true ] ; then
 fi
 
 echo "## Checking and fixing P2"
-e2fsck -f -y ${SD_P2} > /dev/null
-
-echo "## Remounting P2"
-mount -t ext4 ${SD_P2} ${DIRECTORY}/mnt_p2
-sleep 1
-
-echo "## Erasing lost+found on P2"
-rm -rf ${DIRECTORY}/mnt_p2/lost+found 2> /dev/null
-sync
-sleep 1
-
-echo "## Unmounting P2"
-umount ${SD_P2}
-sleep 1
+e2fsck -f -p -C 0 ${SD_P2} > /dev/null
 
 if [ ! -f ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} ] ; then
     echo "## Downloading ODBeta distribution"
