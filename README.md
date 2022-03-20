@@ -10,6 +10,7 @@
 - [Content installation](#content-installation)
     - [External microSD format and label](#external-microsd-format-and-label)
     - [ROMs](#roms)
+    - [Ports](#ports)
     - [Previews](#previews)
     - [BIOS](#bios)
     - [Cheats](#cheats)
@@ -269,6 +270,12 @@ In this system there are 3 different types of emulators, some of them supporting
 * xMAME romset 84: [0.84](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_084.rar)
 * xMAME romset 69: [0.69](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_069.rar)
 * xMAME romset 52: [0.37b16](http://www.progettosnaps.net/download?tipo=dat_mame&file=/dats/MAME/MAME_Dats_037-52.rar), a.k.a. 0.52
+
+### Ports
+
+The ports or games will go in the directory `/media/sdcard/apps` which corresponds to the `apps` directory in the root of the EXT card. In that directory we must incorporate the OPKs that internally must be associated to the `games` category for SimpleMenu to show them in the list of the `Applications` section of the `Apps & Games` group.
+
+As for the availability of these ports or games, most of them are free software. A good compilation can be found in Discussion #191 thanks to the efforts of @neilswann80, @JORGETECH and @Juanmote.
 
 ### Previews
 
