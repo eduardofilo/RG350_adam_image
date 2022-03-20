@@ -685,7 +685,7 @@ Sí, aunque la lista de chipsets soportados es reducida. De momento los soportad
 
 Si en el futuro nuevos chipsets son incorporados al sistema, aparecerán listados en el directorio `/lib/modules/5.15.0-rc6-opendingux/kernel/drivers/net/wireless/`
 
-#### 10: ¿Por qué no aparecen en SimpleMenu las ROMs que acabo de cargar en la tarjeta externa?
+#### Q10: ¿Por qué no aparecen en SimpleMenu las ROMs que acabo de cargar en la tarjeta externa?
 
 Hay varias cosas a tener en cuenta para que las ROMs se visualicen:
 
@@ -696,13 +696,46 @@ Hay varias cosas a tener en cuenta para que las ROMs se visualicen:
 
 [![Ver vídeo](https://img.youtube.com/vi/0npzNmlPJb0/hqdefault.jpg)](https://www.youtube.com/watch?v=0npzNmlPJb0 "Ver vídeo")
 
-#### 11: ¿Por qué el indicador de batería no muestra los niveles correctos?
+#### Q11: ¿Por qué el indicador de batería no muestra los niveles correctos?
 
 La batería es uno de los elementos más analógicos que hay en la consola. No hay dos iguales. Para gestionar esta realidad, los modernos smartphones mantienen mucha información sobre las cargas previas y el ritmo y condiciones en que se produce la descarga. Con toda esa información estiman una capacidad de la batería lo más realista posible. En el sistema de la consola no se mantienen esos datos por lo que la capacidad de la batería se estima directamente a partir del voltaje que ésta ofrece en un determinado momento. Como valores para el voltaje asociado a la carga máxima y mínima se utilizan unos valores fijos (4,2V y 3,4V respectivamente) que pueden no ser adecuados para todas las baterías, de ahí que algunas consolas estimen mal el nivel de carga.
 
 Hay también un sensor en el conector de carga, pero éste sólo determina si hay un cable conectado a la consola, no que la batería se esté cargando, es decir, el otro extremo del cable puede estar desconectado y la mayoría de los programas indicará que la consola está siendo alimentada.
 
 Por último comentar que los indicadores de carga de los distintos programas (GMenu2X, SimpleMenu, RetroArch, RG350 test) pueden estar programados de distinta forma, por lo que puede haber discrepancias entre ellos.
+
+#### Q12: ¿Está soportado el formato exFAT para las particiones de las tarjetas?
+
+OpenDingux beta tiene incluido el soporte al sistema de archivos exFAT en forma de módulo que no se carga de forma predeterminada. A lo largo de la Discussion #226 se ha encontrado que para que por ejemplo se pueda utilizar una tarjeta en la ranura EXT con este formato, hay que construir algún tipo de script que se ejecute en el arranque y realice el montaje manual de la misma o bien cargue el módulo y reinicie el servicio `udev` para que se aplique la regla definida en `/etc/udev/rules.d/61-automount.rules` que monta las unidades extraíbles que el sistema encuentra en este formato. El script se puede por ejemplo instalar en `/media/data/local/etc/init.d/`.
+
+Un ejemplo de script que por ejemplo utiliza la técnica de aprovechar el automontaje podría ser el siguiente:
+
+```bash
+#!/bin/sh
+
+case "$1" in
+    start)
+        printf "Loading exfat module and restarting udev"
+        modprobe exfat
+        /etc/init.d/S10udev stop
+        /etc/init.d/S10udev start
+        echo "done"
+        ;;
+    stop)
+        # Nothing to do
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+```
+
+Que podríamos dejar en el directorio comentado anteriormente con el nombre `S01_loadexfat.sh` para que se ejecute antes del que general el andamiaje de directorios de Adán. Hay que acordarse de darle permiso de ejecución al fichero:
+
+```bash
+$ sudo chmod +x /media/data/local/etc/init.d/S01_loadexfat.sh
+```
 
 ## Canal Telegram para comunicar actualizaciones
 

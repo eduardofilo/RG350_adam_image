@@ -685,7 +685,7 @@ Yes, although the list of supported chipsets is limited. At the moment the suppo
 
 If new chipsets are incorporated into the system in the future, they will be listed in the directory `/lib/modules/5.15.0-rc6-opendingux/kernel/drivers/net/wireless/`
 
-#### 10: Why don't appear in SimpleMenu the ROMs I just loaded onto the external card?
+#### Q10: Why don't appear in SimpleMenu the ROMs I just loaded onto the external card?
 
 There are several things to keep in mind so that the ROMs are displayed:
 
@@ -696,13 +696,46 @@ There are several things to keep in mind so that the ROMs are displayed:
 
 [![See video](https://img.youtube.com/vi/0npzNmlPJb0/hqdefault.jpg)](https://www.youtube.com/watch?v=0npzNmlPJb0 "See video")
 
-#### 11: Why does not show battery levels correctly the battery indicator?
+#### Q11: Why does not show battery levels correctly the battery indicator?
 
 Battery are one of the most analog elements on the console. No two are the same. To manage this reality, modern smartphones keep a lot of information about previous charges and the rate and conditions in which the discharge occurs. With all this information, they estimate a battery capacity that is as realistic as possible. In the console system, this data is not kept, so the battery capacity is estimated directly from the voltage that it offers at a certain moment. Fixed values are used for the voltage associated with the maximum and minimum charge (4.2V and 3.4V respectively), which may not be suitable for all batteries, hence some consoles misjudge the charge level.
 
 There is also a sensor on the charging connector, but this only determines if there is a cable connected to the console, not that the battery is charging, that is, the other end of the cable may be disconnected and most programs will indicate that the console is being powered.
 
 Finally, the load indicators of the different programs (GMenu2X, SimpleMenu, RetroArch, RG350 test) can be programmed differently, so there may be discrepancies between them.
+
+#### Q12: Is exFAT format supported for card partitions?
+
+OpenDingux beta includes support for the exFAT file system in the form of a module that is not loaded by default. Throughout Discussion #226 it has been found that in order to use a card in the EXT slot with this format, you have to build some kind of script that runs at boot time and performs manual mounting of the card or loads the module and restarts the `udev` service so that the rule defined in `/etc/udev/rules.d/61-automount.rules` that mounts removable drives that the system encounters in this format is applied. The script can for example be installed in `/media/data/local/etc/init.d/`.
+
+An example of script that uses the automounting technique could be the following:
+
+```bash
+#!/bin/sh
+
+case "$1" in
+    start)
+        printf "Loading exfat module and restarting udev"
+        modprobe exfat
+        /etc/init.d/S10udev stop
+        /etc/init.d/S10udev start
+        echo "done"
+        ;;
+    stop)
+        # Nothing to do
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}"
+        exit 1
+        ;;
+esac
+```
+
+That we could leave in the directory commented previously with the name `S01_loadexfat.sh` so that it is executed before the one that generalizes the directories scaffolding of Adam. It is necessary to remember to give execution permission to the file:
+
+```bash
+$ sudo chmod +x /media/data/local/etc/init.d/S01_loadexfat.sh
+```
 
 ## Telegram channel for updates
 
