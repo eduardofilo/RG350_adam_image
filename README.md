@@ -734,7 +734,7 @@ esac
 That we could leave in the directory commented previously with the name `S05_loadexfat.sh` so that it is executed before the one that generalizes the directories scaffolding of Adam. It is necessary to remember to give execution permission to the file:
 
 ```bash
-$ sudo chmod +x /media/data/local/etc/init.d/S01_loadexfat.sh
+$ sudo chmod +x /media/data/local/etc/init.d/S05_loadexfat.sh
 ```
 
 ## Telegram channel for updates
