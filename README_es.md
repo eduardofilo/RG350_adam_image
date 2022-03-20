@@ -706,7 +706,7 @@ Por último comentar que los indicadores de carga de los distintos programas (GM
 
 #### Q12: ¿Está soportado el formato exFAT para las particiones de las tarjetas?
 
-OpenDingux beta tiene incluido el soporte al sistema de archivos exFAT en forma de módulo del kernel que no se carga de forma predeterminada. A lo largo de la Discussion #226 se ha encontrado que para que por ejemplo se pueda utilizar una tarjeta en la ranura EXT con este formato, hay que construir algún tipo de script que se ejecute en el arranque y realice el montaje manual de la misma o bien cargue el módulo y reinicie el servicio `udev` para que se aplique la regla definida en `/etc/udev/rules.d/61-automount.rules` que monta las unidades extraíbles que el sistema encuentra en este formato. El script se puede por ejemplo instalar en `/media/data/local/etc/init.d/`.
+OpenDingux beta tiene incluido el soporte al sistema de archivos exFAT en forma de módulo del kernel que no se carga de forma predeterminada. A lo largo de la Discussion #226 se ha encontrado que para que por ejemplo se pueda utilizar una tarjeta en la ranura EXT con este formato, hay que construir algún tipo de script que se ejecute en el arranque y realice el montaje manual de la misma. Otra opción es cargar el módulo y reiniciar el servicio `udev` para que se aplique la regla definida en `/etc/udev/rules.d/61-automount.rules` que automonta las unidades extraíbles después de que el módulo se ha cargado. El script se puede por ejemplo instalar en `/media/data/local/etc/init.d/`.
 
 Un ejemplo de script que por ejemplo utiliza la técnica de aprovechar el automontaje podría ser el siguiente:
 
