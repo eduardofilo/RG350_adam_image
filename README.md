@@ -706,7 +706,7 @@ Finally, the load indicators of the different programs (GMenu2X, SimpleMenu, Ret
 
 #### Q12: Is exFAT format supported for card partitions?
 
-OpenDingux beta includes support for the exFAT file system in the form of a module that is not loaded by default. Throughout Discussion #226 it has been found that in order to use a card in the EXT slot with this format, you have to build some kind of script that runs at boot time and performs manual mounting of the card or loads the module and restarts the `udev` service so that the rule defined in `/etc/udev/rules.d/61-automount.rules` that mounts removable drives that the system encounters in this format is applied. The script can for example be installed in `/media/data/local/etc/init.d/`.
+OpenDingux beta includes support for the exFAT file system in the form of a kernel module that is not loaded by default. Throughout Discussion #226 it has been found that in order to use a card in the EXT slot with this format, you have to build some kind of script that runs at boot time and performs manual mounting of the card or loads the module and restarts the `udev` service so that the rule defined in `/etc/udev/rules.d/61-automount.rules` that mounts removable drives that the system encounters in this format is applied. The script can for example be installed in `/media/data/local/etc/init.d/`.
 
 An example of script that uses the automounting technique could be the following:
 
