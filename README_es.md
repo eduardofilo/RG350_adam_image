@@ -731,7 +731,7 @@ case "$1" in
 esac
 ```
 
-Que podríamos dejar en el directorio comentado anteriormente con el nombre `S01_loadexfat.sh` para que se ejecute antes del que general el andamiaje de directorios de Adán. Hay que acordarse de darle permiso de ejecución al fichero:
+Que podríamos dejar en el directorio comentado anteriormente con el nombre `S05_loadexfat.sh` para que se ejecute antes del que general el andamiaje de directorios de Adán. Hay que acordarse de darle permiso de ejecución al fichero:
 
 ```bash
 $ sudo chmod +x /media/data/local/etc/init.d/S01_loadexfat.sh
