@@ -51,6 +51,8 @@ sleep 1
 echo "## Creating filesystems"
 mkfs.vfat -F 32 ${DEVICE}p1
 mkfs.ext4 -F -O ^64bit -O ^metadata_csum -O uninit_bg -L '' -q ${DEVICE}p2
+sync
+sleep 1
 
 echo "## Mounting P1"
 mkdir ${DIRECTORY}/mnt_p1
@@ -99,11 +101,15 @@ if [ ${MAKE_PGv1} = true ] ; then
     sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin.sha1
     cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/gcw0.dtb > ${DIRECTORY}/mnt_p1/gcw0/uzImage.bin
     sha1sum ${DIRECTORY}/mnt_p1/gcw0/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/gcw0/uzImage.bin.sha1
+    sync
+    sleep 1
 
     if [ ${ZERO_FILL} = true ] ; then
         echo "## Filling P1 with zeros"
         dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
-        rm ${DIRECTORY}/mnt_p1/zero.txt && sync
+        rm ${DIRECTORY}/mnt_p1/zero.txt
+        sync
+        sleep 1
     fi
 
     echo "## Unmounting P1"
@@ -153,11 +159,15 @@ cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/..
 sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin.sha1
 cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg300x.dtb > ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1
+sync
+sleep 1
 
 if [ ${ZERO_FILL} = true ] ; then
     echo "## Filling P1 with zeros"
     dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
-    rm ${DIRECTORY}/mnt_p1/zero.txt && sync
+    rm ${DIRECTORY}/mnt_p1/zero.txt
+    sync
+    sleep 1
 fi
 
 echo "## Unmounting P1"
