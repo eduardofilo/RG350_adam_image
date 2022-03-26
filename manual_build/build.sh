@@ -184,44 +184,44 @@ fi
 echo "## Checking and fixing P2"
 e2fsck -f -p -C 0 ${SD_P2} > /dev/null
 
-if [ ! -f ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} ] ; then
+if [ ! -f ${DIRECTORY}/../select_kernel/${ODBETA_DIST_FILE} ] ; then
     echo "## Downloading ODBeta distribution"
     ODBETA_DIST_URL=${ODBETA_BASE_URL}/${ODBETA_DIST_FILE}
-    wget -q -P ${DIRECTORY}/select_kernel ${ODBETA_DIST_URL}
+    wget -q -P ${DIRECTORY}/../select_kernel ${ODBETA_DIST_URL}
     status=$?
     [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
 fi
-if [ -d ${DIRECTORY}/select_kernel/squashfs-root ] ; then
-    rm -rf ${DIRECTORY}/select_kernel/squashfs-root
+if [ -d ${DIRECTORY}/../select_kernel/squashfs-root ] ; then
+    rm -rf ${DIRECTORY}/../select_kernel/squashfs-root
 fi
-cd ${DIRECTORY}/select_kernel
-unsquashfs ${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE} > /dev/null
+cd ${DIRECTORY}/../select_kernel
+unsquashfs ${DIRECTORY}/../select_kernel/${ODBETA_DIST_FILE} > /dev/null
 
 if [ ${INSTALL_ODBETA_MODS} = true ] ; then
     echo "## Installing script S99resize_p2.sh in rootfs.squashfs"
-    cd ${DIRECTORY}/select_kernel/squashfs-root/gcw0
+    cd ${DIRECTORY}/../select_kernel/squashfs-root/gcw0
     unsquashfs rootfs.squashfs > /dev/null
-    cp ${DIRECTORY}/S99resize_p2.sh ${DIRECTORY}/select_kernel/squashfs-root/gcw0/squashfs-root/etc/init.d
+    cp ${DIRECTORY}/../assets/S99resize_p2.sh ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/squashfs-root/etc/init.d
     mksquashfs squashfs-root rootfs.squashfs -noappend -comp zstd > /dev/null
 fi
 
 cd ${DIRECTORY}
 
-cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rootfs.squashfs ${DIRECTORY}/mnt_p1
-cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/mininit-syspart ${DIRECTORY}/mnt_p1
-cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/mininit-syspart.sha1 ${DIRECTORY}/mnt_p1
-cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs ${DIRECTORY}/mnt_p1
-cp ${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs.sha1 ${DIRECTORY}/mnt_p1
+cp ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rootfs.squashfs ${DIRECTORY}/mnt_p1
+cp ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/mininit-syspart ${DIRECTORY}/mnt_p1
+cp ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/mininit-syspart.sha1 ${DIRECTORY}/mnt_p1
+cp ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/modules.squashfs ${DIRECTORY}/mnt_p1
+cp ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/modules.squashfs.sha1 ${DIRECTORY}/mnt_p1
 
 if [ ${MAKE_PGv1} = true ] ; then
     echo "## Building P1 for PlayGo/PG2 v1 and GCW-Zero image"
-    cp ${DIRECTORY}/select_kernel/select_kernel_gcw0.bat ${DIRECTORY}/mnt_p1/select_kernel.bat
-    cp ${DIRECTORY}/select_kernel/select_kernel_gcw0.sh ${DIRECTORY}/mnt_p1/select_kernel.sh
+    cp ${DIRECTORY}/../select_kernel/select_kernel_gcw0.bat ${DIRECTORY}/mnt_p1/select_kernel.bat
+    cp ${DIRECTORY}/../select_kernel/select_kernel_gcw0.sh ${DIRECTORY}/mnt_p1/select_kernel.sh
     mkdir ${DIRECTORY}/mnt_p1/pocketgo2v1
     mkdir ${DIRECTORY}/mnt_p1/gcw0
-    cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/pocketgo2.dtb > ${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin
     sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin.sha1
-    cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/gcw0.dtb > ${DIRECTORY}/mnt_p1/gcw0/uzImage.bin
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/gcw0.dtb > ${DIRECTORY}/mnt_p1/gcw0/uzImage.bin
     sha1sum ${DIRECTORY}/mnt_p1/gcw0/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/gcw0/uzImage.bin.sha1
 
     if [ ${ZERO_FILL} = true ] ; then
@@ -234,7 +234,7 @@ if [ ${MAKE_PGv1} = true ] ; then
     umount ${SD_P1}
 
     echo "## Flashing bootloader for PlayGo/PG2 v1 and GCW-Zero image"
-    dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
+    dd if=${DIRECTORY}/../select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
     sync
     sleep 1
 
@@ -257,25 +257,25 @@ if [ ${MAKE_PGv1} = true ] ; then
 fi
 
 echo "## Building P1 for main image"
-cp ${DIRECTORY}/select_kernel/select_kernel.bat ${DIRECTORY}/mnt_p1
-cp ${DIRECTORY}/select_kernel/select_kernel.sh ${DIRECTORY}/mnt_p1
+cp ${DIRECTORY}/../select_kernel/select_kernel.bat ${DIRECTORY}/mnt_p1
+cp ${DIRECTORY}/../select_kernel/select_kernel.sh ${DIRECTORY}/mnt_p1
 mkdir ${DIRECTORY}/mnt_p1/rg280m
 mkdir ${DIRECTORY}/mnt_p1/rg280v
 mkdir ${DIRECTORY}/mnt_p1/rg350
 mkdir ${DIRECTORY}/mnt_p1/rg350m
 mkdir ${DIRECTORY}/mnt_p1/pocketgo2v2
 mkdir ${DIRECTORY}/mnt_p1/rg300x
-cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m.dtb > ${DIRECTORY}/mnt_p1/rg280m/uzImage.bin
+cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280m.dtb > ${DIRECTORY}/mnt_p1/rg280m/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg280m/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg280m/uzImage.bin.sha1
-cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280v.dtb > ${DIRECTORY}/mnt_p1/rg280v/uzImage.bin
+cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280v.dtb > ${DIRECTORY}/mnt_p1/rg280v/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg280v/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg280v/uzImage.bin.sha1
-cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350.dtb > ${DIRECTORY}/mnt_p1/rg350/uzImage.bin
+cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350.dtb > ${DIRECTORY}/mnt_p1/rg350/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg350/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg350/uzImage.bin.sha1
-cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350m.dtb > ${DIRECTORY}/mnt_p1/rg350m/uzImage.bin
+cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350m.dtb > ${DIRECTORY}/mnt_p1/rg350m/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg350m/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg350m/uzImage.bin.sha1
-cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2v2.dtb > ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin
+cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/pocketgo2v2.dtb > ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin.sha1
-cat ${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg300x.dtb > ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin
+cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg300x.dtb > ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin
 sha1sum ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1
 
 if [ ${ZERO_FILL} = true ] ; then
@@ -289,7 +289,7 @@ umount ${SD_P1}
 sleep 1
 
 echo "## Flashing bootloader for main image"
-dd if=${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
+dd if=${DIRECTORY}/../select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
 sync
 sleep 1
 
@@ -300,7 +300,7 @@ else
     dd if=${SD_DEV} bs=2M count=1600 status=progress | xz -z -f -9 > ${DIRECTORY}/../releases/adam_v${1}.img.xz
 fi
 
-rm -rf ${DIRECTORY}/select_kernel/squashfs-root
+rm -rf ${DIRECTORY}/../select_kernel/squashfs-root
 
 echo "## Remounting P1 and P2"
 mount -t vfat ${SD_P1} ${DIRECTORY}/mnt_p1

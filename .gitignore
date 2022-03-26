@@ -1,4 +1,4 @@
 releases/
-manual_build/select_kernel/gcw0-update-*.opk
-manual_build/select_kernel/squashfs-root/
+select_kernel/gcw0-update-*.opk
+select_kernel/squashfs-root/
 upgrade_*/root
