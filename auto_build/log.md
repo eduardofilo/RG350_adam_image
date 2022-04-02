@@ -74,32 +74,6 @@ sudo dd if=/dev/mmcblk0 of=mbr bs=512 count=1
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Disco /dev/loop24: 1000 MiB, 1048576000 bytes, 2048000 sectores
-Unidades: sectores de 1 * 512 = 512 bytes
-Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
-Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
-Tipo de etiqueta de disco: dos
-Identificador del disco: 0x9d2e3dd2
-
-Dispositivo   Inicio Comienzo   Final Sectores Tamaño Id Tipo
-/dev/loop24p1              32  819199   819168   400M  b W95 FAT32
-/dev/loop24p2          819200 6553599  5734400   2,7G 83 Linux
-
-
-
-
 edumoreno@eduardo-HP-Folio-13:~/git/RG350_adam_image/auto_build$ sudo sfdisk -d sd_int.img
 label: dos
 label-id: 0x9d2e3dd2
@@ -160,3 +134,22 @@ Sobran 64bit y metadata_csum y falta uninit_bg
 
 
 gunzip adam_v1.5.img.gz -c | sudo dd of=/dev/mmcblk0 bs=2M status=progress conv=fsync
+
+
+
+edumoreno@eduardo-HP-Folio-13:~$ sudo fdisk -l /dev/mmcblk0
+[sudo] contraseña para edumoreno:
+Disco /dev/mmcblk0: 7,4 GiB, 7948206080 bytes, 15523840 sectores
+Unidades: sectores de 1 * 512 = 512 bytes
+Tamaño de sector (lógico/físico): 512 bytes / 512 bytes
+Tamaño de E/S (mínimo/óptimo): 512 bytes / 512 bytes
+Tipo de etiqueta de disco: dos
+Identificador del disco: 0x9d2e3dd2
+
+Dispositivo    Inicio Comienzo    Final Sectores Tamaño Id Tipo
+/dev/mmcblk0p1              32   819199   819168   400M  b W95 FAT32
+/dev/mmcblk0p2          819200 15523839 14704640     7G 83 Linux
+
+
+
+https://stackoverflow.com/questions/10949169/how-to-create-a-multi-partition-sd-disk-image-without-root-privileges/52850819#52850819

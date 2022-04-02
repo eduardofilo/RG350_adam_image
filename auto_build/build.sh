@@ -6,12 +6,16 @@ INSTALL_ODBETA_MODS=false
 ZERO_FILL=false
 MAKE_PGv1=false
 COMP=gz     # gz or xz
-IMAGE_SIZE=3200
+P1_SIZE_SECTOR=819168   # ~400M
+SIZE_M=1000
 # END PARAMETER ZONE
 
 DIRECTORY=$(pwd)
 ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
 ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
+SECTOR_SIZE=512
+P1_OFFSET_SECTOR=32
+
 
 # Check if we're root and re-execute if we're not.
 rootcheck () {
@@ -33,18 +37,29 @@ fi
 
 rootcheck "${@}"
 
+# Calculations
+mega="$(echo '2^20' | bc)"
+p1_start_sector=${P1_OFFSET_SECTOR}
+p1_size_sector=${P1_SIZE_SECTOR}
+p2_start_sector=$((${P1_OFFSET_SECTOR}+${P1_SIZE_SECTOR}))
+img_size_sector=$((${SIZE_M}*${mega}/${SECTOR_SIZE}))
+p2_size_sector=$((${img_size_sector}-${p2_start_sector}))
+
 echo "## File creation"
-dd if=/dev/zero of=${DIRECTORY}/sd_int.img bs=1M count=${IMAGE_SIZE} status=progress conv=fsync
+dd if=/dev/zero of="${DIRECTORY}/sd_int.img" bs=1M count=${SIZE_M} status=progress conv=fsync
 sync
 sleep 1
 
-echo "## Setting up loop device and creating partitions"
+echo "## Partition creation"
+printf "
+type=b, start=${p1_start_sector}, size=${p1_size_sector}
+type=83, start=${p2_start_sector}, size=${p2_size_sector}
+" | sfdisk -q "${DIRECTORY}/sd_int.img"
+sync
+sleep 1
+
+echo "## Setting up loop device"
 DEVICE=$(losetup -f)
-losetup ${DEVICE} ${DIRECTORY}/sd_int.img
-dd of=${DEVICE} if=${DIRECTORY}/mbr bs=512 count=1 conv=fsync
-sleep 1
-losetup -d ${DEVICE}
-sleep 1
 losetup -P ${DEVICE} ${DIRECTORY}/sd_int.img
 sleep 1
 
