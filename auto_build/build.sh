@@ -3,8 +3,8 @@
 # BEGIN PARAMETER ZONE
 ODBETA_VERSION=2022-02-13
 INSTALL_ODBETA_MODS=false
-ZERO_FILL=false
-MAKE_PGv1=false
+MAKE_PGv1=true
+MAKE_RG=true
 COMP=gz     # gz or xz
 P1_SIZE_SECTOR=819168   # ~400M
 SIZE_M=1000
@@ -119,25 +119,20 @@ if [ ${MAKE_PGv1} = true ] ; then
     sync
     sleep 1
 
-    if [ ${ZERO_FILL} = true ] ; then
-        echo "## Filling P1 with zeros"
-        dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
-        rm ${DIRECTORY}/mnt_p1/zero.txt
-        sync
-        sleep 1
-    fi
-
     echo "## Unmounting P1"
     umount ${DEVICE}p1
+    sync
+    sleep 1
 
     echo "## Flashing bootloader for PlayGo/PG2 v1 and GCW-Zero image"
     dd if=${DIRECTORY}/../select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
     sync
     sleep 1
 
-    echo "## Making card dump for PlayGo/PG2 v1 and GCW-Zero image"
+    echo "## Compressing dump for PlayGo/PG2 v1 and GCW-Zero image"
     if [ ${COMP} = "gz" ] ; then
-        gzip -9 ${DIRECTORY}/sd_int.img - > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
+        gzip -9 -k ${DIRECTORY}/sd_int.img
+        mv ${DIRECTORY}/sd_int.img.gz ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz
     else
         xz -z -f -9 ${DIRECTORY}/sd_int.img > ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.xz
     fi
@@ -153,61 +148,55 @@ if [ ${MAKE_PGv1} = true ] ; then
     rm ${DIRECTORY}/mnt_p1/select_kernel.sh 2> /dev/null && sync
 fi
 
-echo "## Building P1 for main image"
-cp ${DIRECTORY}/../select_kernel/select_kernel.bat ${DIRECTORY}/mnt_p1
-cp ${DIRECTORY}/../select_kernel/select_kernel.sh ${DIRECTORY}/mnt_p1
-mkdir ${DIRECTORY}/mnt_p1/rg280m
-mkdir ${DIRECTORY}/mnt_p1/rg280v
-mkdir ${DIRECTORY}/mnt_p1/rg350
-mkdir ${DIRECTORY}/mnt_p1/rg350m
-mkdir ${DIRECTORY}/mnt_p1/pocketgo2v2
-mkdir ${DIRECTORY}/mnt_p1/rg300x
-cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280m.dtb > ${DIRECTORY}/mnt_p1/rg280m/uzImage.bin
-sha1sum ${DIRECTORY}/mnt_p1/rg280m/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg280m/uzImage.bin.sha1
-cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280v.dtb > ${DIRECTORY}/mnt_p1/rg280v/uzImage.bin
-sha1sum ${DIRECTORY}/mnt_p1/rg280v/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg280v/uzImage.bin.sha1
-cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350.dtb > ${DIRECTORY}/mnt_p1/rg350/uzImage.bin
-sha1sum ${DIRECTORY}/mnt_p1/rg350/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg350/uzImage.bin.sha1
-cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350m.dtb > ${DIRECTORY}/mnt_p1/rg350m/uzImage.bin
-sha1sum ${DIRECTORY}/mnt_p1/rg350m/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg350m/uzImage.bin.sha1
-cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/pocketgo2v2.dtb > ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin
-sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin.sha1
-cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg300x.dtb > ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin
-sha1sum ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1
-sync
-sleep 1
-
-if [ ${ZERO_FILL} = true ] ; then
-    echo "## Filling P1 with zeros"
-    dd if=/dev/zero of=${DIRECTORY}/mnt_p1/zero.txt status=progress 2> /dev/null && sync
-    rm ${DIRECTORY}/mnt_p1/zero.txt
+if [ ${MAKE_RG} = true ] ; then
+    echo "## Building P1 for RG image"
+    cp ${DIRECTORY}/../select_kernel/select_kernel.bat ${DIRECTORY}/mnt_p1
+    cp ${DIRECTORY}/../select_kernel/select_kernel.sh ${DIRECTORY}/mnt_p1
+    mkdir ${DIRECTORY}/mnt_p1/rg280m
+    mkdir ${DIRECTORY}/mnt_p1/rg280v
+    mkdir ${DIRECTORY}/mnt_p1/rg350
+    mkdir ${DIRECTORY}/mnt_p1/rg350m
+    mkdir ${DIRECTORY}/mnt_p1/pocketgo2v2
+    mkdir ${DIRECTORY}/mnt_p1/rg300x
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280m.dtb > ${DIRECTORY}/mnt_p1/rg280m/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/rg280m/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg280m/uzImage.bin.sha1
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280v.dtb > ${DIRECTORY}/mnt_p1/rg280v/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/rg280v/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg280v/uzImage.bin.sha1
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350.dtb > ${DIRECTORY}/mnt_p1/rg350/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/rg350/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg350/uzImage.bin.sha1
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350m.dtb > ${DIRECTORY}/mnt_p1/rg350m/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/rg350m/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg350m/uzImage.bin.sha1
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/pocketgo2v2.dtb > ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin.sha1
+    cat ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg300x.dtb > ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin
+    sha1sum ${DIRECTORY}/mnt_p1/rg300x/uzImage.bin | awk '{ print $1 }'>${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1
     sync
     sleep 1
+
+    echo "## Unmounting P1"
+    umount ${DEVICE}p1
+    sync
+    sleep 1
+
+    echo "## Flashing bootloader for RG image"
+    dd if=${DIRECTORY}/../select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${DEVICE} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
+    sync
+    sleep 1
+
+    echo "## Compressing dump for RG image"
+    if [ ${COMP} = "gz" ] ; then
+        gzip -9 -k ${DIRECTORY}/sd_int.img
+        mv ${DIRECTORY}/sd_int.img.gz ${DIRECTORY}/../releases/adam_v${1}.img.gz
+    else
+        xz -z -f -9 ${DIRECTORY}/sd_int.img > ${DIRECTORY}/../releases/adam_v${1}.img.xz
+    fi
+    sync
 fi
 
-echo "## Unmounting P1"
-umount ${DEVICE}p1
-sync
-sleep 1
-
-echo "## Flashing bootloader for main image"
-dd if=${DIRECTORY}/../select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin of=${DEVICE} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
-sync
-sleep 1
-
-echo "## Compressing dump for main image"
+echo "## Final cleaning"
 losetup -d ${DEVICE}
 sync
 sleep 1
-if [ ${COMP} = "gz" ] ; then
-    gzip -9 ${DIRECTORY}/sd_int.img
-    mv ${DIRECTORY}/sd_int.img.gz ${DIRECTORY}/../releases/adam_v${1}.img.gz
-else
-    xz -z -f -9 ${DIRECTORY}/sd_int.img > ${DIRECTORY}/../releases/adam_v${1}.img.xz
-fi
-sync
-
-echo "## Final cleaning"
 rm -rf ${DIRECTORY}/../select_kernel/squashfs-root
 if [ -f ${DIRECTORY}/sd_int.img ] ; then
     rm ${DIRECTORY}/sd_int.img
