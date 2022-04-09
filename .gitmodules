@@ -1,0 +1,3 @@
+[submodule "retroarch"]
+	path = retroarch
+	url = https://github.com/eduardofilo/RG350_auto_ra_installer.git
