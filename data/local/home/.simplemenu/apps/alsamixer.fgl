@@ -1,0 +1,5 @@
+title=Sound Mixer
+description=Configure sound settings
+exec=/usr/bin/alsamixer
+consoleapp=true
+editable=false

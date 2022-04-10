@@ -1,0 +1,4 @@
+title=Retroarch
+description=Launch Retroarch without a core selected
+exec=/media/data/local/bin/retroarch_rg350_odbeta
+editable=false

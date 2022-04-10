@@ -7,7 +7,7 @@ MAKE_PGv1=true
 MAKE_RG=true
 COMP=gz     # gz or xz
 P1_SIZE_SECTOR=819168   # ~400M
-SIZE_M=1000
+SIZE_M=3200
 # END PARAMETER ZONE
 
 DIRECTORY=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
@@ -111,20 +111,34 @@ mkdir ${DIRECTORY}/mnt_p2
 mount -t ext4 ${DEVICE}p2 ${DIRECTORY}/mnt_p2
 sleep 1
 
-echo "## Installing RetroArch stuff"
-E_BUILD_STOCK=false E_BUILD_ODBETA=true E_CONF_CSV=all ${DIRECTORY}/retroarch/build.sh
-cp -f ${DIRECTORY}/retroarch/files_odb/retroarch_rg350_odbeta.opk ${DIRECTORY}/mnt_p2/apps
+echo "## Installing RetroArch stuff in P2"
+E_BUILD_STOCK=false E_BUILD_ODBETA=true E_CONF_CSV=all ${DIRECTORY}/../retroarch/build.sh
+mkdir -p ${DIRECTORY}/mnt_p2/apps
+cp -f ${DIRECTORY}/../retroarch/files_odb/retroarch_rg350_odbeta.opk ${DIRECTORY}/mnt_p2/apps
 mkdir -p ${DIRECTORY}/mnt_p2/local/bin
-cp -f ${DIRECTORY}/retroarch/files_odb/retroarch_rg350_odbeta ${DIRECTORY}/mnt_p2/local/bin
+cp -f ${DIRECTORY}/../retroarch/files_odb/retroarch_rg350_odbeta ${DIRECTORY}/mnt_p2/local/bin
 # Installing OPK wrappers for cores
-tar -xzf ${DIRECTORY}/retroarch/files_odb/apps_ra.tgz -C ${DIRECTORY}/mnt_p2/apps
+tar -xzf ${DIRECTORY}/../retroarch/files_odb/apps_ra.tgz -C ${DIRECTORY}/mnt_p2/apps
 # Installing home files
 mkdir -p ${DIRECTORY}/mnt_p2/local/home/.retroarch
-tar -xzf ${DIRECTORY}/retroarch/files_odb/retroarch.tgz -C ${DIRECTORY}/mnt_p2/local/home/.retroarch
+tar -xzf ${DIRECTORY}/../retroarch/files_odb/retroarch.tgz -C ${DIRECTORY}/mnt_p2/local/home/.retroarch
 # Installing GMenu2X links
 mkdir -p ${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch
-tar -xzf ${DIRECTORY}/retroarch/files_odb/links.tgz -C ${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch
+tar -xzf ${DIRECTORY}/../retroarch/files_odb/links.tgz -C ${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch
 sync
+
+echo "## Installing Adam stuff in P2"
+rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/system
+cp -r ${DIRECTORY}/../data/* ${DIRECTORY}/mnt_p2
+
+echo "## Putting up version file flag"
+echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
+
+echo "## Setting permissions in P2"
+chown -R 1000:100 ${DIRECTORY}/mnt_p2/apps
+chown -R 1000:100 ${DIRECTORY}/mnt_p2/local
+chown -R 0:0 ${DIRECTORY}/mnt_p2/local/etc
+chown -R 0:0 ${DIRECTORY}/mnt_p2/local/var/lib
 
 echo "## Unmounting P2"
 umount ${DEVICE}p2
@@ -227,4 +241,4 @@ if [ -f ${DIRECTORY}/sd_int.img ] ; then
     rm ${DIRECTORY}/sd_int.img
 fi
 rmdir ${DIRECTORY}/mnt_p1
-#rmdir ${DIRECTORY}/mnt_p2
+rmdir ${DIRECTORY}/mnt_p2

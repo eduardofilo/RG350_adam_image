@@ -1,0 +1,8 @@
+theodore_autorun = "enabled"
+theodore_autostart_message_hint = "enabled"
+theodore_autostart_use_game_hash = "enabled"
+theodore_floppy_write_protect = "enabled"
+theodore_printer_emulation = "disabled"
+theodore_rom = "MO5"
+theodore_tape_write_protect = "enabled"
+theodore_vkb_transparency = "0%"

@@ -1,0 +1,4 @@
+input_libretro_device_p1 = "1"
+input_player1_btn_a = "0"
+input_player1_btn_b = "8"
+input_remap_port_p1 = "0"
