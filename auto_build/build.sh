@@ -10,7 +10,7 @@ P1_SIZE_SECTOR=819168   # ~400M
 SIZE_M=1000
 # END PARAMETER ZONE
 
-DIRECTORY=$(pwd)
+DIRECTORY=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
 ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
 SECTOR_SIZE=512
@@ -105,6 +105,31 @@ cp ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/modules.squashfs ${DIRECTORY
 cp ${DIRECTORY}/../select_kernel/squashfs-root/gcw0/modules.squashfs.sha1 ${DIRECTORY}/mnt_p1
 mkdir ${DIRECTORY}/mnt_p1/dev
 mkdir ${DIRECTORY}/mnt_p1/root
+
+echo "## Mounting P2"
+mkdir ${DIRECTORY}/mnt_p2
+mount -t ext4 ${DEVICE}p2 ${DIRECTORY}/mnt_p2
+sleep 1
+
+echo "## Installing RetroArch stuff"
+E_BUILD_STOCK=false E_BUILD_ODBETA=true E_CONF_CSV=all ${DIRECTORY}/retroarch/build.sh
+cp -f ${DIRECTORY}/retroarch/files_odb/retroarch_rg350_odbeta.opk ${DIRECTORY}/mnt_p2/apps
+mkdir -p ${DIRECTORY}/mnt_p2/local/bin
+cp -f ${DIRECTORY}/retroarch/files_odb/retroarch_rg350_odbeta ${DIRECTORY}/mnt_p2/local/bin
+# Installing OPK wrappers for cores
+tar -xzf ${DIRECTORY}/retroarch/files_odb/apps_ra.tgz -C ${DIRECTORY}/mnt_p2/apps
+# Installing home files
+mkdir -p ${DIRECTORY}/mnt_p2/local/home/.retroarch
+tar -xzf ${DIRECTORY}/retroarch/files_odb/retroarch.tgz -C ${DIRECTORY}/mnt_p2/local/home/.retroarch
+# Installing GMenu2X links
+mkdir -p ${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch
+tar -xzf ${DIRECTORY}/retroarch/files_odb/links.tgz -C ${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch
+sync
+
+echo "## Unmounting P2"
+umount ${DEVICE}p2
+sync
+sleep 1
 
 if [ ${MAKE_PGv1} = true ] ; then
     echo "## Building P1 for PlayGo/PG2 v1 and GCW-Zero image"

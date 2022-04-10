@@ -153,3 +153,8 @@ Dispositivo    Inicio Comienzo    Final Sectores Tamaño Id Tipo
 
 
 https://stackoverflow.com/questions/10949169/how-to-create-a-multi-partition-sd-disk-image-without-root-privileges/52850819#52850819
+
+
+
+
+git clone --recursive -b auto_build git@github.com:eduardofilo/RG350_adam_image.git
