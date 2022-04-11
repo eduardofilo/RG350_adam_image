@@ -148,6 +148,10 @@ umount ${DEVICE}p2
 sync
 sleep 1
 
+if [ ! -d ${DIRECTORY}/../releases ] ; then
+    mkdir ${DIRECTORY}/../releases
+fi
+
 if [ ${MAKE_PGv1} = true ] ; then
     echo "## Building P1 for PlayGo/PG2 v1 and GCW-Zero image"
     cp ${DIRECTORY}/../select_kernel/select_kernel_gcw0.bat ${DIRECTORY}/mnt_p1/select_kernel.bat
