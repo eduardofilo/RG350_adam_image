@@ -22,10 +22,7 @@ rootcheck () {
     if [ $(id -u) != "0" ]
     then
         sudo "$0" "$@"
-        if [ ${MAKE_PGv1} = true ] ; then
-            sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}_PGv1.img.${COMP}
-        fi
-        sudo chown $(id -u):$(id -g) ${DIRECTORY}/../releases/adam_v${1}.img.${COMP}
+        sudo chown -R $(id -u):$(id -g) ${DIRECTORY}/../releases
         sudo chown -R $(id -u):$(id -g) ${DIRECTORY}/../retroarch/build_odb
         sudo chown -R $(id -u):$(id -g) ${DIRECTORY}/../retroarch/releases
         exit $?
