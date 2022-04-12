@@ -133,8 +133,9 @@ git clone --recursive -b auto_build git@github.com:eduardofilo/RG350_adam_image.
 
 # Falta
 
-* Analizar diferencias entre Adam manual y auto con diff
-* Incorporar el core de DosBOX que hay en manual_build/retroarch
-* Retirar del repositorio los ficheros que antes se incorporaban manualmente (de SimpleMenu, los scripts de init.d, etc)
-* Rodear con comillas las rutas que partan de ${DIRECTORY}
-* Hacer una instalación desde cero (bajando el repositorio con --recursive) para ver si no falta ningún fichero o directorio
++ Analizar diferencias entre Adam manual y auto con diff
+- Incorporar el core de DosBOX que hay en manual_build/retroarch
+- Retirar del repositorio los ficheros que antes se incorporaban manualmente (de SimpleMenu, los scripts de init.d, etc)
+- Rodear con comillas las rutas que partan de ${DIRECTORY}
++ Hacer una instalación desde cero (bajando el repositorio con --recursive) para ver si no falta ningún fichero o directorio
+- Parametrizar la versión de RA y el fichero csv con variables de entorno 
