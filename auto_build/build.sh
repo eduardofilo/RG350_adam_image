@@ -129,7 +129,8 @@ sync
 echo "## Installing Adam stuff in P2"
 rm -rf ${DIRECTORY}/mnt_p2/local/home/.retroarch/system
 cp -r ${DIRECTORY}/../data/* ${DIRECTORY}/mnt_p2
-find ${DIRECTORY}/../data -name .gitignore -delete
+find ${DIRECTORY}/mnt_p2 -name .gitignore -delete
+cp ${DIRECTORY}/retroarch/dosbox_pure_libretro.so ${DIRECTORY}/mnt_p2/local/home/.retroarch/cores/
 
 echo "## Putting up version file flag"
 echo ${1} > ${DIRECTORY}/mnt_p2/adam_version.txt
