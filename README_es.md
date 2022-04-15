@@ -26,11 +26,11 @@ Si quieres construir la imagen desde sus fuentes, el procedimiento básico es el
     ```
 
 3. Modificar el contenido del directorio `data` si se quieren hacer cambios a los contenidos de la partición 2 de la tarjeta INT.
-4. Compilar la imagen (el valor `1.5` que se indica a continuación como ejemplo corresponde a la versión de la imagen generada):
+4. Compilar la imagen:
 
     ```
     cd RG350_adam_image/auto_build
-    ./build.sh 1.5
+    ./build.sh
     ```
 
 5. La imagen construida, lista para flashear se encontrará en el directorio `releases`.

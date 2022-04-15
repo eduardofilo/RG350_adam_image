@@ -26,11 +26,11 @@ If you want to build the image from its sources, the basic procedure is as follo
     ```
 
 3. Modify the contents of the `data` directory if you want to make any changes to the contents of partition 2 on the INT card.
-4. Build the image (the value `1.5` given below as an example corresponds to the version of the generated image):
+4. Build the image:
 
     ```
     cd RG350_adam_image/auto_build
-    ./build.sh 1.5
+    ./build.sh
     ```
 
 5. You will find the image dump ready to flash in the `releases` directory.

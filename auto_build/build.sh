@@ -14,6 +14,7 @@ INSTALL_ODBETA_MODS=false
 
 # Constants of convenience
 DIRECTORY=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+VERSION=$(cat ${DIRECTORY}/../v)
 ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
 ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
 SECTOR_SIZE=512
@@ -31,11 +32,6 @@ rootcheck () {
         exit $?
     fi
 }
-
-if [ $# -ne 1 ] ; then
-    echo -e "usage: ./build.sh <v>\n  <v>: version; e.g. 1.1"
-    exit 1
-fi
 
 rootcheck "${@}"
 
@@ -136,7 +132,7 @@ find "${DIRECTORY}/mnt_p2" -name .gitignore -delete
 cp "${DIRECTORY}/retroarch/dosbox_pure_libretro.so" "${DIRECTORY}/mnt_p2/local/home/.retroarch/cores/"
 
 echo "## Putting up version file flag"
-echo ${1} > "${DIRECTORY}/mnt_p2/adam_version.txt"
+echo ${VERSION} > "${DIRECTORY}/mnt_p2/adam_version.txt"
 
 echo "## Setting permissions in P2"
 chown -R 1000:100 "${DIRECTORY}/mnt_p2/apps"
@@ -179,9 +175,9 @@ if [ ${MAKE_PGv1} = true ] ; then
     echo "## Compressing dump for PlayGo/PG2 v1 and GCW-Zero image"
     if [ ${COMP} = "gz" ] ; then
         gzip -9 -k "${DIRECTORY}/sd_int.img"
-        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/../releases/adam_v${1}_PGv1.img.gz"
+        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/../releases/adam_v${VERSION}_PGv1.img.gz"
     else
-        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/../releases/adam_v${1}_PGv1.img.xz"
+        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/../releases/adam_v${VERSION}_PGv1.img.xz"
     fi
     sync
 
@@ -233,9 +229,9 @@ if [ ${MAKE_RG} = true ] ; then
     echo "## Compressing dump for RG image"
     if [ ${COMP} = "gz" ] ; then
         gzip -9 -k "${DIRECTORY}/sd_int.img"
-        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/../releases/adam_v${1}.img.gz"
+        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/../releases/adam_v${VERSION}.img.gz"
     else
-        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/../releases/adam_v${1}.img.xz"
+        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/../releases/adam_v${VERSION}.img.xz"
     fi
     sync
 fi
