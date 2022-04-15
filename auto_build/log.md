@@ -131,6 +131,14 @@ gunzip adam_v1.5.img.gz -c | sudo dd of=/dev/mmcblk0 bs=2M status=progress conv=
 git clone --recursive -b auto_build git@github.com:eduardofilo/RG350_adam_image.git
 
 
+# Incluir directorios vacíos en git
+
+find . -depth -type d -empty -exec cp /home/edumoreno/.gitignore {} \;
+
+find . -name .gitignore -delete
+
+
+
 # Falta
 
 + Analizar diferencias entre Adam manual y auto con diff
@@ -138,4 +146,4 @@ git clone --recursive -b auto_build git@github.com:eduardofilo/RG350_adam_image.
 - Retirar del repositorio los ficheros que antes se incorporaban manualmente (de SimpleMenu, los scripts de init.d, etc)
 - Rodear con comillas las rutas que partan de ${DIRECTORY}
 + Hacer una instalación desde cero (bajando el repositorio con --recursive) para ver si no falta ningún fichero o directorio
-- Parametrizar la versión de RA y el fichero csv con variables de entorno 
+- Parametrizar la versión de RA y el fichero csv con variables de entorno
