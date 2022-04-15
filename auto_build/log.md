@@ -142,8 +142,8 @@ find . -name .gitignore -delete
 # Falta
 
 + Analizar diferencias entre Adam manual y auto con diff
-- Incorporar el core de DosBOX que hay en manual_build/retroarch
-- Retirar del repositorio los ficheros que antes se incorporaban manualmente (de SimpleMenu, los scripts de init.d, etc)
-- Rodear con comillas las rutas que partan de ${DIRECTORY}
++ Incorporar el core de DosBOX que hay en manual_build/retroarch
++ Retirar del repositorio los ficheros que antes se incorporaban manualmente (de SimpleMenu, los scripts de init.d, etc)
++ Rodear con comillas las rutas que partan de ${DIRECTORY}
 + Hacer una instalación desde cero (bajando el repositorio con --recursive) para ver si no falta ningún fichero o directorio
 - Parametrizar la versión de RA y el fichero csv con variables de entorno
