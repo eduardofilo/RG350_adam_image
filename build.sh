@@ -177,7 +177,7 @@ if [ ${MAKE_PGv1} = true ] ; then
         gzip -9 -k "${DIRECTORY}/sd_int.img"
         mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/releases/adam_v${VERSION}_PGv1.img.gz"
     else
-        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/releases/adam_v${VERSION}_PGv1.img.xz"
+        xz -z -f -k -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/releases/adam_v${VERSION}_PGv1.img.xz"
     fi
     sync
 
@@ -231,7 +231,7 @@ if [ ${MAKE_RG} = true ] ; then
         gzip -9 -k "${DIRECTORY}/sd_int.img"
         mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/releases/adam_v${VERSION}.img.gz"
     else
-        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/releases/adam_v${VERSION}.img.xz"
+        xz -z -f -k -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/releases/adam_v${VERSION}.img.xz"
     fi
     sync
 fi
