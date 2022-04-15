@@ -29,7 +29,7 @@ Si quieres construir la imagen desde sus fuentes, el procedimiento básico es el
 4. Compilar la imagen:
 
     ```
-    cd RG350_adam_image/auto_build
+    cd RG350_adam_image
     ./build.sh
     ```
 

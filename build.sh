@@ -4,7 +4,7 @@
 ODBETA_VERSION=2022-02-13   # ODbeta version to install (check http://od.abstraction.se/opendingux/latest/)
 MAKE_PGv1=true              # Build image for GCW-Zero and PocketGo2 v1
 MAKE_RG=true                # Build image for RG350 and derived
-COMP=gz                     # gz or xz
+COMP=xz                     # gz or xz
 P1_SIZE_SECTOR=819168       # Size of partition 1 in sectors (819168 sectors= ~400M)
 SIZE_M=3200                 # Final image size in MiB
 # END PARAMETER ZONE
@@ -14,7 +14,7 @@ INSTALL_ODBETA_MODS=false
 
 # Constants of convenience
 DIRECTORY=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
-VERSION=$(cat ${DIRECTORY}/../v)
+VERSION=$(cat ${DIRECTORY}/v)
 ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
 ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
 SECTOR_SIZE=512
@@ -26,9 +26,9 @@ rootcheck () {
     if [ $(id -u) != "0" ]
     then
         sudo "$0" "$@"
-        sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/../releases"
-        sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/../retroarch/build_odb"
-        sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/../retroarch/releases"
+        sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/releases"
+        sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/retroarch/build_odb"
+        sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/retroarch/releases"
         exit $?
     fi
 }
@@ -72,35 +72,35 @@ mkdir "${DIRECTORY}/mnt_p1"
 mount -t vfat ${DEVICE}p1 "${DIRECTORY}/mnt_p1"
 sleep 1
 
-if [ ! -f "${DIRECTORY}/../select_kernel/${ODBETA_DIST_FILE}" ] ; then
+if [ ! -f "${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE}" ] ; then
     echo "## Downloading ODBeta distribution"
     ODBETA_DIST_URL=${ODBETA_BASE_URL}/${ODBETA_DIST_FILE}
-    wget -q -P "${DIRECTORY}/../select_kernel ${ODBETA_DIST_URL}"
+    wget -q -P "${DIRECTORY}/select_kernel ${ODBETA_DIST_URL}"
     status=$?
     [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
 fi
-if [ -d "${DIRECTORY}/../select_kernel/squashfs-root" ] ; then
-    rm -rf "${DIRECTORY}/../select_kernel/squashfs-root"
+if [ -d "${DIRECTORY}/select_kernel/squashfs-root" ] ; then
+    rm -rf "${DIRECTORY}/select_kernel/squashfs-root"
 fi
-cd "${DIRECTORY}/../select_kernel"
-unsquashfs "${DIRECTORY}/../select_kernel/${ODBETA_DIST_FILE}" > /dev/null
+cd "${DIRECTORY}/select_kernel"
+unsquashfs "${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE}" > /dev/null
 
 if [ ${INSTALL_ODBETA_MODS} = true ] ; then
     echo "## Installing script S99resize_p2.sh in rootfs.squashfs"
-    cd "${DIRECTORY}/../select_kernel/squashfs-root/gcw0"
+    cd "${DIRECTORY}/select_kernel/squashfs-root/gcw0"
     unsquashfs rootfs.squashfs > /dev/null
-    cp "${DIRECTORY}/../assets/S99resize_p2.sh" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/squashfs-root/etc/init.d"
+    cp "${DIRECTORY}/assets/S99resize_p2.sh" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/squashfs-root/etc/init.d"
     mksquashfs squashfs-root rootfs.squashfs -noappend -comp zstd > /dev/null
 fi
 
 cd "${DIRECTORY}"
 
-cp "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rootfs.squashfs" "${DIRECTORY}/mnt_p1"
-sha1sum "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rootfs.squashfs" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rootfs.squashfs.sha1"
-cp "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/mininit-syspart" "${DIRECTORY}/mnt_p1"
-cp "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/mininit-syspart.sha1" "${DIRECTORY}/mnt_p1"
-cp "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/modules.squashfs" "${DIRECTORY}/mnt_p1"
-cp "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/modules.squashfs.sha1" "${DIRECTORY}/mnt_p1"
+cp "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rootfs.squashfs" "${DIRECTORY}/mnt_p1"
+sha1sum "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rootfs.squashfs" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rootfs.squashfs.sha1"
+cp "${DIRECTORY}/select_kernel/squashfs-root/gcw0/mininit-syspart" "${DIRECTORY}/mnt_p1"
+cp "${DIRECTORY}/select_kernel/squashfs-root/gcw0/mininit-syspart.sha1" "${DIRECTORY}/mnt_p1"
+cp "${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs" "${DIRECTORY}/mnt_p1"
+cp "${DIRECTORY}/select_kernel/squashfs-root/gcw0/modules.squashfs.sha1" "${DIRECTORY}/mnt_p1"
 mkdir "${DIRECTORY}/mnt_p1/dev"
 mkdir "${DIRECTORY}/mnt_p1/root"
 
@@ -110,26 +110,26 @@ mount -t ext4 ${DEVICE}p2 "${DIRECTORY}/mnt_p2"
 sleep 1
 
 echo "## Installing RetroArch stuff in P2"
-E_BUILD_STOCK=false E_BUILD_ODBETA=true E_CONF_CSV=all "${DIRECTORY}/../retroarch/build.sh"
+E_BUILD_STOCK=false E_BUILD_ODBETA=true E_CONF_CSV=all "${DIRECTORY}/retroarch/build.sh"
 mkdir -p "${DIRECTORY}/mnt_p2/apps"
-cp -f "${DIRECTORY}/../retroarch/files_odb/retroarch_rg350_odbeta.opk" "${DIRECTORY}/mnt_p2/apps"
+cp -f "${DIRECTORY}/retroarch/files_odb/retroarch_rg350_odbeta.opk" "${DIRECTORY}/mnt_p2/apps"
 mkdir -p "${DIRECTORY}/mnt_p2/local/bin"
-cp -f "${DIRECTORY}/../retroarch/files_odb/retroarch_rg350_odbeta" "${DIRECTORY}/mnt_p2/local/bin"
+cp -f "${DIRECTORY}/retroarch/files_odb/retroarch_rg350_odbeta" "${DIRECTORY}/mnt_p2/local/bin"
 # Installing OPK wrappers for cores
-tar -xzf "${DIRECTORY}/../retroarch/files_odb/apps_ra.tgz" -C "${DIRECTORY}/mnt_p2/apps"
+tar -xzf "${DIRECTORY}/retroarch/files_odb/apps_ra.tgz" -C "${DIRECTORY}/mnt_p2/apps"
 # Installing home files
 mkdir -p "${DIRECTORY}/mnt_p2/local/home/.retroarch"
-tar -xzf "${DIRECTORY}/../retroarch/files_odb/retroarch.tgz" -C "${DIRECTORY}/mnt_p2/local/home/.retroarch"
+tar -xzf "${DIRECTORY}/retroarch/files_odb/retroarch.tgz" -C "${DIRECTORY}/mnt_p2/local/home/.retroarch"
 # Installing GMenu2X links
 mkdir -p "${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch"
-tar -xzf "${DIRECTORY}/../retroarch/files_odb/links.tgz" -C "${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch"
+tar -xzf "${DIRECTORY}/retroarch/files_odb/links.tgz" -C "${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch"
 sync
 
 echo "## Installing Adam stuff in P2"
 rm -rf "${DIRECTORY}/mnt_p2/local/home/.retroarch/system"
-cp -r "${DIRECTORY}/../data"/* "${DIRECTORY}/mnt_p2"
+cp -r "${DIRECTORY}/data"/* "${DIRECTORY}/mnt_p2"
 find "${DIRECTORY}/mnt_p2" -name .gitignore -delete
-cp "${DIRECTORY}/retroarch/dosbox_pure_libretro.so" "${DIRECTORY}/mnt_p2/local/home/.retroarch/cores/"
+cp "${DIRECTORY}/assets/dosbox_pure_libretro.so" "${DIRECTORY}/mnt_p2/local/home/.retroarch/cores/"
 
 echo "## Putting up version file flag"
 echo ${VERSION} > "${DIRECTORY}/mnt_p2/adam_version.txt"
@@ -145,19 +145,19 @@ umount ${DEVICE}p2
 sync
 sleep 1
 
-if [ ! -d "${DIRECTORY}/../releases" ] ; then
-    mkdir "${DIRECTORY}/../releases"
+if [ ! -d "${DIRECTORY}/releases" ] ; then
+    mkdir "${DIRECTORY}/releases"
 fi
 
 if [ ${MAKE_PGv1} = true ] ; then
     echo "## Building P1 for PlayGo/PG2 v1 and GCW-Zero image"
-    cp "${DIRECTORY}/../select_kernel/select_kernel_gcw0.bat" "${DIRECTORY}/mnt_p1/select_kernel.bat"
-    cp "${DIRECTORY}/../select_kernel/select_kernel_gcw0.sh" "${DIRECTORY}/mnt_p1/select_kernel.sh"
+    cp "${DIRECTORY}/select_kernel/select_kernel_gcw0.bat" "${DIRECTORY}/mnt_p1/select_kernel.bat"
+    cp "${DIRECTORY}/select_kernel/select_kernel_gcw0.sh" "${DIRECTORY}/mnt_p1/select_kernel.sh"
     mkdir "${DIRECTORY}/mnt_p1/pocketgo2v1"
     mkdir "${DIRECTORY}/mnt_p1/gcw0"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/pocketgo2.dtb" > "${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2.dtb" > "${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/pocketgo2v1/uzImage.bin.sha1"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/gcw0.dtb" > "${DIRECTORY}/mnt_p1/gcw0/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/gcw0.dtb" > "${DIRECTORY}/mnt_p1/gcw0/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/gcw0/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/gcw0/uzImage.bin.sha1"
     sync
     sleep 1
@@ -168,16 +168,16 @@ if [ ${MAKE_PGv1} = true ] ; then
     sleep 1
 
     echo "## Flashing bootloader for PlayGo/PG2 v1 and GCW-Zero image"
-    dd if="${DIRECTORY}/../select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin" of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
+    dd if="${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin" of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
     sync
     sleep 1
 
     echo "## Compressing dump for PlayGo/PG2 v1 and GCW-Zero image"
     if [ ${COMP} = "gz" ] ; then
         gzip -9 -k "${DIRECTORY}/sd_int.img"
-        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/../releases/adam_v${VERSION}_PGv1.img.gz"
+        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/releases/adam_v${VERSION}_PGv1.img.gz"
     else
-        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/../releases/adam_v${VERSION}_PGv1.img.xz"
+        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/releases/adam_v${VERSION}_PGv1.img.xz"
     fi
     sync
 
@@ -193,25 +193,25 @@ fi
 
 if [ ${MAKE_RG} = true ] ; then
     echo "## Building P1 for RG image"
-    cp "${DIRECTORY}/../select_kernel/select_kernel.bat" "${DIRECTORY}/mnt_p1"
-    cp "${DIRECTORY}/../select_kernel/select_kernel.sh" "${DIRECTORY}/mnt_p1"
+    cp "${DIRECTORY}/select_kernel/select_kernel.bat" "${DIRECTORY}/mnt_p1"
+    cp "${DIRECTORY}/select_kernel/select_kernel.sh" "${DIRECTORY}/mnt_p1"
     mkdir "${DIRECTORY}/mnt_p1/rg280m"
     mkdir "${DIRECTORY}/mnt_p1/rg280v"
     mkdir "${DIRECTORY}/mnt_p1/rg350"
     mkdir "${DIRECTORY}/mnt_p1/rg350m"
     mkdir "${DIRECTORY}/mnt_p1/pocketgo2v2"
     mkdir "${DIRECTORY}/mnt_p1/rg300x"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280m.dtb" > "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m.dtb" > "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m/uzImage.bin.sha1"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg280v.dtb" > "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280v.dtb" > "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280v/uzImage.bin.sha1"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350.dtb" > "${DIRECTORY}/mnt_p1/rg350/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350.dtb" > "${DIRECTORY}/mnt_p1/rg350/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg350/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg350/uzImage.bin.sha1"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg350m.dtb" > "${DIRECTORY}/mnt_p1/rg350m/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350m.dtb" > "${DIRECTORY}/mnt_p1/rg350m/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg350m/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg350m/uzImage.bin.sha1"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/pocketgo2v2.dtb" > "${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/pocketgo2v2.dtb" > "${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin.sha1"
-    cat "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/../select_kernel/squashfs-root/gcw0/rg300x.dtb" > "${DIRECTORY}/mnt_p1/rg300x/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg300x.dtb" > "${DIRECTORY}/mnt_p1/rg300x/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg300x/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1"
     sync
     sleep 1
@@ -222,16 +222,16 @@ if [ ${MAKE_RG} = true ] ; then
     sleep 1
 
     echo "## Flashing bootloader for RG image"
-    dd if="${DIRECTORY}/../select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin" of=${DEVICE} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
+    dd if="${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-rg350.bin" of=${DEVICE} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
     sync
     sleep 1
 
     echo "## Compressing dump for RG image"
     if [ ${COMP} = "gz" ] ; then
         gzip -9 -k "${DIRECTORY}/sd_int.img"
-        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/../releases/adam_v${VERSION}.img.gz"
+        mv "${DIRECTORY}/sd_int.img.gz" "${DIRECTORY}/releases/adam_v${VERSION}.img.gz"
     else
-        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/../releases/adam_v${VERSION}.img.xz"
+        xz -z -f -9 "${DIRECTORY}/sd_int.img" > "${DIRECTORY}/releases/adam_v${VERSION}.img.xz"
     fi
     sync
 fi
@@ -240,7 +240,7 @@ echo "## Final cleaning"
 losetup -d ${DEVICE}
 sync
 sleep 1
-rm -rf "${DIRECTORY}/../select_kernel/squashfs-root"
+rm -rf "${DIRECTORY}/select_kernel/squashfs-root"
 if [ -f "${DIRECTORY}/sd_int.img" ] ; then
     rm "${DIRECTORY}/sd_int.img"
 fi
