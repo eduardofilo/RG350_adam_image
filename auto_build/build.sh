@@ -1,15 +1,18 @@
 #!/bin/bash
 
 # BEGIN PARAMETER ZONE
-ODBETA_VERSION=2022-02-13
-INSTALL_ODBETA_MODS=false
-MAKE_PGv1=true
-MAKE_RG=true
-COMP=gz     # gz or xz
-P1_SIZE_SECTOR=819168   # ~400M
-SIZE_M=3200
+ODBETA_VERSION=2022-02-13   # ODbeta version to install (check http://od.abstraction.se/opendingux/latest/)
+MAKE_PGv1=true              # Build image for GCW-Zero and PocketGo2 v1
+MAKE_RG=true                # Build image for RG350 and derived
+COMP=gz                     # gz or xz
+P1_SIZE_SECTOR=819168       # Size of partition 1 in sectors (819168 sectors= ~400M)
+SIZE_M=3200                 # Final image size in MiB
 # END PARAMETER ZONE
 
+# Deprecated
+INSTALL_ODBETA_MODS=false
+
+# Constants of convenience
 DIRECTORY=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
 ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
