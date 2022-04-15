@@ -121,7 +121,6 @@ tar -xzf ${DIRECTORY}/../retroarch/files_odb/apps_ra.tgz -C ${DIRECTORY}/mnt_p2/
 # Installing home files
 mkdir -p ${DIRECTORY}/mnt_p2/local/home/.retroarch
 tar -xzf ${DIRECTORY}/../retroarch/files_odb/retroarch.tgz -C ${DIRECTORY}/mnt_p2/local/home/.retroarch
-mkdir -p ${DIRECTORY}/mnt_p2/local/home/.retroarch/saves
 # Installing GMenu2X links
 mkdir -p ${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch
 tar -xzf ${DIRECTORY}/../retroarch/files_odb/links.tgz -C ${DIRECTORY}/mnt_p2/local/home/.gmenu2x/sections/retroarch
