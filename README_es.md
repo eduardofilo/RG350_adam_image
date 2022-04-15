@@ -4,7 +4,7 @@
 
 La imagen Adán es una compilación de software para la tarjeta microSD interna de una serie de consolas portátiles de emulación basadas en el chip Ingenic JZ4770. Concretamente GCW-Zero, PocketGo2 v1/v2, Anbernic RG350, RG280 y RG300X.
 
-Si sólo te interesa utilizar una de las imágenes publicadas en las [releases](releases), consulta la documentación en el [wiki](/eduardofilo/RG350_adam_image/wiki).
+Si sólo te interesa utilizar una de las imágenes publicadas en las [releases](https://github.com/eduardofilo/RG350_adam_image/releases), consulta la documentación en el [wiki](https://github.com/eduardofilo/RG350_adam_image/wiki).
 
 Si quieres construir la imagen desde sus fuentes, el procedimiento básico es el siguiente:
 

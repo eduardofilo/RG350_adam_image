@@ -4,7 +4,7 @@
 
 Adam image is a software compilation for the internal microSD card slot of a series of Ingenic JZ4770 chip-based portable emulation consoles. Specifically GCW-Zero, PocketGo2 v1/v2, Anbernic RG350, RG280 and RG300X.
 
-If you only want to use one of the images published in [releases](/eduardofilo/RG350_adam_image/releases), see the documentation on the [wiki](/eduardofilo/RG350_adam_image/wiki).
+If you only want to use one of the images published in [releases](https://github.com/eduardofilo/RG350_adam_image/releases), see the documentation on the [wiki](https://github.com/eduardofilo/RG350_adam_image/wiki).
 
 If you want to build the image from its sources, the basic procedure is as follows:
 
