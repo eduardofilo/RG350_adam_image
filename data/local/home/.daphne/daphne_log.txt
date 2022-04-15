@@ -1,0 +1,23 @@
+--DAPHNE version 1.0.7
+--Command line is: ./daphne.bin cliff vldp -framefile /media/sdcard/roms/DAPHNE/Cliff Hanger/cliff.txt -gcwrom /media/sdcard/roms/DAPHNE/Cliff Hanger/cliff.zip 
+--CPU : MIPS Jz4770 1000 MHz || Mem : 512 megs
+--OS : Linux 5.15 || Video : Framebuffer
+--OpenGL: Not Compiled In
+--RGB2YUV Function: C
+--Line Blending Function: C
+--Audio Mixing Function: C
+Set 320x240 at 32 bpp with flags: 21
+Initializing sound system ... 
+No joysticks detected
+Loading compressed ROM image cliff_u1.bin...8192 bytes read.
+Loading compressed ROM image cliff_u2.bin...8192 bytes read.
+Loading compressed ROM image cliff_u3.bin...8192 bytes read.
+Loading compressed ROM image cliff_u4.bin...8192 bytes read.
+Loading compressed ROM image cliff_u5.bin...8192 bytes read.
+Framefile parse succeeded. Video/Audio directory is: /media/sdcard/roms/DAPHNE/Cliff Hanger/./
+YUV overlay is done in software (ie unaccelerated).
+NOTE : RAM file /media/data/local/home/.daphne/ram/cliff.gz was not found (it'll be created)
+Booting ROM ...
+Saved 2048 bytes to cliff.gz
+Shutting down sound system...
+Shutting down video display...

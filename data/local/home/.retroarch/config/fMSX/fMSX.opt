@@ -1,0 +1,5 @@
+fmsx_mapper_type_mode = "Guess Mapper Type A"
+fmsx_mode = "MSX2+"
+fmsx_ram_pages = "Auto"
+fmsx_video_mode = "NTSC"
+fmsx_vram_pages = "Auto"

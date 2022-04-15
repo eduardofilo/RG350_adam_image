@@ -1,0 +1,6 @@
+palm_emu_cpu_speed = "1.0"
+palm_emu_disable_graffiti = "disabled"
+palm_emu_feature_durable = "disabled"
+palm_emu_feature_synced_rtc = "disabled"
+palm_emu_os_version = "Palm m515/Palm OS 4.1"
+palm_emu_use_joystick_as_mouse = "enabled"

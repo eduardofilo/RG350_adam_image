@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# Restore the framebuffer to a working state
+/usr/sbin/unlockvt > /dev/null
+
+# Reset the console
+/usr/bin/reset
+
+# Disactivate the console on framebuffer
+echo 0 > /sys/devices/virtual/vtconsole/vtcon1/bind
+
+# Launch xmame_sm_bridge
+GAME_NAME=$(basename "$1")
+GAME_ID=${GAME_NAME%%.*}
+GAME_DIR=$(dirname "$1")
+unlink /media/data/local/share/xmame/xmame84/roms
+ln -s ${GAME_DIR} /media/data/local/share/xmame/xmame84/roms
+/media/data/local/share/xmame/sm_bridge/main.py 84 $1
+
+# Launch ROM
+if [ -f /tmp/run ] ; then
+    sh /tmp/run
+    rm /tmp/run
+fi
+
