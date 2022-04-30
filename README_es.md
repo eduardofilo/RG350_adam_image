@@ -8,7 +8,7 @@ Si sólo te interesa utilizar una de las imágenes publicadas en las [releases](
 
 Si quieres construir la imagen desde sus fuentes, el procedimiento básico es el siguiente:
 
-1. Descargar el repositorio con sus submódulos (IMPORTANTE: no olvidar la opción `--recursive`):
+1. Descargar el repositorio con sus submódulos (**IMPORTANTE**: no olvidar la opción `--recursive`):
 
     ```
     git clone --recursive https://github.com/eduardofilo/RG350_adam_image.git

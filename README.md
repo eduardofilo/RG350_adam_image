@@ -8,7 +8,7 @@ If you only want to use one of the images published in [releases](https://github
 
 If you want to build the image from its sources, the basic procedure is as follows:
 
-1. Download repository with submodules (IMPORTANT: don't forget the `--recursive` option):
+1. Download repository with submodules (**IMPORTANT**: don't forget the `--recursive` option):
 
     ```
     git clone --recursive https://github.com/eduardofilo/RG350_adam_image.git
