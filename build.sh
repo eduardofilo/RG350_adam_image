@@ -75,7 +75,7 @@ sleep 1
 if [ ! -f "${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE}" ] ; then
     echo "## Downloading ODBeta distribution"
     ODBETA_DIST_URL=${ODBETA_BASE_URL}/${ODBETA_DIST_FILE}
-    wget -q -P "${DIRECTORY}/select_kernel ${ODBETA_DIST_URL}"
+    wget -q -P "${DIRECTORY}/select_kernel" ${ODBETA_DIST_URL}
     status=$?
     [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
 fi
