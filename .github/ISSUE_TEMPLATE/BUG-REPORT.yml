@@ -8,7 +8,7 @@ body:
       value: |
         Thanks for taking the time to fill out this issue report.
 
-        Before creating an issue follow these steps:
+        Before creating the issue, follow these steps:
 
         1. Check the [FAQ](https://github.com/eduardofilo/RG350_adam_image/wiki/En:-7.-FAQ) and [Problem solving](https://github.com/eduardofilo/RG350_adam_image/wiki/En:-6.-Problem-solving) documents on the wiki to see if the problem you observed is already solved or has a known workaround.
         2. If it is more of a question than a problem, consider opening a [Discussion](https://github.com/eduardofilo/RG350_adam_image/discussions) post instead of opening an Issue.
