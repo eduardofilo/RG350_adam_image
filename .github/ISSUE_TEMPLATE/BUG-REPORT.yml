@@ -1,7 +1,5 @@
 name: Issue Report
 description: Create a report to help us improve Adam Image
-title:
-labels:
 assignees:
   - eduardofilo
 body:
