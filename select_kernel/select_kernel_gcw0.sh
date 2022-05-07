@@ -12,7 +12,7 @@ DIR=""
 while [[ $DIR == "" ]]
 do
     # Ask for console model
-    result=$(dialog --stdout --nocancel --title "Select model" --menu "$TEXT" 0 0 0 1 "PocketGo2 v2" 2 "GCW-Zero")
+    result=$(dialog --stdout --nocancel --title "Select model" --menu "$TEXT" 0 0 0 1 "PocketGo2 v1" 2 "GCW-Zero")
 
     case $result in
       1)
