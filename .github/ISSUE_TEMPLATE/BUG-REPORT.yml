@@ -15,6 +15,8 @@ body:
         3. Think about whether the issue is with the image itself or with one of the pieces of software it contains (ODBeta, RetroArch, SimpleMenu, emulators).
         4. The software contained in the image is mostly homebrew and not perfect. Consider whether your request makes sense considering the situation.
         5. The image brings together the work of many people who have put in many hours of effort. If you encounter an issue that you have the capacity to solve on your own, consider taking some time to contribute with the solution to the collective work.
+
+        In case of doubt about the version of the image being used, you can find out by viewing the contents of the file `/media/data/adam_version.txt`
   - type: textarea
     id: what-happened
     attributes:
