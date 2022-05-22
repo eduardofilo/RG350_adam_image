@@ -1,13 +1,13 @@
 @echo off
 
 :again
-   echo     1: RG280V v1.1 (without HDMI)
-   echo     2: RG280M
+   echo     1: RG280V
+   echo     2: RG280M v1.1 (without HDMI)
    echo     3: RG350/P
    echo     4: RG350M
    echo     5: PocketGo2 v2
    echo     6: RG300X
-   echo     7: RG280V v1.0 (with HDMI)
+   echo     7: RG280M v1.0 (with HDMI)
    set /p answer=Select your console model:
    if /i "%answer:~,1%" EQU "1" (
 	set dir=rg280v
