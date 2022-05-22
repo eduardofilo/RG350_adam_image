@@ -12,11 +12,11 @@ DIR=""
 while [[ $DIR == "" ]]
 do
     # Ask for console model
-    result=$(dialog --stdout --nocancel --title "Select model" --menu "$TEXT" 0 0 0 1 "RG280V" 2 "RG280M" 3 "RG350/P" 4 "RG350M" 5 "PocketGo2 v2" 6 "RG300X")
+    result=$(dialog --stdout --nocancel --title "Select model" --menu "$TEXT" 0 0 0 1 "RG280V v1.1 (without HDMI)" 2 "RG280M" 3 "RG350/P" 4 "RG350M" 5 "PocketGo2 v2" 6 "RG300X" 7 "RG280V v1.0 (with HDMI)")
 
     case $result in
       1)
-        DIR="rg280v"
+        DIR="rg280m-v1.1"
         ;;
 
       2)
@@ -37,6 +37,10 @@ do
 
       6)
         DIR="rg300x"
+        ;;
+
+      7)
+        DIR="rg280m-v1.0"
         ;;
 
       *)

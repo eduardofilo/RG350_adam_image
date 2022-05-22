@@ -1,12 +1,16 @@
 #!/bin/bash
 
 # BEGIN PARAMETER ZONE
-ODBETA_VERSION=2022-02-13   # ODbeta version to install (check http://od.abstraction.se/opendingux/latest/)
-MAKE_PGv1=true              # Build image for GCW-Zero and PocketGo2 v1
-MAKE_RG=true                # Build image for RG350 and derived
-COMP=xz                     # gz or xz
-P1_SIZE_SECTOR=819168       # Size of partition 1 in sectors (819168 sectors= ~400M)
-SIZE_M=3200                 # Final image size in MiB
+ODBETA_ARTIFACT_ID=201765446    # ID of `update-gcw0` artifact in last workflow execution of `opendingux`
+                                # branch in https://github.com/OpenDingux/buildroot repository
+ODBETA_VERSION=2022-04-03       # ODbeta version to install. It should correspond with former artifact
+GITHUB_ACCOUNT=PUT_HERE_YOUR_GITHUB_ACCOUNT
+GITHUB_TOKEN=PUT_HERE_A_GITHUB_TOKEN
+MAKE_PGv1=true                  # Build image for GCW-Zero and PocketGo2 v1
+MAKE_RG=true                    # Build image for RG350 and derived
+COMP=xz                         # gz or xz
+P1_SIZE_SECTOR=819168           # Size of partition 1 in sectors (819168 sectors= ~400M)
+SIZE_M=3200                     # Final image size in MiB
 # END PARAMETER ZONE
 
 # Deprecated
@@ -27,6 +31,7 @@ rootcheck () {
     then
         sudo "$0" "$@"
         sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/releases"
+        sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/select_kernel"
         sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/retroarch/build_odb"
         sudo chown -R $(id -u):$(id -g) "${DIRECTORY}/retroarch/releases"
         exit $?
@@ -42,6 +47,21 @@ p1_size_sector=${P1_SIZE_SECTOR}
 p2_start_sector=$((${P1_OFFSET_SECTOR}+${P1_SIZE_SECTOR}))
 img_size_sector=$((${SIZE_M}*${mega}/${SECTOR_SIZE}))
 p2_size_sector=$((${img_size_sector}-${p2_start_sector}))
+
+if [ ! -f "${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE}" ] ; then
+    [ ${GITHUB_ACCOUNT} == "PUT_HERE_YOUR_GITHUB_ACCOUNT" ] && echo "@@ ERROR: Problem downloading ODBeta distribution. You have to put your github id in GITHUB_ACCOUNT parameter" && exit 1
+    [ ${GITHUB_TOKEN} == "PUT_HERE_A_GITHUB_TOKEN" ] && echo "@@ ERROR: Problem downloading ODBeta distribution. You have to put a github token in GITHUB_TOKEN parameter" && exit 1
+    echo "## Downloading ODBeta distribution"
+    curl -L -H "Accept: application/vnd.github.v3+json" -u "${GITHUB_ACCOUNT}:${GITHUB_TOKEN}" -o "${DIRECTORY}/select_kernel/update-gcw0.zip" https://api.github.com/repos/OpenDingux/buildroot/actions/artifacts/${ODBETA_ARTIFACT_ID}/zip
+    status=$?
+    [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
+    sync
+    unzip -q -d "${DIRECTORY}/select_kernel" "${DIRECTORY}/select_kernel/update-gcw0.zip"
+    rm "${DIRECTORY}/select_kernel/update-gcw0.zip"
+fi
+if [ -d "${DIRECTORY}/select_kernel/squashfs-root" ] ; then
+    rm -rf "${DIRECTORY}/select_kernel/squashfs-root"
+fi
 
 echo "## File creation"
 dd if=/dev/zero of="${DIRECTORY}/sd_int.img" bs=1M count=${SIZE_M} status=progress conv=fsync
@@ -72,16 +92,6 @@ mkdir "${DIRECTORY}/mnt_p1"
 mount -t vfat ${DEVICE}p1 "${DIRECTORY}/mnt_p1"
 sleep 1
 
-if [ ! -f "${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE}" ] ; then
-    echo "## Downloading ODBeta distribution"
-    ODBETA_DIST_URL=${ODBETA_BASE_URL}/${ODBETA_DIST_FILE}
-    wget -q -P "${DIRECTORY}/select_kernel" ${ODBETA_DIST_URL}
-    status=$?
-    [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
-fi
-if [ -d "${DIRECTORY}/select_kernel/squashfs-root" ] ; then
-    rm -rf "${DIRECTORY}/select_kernel/squashfs-root"
-fi
 cd "${DIRECTORY}/select_kernel"
 unsquashfs "${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE}" > /dev/null
 
@@ -196,14 +206,15 @@ if [ ${MAKE_RG} = true ] ; then
     echo "## Building P1 for RG image"
     cp "${DIRECTORY}/select_kernel/select_kernel.bat" "${DIRECTORY}/mnt_p1"
     cp "${DIRECTORY}/select_kernel/select_kernel.sh" "${DIRECTORY}/mnt_p1"
-    mkdir "${DIRECTORY}/mnt_p1/rg280m"
+    mkdir "${DIRECTORY}/mnt_p1/rg280m-v1.1"
     mkdir "${DIRECTORY}/mnt_p1/rg280v"
     mkdir "${DIRECTORY}/mnt_p1/rg350"
     mkdir "${DIRECTORY}/mnt_p1/rg350m"
     mkdir "${DIRECTORY}/mnt_p1/pocketgo2v2"
     mkdir "${DIRECTORY}/mnt_p1/rg300x"
-    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m.dtb" > "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin"
-    sha1sum "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m/uzImage.bin.sha1"
+    mkdir "${DIRECTORY}/mnt_p1/rg280m-v1.0"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m-v1.1.dtb" > "${DIRECTORY}/mnt_p1/rg280m-v1.1/uzImage.bin"
+    sha1sum "${DIRECTORY}/mnt_p1/rg280m-v1.1/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m-v1.1/uzImage.bin.sha1"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280v.dtb" > "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280v/uzImage.bin.sha1"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350.dtb" > "${DIRECTORY}/mnt_p1/rg350/uzImage.bin"
@@ -214,6 +225,8 @@ if [ ${MAKE_RG} = true ] ; then
     sha1sum "${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin.sha1"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg300x.dtb" > "${DIRECTORY}/mnt_p1/rg300x/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg300x/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m-v1.0.dtb" > "${DIRECTORY}/mnt_p1/rg280m-v1.0/uzImage.bin"
+    sha1sum "${DIRECTORY}/mnt_p1/rg280m-v1.0/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m-v1.0/uzImage.bin.sha1"
     sync
     sleep 1
 
