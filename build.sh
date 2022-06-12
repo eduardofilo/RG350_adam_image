@@ -122,7 +122,7 @@ sleep 1
 echo "## Installing RetroArch stuff in P2"
 E_BUILD_STOCK=false E_BUILD_ODBETA=true E_CONF_CSV=all "${DIRECTORY}/retroarch/build.sh"
 status=$?
-[ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem installing RetroArch stuff. Surely the version configured in 'retroarch/v' is more than two weeks old." && exit ${status}
+[ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem installing RetroArch stuff." && exit ${status}
 mkdir -p "${DIRECTORY}/mnt_p2/apps"
 cp -f "${DIRECTORY}/retroarch/files_odb/retroarch_rg350_odbeta.opk" "${DIRECTORY}/mnt_p2/apps"
 mkdir -p "${DIRECTORY}/mnt_p2/local/bin"

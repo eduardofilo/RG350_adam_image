@@ -2,3 +2,4 @@ releases/
 select_kernel/gcw0-update-*.opk
 select_kernel/squashfs-root/
 upgrade_*/root
+migration_2.0/Adam_2.0_migrator.opk

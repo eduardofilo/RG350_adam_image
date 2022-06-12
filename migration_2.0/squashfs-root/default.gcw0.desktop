@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Adam migrator 1.4.2 -> 2.0
+Comment=Migrator from Adam 1.4.2 to Adam 2.0
+Exec=migrator.sh
+Icon=icon
+Categories=applications;
+Terminal=true
+StartupNotify=true
