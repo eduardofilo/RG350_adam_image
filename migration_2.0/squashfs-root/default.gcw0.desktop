@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Adam migrator 1.4.2 -> 2.0
+Name=Adam migrator
 Comment=Migrator from Adam 1.4.2 to Adam 2.0
 Exec=migrator.sh
 Icon=icon
