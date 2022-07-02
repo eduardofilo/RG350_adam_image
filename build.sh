@@ -216,7 +216,7 @@ if [ ${MAKE_RG} = true ] ; then
     mkdir "${DIRECTORY}/mnt_p1/rg300x"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280v.dtb" > "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280v/uzImage.bin.sha1"
-    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m-v1.1.dtb" > "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m.dtb" > "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m/uzImage.bin.sha1"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350.dtb" > "${DIRECTORY}/mnt_p1/rg350/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg350/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg350/uzImage.bin.sha1"
