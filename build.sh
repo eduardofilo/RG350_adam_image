@@ -3,7 +3,7 @@
 # BEGIN PARAMETER ZONE
 ODBETA_ARTIFACT_ID=201765446    # ID of `update-gcw0` artifact in last workflow execution of `opendingux`
                                 # branch in https://github.com/OpenDingux/buildroot repository
-ODBETA_VERSION=2022-04-03       # ODbeta version to install. It should correspond with former artifact
+ODBETA_VERSION=2022-02-13       # ODbeta version to install. It should correspond with former artifact
 GITHUB_ACCOUNT=PUT_HERE_YOUR_GITHUB_ACCOUNT
 GITHUB_TOKEN=PUT_HERE_A_GITHUB_TOKEN
 MAKE_PGv1=true                  # Build image for GCW-Zero and PocketGo2 v1
@@ -209,16 +209,15 @@ if [ ${MAKE_RG} = true ] ; then
     cp "${DIRECTORY}/select_kernel/select_kernel.bat" "${DIRECTORY}/mnt_p1"
     cp "${DIRECTORY}/select_kernel/select_kernel.sh" "${DIRECTORY}/mnt_p1"
     mkdir "${DIRECTORY}/mnt_p1/rg280v"
-    mkdir "${DIRECTORY}/mnt_p1/rg280m-v1.1"
+    mkdir "${DIRECTORY}/mnt_p1/rg280m"
     mkdir "${DIRECTORY}/mnt_p1/rg350"
     mkdir "${DIRECTORY}/mnt_p1/rg350m"
     mkdir "${DIRECTORY}/mnt_p1/pocketgo2v2"
     mkdir "${DIRECTORY}/mnt_p1/rg300x"
-    mkdir "${DIRECTORY}/mnt_p1/rg280m-v1.0"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280v.dtb" > "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg280v/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280v/uzImage.bin.sha1"
-    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m-v1.1.dtb" > "${DIRECTORY}/mnt_p1/rg280m-v1.1/uzImage.bin"
-    sha1sum "${DIRECTORY}/mnt_p1/rg280m-v1.1/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m-v1.1/uzImage.bin.sha1"
+    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m-v1.1.dtb" > "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin"
+    sha1sum "${DIRECTORY}/mnt_p1/rg280m/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m/uzImage.bin.sha1"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350.dtb" > "${DIRECTORY}/mnt_p1/rg350/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg350/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg350/uzImage.bin.sha1"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg350m.dtb" > "${DIRECTORY}/mnt_p1/rg350m/uzImage.bin"
@@ -227,8 +226,6 @@ if [ ${MAKE_RG} = true ] ; then
     sha1sum "${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/pocketgo2v2/uzImage.bin.sha1"
     cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg300x.dtb" > "${DIRECTORY}/mnt_p1/rg300x/uzImage.bin"
     sha1sum "${DIRECTORY}/mnt_p1/rg300x/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg300x/uzImage.bin.sha1"
-    cat "${DIRECTORY}/select_kernel/squashfs-root/gcw0/uzImage.bin" "${DIRECTORY}/select_kernel/squashfs-root/gcw0/rg280m-v1.0.dtb" > "${DIRECTORY}/mnt_p1/rg280m-v1.0/uzImage.bin"
-    sha1sum "${DIRECTORY}/mnt_p1/rg280m-v1.0/uzImage.bin" | awk '{ print $1 }'>"${DIRECTORY}/mnt_p1/rg280m-v1.0/uzImage.bin.sha1"
     sync
     sleep 1
 
