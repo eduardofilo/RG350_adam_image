@@ -35,7 +35,8 @@ body:
         - PocketGo2 v1
         - PocketGo2 v2
         - RG280V
-        - RG280M
+        - RG280M v1.1 (without HDMI)
+        - RG280M v1.0 (with HDMI)
         - RG350
         - RG350P
         - RG350M
@@ -59,5 +60,6 @@ body:
         - v1.4
         - v1.4.1
         - v1.4.2
+        - v2.0
     validations:
       required: true
