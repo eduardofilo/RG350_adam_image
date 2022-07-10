@@ -1,11 +1,17 @@
 #!/bin/bash
 
 # BEGIN PARAMETER ZONE
-ODBETA_ARTIFACT_ID=201765446    # ID of `update-gcw0` artifact in last workflow execution of `opendingux`
+## ODbeta params
+ODBETA_DOWNLOAD_PLAN="A"        # "A": Direct download; "B": Artifact from GHAction
+ODBETA_VERSION=2022-02-13       # ODbeta version to install. It should correspond with direct download or GHArtifact
+### For plan "A"
+ODBETA_DIR_URL=http://od.abstraction.se/opendingux/26145a93f2e17d0df86ae20b7af455ea155e169c
+### For plan "B"
+ODBETA_ARTIFACT_ID=287825131    # ID of `update-gcw0` artifact in last workflow execution of `opendingux`
                                 # branch in https://github.com/OpenDingux/buildroot repository
-ODBETA_VERSION=2022-02-13       # ODbeta version to install. It should correspond with former artifact
 GITHUB_ACCOUNT=PUT_HERE_YOUR_GITHUB_ACCOUNT
 GITHUB_TOKEN=PUT_HERE_A_GITHUB_TOKEN
+## Other params
 MAKE_PGv1=true                  # Build image for GCW-Zero and PocketGo2 v1
 MAKE_RG=true                    # Build image for RG350 and derived
 COMP=xz                         # gz or xz
@@ -20,7 +26,6 @@ INSTALL_ODBETA_MODS=false
 DIRECTORY=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 VERSION=$(cat ${DIRECTORY}/v)
 ODBETA_DIST_FILE=gcw0-update-${ODBETA_VERSION}.opk
-ODBETA_BASE_URL=http://od.abstraction.se/opendingux/latest
 SECTOR_SIZE=512
 P1_OFFSET_SECTOR=32
 
@@ -48,17 +53,37 @@ p2_start_sector=$((${P1_OFFSET_SECTOR}+${P1_SIZE_SECTOR}))
 img_size_sector=$((${SIZE_M}*${mega}/${SECTOR_SIZE}))
 p2_size_sector=$((${img_size_sector}-${p2_start_sector}))
 
+
+# ODBeta download
 if [ ! -f "${DIRECTORY}/select_kernel/${ODBETA_DIST_FILE}" ] ; then
-    [ ${GITHUB_ACCOUNT} == "PUT_HERE_YOUR_GITHUB_ACCOUNT" ] && echo "@@ ERROR: Problem downloading ODBeta distribution. You have to put your github id in GITHUB_ACCOUNT parameter" && exit 1
-    [ ${GITHUB_TOKEN} == "PUT_HERE_A_GITHUB_TOKEN" ] && echo "@@ ERROR: Problem downloading ODBeta distribution. You have to put a github token in GITHUB_TOKEN parameter" && exit 1
-    echo "## Downloading ODBeta distribution"
-    curl -L -H "Accept: application/vnd.github.v3+json" -u "${GITHUB_ACCOUNT}:${GITHUB_TOKEN}" -o "${DIRECTORY}/select_kernel/update-gcw0.zip" https://api.github.com/repos/OpenDingux/buildroot/actions/artifacts/${ODBETA_ARTIFACT_ID}/zip
-    status=$?
-    [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
-    sync
-    unzip -q -d "${DIRECTORY}/select_kernel" "${DIRECTORY}/select_kernel/update-gcw0.zip"
-    rm "${DIRECTORY}/select_kernel/update-gcw0.zip"
+    case ${ODBETA_DOWNLOAD_PLAN} in
+        A)
+            echo "## Downloading ODBeta distribution"
+            ODBETA_DIST_URL=${ODBETA_DIR_URL}/${ODBETA_DIST_FILE}
+            wget -q -P "${DIRECTORY}/select_kernel" ${ODBETA_DIST_URL}
+            status=$?
+            [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
+            ;;
+
+        B)
+            [ ${GITHUB_ACCOUNT} == "PUT_HERE_YOUR_GITHUB_ACCOUNT" ] && echo "@@ ERROR: Problem downloading ODBeta distribution. You have to put your github id in GITHUB_ACCOUNT parameter" && exit 1
+            [ ${GITHUB_TOKEN} == "PUT_HERE_A_GITHUB_TOKEN" ] && echo "@@ ERROR: Problem downloading ODBeta distribution. You have to put a github token in GITHUB_TOKEN parameter" && exit 1
+            echo "## Downloading ODBeta distribution"
+            curl -L -H "Accept: application/vnd.github.v3+json" -u "${GITHUB_ACCOUNT}:${GITHUB_TOKEN}" -o "${DIRECTORY}/select_kernel/update-gcw0.zip" https://api.github.com/repos/OpenDingux/buildroot/actions/artifacts/${ODBETA_ARTIFACT_ID}/zip
+            status=$?
+            [ ! ${status} -eq 0 ] && echo "@@ ERROR: Problem downloading ODBeta distribution" && exit 1
+            sync
+            unzip -q -d "${DIRECTORY}/select_kernel" "${DIRECTORY}/select_kernel/update-gcw0.zip"
+            rm "${DIRECTORY}/select_kernel/update-gcw0.zip"
+            ;;
+
+        *)
+            echo "@@ ERROR: Unknown plan for download ODBeta distribution" && exit 1
+            ;;
+    esac
 fi
+
+
 if [ -d "${DIRECTORY}/select_kernel/squashfs-root" ] ; then
     rm -rf "${DIRECTORY}/select_kernel/squashfs-root"
 fi
