@@ -20,11 +20,17 @@ If you want to build the image from its sources, the basic procedure is as follo
 2. Modify the parameters provided at the beginning of the building script as appropriate:
 
     ```
-    ODBETA_ARTIFACT_ID=201765446    # ID of `update-gcw0` artifact in last workflow execution of `opendingux`
+    ## ODbeta params
+    ODBETA_DOWNLOAD_PLAN="A"        # "A": Direct download; "B": Artifact from GHAction
+    ODBETA_VERSION=2022-02-13       # ODbeta version to install. It should correspond with direct download or GHArtifact
+    ### For plan "A"
+    ODBETA_DIR_URL=http://od.abstraction.se/opendingux/26145a93f2e17d0df86ae20b7af455ea155e169c
+    ### For plan "B"
+    ODBETA_ARTIFACT_ID=287825131    # ID of `update-gcw0` artifact in last workflow execution of `opendingux`
                                     # branch in https://github.com/OpenDingux/buildroot repository
-    ODBETA_VERSION=2022-04-03       # ODbeta version to install. It should correspond with former artifact
     GITHUB_ACCOUNT=PUT_HERE_YOUR_GITHUB_ACCOUNT
     GITHUB_TOKEN=PUT_HERE_A_GITHUB_TOKEN
+    ## Other params
     MAKE_PGv1=true                  # Build image for GCW-Zero and PocketGo2 v1
     MAKE_RG=true                    # Build image for RG350 and derived
     COMP=xz                         # gz or xz
@@ -43,7 +49,10 @@ If you want to build the image from its sources, the basic procedure is as follo
 
 ## ODbeta OPK update download
 
-The first four parameters discussed in point 2 of the list above, are related to downloading the ODbeta installation OPK that is now generated as artifacts of running actions in the `OpenDingux/buildroot` Github repository. There are two alternatives to make the download work well with the Adam image build script.
+The first parameters discussed in item 2 of the list above are related to downloading the ODBeta installation OPK which can be obtained from two places:
+
+* Plan "A": Direct download from [http://od.abstraction.se/opendingux/](http://od.abstraction.se/opendingux/). For this plan we only have to locate the directory where the OPK we are interested in is located and assign its URL to the `ODBETA_DIR_URL` parameter. Within that directory must be the OPK with the date in the name that we have assigned to the `ODBETA_VERSION` parameter.
+* Plan "B": Obtained from the artifacts of the actions execution in the Github repository `OpenDingux/buildroot`. There are two alternatives to make the download work well over the Adam image build script. We see them below.
 
 #### Manual download
 

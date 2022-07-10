@@ -20,16 +20,22 @@ Si quieres construir la imagen desde sus fuentes, el procedimiento básico es el
 2. Modificar los parámetros que hay al principio del script `build.sh` de compilación de la imagen según conveniencia:
 
     ```
-    ODBETA_ARTIFACT_ID=201765446    # ID del artefacto `update-gcw0` en la última ejecución del workflow del branch `opendingux`
+    ## ODbeta params
+    ODBETA_DOWNLOAD_PLAN="A"        # "A": Descarga directa; "B": Artifact de GHAction
+    ODBETA_VERSION=2022-02-13       # Versión de ODbeta a instalar. Debe corresponder con la descarga directa o GHArtifact
+    ### For plan "A"
+    ODBETA_DIR_URL=http://od.abstraction.se/opendingux/26145a93f2e17d0df86ae20b7af455ea155e169c
+    ### For plan "B"
+    ODBETA_ARTIFACT_ID=287825131    # ID del artefacto `update-gcw0` en la última ejecución del workflow del branch `opendingux`
                                     # del repositorio https://github.com/OpenDingux/buildroot
-    ODBETA_VERSION=2022-04-03       # Versión de ODbeta a instalar. Debe corresponder con el artefacto anterior
     GITHUB_ACCOUNT=PUT_HERE_YOUR_GITHUB_ACCOUNT
     GITHUB_TOKEN=PUT_HERE_A_GITHUB_TOKEN
-    MAKE_PGv1=true              # Construir imagen para GCW-Zero y PocketGo2 v1 (true/false)
-    MAKE_RG=true                # Construir imagen para RG350 y derivadas (true/false)
-    COMP=gz                     # Formato de compresión: gz or xz
-    P1_SIZE_SECTOR=819168       # Tamaño de la partición 1 en sectores (819168 sectores= ~400M)
-    SIZE_M=3200                 # Tamaño final de la imagen en MiB
+    ## Other params
+    MAKE_PGv1=true                  # Construir imagen para GCW-Zero y PocketGo2 v1 (true/false)
+    MAKE_RG=true                    # Construir imagen para RG350 y derivadas (true/false)
+    COMP=xz                         # Formato de compresión: gz o xz
+    P1_SIZE_SECTOR=819168           # Tamaño de la partición 1 en sectores (819168 sectores= ~400M)
+    SIZE_M=3200                     # Tamaño final de la imagen en MiB
     ```
 
 3. Modificar el contenido del directorio `data` si se quieren hacer cambios a los contenidos de la partición 2 de la tarjeta INT.
@@ -43,11 +49,14 @@ Si quieres construir la imagen desde sus fuentes, el procedimiento básico es el
 
 ## Descarga de OPK de instalación de ODbeta
 
-Los cuatro primeros parámetros comentados en el punto 2 de la lista anterior están relacionados con la descarga del OPK de instalación de ODBeta que ahora es generado como artefactos de la ejecución de actions en el repositorio Github `OpenDingux/buildroot`. Hay dos alternativas para que la descarga funcione bien sobre el script de compilación de la imagen Adán.
+Los primeros parámetros comentados en el punto 2 de la lista anterior están relacionados con la descarga del OPK de instalación de ODBeta que puede obtenerse de dos lugares:
+
+* Plan "A": Descarga directa del sitio [http://od.abstraction.se/opendingux/](http://od.abstraction.se/opendingux/). Para este plan sólo hay que localizar el directorio donde se encuentra el OPK que nos interesa y asignar su URL al parámetro `ODBETA_DIR_URL`. Dentro de ese directorio debe encontrarse el OPK con la fecha en el nombre que hayamos asignado al parámetro `ODBETA_VERSION`.
+* Plan "B": Obtenido de los artefactos de la ejecución de actions en el repositorio Github `OpenDingux/buildroot`. Hay dos alternativas para que la descarga funcione bien sobre el script de compilación de la imagen Adán. Las vemos a continuación.
 
 #### Descarga manual
 
-Descargar manualmente el OPK buscándolo en la ejecución más reciente del workflow `OpenDingux_buildroot` de los actions del repositorio `OpenDingux/buildroot` correspondiente al branch `opendingux`. Por ejemplo en el momento de escribir este artículo esto es lo que se podía encontrar en el repositorio:
+Descargar manualmente el OPK buscándolo en la ejecución más reciente del workflow `OpenDingux_buildroot` de los actions del repositorio `OpenDingux/buildroot` correspondiente al branch `opendingux`. Por ejemplo en el momento de escribir este texto esto es lo que se podía encontrar en el repositorio:
 
 ![buildroot actions](images/actions.png)
 
