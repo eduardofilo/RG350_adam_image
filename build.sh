@@ -180,7 +180,7 @@ if [ ${MAKE_PGv1} = true ] ; then
     sleep 1
 
     echo "## Flashing bootloader for PlayGo/PG2 v1 and GCW-Zero image"
-    dd if="${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin" of=${SD_DEV} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
+    dd if="${DIRECTORY}/select_kernel/squashfs-root/gcw0/ubiboot-v20_mddr_512mb.bin" of=${DEVICE} bs=512 seek=1 count=16 conv=notrunc 2>/dev/null
     sync
     sleep 1
 
