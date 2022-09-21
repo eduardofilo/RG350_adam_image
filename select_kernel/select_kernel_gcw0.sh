@@ -32,8 +32,16 @@ done
 cp ${DIR}/uzImage.bin .
 cp ${DIR}/uzImage.bin.sha1 .
 
-clear
-
-dialog --msgbox "Modification completed!\n\nNow eject the card safelly from your computer and insert in your ${DIR}." 16 0
+status=$?
 
 clear
+
+if [ ${status} -eq 0 ] ; then
+    dialog --msgbox "Modification completed!\n\nNow eject the card safelly from your computer and insert in your ${DIR}." 16 0
+else
+    dialog --msgbox "ERROR\n\nCheck that you have write permissions on the boot partition of the SD." 16 0
+fi
+
+clear
+
+exit ${status}
