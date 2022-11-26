@@ -37,7 +37,7 @@ status=$?
 clear
 
 if [ ${status} -eq 0 ] ; then
-    dialog --msgbox "Modification completed!\n\nNow eject the card safelly from your computer and insert in your ${DIR}." 16 0
+    dialog --msgbox "Modification completed!\n\nNow eject the card safely from your computer and insert in your ${DIR}." 16 0
 else
     dialog --msgbox "ERROR\n\nCheck that you have write permissions on the boot partition of the SD." 16 0
 fi
