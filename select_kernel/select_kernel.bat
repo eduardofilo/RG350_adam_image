@@ -40,6 +40,6 @@
 	copy %dir%\uzImage.bin.sha1 .
 
 echo Done.
-echo Now eject the card safelly from your computer and insert in your %dir%.
+echo Now eject the card safely from your computer and insert in your %dir%.
 pause
 exit /b
